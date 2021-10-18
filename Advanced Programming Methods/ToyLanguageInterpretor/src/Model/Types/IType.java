@@ -1,5 +1,7 @@
 package Model.Types;
 
-public interface IType {
+import Model.Values.IValue;
 
+public interface IType {
+    IValue defaultValue();
 }
