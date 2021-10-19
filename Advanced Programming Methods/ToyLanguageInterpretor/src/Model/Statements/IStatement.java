@@ -1,5 +1,8 @@
 package Model.Statements;
 
-public interface IStatement {
+import Model.Exceptions.StatementException;
+import Model.Program.ProgramState;
 
+public interface IStatement {
+    ProgramState execute(ProgramState state) throws StatementException;
 }
