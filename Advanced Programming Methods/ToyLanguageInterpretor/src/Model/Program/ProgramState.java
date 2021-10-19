@@ -35,7 +35,7 @@ public class ProgramState {
         return out_list;
     }
 
-    ProgramState(IADTStack<IStatement> stack, IADTDictionary<String, IValue> dict, IADTList<IValue> list, IStatement statement) {
+    public ProgramState(IADTStack<IStatement> stack, IADTDictionary<String, IValue> dict, IADTList<IValue> list, IStatement statement) {
         this.execution_stack = stack;
         this.symbols_table = dict;
         this.out_list = list;

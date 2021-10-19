@@ -3,6 +3,7 @@ package Model.Statements;
 import Model.DataStructures.IADTDictionary;
 import Model.DataStructures.IADTList;
 import Model.DataStructures.IADTStack;
+import Model.Exceptions.DivisionByZeroException;
 import Model.Exceptions.ExpressionException;
 import Model.Exceptions.StatementException;
 import Model.Expressions.IExpression;
@@ -21,7 +22,7 @@ public class PrintStatement implements IStatement {
         IADTList<IValue> out_list = state.outList();
         try {
             out_list.add(expression.eval(state.symbolsTable()));
-        } catch (ExpressionException exception) {
+        } catch (ExpressionException | DivisionByZeroException exception) {
             throw new StatementException(exception.getMessage());
         }
         return state;

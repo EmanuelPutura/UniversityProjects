@@ -1,6 +1,7 @@
 package Model.Expressions;
 
 import Model.DataStructures.IADTDictionary;
+import Model.Exceptions.DivisionByZeroException;
 import Model.Exceptions.ExpressionException;
 import Model.Types.BoolType;
 import Model.Values.BoolValue;
@@ -18,7 +19,7 @@ public class LogicalExpression implements IExpression {
     }
 
     @Override
-    public IValue eval(IADTDictionary<String, IValue> symbolsTable) throws ExpressionException {
+    public IValue eval(IADTDictionary<String, IValue> symbolsTable) throws ExpressionException, DivisionByZeroException {
         IValue left_result, right_result;
         left_result = left.eval(symbolsTable);
 

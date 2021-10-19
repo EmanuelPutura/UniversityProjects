@@ -1,6 +1,7 @@
 package Model.Statements;
 
 import Model.DataStructures.IADTStack;
+import Model.Exceptions.DivisionByZeroException;
 import Model.Exceptions.ExpressionException;
 import Model.Exceptions.StatementException;
 import Model.Expressions.IExpression;
@@ -14,7 +15,7 @@ public class ConditionalStatement implements IStatement {
     private IStatement then_statement;
     private IStatement else_statement;
 
-    ConditionalStatement(IExpression expression, IStatement then_statement, IStatement else_statement) {
+    public ConditionalStatement(IExpression expression, IStatement then_statement, IStatement else_statement) {
         this.expression = expression;
         this.then_statement = then_statement;
         this.else_statement = else_statement;
@@ -35,7 +36,7 @@ public class ConditionalStatement implements IStatement {
             }
             else
                 throw new StatementException("Conditional expression must evaluate to a boolean value!");
-        } catch (ExpressionException exception) {
+        } catch (ExpressionException | DivisionByZeroException exception) {
             throw new StatementException(exception.getMessage());
         }
         return state;

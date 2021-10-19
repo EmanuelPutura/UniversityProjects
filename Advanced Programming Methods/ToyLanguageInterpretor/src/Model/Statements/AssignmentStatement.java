@@ -1,9 +1,7 @@
 package Model.Statements;
 
 import Model.DataStructures.IADTDictionary;
-import Model.Exceptions.DictionaryException;
-import Model.Exceptions.ExpressionException;
-import Model.Exceptions.StatementException;
+import Model.Exceptions.*;
 import Model.Expressions.IExpression;
 import Model.Program.ProgramState;
 import Model.Types.IType;
@@ -19,7 +17,7 @@ public class AssignmentStatement implements IStatement {
     }
 
     @Override
-    public ProgramState execute(ProgramState state) throws StatementException {
+    public ProgramState execute(ProgramState state) throws StatementException, UndeclaredVariableException {
         IADTDictionary<String, IValue> symbols_table = state.symbolsTable();
         try {
             if (symbols_table.search(label) != null) {
@@ -32,8 +30,8 @@ public class AssignmentStatement implements IStatement {
                     throw new StatementException(String.format("The declared type of variable '%s' and the type of the assigned expression do not match!", label));
             }
             else
-                throw new StatementException(String.format("Variable '%s' was not declared!", label));
-        } catch (DictionaryException | ExpressionException exception) {
+                throw new UndeclaredVariableException(String.format("Variable '%s' was not declared!", label));
+        } catch (DictionaryException | ExpressionException | UndeclaredVariableException | DivisionByZeroException exception) {
             throw new StatementException(exception.getMessage());
         }
 

@@ -1,5 +1,6 @@
 package Model.DataStructures;
 
+import Model.Exceptions.InvalidIndexException;
 import Model.Exceptions.ListException;
 
 import java.util.ArrayList;
@@ -13,7 +14,9 @@ public class ADTList<E> implements IADTList<E> {
     }
 
     @Override
-    public E get(int index) throws ListException {
+    public E get(int index) throws ListException, InvalidIndexException {
+        if (index < 0 || index >= list.size())
+            throw new InvalidIndexException("Index out of bounds!");
         try {
             return list.get(index);
         } catch (Exception exception) {
@@ -22,7 +25,9 @@ public class ADTList<E> implements IADTList<E> {
     }
 
     @Override
-    public void set(int index, E element) throws ListException {
+    public void set(int index, E element) throws ListException, InvalidIndexException {
+        if (index < 0 || index >= list.size())
+            throw new InvalidIndexException("Index out of bounds!");
         try {
             list.set(index, element);
         } catch (Exception exception) {
@@ -36,7 +41,9 @@ public class ADTList<E> implements IADTList<E> {
     }
 
     @Override
-    public E remove(int index) throws ListException {
+    public E remove(int index) throws ListException, InvalidIndexException {
+        if (index < 0 || index >= list.size())
+            throw new InvalidIndexException("Index out of bounds!");
         try {
             return list.remove(index);
         } catch (Exception exception) {

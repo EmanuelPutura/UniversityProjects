@@ -1,6 +1,7 @@
 package Model.Expressions;
 
 import Model.DataStructures.IADTDictionary;
+import Model.Exceptions.DivisionByZeroException;
 import Model.Exceptions.ExpressionException;
 import Model.Types.IntType;
 import Model.Values.IValue;
@@ -18,7 +19,7 @@ public class ArithmeticExpression implements IExpression {
     }
 
     @Override
-    public IValue eval(IADTDictionary<String, IValue> symbolsTable) throws ExpressionException {
+    public IValue eval(IADTDictionary<String, IValue> symbolsTable) throws ExpressionException, DivisionByZeroException {
         IValue left_result, right_result;
         left_result = left.eval(symbolsTable);
 
@@ -37,7 +38,7 @@ public class ArithmeticExpression implements IExpression {
                         return new IntValue(no1 * no2);
                     case '/':
                         if (no2 == 0)
-                            throw new ExpressionException("Division by zero!");
+                            throw new DivisionByZeroException("Division by zero!");
                         else
                             return new IntValue(no1 / no2);
                     default:

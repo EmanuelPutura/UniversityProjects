@@ -71,7 +71,7 @@ public class ADTDictionary<K, V> implements IADTDictionary<K, V> {
     public String toString() {
         StringBuilder return_string = new StringBuilder("ADTDictionary: {");
         if (dictionary.isEmpty())
-            return return_string + "}";
+            return return_string.toString() + "}";
 
         Enumeration<K> current = dictionary.keys();
         K key = current.nextElement();

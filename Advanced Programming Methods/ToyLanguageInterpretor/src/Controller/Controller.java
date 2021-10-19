@@ -1,8 +1,10 @@
 package Controller;
 
 import Model.DataStructures.IADTStack;
+import Model.Exceptions.EmptyExecutionStackException;
 import Model.Exceptions.StackException;
 import Model.Exceptions.StatementException;
+import Model.Exceptions.UndeclaredVariableException;
 import Model.Program.ProgramState;
 import Model.Statements.IStatement;
 import Repository.IRepository;
@@ -30,8 +32,10 @@ public class Controller {
         execution_logs = "";
     }
 
-    public ProgramState oneStepExecution() throws ControllerException{
-        resetLogs();
+    public ProgramState oneStepExecution(boolean reset_logs) throws ControllerException, EmptyExecutionStackException {
+        if (reset_logs)
+            resetLogs();
+
         ProgramState program = null;
         try {
             program = repository.getCurrentProgram();
@@ -39,34 +43,38 @@ public class Controller {
             throw new ControllerException(exception.getMessage());
         }
 
-        return oneStepExecution(program);
+        return oneStepExecution(program, reset_logs);
     }
 
-    public ProgramState oneStepExecution(ProgramState program) throws ControllerException {
-        resetLogs();
+    public ProgramState oneStepExecution(ProgramState program, boolean reset_logs) throws ControllerException, EmptyExecutionStackException {
+        if (program == null)
+            throw new ControllerException("Invalid program state!");
+        if (reset_logs)
+            resetLogs();
+
         IADTStack<IStatement> execution_stack = program.executionStack();
         if (execution_stack.empty())
-            throw new ControllerException("Empty execution stack error!");
+            throw new EmptyExecutionStackException("Empty execution stack error!");
 
+        execution_logs = String.format("Initial program state: %s\n", program.toString());
         IStatement to_execute;
+
         try {
             to_execute = execution_stack.pop();
         } catch (StackException exception) {
             throw new ControllerException(exception.getMessage());
         }
 
-        execution_logs = String.format("Initial program state: %s\n", program.toString());
-
         try {
             ProgramState return_state = to_execute.execute(program);
             execution_logs += String.format("Current program state: %s", return_state.toString());
             return return_state;
-        } catch (StatementException exception) {
+        } catch (StatementException | UndeclaredVariableException exception) {
             throw new ControllerException(exception.getMessage());
         }
     }
 
-    public void allStepsExecution() throws ControllerException {
+    public void allStepsExecution() throws ControllerException, EmptyExecutionStackException {
         resetLogs();
         ProgramState program = null;
         try {
@@ -78,13 +86,19 @@ public class Controller {
         allStepsExecution(program);
     }
 
-    public void allStepsExecution(ProgramState program) throws ControllerException {
+    public void allStepsExecution(ProgramState program) throws ControllerException, EmptyExecutionStackException {
+        if (program == null)
+            throw new ControllerException("Invalid program state!");
+
         resetLogs();
         IADTStack<IStatement> execution_stack = program.executionStack();
+        if (execution_stack.empty())
+            throw new EmptyExecutionStackException("Empty execution stack error!");
+
         StringBuilder string_builder = new StringBuilder(String.format("Initial program state: %s\n", program.toString()));
 
         while (!execution_stack.empty()) {
-            oneStepExecution(program);
+            oneStepExecution(program, false);
             string_builder.append(String.format("Current program state: %s\n", program.toString()));
         }
 

@@ -12,6 +12,11 @@ public class Repository implements IRepository {
         this.program_states = new ArrayList<ProgramState>();
     }
 
+    public Repository(ProgramState initial_state) {
+        this.program_states = new ArrayList<ProgramState>();
+        this.program_states.add(initial_state);
+    }
+
     public Repository(List<ProgramState> program_states) {
         this.program_states = program_states;
     }

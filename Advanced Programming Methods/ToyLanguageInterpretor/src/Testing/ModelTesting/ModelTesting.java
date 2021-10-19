@@ -2,6 +2,7 @@ package Testing.ModelTesting;
 
 import Model.DataStructures.*;
 import Model.Exceptions.DictionaryException;
+import Model.Exceptions.InvalidIndexException;
 import Model.Exceptions.ListException;
 import Model.Exceptions.StackException;
 import org.junit.Assert;
@@ -33,26 +34,26 @@ class DataStructuresTesting {
         for (int i = 0; i < list.size(); ++i) {
             try {
                 Assert.assertEquals(strings[i], list.get(i));
-            } catch (ListException e) {
+            } catch (ListException | InvalidIndexException e) {
                 Assert.fail();
             }
         }
 
         try {
             list.set(0, "Other");
-        } catch (ListException e) {
+        } catch (ListException | InvalidIndexException e) {
             Assert.fail();
         }
         try {
             Assert.assertEquals(list.get(0), "Other");
-        } catch (ListException e) {
+        } catch (ListException | InvalidIndexException e) {
             Assert.fail();
         }
 
         try {
             String name = list.get(list.size());
             Assert.fail();
-        } catch (ListException e) {
+        } catch (ListException | InvalidIndexException e) {
             Assert.assertTrue(true);
         }
     }
