@@ -26,9 +26,8 @@ public class AssignmentStatement implements IStatement {
                 IValue value = expression.eval(symbols_table);
                 IType type = symbols_table.get(label).getType();
 
-                if (value.getType().equals(type)) {
-
-                }
+                if (value.getType().equals(type))
+                    symbols_table.replace(label, value);
                 else
                     throw new StatementException(String.format("The declared type of variable '%s' and the type of the assigned expression do not match!", label));
             }
