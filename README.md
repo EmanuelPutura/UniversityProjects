@@ -1,2 +1,2 @@
 # UniversityProjects
-University projects made for several different courses
+Projects made for several different university courses
