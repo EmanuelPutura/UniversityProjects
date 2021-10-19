@@ -32,4 +32,9 @@ public class Repository implements IRepository {
     public void setProgramStateList(List<ProgramState> program_state_list) {
         program_states = program_state_list;
     }
+
+    @Override
+    public void addProgram(ProgramState program) {
+        program_states.add(program);
+    }
 }
