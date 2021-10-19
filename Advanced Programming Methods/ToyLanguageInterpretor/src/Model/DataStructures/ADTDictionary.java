@@ -17,25 +17,30 @@ public class ADTDictionary<K, V> implements IADTDictionary<K, V> {
     public V get(K key) throws DictionaryException {
         try {
             return dictionary.get(key);
-        } catch (NullPointerException exception) {
+        } catch (Exception exception) {
             throw new DictionaryException(exception.getMessage());
         }
     }
 
     @Override
     public void put(K key, V value) throws DictionaryException {
+        if (get(key) != null)
+            throw new DictionaryException("The key is mapped to another value!");
+
         try {
             dictionary.put(key, value);
-        } catch (NullPointerException exception) {
+        } catch (Exception exception) {
             throw new DictionaryException(exception.getMessage());
         }
     }
 
     @Override
     public V remove(K key) throws DictionaryException {
+        if (get(key) == null)
+            throw new DictionaryException("The key was not found in the dictionary!");
         try {
             return dictionary.remove(key);
-        } catch (NullPointerException exception) {
+        } catch (Exception exception) {
             throw new DictionaryException(exception.getMessage());
         }
     }
@@ -44,9 +49,20 @@ public class ADTDictionary<K, V> implements IADTDictionary<K, V> {
     public V search(K key) throws DictionaryException {
         try {
             if (!dictionary.containsKey(key))
-            return null;
+                return null;
             return dictionary.get(key);
-        } catch (NullPointerException exception) {
+        } catch (Exception exception) {
+            throw new DictionaryException(exception.getMessage());
+        }
+    }
+
+    @Override
+    public V replace(K key, V value) throws DictionaryException {
+        if (get(key) == null)
+            throw new DictionaryException("The key was not found in the dictionary!");
+        try {
+            return dictionary.replace(key, value);
+        } catch (Exception exception) {
             throw new DictionaryException(exception.getMessage());
         }
     }

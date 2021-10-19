@@ -7,5 +7,6 @@ public interface IADTDictionary<K, V> {
     void put(K key, V value) throws DictionaryException;
     V remove(K key) throws DictionaryException;
     V search(K key) throws DictionaryException;
+    V replace(K key, V value) throws DictionaryException;
     String toString();
 }

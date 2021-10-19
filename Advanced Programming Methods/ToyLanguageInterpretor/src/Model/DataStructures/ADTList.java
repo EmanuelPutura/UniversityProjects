@@ -16,7 +16,7 @@ public class ADTList<E> implements IADTList<E> {
     public E get(int index) throws ListException {
         try {
             return list.get(index);
-        } catch (IndexOutOfBoundsException exception) {
+        } catch (Exception exception) {
             throw new ListException(exception.getMessage());
         }
     }
@@ -25,7 +25,7 @@ public class ADTList<E> implements IADTList<E> {
     public void set(int index, E element) throws ListException {
         try {
             list.set(index, element);
-        } catch (IndexOutOfBoundsException exception) {
+        } catch (Exception exception) {
             throw new ListException(exception.getMessage());
         }
     }
@@ -39,7 +39,7 @@ public class ADTList<E> implements IADTList<E> {
     public E remove(int index) throws ListException {
         try {
             return list.remove(index);
-        } catch (IndexOutOfBoundsException exception) {
+        } catch (Exception exception) {
             throw new ListException(exception.getMessage());
         }
     }
