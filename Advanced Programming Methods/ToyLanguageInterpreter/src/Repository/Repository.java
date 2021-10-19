@@ -29,6 +29,11 @@ public class Repository implements IRepository {
     }
 
     @Override
+    public void setCurrentProgram(ProgramState program) {
+        program_states.set(program_states.size() - 1, program);
+    }
+
+    @Override
     public List<ProgramState> getProgramStateList() {
         return program_states;
     }
@@ -41,5 +46,10 @@ public class Repository implements IRepository {
     @Override
     public void addProgram(ProgramState program) {
         program_states.add(program);
+    }
+
+    @Override
+    public int size() {
+        return program_states.size();
     }
 }

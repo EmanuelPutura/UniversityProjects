@@ -10,6 +10,7 @@ public class ProgramState {
     private IADTStack<IStatement> execution_stack;
     private IADTDictionary<String, IValue> symbols_table;
     private IADTList<IValue> out_list;
+    private IStatement initial_statement;
 
     public IADTStack<IStatement> executionStack() {
         return execution_stack;
@@ -23,22 +24,27 @@ public class ProgramState {
         return out_list;
     }
 
-    public IADTStack<IStatement> getExecutionStack() {
-        return execution_stack;
+    public IStatement getInitialStatement() {
+        return initial_statement;
     }
 
-    public IADTDictionary<String, IValue> getSymbolsTable() {
-        return symbols_table;
+    public void setExecutionStack(IADTStack<IStatement> other) {
+        execution_stack = other;
     }
 
-    public IADTList<IValue> getOutList() {
-        return out_list;
+    public void setSymbolsTable(IADTDictionary<String, IValue> other) {
+        symbols_table = other;
+    }
+
+    public void setOutList(IADTList<IValue> other) {
+        out_list = other;
     }
 
     public ProgramState(IADTStack<IStatement> stack, IADTDictionary<String, IValue> dict, IADTList<IValue> list, IStatement statement) {
         this.execution_stack = stack;
         this.symbols_table = dict;
         this.out_list = list;
+        this.initial_statement = statement;
         this.execution_stack.push(statement);
     }
 
