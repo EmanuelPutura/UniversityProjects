@@ -23,6 +23,18 @@ public class ProgramState {
         return out_list;
     }
 
+    public IADTStack<IStatement> getExecutionStack() {
+        return execution_stack;
+    }
+
+    public IADTDictionary<String, IValue> getSymbolsTable() {
+        return symbols_table;
+    }
+
+    public IADTList<IValue> getOutList() {
+        return out_list;
+    }
+
     ProgramState(IADTStack<IStatement> stack, IADTDictionary<String, IValue> dict, IADTList<IValue> list, IStatement statement) {
         this.execution_stack = stack;
         this.symbols_table = dict;
