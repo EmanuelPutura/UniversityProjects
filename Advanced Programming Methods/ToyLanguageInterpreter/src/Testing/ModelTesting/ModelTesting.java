@@ -7,10 +7,12 @@ import Model.Exceptions.ListException;
 import Model.Exceptions.StackException;
 import org.junit.Assert;
 
+import static View.ConsoleColors.*;
+
 public class ModelTesting {
     public static void test() {
         DataStructuresTesting.test();
-        System.out.println("...testing model package");
+        System.out.println(ANSI_GREEN + "...testing model package\n" + ANSI_RESET);
     }
 }
 
