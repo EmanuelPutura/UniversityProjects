@@ -96,7 +96,7 @@ public class Controller {
         try {
             repository.logProgramStateExec();
         } catch (RepositoryException error) {
-            throw new ControllerException(error.toString());
+            throw new ControllerException(error.getMessage());
         }
 
         IADTStack<IStatement> execution_stack = program.executionStack();
@@ -110,7 +110,7 @@ public class Controller {
             try {
                 repository.logProgramStateExec();
             } catch (RepositoryException error) {
-                throw new ControllerException(error.toString());
+                throw new ControllerException(error.getMessage());
             }
             string_builder.append(String.format("Current program state: %s\n", program.toString()));
         }

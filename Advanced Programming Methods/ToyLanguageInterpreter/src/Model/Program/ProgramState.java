@@ -5,11 +5,15 @@ import Model.DataStructures.IADTList;
 import Model.DataStructures.IADTStack;
 import Model.Statements.IStatement;
 import Model.Values.IValue;
+import Model.Values.StringValue;
+
+import java.io.BufferedReader;
 
 public class ProgramState {
     private IADTStack<IStatement> execution_stack;
     private IADTDictionary<String, IValue> symbols_table;
     private IADTList<IValue> out_list;
+    private IADTDictionary<StringValue, BufferedReader> file_table;
     private IStatement initial_statement;
 
     public IADTStack<IStatement> executionStack() {
@@ -22,6 +26,10 @@ public class ProgramState {
 
     public IADTList<IValue> outList() {
         return out_list;
+    }
+
+    public IADTDictionary<StringValue, BufferedReader> fileTable() {
+        return file_table;
     }
 
     public IStatement getInitialStatement() {
@@ -40,11 +48,16 @@ public class ProgramState {
         out_list = other;
     }
 
-    public ProgramState(IADTStack<IStatement> stack, IADTDictionary<String, IValue> dict, IADTList<IValue> list, IStatement statement) {
-        this.execution_stack = stack;
-        this.symbols_table = dict;
-        this.out_list = list;
+    public void setFileTable(IADTDictionary<StringValue, BufferedReader> other) {
+        file_table = other;
+    }
+
+    public ProgramState(IADTStack<IStatement> exec_stack, IADTDictionary<String, IValue> sym_table, IADTList<IValue> out_list, IADTDictionary<StringValue, BufferedReader> file_table, IStatement statement) {
+        this.execution_stack = exec_stack;
+        this.symbols_table = sym_table;
+        this.out_list = out_list;
         this.initial_statement = statement;
+        this.file_table = file_table;
         this.execution_stack.push(statement);
     }
 
