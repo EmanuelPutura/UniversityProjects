@@ -10,5 +10,6 @@ public interface IRepository {
     List<ProgramState> getProgramStateList();
     void setProgramStateList(List<ProgramState> program_state_list);
     void addProgram(ProgramState program);
+    void logProgramStateExec() throws RepositoryException;
     int size();
 }

@@ -2,19 +2,30 @@ package Repository;
 
 import Model.Program.ProgramState;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Repository implements IRepository {
     private List<ProgramState> program_states;
+    private String logFilePath;
 
     public Repository() {
         this.program_states = new ArrayList<ProgramState>();
     }
 
-    public Repository(ProgramState initial_state) {
+    public Repository(String logFilePath) {
+        this.program_states = new ArrayList<ProgramState>();
+        this.logFilePath = logFilePath;
+    }
+
+    public Repository(ProgramState initial_state, String logFilePath) {
         this.program_states = new ArrayList<ProgramState>();
         this.program_states.add(initial_state);
+        this.logFilePath = logFilePath;
     }
 
     public Repository(List<ProgramState> program_states) {
@@ -46,6 +57,15 @@ public class Repository implements IRepository {
     @Override
     public void addProgram(ProgramState program) {
         program_states.add(program);
+    }
+
+    @Override
+    public void logProgramStateExec() throws RepositoryException {
+        try(PrintWriter logFile = new PrintWriter(new BufferedWriter(new FileWriter(logFilePath, true)))) {
+            logFile.write(getCurrentProgram().toString());
+        } catch (IOException error) {
+            throw new RepositoryException(error.toString());
+        }
     }
 
     @Override

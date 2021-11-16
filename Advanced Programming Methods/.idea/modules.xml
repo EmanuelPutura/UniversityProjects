@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Advanced Programming Methods.iml" filepath="$PROJECT_DIR$/.idea/Advanced Programming Methods.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GetUsedToJava/GetUsedToJava.iml" filepath="$PROJECT_DIR$/GetUsedToJava/GetUsedToJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ToyLanguageInterpreter/ToyLanguageInterpreter.iml" filepath="$PROJECT_DIR$/ToyLanguageInterpreter/ToyLanguageInterpreter.iml" />
+    </modules>
+  </component>
+</project>
