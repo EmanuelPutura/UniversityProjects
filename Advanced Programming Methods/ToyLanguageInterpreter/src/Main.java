@@ -2,8 +2,8 @@ import Controller.Controller;
 import Repository.IRepository;
 import Repository.Repository;
 import Testing.ModelTesting.ModelTesting;
-import View.ConsoleUI;
-import View.IUserInterface;
+import View.FirstImplementation.ConsoleUI;
+import View.FirstImplementation.IUserInterface;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package View;
+package View.FirstImplementation;
 
 public class ConsoleColors {
     public static final String ANSI_RESET = "\u001B[0m";

@@ -1,4 +1,4 @@
-package View;
+package View.FirstImplementation;
 
 import Controller.Controller;
 import Model.Exceptions.EmptyExecutionStackException;
@@ -10,7 +10,7 @@ import Repository.IRepository;
 import java.util.List;
 import java.util.Scanner;
 
-import static View.ConsoleColors.*;
+import static View.FirstImplementation.ConsoleColors.*;
 
 public class ConsoleUI implements IUserInterface {
     private IRepository repository;

@@ -61,4 +61,23 @@ public class ADTStack<E> implements IADTStack<E> {
 
         return return_string.toString();
     }
+
+    @Override
+    public String toFileString() {
+        StringBuilder return_string = new StringBuilder("Execution Stack:\n");
+        if (stack.isEmpty())
+            return return_string.toString() + '\n';
+
+        Stack<E> stack_copy = new Stack<E>();
+        while (!stack.isEmpty()) {
+            stack_copy.push(stack.pop());
+        }
+
+        while (!stack_copy.isEmpty()) {
+            stack.push(stack_copy.pop());
+            return_string.append(stack.peek().toString()).append('\n');
+        }
+
+        return return_string.toString();
+    }
 }

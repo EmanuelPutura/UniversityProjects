@@ -8,4 +8,5 @@ public interface IADTStack<E> {
     void push(E element);
     boolean empty();
     String toString();
+    String toFileString();
 }

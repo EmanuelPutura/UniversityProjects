@@ -74,4 +74,15 @@ public class ADTList<E> implements IADTList<E> {
         return_string.append("]");
         return return_string.toString();
     }
+
+    @Override
+    public String toFileString() {
+        StringBuilder return_string = new StringBuilder("Out List:\n");
+        if (list.isEmpty())
+            return return_string + "\n";
+
+        for (int i = 0; i < list.size(); ++i)
+            return_string.append(list.get(i).toString()).append('\n');
+        return return_string.toString();
+    }
 }

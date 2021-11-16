@@ -11,4 +11,5 @@ public interface IADTList<E> {
     boolean isEmpty();
     int size();
     String toString();
+    String toFileString();
 }

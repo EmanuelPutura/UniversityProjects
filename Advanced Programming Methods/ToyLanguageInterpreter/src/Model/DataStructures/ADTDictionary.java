@@ -85,4 +85,24 @@ public class ADTDictionary<K, V> implements IADTDictionary<K, V> {
 
         return return_string.toString() + "}";
     }
+
+    @Override
+    public String toFileString(boolean print_values) {
+        StringBuilder return_string = new StringBuilder("Symbols Table:\n");
+        if (dictionary.isEmpty())
+            return return_string.toString() + "\n";
+
+        Enumeration<K> current = dictionary.keys();
+        K key = null;
+
+        while (current.hasMoreElements()) {
+            key = current.nextElement();
+            return_string.append(key);
+            if (print_values)
+                return_string.append(" --> ").append(dictionary.get(key)).append('\n');
+            else return_string.append('\n');
+        }
+
+        return return_string.toString();
+    }
 }

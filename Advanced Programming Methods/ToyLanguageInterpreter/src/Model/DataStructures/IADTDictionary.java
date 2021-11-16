@@ -9,4 +9,5 @@ public interface IADTDictionary<K, V> {
     V search(K key) throws DictionaryException;
     V replace(K key, V value) throws DictionaryException;
     String toString();
+    String toFileString(boolean print_values);
 }

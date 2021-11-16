@@ -62,7 +62,7 @@ public class Repository implements IRepository {
     @Override
     public void logProgramStateExec() throws RepositoryException {
         try(PrintWriter logFile = new PrintWriter(new BufferedWriter(new FileWriter(logFilePath, true)))) {
-            logFile.write(getCurrentProgram().toString());
+            logFile.write(getCurrentProgram().toFileString());
         } catch (IOException error) {
             throw new RepositoryException(error.toString());
         }

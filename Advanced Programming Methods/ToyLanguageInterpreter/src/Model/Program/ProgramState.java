@@ -65,4 +65,8 @@ public class ProgramState {
     public String toString() {
         return String.format("[ProgramState: execution stack (%s), symbols table (%s), out (%s)]", execution_stack.toString(), symbols_table.toString(), out_list.toString());
     }
+
+    public String toFileString() {
+        return execution_stack.toFileString() + symbols_table.toFileString(true) + out_list.toFileString() + file_table.toFileString(false);
+    }
 }

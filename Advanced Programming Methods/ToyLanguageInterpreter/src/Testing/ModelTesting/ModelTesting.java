@@ -7,7 +7,7 @@ import Model.Exceptions.ListException;
 import Model.Exceptions.StackException;
 import org.junit.Assert;
 
-import static View.ConsoleColors.*;
+import static View.FirstImplementation.ConsoleColors.*;
 
 public class ModelTesting {
     public static void test() {
