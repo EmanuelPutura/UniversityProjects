@@ -36,6 +36,6 @@ public class OpenRFileStatement implements IStatement {
         } catch (FileNotFoundException | ExpressionException | DivisionByZeroException | DictionaryException error) {
             throw new StatementException(error.getMessage());
         }
-        return null;
+        return state;
     }
 }
