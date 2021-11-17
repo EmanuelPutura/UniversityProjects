@@ -43,6 +43,11 @@ public class ConditionalStatement implements IStatement {
     }
 
     @Override
+    public IStatement deepCopy() {
+        return new ConditionalStatement(expression, then_statement, else_statement);
+    }
+
+    @Override
     public String toString() {
         return String.format("IF (%s) THEN (%s) ELSE (%s)", expression.toString(), then_statement.toString(), else_statement.toString());
     }

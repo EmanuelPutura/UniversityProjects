@@ -39,6 +39,11 @@ public class AssignmentStatement implements IStatement {
     }
 
     @Override
+    public IStatement deepCopy() {
+        return new AssignmentStatement(label, expression);
+    }
+
+    @Override
     public String toString() {
         return label + " = " + expression.toString();
     }

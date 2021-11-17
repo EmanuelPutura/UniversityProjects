@@ -43,6 +43,11 @@ public class OpenRFileStatement implements IStatement {
     }
 
     @Override
+    public IStatement deepCopy() {
+        return new OpenRFileStatement(expression);
+    }
+
+    @Override
     public String toString() {
         return String.format("openRFile(%s)", file_name);
     }

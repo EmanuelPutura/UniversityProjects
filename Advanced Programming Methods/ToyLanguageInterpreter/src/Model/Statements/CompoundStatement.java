@@ -22,6 +22,11 @@ public class CompoundStatement implements IStatement {
     }
 
     @Override
+    public IStatement deepCopy() {
+        return new CompoundStatement(first, second);
+    }
+
+    @Override
     public String toString() {
         return '(' + first.toString() + "; " + second.toString() + ')';
     }

@@ -33,6 +33,11 @@ public class DeclarationStatement implements IStatement {
     }
 
     @Override
+    public IStatement deepCopy() {
+        return new DeclarationStatement(label, type);
+    }
+
+    @Override
     public String toString() {
         return type.toString() + ' ' + label;
     }

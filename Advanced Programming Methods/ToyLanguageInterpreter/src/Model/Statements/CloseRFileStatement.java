@@ -40,6 +40,11 @@ public class CloseRFileStatement implements IStatement {
     }
 
     @Override
+    public IStatement deepCopy() {
+        return new CloseRFileStatement(expression);
+    }
+
+    @Override
     public String toString() {
         return String.format("closeRFile(%s)", file_name);
     }

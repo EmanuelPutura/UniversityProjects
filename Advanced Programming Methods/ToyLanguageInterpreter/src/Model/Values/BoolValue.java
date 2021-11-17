@@ -20,6 +20,11 @@ public class BoolValue implements IValue {
     }
 
     @Override
+    public IValue deepCopy() {
+        return new BoolValue(value);
+    }
+
+    @Override
     public boolean equals(Object other) {
         if (other == null || other.getClass() != this.getClass())
             return false;

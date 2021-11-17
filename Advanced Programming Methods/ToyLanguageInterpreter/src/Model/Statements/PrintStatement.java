@@ -29,6 +29,11 @@ public class PrintStatement implements IStatement {
     }
 
     @Override
+    public IStatement deepCopy() {
+        return new PrintStatement(expression);
+    }
+
+    @Override
     public String toString() {
         return String.format("print(%s)", expression.toString());
     }

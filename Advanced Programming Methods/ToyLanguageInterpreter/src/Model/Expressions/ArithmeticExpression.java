@@ -52,6 +52,11 @@ public class ArithmeticExpression implements IExpression {
             throw new ExpressionException("First operand is not an integer!");
     }
 
+    @Override
+    public IExpression deepCopy() {
+        return null;
+    }
+
     public char operator() {
         return operator;
     }

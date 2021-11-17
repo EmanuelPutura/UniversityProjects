@@ -6,4 +6,5 @@ import Model.Program.ProgramState;
 
 public interface IStatement {
     ProgramState execute(ProgramState state) throws StatementException, UndeclaredVariableException;
+    IStatement deepCopy();
 }
