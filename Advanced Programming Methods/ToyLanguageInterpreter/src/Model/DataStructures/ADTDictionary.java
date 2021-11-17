@@ -88,7 +88,10 @@ public class ADTDictionary<K, V> implements IADTDictionary<K, V> {
 
     @Override
     public String toFileString(boolean print_values) {
-        StringBuilder return_string = new StringBuilder("Symbols Table:\n");
+        String type = "Symbols Table:\n";
+        if (!print_values)
+            type = "File Table:\n";
+        StringBuilder return_string = new StringBuilder(type);
         if (dictionary.isEmpty())
             return return_string.toString() + "\n";
 

@@ -10,6 +10,11 @@ public class BoolType implements IType {
     }
 
     @Override
+    public IType deepCopy() {
+        return new BoolType();
+    }
+
+    @Override
     public boolean equals(Object other) {
         return other != null && other.getClass() == this.getClass();
     }

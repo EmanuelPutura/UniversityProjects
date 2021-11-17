@@ -1,0 +1,62 @@
+-------------------------
+Execution Stack:
+(int v; (v = 2; print(v)))
+Symbols Table:
+
+Out List:
+
+File Table:
+
+-------------------------
+-------------------------
+Execution Stack:
+int v
+(v = 2; print(v))
+Symbols Table:
+
+Out List:
+
+File Table:
+
+-------------------------
+-------------------------
+Execution Stack:
+(v = 2; print(v))
+Symbols Table:
+v --> 0
+Out List:
+
+File Table:
+
+-------------------------
+-------------------------
+Execution Stack:
+v = 2
+print(v)
+Symbols Table:
+v --> 0
+Out List:
+
+File Table:
+
+-------------------------
+-------------------------
+Execution Stack:
+print(v)
+Symbols Table:
+v --> 2
+Out List:
+
+File Table:
+
+-------------------------
+-------------------------
+Execution Stack:
+
+Symbols Table:
+v --> 2
+Out List:
+2
+File Table:
+
+-------------------------

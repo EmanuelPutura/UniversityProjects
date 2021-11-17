@@ -93,15 +93,16 @@ public class Controller {
             throw new ControllerException("Invalid program state!");
 
         resetLogs();
+
+        IADTStack<IStatement> execution_stack = program.executionStack();
+        if (execution_stack.empty())
+            throw new EmptyExecutionStackException("Empty execution stack error!");
+
         try {
             repository.logProgramStateExec();
         } catch (RepositoryException error) {
             throw new ControllerException(error.getMessage());
         }
-
-        IADTStack<IStatement> execution_stack = program.executionStack();
-        if (execution_stack.empty())
-            throw new EmptyExecutionStackException("Empty execution stack error!");
 
         StringBuilder string_builder = new StringBuilder(String.format("Initial program state: %s\n", program.toString()));
 

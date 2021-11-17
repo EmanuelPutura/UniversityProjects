@@ -13,9 +13,11 @@ import java.io.FileReader;
 
 public class OpenRFileStatement implements IStatement {
     private IExpression expression;
+    private String file_name;
 
     public OpenRFileStatement(IExpression expression) {
         this.expression = expression;
+        this.file_name = "<file name>";
     }
 
     @Override
@@ -28,6 +30,7 @@ public class OpenRFileStatement implements IStatement {
                     throw new StatementException(String.format("File name '%s' was already added to the file table.", string_value.toString()));
 
                 String file_name = string_value.getValue();
+                this.file_name = file_name;
                 BufferedReader buffered_reader = new BufferedReader(new FileReader(file_name));
                 state.fileTable().put(string_value, buffered_reader);
             }
@@ -37,5 +40,10 @@ public class OpenRFileStatement implements IStatement {
             throw new StatementException(error.getMessage());
         }
         return state;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("openRFile(%s)", file_name);
     }
 }

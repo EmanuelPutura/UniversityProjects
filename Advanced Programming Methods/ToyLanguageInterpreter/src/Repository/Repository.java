@@ -20,12 +20,22 @@ public class Repository implements IRepository {
     public Repository(String logFilePath) {
         this.program_states = new ArrayList<ProgramState>();
         this.logFilePath = logFilePath;
+
+        try(PrintWriter logFile = new PrintWriter(new BufferedWriter(new FileWriter(logFilePath, false)))) {
+            logFile.write("");
+        } catch (IOException ignored) {
+        }
     }
 
     public Repository(ProgramState initial_state, String logFilePath) {
         this.program_states = new ArrayList<ProgramState>();
         this.program_states.add(initial_state);
         this.logFilePath = logFilePath;
+
+        try(PrintWriter logFile = new PrintWriter(new BufferedWriter(new FileWriter(logFilePath, false)))) {
+            logFile.write("");
+        } catch (IOException ignored) {
+        }
     }
 
     public Repository(List<ProgramState> program_states) {

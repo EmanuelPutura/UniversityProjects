@@ -1,0 +1,122 @@
+-------------------------
+Execution Stack:
+(bool a; (int v; (a = true; (IF (a) THEN (v = 2) ELSE (v = 3); print(v)))))
+Symbols Table:
+
+Out List:
+
+File Table:
+
+-------------------------
+-------------------------
+Execution Stack:
+bool a
+(int v; (a = true; (IF (a) THEN (v = 2) ELSE (v = 3); print(v))))
+Symbols Table:
+
+Out List:
+
+File Table:
+
+-------------------------
+-------------------------
+Execution Stack:
+(int v; (a = true; (IF (a) THEN (v = 2) ELSE (v = 3); print(v))))
+Symbols Table:
+a --> false
+Out List:
+
+File Table:
+
+-------------------------
+-------------------------
+Execution Stack:
+int v
+(a = true; (IF (a) THEN (v = 2) ELSE (v = 3); print(v)))
+Symbols Table:
+a --> false
+Out List:
+
+File Table:
+
+-------------------------
+-------------------------
+Execution Stack:
+(a = true; (IF (a) THEN (v = 2) ELSE (v = 3); print(v)))
+Symbols Table:
+a --> false
+v --> 0
+Out List:
+
+File Table:
+
+-------------------------
+-------------------------
+Execution Stack:
+a = true
+(IF (a) THEN (v = 2) ELSE (v = 3); print(v))
+Symbols Table:
+a --> false
+v --> 0
+Out List:
+
+File Table:
+
+-------------------------
+-------------------------
+Execution Stack:
+(IF (a) THEN (v = 2) ELSE (v = 3); print(v))
+Symbols Table:
+a --> true
+v --> 0
+Out List:
+
+File Table:
+
+-------------------------
+-------------------------
+Execution Stack:
+IF (a) THEN (v = 2) ELSE (v = 3)
+print(v)
+Symbols Table:
+a --> true
+v --> 0
+Out List:
+
+File Table:
+
+-------------------------
+-------------------------
+Execution Stack:
+v = 2
+print(v)
+Symbols Table:
+a --> true
+v --> 0
+Out List:
+
+File Table:
+
+-------------------------
+-------------------------
+Execution Stack:
+print(v)
+Symbols Table:
+a --> true
+v --> 2
+Out List:
+
+File Table:
+
+-------------------------
+-------------------------
+Execution Stack:
+
+Symbols Table:
+a --> true
+v --> 2
+Out List:
+2
+File Table:
+
+-------------------------

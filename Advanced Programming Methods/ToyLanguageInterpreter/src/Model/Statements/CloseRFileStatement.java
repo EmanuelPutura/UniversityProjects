@@ -12,6 +12,12 @@ import java.io.IOException;
 
 public class CloseRFileStatement implements IStatement {
     private IExpression expression;
+    private String file_name;
+
+    public CloseRFileStatement(IExpression expression) {
+        this.expression = expression;
+        this.file_name = "<file name>";
+    }
 
     @Override
     public ProgramState execute(ProgramState state) throws StatementException, UndeclaredVariableException {
@@ -20,6 +26,7 @@ public class CloseRFileStatement implements IStatement {
             if (!value.getType().equals(new StringType()))
                 throw new StatementException("Expression should evaluate to a string.");
             StringValue string_value = (StringValue) value;
+            this.file_name = string_value.getValue();
             BufferedReader buffered_reader = state.fileTable().get(string_value);
             if (buffered_reader == null)
                 throw new StatementException("Invalid file table data: null value found.");
@@ -30,5 +37,10 @@ public class CloseRFileStatement implements IStatement {
         }
 
         return state;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("closeRFile(%s)", file_name);
     }
 }

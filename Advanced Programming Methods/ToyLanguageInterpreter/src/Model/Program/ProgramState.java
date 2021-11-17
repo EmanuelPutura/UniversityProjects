@@ -67,6 +67,8 @@ public class ProgramState {
     }
 
     public String toFileString() {
-        return execution_stack.toFileString() + symbols_table.toFileString(true) + out_list.toFileString() + file_table.toFileString(false);
+        StringBuilder limit = new StringBuilder();
+        limit.append("-".repeat(25));
+        return limit.toString() + '\n' + execution_stack.toFileString() + symbols_table.toFileString(true) + out_list.toFileString() + file_table.toFileString(false) + limit.toString() + '\n';
     }
 }

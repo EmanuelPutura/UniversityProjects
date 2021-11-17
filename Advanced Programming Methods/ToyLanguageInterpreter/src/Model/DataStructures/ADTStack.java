@@ -70,12 +70,12 @@ public class ADTStack<E> implements IADTStack<E> {
 
         Stack<E> stack_copy = new Stack<E>();
         while (!stack.isEmpty()) {
+            return_string.append(stack.peek().toString()).append('\n');
             stack_copy.push(stack.pop());
         }
 
         while (!stack_copy.isEmpty()) {
             stack.push(stack_copy.pop());
-            return_string.append(stack.peek().toString()).append('\n');
         }
 
         return return_string.toString();

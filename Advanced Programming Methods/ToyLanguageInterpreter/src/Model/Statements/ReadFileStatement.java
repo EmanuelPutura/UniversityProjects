@@ -16,6 +16,13 @@ import java.io.IOException;
 public class ReadFileStatement implements IStatement {
     private IExpression expression;
     private String variable_name;
+    private String file_name;
+
+    public ReadFileStatement(IExpression expression, String variable_name) {
+        this.expression = expression;
+        this.variable_name = variable_name;
+        this.file_name = "<file name>";
+    }
 
     @Override
     public ProgramState execute(ProgramState state) throws StatementException, UndeclaredVariableException {
@@ -30,6 +37,7 @@ public class ReadFileStatement implements IStatement {
                 throw new StatementException("Expression should evaluate to a string value.");
 
             StringValue string_value = (StringValue) value;
+            this.file_name = string_value.getValue();
             BufferedReader buffered_reader = file_table.get(string_value);
             if (buffered_reader == null)
                 throw new StatementException(String.format("No entry '%s' was found in the file table.", string_value.getValue()));
@@ -50,5 +58,10 @@ public class ReadFileStatement implements IStatement {
         }
 
         return state;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("readRFile(%s, %s)", file_name, variable_name);
     }
 }
