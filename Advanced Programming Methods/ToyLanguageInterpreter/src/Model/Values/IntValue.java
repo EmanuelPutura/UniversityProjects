@@ -35,4 +35,9 @@ public class IntValue implements IValue {
     public String toString() {
         return Integer.toString(value);
     }
+
+    @Override
+    public int hashCode() {
+        return Integer.hashCode(value);
+    }
 }

@@ -33,6 +33,7 @@ public class OpenRFileStatement implements IStatement {
                 this.file_name = file_name;
                 BufferedReader buffered_reader = new BufferedReader(new FileReader(file_name));
                 state.fileTable().put(string_value, buffered_reader);
+//                System.out.println("HERE " + state.fileTable().containsKey(string_value));
             }
             else
                 throw new StatementException(String.format("Invalid type error: type '%s' is not valid for a file name.", value.getType().toString()));

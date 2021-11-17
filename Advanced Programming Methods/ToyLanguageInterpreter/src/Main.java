@@ -3,6 +3,7 @@ import Model.DataStructures.ADTDictionary;
 import Model.DataStructures.ADTList;
 import Model.DataStructures.ADTStack;
 import Model.Expressions.ArithmeticExpression;
+import Model.Expressions.RelationalExpression;
 import Model.Expressions.ValueExpression;
 import Model.Expressions.VariableExpression;
 import Model.Program.ProgramState;
@@ -14,16 +15,11 @@ import Model.Values.BoolValue;
 import Model.Values.IValue;
 import Model.Values.IntValue;
 import Model.Values.StringValue;
-import Repository.IRepository;
 import Repository.Repository;
-import Testing.ModelTesting.ModelTesting;
-import View.FirstImplementation.ConsoleUI;
-import View.FirstImplementation.IUserInterface;
 import View.Refactoring.ExitCommand;
 import View.Refactoring.RunExampleCommand;
 import View.Refactoring.TextMenu;
 
-import javax.naming.ldap.Control;
 import java.io.BufferedReader;
 import java.util.Scanner;
 
@@ -59,7 +55,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        int files_cnt = 7;
+        int files_cnt = 9;
         String[] file_paths = getFilePaths(files_cnt);
 
         // int v; v = 2; print(v);
@@ -110,6 +106,7 @@ public class Main {
         Repository repository6 = new Repository(program_state6, file_paths[5]);
         Controller controller6 = new Controller(repository6);
 
+        // string varf; varf = "test1.txt"; openRFile(varf); int varc; readFile(varf, varc); print(varc); readFile(varf, varc); print(varc); closeRFile(varf);
         IStatement st7 = new CompoundStatement(new DeclarationStatement("varf", new StringType()), new CompoundStatement(new AssignmentStatement("varf", new ValueExpression(new StringValue("test1.txt"))),
                 new CompoundStatement(new OpenRFileStatement(new VariableExpression("varf")), new CompoundStatement(new DeclarationStatement("varc", new IntType()),
                 new CompoundStatement(new ReadFileStatement(new VariableExpression("varf"), "varc"), new CompoundStatement(new PrintStatement(new VariableExpression("varc")), new CompoundStatement((
@@ -117,6 +114,23 @@ public class Main {
         ProgramState program_state7 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(), new ADTDictionary<StringValue, BufferedReader>(), st7);
         Repository repository7 = new Repository(program_state7, file_paths[6]);
         Controller controller7 = new Controller(repository7);
+
+        // int a; int v; a = 25; (If a >= 15 Then v = 2 Else v = 3); print(v);
+        IStatement st8 = new CompoundStatement(new DeclarationStatement("a", new IntType()), new CompoundStatement(new DeclarationStatement("v", new IntType()),
+                new CompoundStatement(new AssignmentStatement("a", new ValueExpression(new IntValue(25))), new CompoundStatement(new ConditionalStatement(
+                        new RelationalExpression(new VariableExpression("a"), new ValueExpression(new IntValue(15)), ">="),new AssignmentStatement("v",
+                        new ValueExpression(new IntValue(2))), new AssignmentStatement("v", new ValueExpression(new IntValue(3)))), new PrintStatement(new VariableExpression("v"))))));
+        ProgramState program_state8 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(), new ADTDictionary<StringValue, BufferedReader>(), st8);
+        Repository repository8 = new Repository(program_state8, file_paths[7]);
+        Controller controller8 = new Controller(repository8);
+
+        // string file1; file1 = "test1.txt"; openRFile(file1); string file2; file2 = "test1.txt"; openRFile(file2);
+        IStatement st9 = new CompoundStatement(new DeclarationStatement("file1", new StringType()), new CompoundStatement(new AssignmentStatement("file1", new ValueExpression(new StringValue("test1.txt"))),
+                new CompoundStatement(new OpenRFileStatement(new VariableExpression("file1")), new CompoundStatement(new DeclarationStatement("file2", new StringType()), new CompoundStatement(new AssignmentStatement("file2",
+                        new ValueExpression(new StringValue("test1.txt"))), new OpenRFileStatement(new VariableExpression("file2")))))));
+        ProgramState program_state9 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(), new ADTDictionary<StringValue, BufferedReader>(), st9);
+        Repository repository9 = new Repository(program_state9, file_paths[8]);
+        Controller controller9 = new Controller(repository9);
 
         TextMenu menu = new TextMenu();
         menu.addCommand(new ExitCommand("0", "exit"));
@@ -127,6 +141,8 @@ public class Main {
         menu.addCommand(new RunExampleCommand("5", st5.toString(), controller5));
         menu.addCommand(new RunExampleCommand("6", st6.toString(), controller6));
         menu.addCommand(new RunExampleCommand("7", st7.toString(), controller7));
+        menu.addCommand(new RunExampleCommand("8", st8.toString(), controller8));
+        menu.addCommand(new RunExampleCommand("9", st9.toString(), controller9));
         menu.show();
     }
 }

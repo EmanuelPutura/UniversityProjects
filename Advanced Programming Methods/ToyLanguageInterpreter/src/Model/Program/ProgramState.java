@@ -56,7 +56,7 @@ public class ProgramState {
         this.execution_stack = exec_stack;
         this.symbols_table = sym_table;
         this.out_list = out_list;
-        this.initial_statement = statement;
+        this.initial_statement = statement.deepCopy();
         this.file_table = file_table;
         this.execution_stack.push(statement);
     }

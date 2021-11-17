@@ -35,4 +35,9 @@ public class BoolValue implements IValue {
     public String toString() {
         return Boolean.toString(value);
     }
+
+    @Override
+    public int hashCode() {
+        return Boolean.hashCode(value);
+    }
 }

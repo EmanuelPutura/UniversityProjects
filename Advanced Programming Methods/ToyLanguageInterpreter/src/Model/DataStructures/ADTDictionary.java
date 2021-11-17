@@ -1,6 +1,7 @@
 package Model.DataStructures;
 
 import Model.Exceptions.DictionaryException;
+import Model.Values.StringValue;
 
 import java.util.Dictionary;
 import java.util.Enumeration;
@@ -65,6 +66,11 @@ public class ADTDictionary<K, V> implements IADTDictionary<K, V> {
         } catch (Exception exception) {
             throw new DictionaryException(exception.getMessage());
         }
+    }
+
+    @Override
+    public boolean containsKey(K key) {
+        return dictionary.containsKey(key);
     }
 
     @Override

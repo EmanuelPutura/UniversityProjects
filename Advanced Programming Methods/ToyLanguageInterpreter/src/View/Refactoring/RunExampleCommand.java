@@ -19,6 +19,8 @@ public class RunExampleCommand extends Command {
             controller.allStepsExecution(true);
         } catch (EmptyExecutionStackException | ControllerException error) {
             System.out.println(error.getMessage());
+        } catch (Exception error) {
+            System.out.println(error.getMessage());
         }
     }
 }
