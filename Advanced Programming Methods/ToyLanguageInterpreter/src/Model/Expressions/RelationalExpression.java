@@ -44,4 +44,9 @@ public class RelationalExpression implements IExpression {
         };
 
     }
+
+    @Override
+    public IExpression deepCopy() {
+        return new RelationalExpression(left, right, operator);
+    }
 }

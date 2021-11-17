@@ -54,7 +54,7 @@ public class ArithmeticExpression implements IExpression {
 
     @Override
     public IExpression deepCopy() {
-        return null;
+        return new ArithmeticExpression(left, right, operator);
     }
 
     public char operator() {
