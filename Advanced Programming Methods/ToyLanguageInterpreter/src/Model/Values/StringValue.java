@@ -26,7 +26,7 @@ public class StringValue implements IValue {
 
     @Override
     public boolean equals(Object other) {
-        if (other == null || other.getClass() != this.getClass())
+        if (!(other instanceof StringValue))
             return false;
         return ((StringValue) other).getValue().equals(value);
     }

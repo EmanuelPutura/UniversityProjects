@@ -26,7 +26,7 @@ public class IntValue implements IValue {
 
     @Override
     public boolean equals(Object other) {
-        if (other == null || other.getClass() != this.getClass())
+        if (!(other instanceof IntValue))
             return false;
         return ((IntValue) other).getValue() == value;
     }

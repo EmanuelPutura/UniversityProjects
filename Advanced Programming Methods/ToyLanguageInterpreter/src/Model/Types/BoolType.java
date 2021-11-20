@@ -16,7 +16,7 @@ public class BoolType implements IType {
 
     @Override
     public boolean equals(Object other) {
-        return other != null && other.getClass() == this.getClass();
+        return other instanceof BoolType;
     }
 
     @Override

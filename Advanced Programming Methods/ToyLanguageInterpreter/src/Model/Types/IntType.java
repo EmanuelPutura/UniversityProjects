@@ -16,7 +16,7 @@ public class IntType implements IType {
 
     @Override
     public boolean equals(Object other) {
-        return other != null && other.getClass() == this.getClass();
+        return other instanceof IntType;
     }
 
     @Override
