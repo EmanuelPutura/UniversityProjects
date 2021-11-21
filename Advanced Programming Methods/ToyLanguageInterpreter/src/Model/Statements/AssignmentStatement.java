@@ -20,7 +20,7 @@ public class AssignmentStatement implements IStatement {
     public ProgramState execute(ProgramState state) throws StatementException, UndeclaredVariableException {
         IADTDictionary<String, IValue> symbols_table = state.symbolsTable();
         try {
-            if (symbols_table.search(label) != null) {
+            if (symbols_table.get(label) != null) {
                 IValue value = expression.eval(symbols_table);
                 IType type = symbols_table.get(label).getType();
 

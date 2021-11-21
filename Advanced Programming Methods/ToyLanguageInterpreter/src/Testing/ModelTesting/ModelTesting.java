@@ -117,11 +117,11 @@ class DataStructuresTesting {
         }
 
         try {
-            Assert.assertEquals((int) grades.search("Daniel"), 6);
-            Assert.assertEquals((int) grades.search("Marry"), 10);
-            Assert.assertNull(grades.search("Nobody"));
+            Assert.assertEquals((int) grades.get("Daniel"), 6);
+            Assert.assertEquals((int) grades.get("Marry"), 10);
+            Assert.assertNull(grades.get("Nobody"));
             Assert.assertEquals((int) grades.remove("Anthony"), 8);
-            Assert.assertNull(grades.search("Anthony"));
+            Assert.assertNull(grades.get("Anthony"));
         } catch (DictionaryException e) {
             Assert.fail();
         }

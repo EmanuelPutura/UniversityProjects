@@ -15,7 +15,7 @@ public class VariableExpression implements IExpression {
     @Override
     public IValue eval(IADTDictionary<String, IValue> symbolsTable) throws ExpressionException {
         try {
-            return symbolsTable.search(label);
+            return symbolsTable.get(label);
         } catch (DictionaryException exception) {
             throw new ExpressionException(exception.getMessage());
         }

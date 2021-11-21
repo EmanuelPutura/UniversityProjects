@@ -26,7 +26,7 @@ public class OpenRFileStatement implements IStatement {
             IValue value = expression.eval(state.symbolsTable());
             if (value.getType().equals(new StringType())) {
                 StringValue string_value = (StringValue) value;
-                if (state.fileTable().search(string_value) != null)
+                if (state.fileTable().get(string_value) != null)
                     throw new StatementException(String.format("File name '%s' was already added to the file table.", string_value.toString()));
 
                 String file_name = string_value.getValue();

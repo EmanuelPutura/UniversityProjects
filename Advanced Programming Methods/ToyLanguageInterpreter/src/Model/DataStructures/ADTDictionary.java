@@ -3,15 +3,13 @@ package Model.DataStructures;
 import Model.Exceptions.DictionaryException;
 import Model.Values.StringValue;
 
-import java.util.Dictionary;
-import java.util.Enumeration;
-import java.util.Hashtable;
+import java.util.*;
 
 public class ADTDictionary<K, V> implements IADTDictionary<K, V> {
-    private Hashtable<K, V> dictionary;
+    protected HashMap<K, V> dictionary;
 
     public ADTDictionary() {
-        dictionary = new Hashtable<K, V>();
+        dictionary = new HashMap<K, V>();
     }
 
     @Override
@@ -47,17 +45,6 @@ public class ADTDictionary<K, V> implements IADTDictionary<K, V> {
     }
 
     @Override
-    public V search(K key) throws DictionaryException {
-        try {
-            if (!dictionary.containsKey(key))
-                return null;
-            return dictionary.get(key);
-        } catch (Exception exception) {
-            throw new DictionaryException(exception.getMessage());
-        }
-    }
-
-    @Override
     public V replace(K key, V value) throws DictionaryException {
         if (get(key) == null)
             throw new DictionaryException("The key was not found in the dictionary!");
@@ -79,14 +66,13 @@ public class ADTDictionary<K, V> implements IADTDictionary<K, V> {
         if (dictionary.isEmpty())
             return return_string.toString() + "}";
 
-        Enumeration<K> current = dictionary.keys();
-        K key = current.nextElement();
-        return_string.append(key).append(": ").append(dictionary.get(key));
-
-
-        while (current.hasMoreElements()) {
-            key = current.nextElement();
-            return_string.append(", ").append(key).append(": ").append(dictionary.get(key));
+        int index = 0;
+        for (Map.Entry<K, V> entry : dictionary.entrySet()) {
+            if (index == 0)
+                return_string.append(entry.getKey().toString()).append(": ").append(entry.getValue().toString());
+            else
+                return_string.append(", ").append(entry.getKey()).append(": ").append(entry.getValue().toString());
+            index++;
         }
 
         return return_string.toString() + "}";
@@ -101,15 +87,12 @@ public class ADTDictionary<K, V> implements IADTDictionary<K, V> {
         if (dictionary.isEmpty())
             return return_string.toString() + "\n";
 
-        Enumeration<K> current = dictionary.keys();
-        K key = null;
-
-        while (current.hasMoreElements()) {
-            key = current.nextElement();
-            return_string.append(key);
+        for (Map.Entry<K, V> entry : dictionary.entrySet()) {
+            return_string.append(entry.getKey().toString());
             if (print_values)
-                return_string.append(" --> ").append(dictionary.get(key)).append('\n');
-            else return_string.append('\n');
+                return_string.append(" --> ").append(entry.getValue().toString()).append('\n');
+            else
+                return_string.append('\n');
         }
 
         return return_string.toString();

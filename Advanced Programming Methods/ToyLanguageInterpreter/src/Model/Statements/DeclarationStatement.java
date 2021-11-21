@@ -21,7 +21,7 @@ public class DeclarationStatement implements IStatement {
         IADTDictionary<String, IValue> symbols_table = state.symbolsTable();
 
         try {
-            if (symbols_table.search(label) == null)
+            if (symbols_table.get(label) == null)
                 symbols_table.put(label, type.defaultValue());
             else
                 throw new StatementException(String.format("Variable '%s' was already declared!", label));
