@@ -1,0 +1,99 @@
+-------------------------
+Execution Stack:
+(int v; (v = 4; (while(v < 0) { (print(v); v = v - 1) }; print(v))))
+Symbols Table:
+
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Execution Stack:
+int v
+(v = 4; (while(v < 0) { (print(v); v = v - 1) }; print(v)))
+Symbols Table:
+
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Execution Stack:
+(v = 4; (while(v < 0) { (print(v); v = v - 1) }; print(v)))
+Symbols Table:
+v --> 0
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Execution Stack:
+v = 4
+(while(v < 0) { (print(v); v = v - 1) }; print(v))
+Symbols Table:
+v --> 0
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Execution Stack:
+(while(v < 0) { (print(v); v = v - 1) }; print(v))
+Symbols Table:
+v --> 4
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Execution Stack:
+while(v < 0) { (print(v); v = v - 1) }
+print(v)
+Symbols Table:
+v --> 4
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Execution Stack:
+print(v)
+Symbols Table:
+v --> 4
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Execution Stack:
+
+Symbols Table:
+v --> 4
+Out List:
+4
+File Table:
+
+Heap Table:
+
+-------------------------

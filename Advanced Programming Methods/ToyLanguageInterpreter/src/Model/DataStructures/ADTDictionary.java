@@ -105,7 +105,7 @@ public class ADTDictionary<K, V> implements IADTDictionary<K, V> {
 
         for (Map.Entry<K, V> entry : dictionary.entrySet()) {
             return_string.append(entry.getKey().toString());
-            if (dictionary_type != 1)
+            if (dictionary_type != 2)
                 return_string.append(" --> ").append(entry.getValue().toString()).append('\n');
             else
                 return_string.append('\n');

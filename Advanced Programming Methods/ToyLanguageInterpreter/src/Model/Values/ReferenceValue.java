@@ -39,6 +39,6 @@ public class ReferenceValue implements IValue {
 
     @Override
     public String toString() {
-        return Integer.toString(heap_address);
+        return String.format("(%d, %s)", heap_address, location_type.toString());
     }
 }

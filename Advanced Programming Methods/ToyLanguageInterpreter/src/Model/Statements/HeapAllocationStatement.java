@@ -41,7 +41,9 @@ public class HeapAllocationStatement implements IStatement {
 
             int heap_address = heap_table.put(expression_value);
             ReferenceValue reference_value = (ReferenceValue) dict_value;
-            reference_value.setHeapAddress(heap_address);
+//            reference_value.setHeapAddress(heap_address);
+            ReferenceValue new_reference = new ReferenceValue(heap_address, ((ReferenceType) reference_value.getType()).getLocationType());
+            symbols_table.replace(variable_name, new_reference);
         } catch (DictionaryException | DivisionByZeroException | ExpressionException error) {
             throw new StatementException(error.getMessage());
         }

@@ -103,7 +103,7 @@ public class Controller {
             if (display_logs)
                 System.out.println(execution_logs);
 
-            return_state.heapTable().setContent(unsafeGarbageCollector(
+            return_state.heapTable().setContent(safeGarbageCollector(
                     getAddressesFromSymbolsTable(return_state.symbolsTable().getContent().values()),
                     return_state.heapTable().getContent()
             ));
