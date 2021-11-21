@@ -33,7 +33,7 @@ public class HeapAllocationStatement implements IStatement {
             if (!(dict_value instanceof ReferenceValue))
                 throw new StatementException(String.format("Variable '%s' must be of reference type!", variable_name));
 
-            IValue expression_value = expression.eval(symbols_table);
+            IValue expression_value = expression.eval(symbols_table, state.heapTable());
             IType location_type = ((ReferenceType) dict_value.getType()).getLocationType();
 
             if (!expression_value.getType().equals(location_type))

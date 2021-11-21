@@ -26,7 +26,7 @@ public class ConditionalStatement implements IStatement {
         IADTStack<IStatement> execution_stack = state.executionStack();
 
         try {
-            IValue condition = expression.eval(state.symbolsTable());
+            IValue condition = expression.eval(state.symbolsTable(), state.heapTable());
             if (condition.getType().equals(new BoolType())) {
                 boolean condition_value = ((BoolValue) condition).getValue();
                 if (condition_value)

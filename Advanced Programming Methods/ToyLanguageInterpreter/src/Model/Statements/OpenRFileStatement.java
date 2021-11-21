@@ -23,7 +23,7 @@ public class OpenRFileStatement implements IStatement {
     @Override
     public ProgramState execute(ProgramState state) throws StatementException, UndeclaredVariableException {
         try {
-            IValue value = expression.eval(state.symbolsTable());
+            IValue value = expression.eval(state.symbolsTable(), state.heapTable());
             if (value.getType().equals(new StringType())) {
                 StringValue string_value = (StringValue) value;
                 if (state.fileTable().get(string_value) != null)

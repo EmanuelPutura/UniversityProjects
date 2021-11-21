@@ -1,6 +1,7 @@
 package Model.Expressions;
 
 import Model.DataStructures.IADTDictionary;
+import Model.DataStructures.IADTHeapDictionary;
 import Model.Exceptions.DivisionByZeroException;
 import Model.Exceptions.ExpressionException;
 import Model.Types.BoolType;
@@ -19,24 +20,21 @@ public class LogicalExpression implements IExpression {
     }
 
     @Override
-    public IValue eval(IADTDictionary<String, IValue> symbolsTable) throws ExpressionException, DivisionByZeroException {
+    public IValue eval(IADTDictionary<String, IValue> symbolsTable, IADTHeapDictionary heapTable) throws ExpressionException, DivisionByZeroException {
         IValue left_result, right_result;
-        left_result = left.eval(symbolsTable);
+        left_result = left.eval(symbolsTable, heapTable);
 
         if (left_result.getType().equals(new BoolType())) {
-            right_result = right.eval(symbolsTable);
+            right_result = right.eval(symbolsTable, heapTable);
             if (right_result.getType().equals(new BoolType())) {
                 BoolValue v1 = (BoolValue) left_result, v2 = (BoolValue) right_result;
                 boolean b1 = v1.getValue(), b2 = v2.getValue();
 
-                switch (operator) {
-                    case "&&":
-                        return new BoolValue(b1 && b2);
-                    case "||":
-                        return new BoolValue(b1 || b2);
-                    default:
-                        throw new ExpressionException("Invalid operator!");
-                }
+                return switch (operator) {
+                    case "&&" -> new BoolValue(b1 && b2);
+                    case "||" -> new BoolValue(b1 || b2);
+                    default -> throw new ExpressionException("Invalid operator!");
+                };
             }
             else
                 throw new ExpressionException("Second operand is not a boolean value!");

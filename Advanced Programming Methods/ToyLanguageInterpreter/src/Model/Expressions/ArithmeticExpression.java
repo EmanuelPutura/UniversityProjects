@@ -1,6 +1,7 @@
 package Model.Expressions;
 
 import Model.DataStructures.IADTDictionary;
+import Model.DataStructures.IADTHeapDictionary;
 import Model.Exceptions.DivisionByZeroException;
 import Model.Exceptions.ExpressionException;
 import Model.Types.IntType;
@@ -19,12 +20,12 @@ public class ArithmeticExpression implements IExpression {
     }
 
     @Override
-    public IValue eval(IADTDictionary<String, IValue> symbolsTable) throws ExpressionException, DivisionByZeroException {
+    public IValue eval(IADTDictionary<String, IValue> symbolsTable, IADTHeapDictionary heapTable) throws ExpressionException, DivisionByZeroException {
         IValue left_result, right_result;
-        left_result = left.eval(symbolsTable);
+        left_result = left.eval(symbolsTable, heapTable);
 
         if (left_result.getType().equals(new IntType())) {
-            right_result = right.eval(symbolsTable);
+            right_result = right.eval(symbolsTable, heapTable);
             if (right_result.getType().equals(new IntType())) {
                 IntValue v1 = (IntValue) left_result, v2 = (IntValue) right_result;
                 int no1 = v1.getValue(), no2 = v2.getValue();

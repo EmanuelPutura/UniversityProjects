@@ -22,7 +22,7 @@ public class CloseRFileStatement implements IStatement {
     @Override
     public ProgramState execute(ProgramState state) throws StatementException, UndeclaredVariableException {
         try {
-            IValue value = expression.eval(state.symbolsTable());
+            IValue value = expression.eval(state.symbolsTable(), state.heapTable());
             if (!value.getType().equals(new StringType()))
                 throw new StatementException("Expression should evaluate to a string.");
             StringValue string_value = (StringValue) value;

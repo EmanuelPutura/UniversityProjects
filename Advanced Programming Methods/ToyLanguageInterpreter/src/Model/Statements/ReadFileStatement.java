@@ -32,7 +32,7 @@ public class ReadFileStatement implements IStatement {
         try {
             if (symbols_table.get(variable_name) == null || !symbols_table.get(variable_name).getType().equals(new IntType()))
                 throw new StatementException(String.format("Variable '%s' is undefined or its type is not correct.", variable_name));
-            IValue value = expression.eval(symbols_table);
+            IValue value = expression.eval(symbols_table, state.heapTable());
             if (!value.getType().equals(new StringType()))
                 throw new StatementException("Expression should evaluate to a string value.");
 

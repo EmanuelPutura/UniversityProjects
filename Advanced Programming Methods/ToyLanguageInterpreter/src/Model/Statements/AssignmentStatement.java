@@ -21,7 +21,7 @@ public class AssignmentStatement implements IStatement {
         IADTDictionary<String, IValue> symbols_table = state.symbolsTable();
         try {
             if (symbols_table.get(label) != null) {
-                IValue value = expression.eval(symbols_table);
+                IValue value = expression.eval(symbols_table, state.heapTable());
                 IType type = symbols_table.get(label).getType();
 
                 if (value.getType().equals(type))

@@ -21,7 +21,7 @@ public class PrintStatement implements IStatement {
     public ProgramState execute(ProgramState state) throws StatementException {
         IADTList<IValue> out_list = state.outList();
         try {
-            out_list.add(expression.eval(state.symbolsTable()));
+            out_list.add(expression.eval(state.symbolsTable(), state.heapTable()));
         } catch (ExpressionException | DivisionByZeroException exception) {
             throw new StatementException(exception.getMessage());
         }
