@@ -20,9 +20,10 @@ public class ADTHeapDictionary extends ADTDictionary<Integer, IValue> implements
     }
 
     @Override
-    public void put(IValue value) throws DictionaryException {
+    public int put(IValue value) throws DictionaryException {
         super.put(getFirstFreeLocation(), value);
         next_free_location++;
+        return next_free_location - 1;
     }
 
     public int getFirstFreeLocation() {

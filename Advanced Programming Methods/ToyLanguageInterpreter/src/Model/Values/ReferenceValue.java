@@ -21,6 +21,10 @@ public class ReferenceValue implements IValue {
         return heap_address;
     }
 
+    public void setHeapAddress(int other) {
+        heap_address = other;
+    }
+
     @Override
     public IValue deepCopy() {
         return new ReferenceValue(heap_address, location_type);
