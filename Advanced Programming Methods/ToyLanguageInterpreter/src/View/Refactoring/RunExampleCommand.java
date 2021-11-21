@@ -3,8 +3,7 @@ package View.Refactoring;
 import Controller.Controller;
 import Controller.ControllerException;
 import Model.Exceptions.EmptyExecutionStackException;
-import Model.Exceptions.InvalidIndexException;
-import View.FirstImplementation.UIException;
+import Model.Exceptions.ProgramException;
 
 public class RunExampleCommand extends Command {
     private Controller controller;

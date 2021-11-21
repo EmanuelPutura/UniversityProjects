@@ -7,6 +7,8 @@ Out List:
 
 File Table:
 
+Heap Table
+
 -------------------------
 -------------------------
 Execution Stack:
@@ -18,15 +20,19 @@ Out List:
 
 File Table:
 
+Heap Table
+
 -------------------------
 -------------------------
 Execution Stack:
 (varf = test1.txt; (openRFile(<file name>); (int varc; (readRFile(<file name>, varc); (print(varc); (readRFile(<file name>, varc); (print(varc); closeRFile(<file name>))))))))
 Symbols Table:
-varf --> 
+varf
 Out List:
 
 File Table:
+
+Heap Table
 
 -------------------------
 -------------------------
@@ -34,20 +40,24 @@ Execution Stack:
 varf = test1.txt
 (openRFile(<file name>); (int varc; (readRFile(<file name>, varc); (print(varc); (readRFile(<file name>, varc); (print(varc); closeRFile(<file name>)))))))
 Symbols Table:
-varf --> 
+varf
 Out List:
 
 File Table:
+
+Heap Table
 
 -------------------------
 -------------------------
 Execution Stack:
 (openRFile(<file name>); (int varc; (readRFile(<file name>, varc); (print(varc); (readRFile(<file name>, varc); (print(varc); closeRFile(<file name>)))))))
 Symbols Table:
-varf --> test1.txt
+varf
 Out List:
 
 File Table:
+
+Heap Table
 
 -------------------------
 -------------------------
@@ -55,146 +65,172 @@ Execution Stack:
 openRFile(<file name>)
 (int varc; (readRFile(<file name>, varc); (print(varc); (readRFile(<file name>, varc); (print(varc); closeRFile(<file name>))))))
 Symbols Table:
-varf --> test1.txt
+varf
 Out List:
 
 File Table:
+
+Heap Table
 
 -------------------------
 -------------------------
 Execution Stack:
 (int varc; (readRFile(<file name>, varc); (print(varc); (readRFile(<file name>, varc); (print(varc); closeRFile(<file name>))))))
 Symbols Table:
-varf --> test1.txt
+varf
 Out List:
 
 File Table:
-test1.txt
+test1.txt --> java.io.BufferedReader@14514713
+Heap Table
+
 -------------------------
 -------------------------
 Execution Stack:
 int varc
 (readRFile(<file name>, varc); (print(varc); (readRFile(<file name>, varc); (print(varc); closeRFile(<file name>)))))
 Symbols Table:
-varf --> test1.txt
+varf
 Out List:
 
 File Table:
-test1.txt
+test1.txt --> java.io.BufferedReader@14514713
+Heap Table
+
 -------------------------
 -------------------------
 Execution Stack:
 (readRFile(<file name>, varc); (print(varc); (readRFile(<file name>, varc); (print(varc); closeRFile(<file name>)))))
 Symbols Table:
-varf --> test1.txt
-varc --> 0
+varf
+varc
 Out List:
 
 File Table:
-test1.txt
+test1.txt --> java.io.BufferedReader@14514713
+Heap Table
+
 -------------------------
 -------------------------
 Execution Stack:
 readRFile(<file name>, varc)
 (print(varc); (readRFile(<file name>, varc); (print(varc); closeRFile(<file name>))))
 Symbols Table:
-varf --> test1.txt
-varc --> 0
+varf
+varc
 Out List:
 
 File Table:
-test1.txt
+test1.txt --> java.io.BufferedReader@14514713
+Heap Table
+
 -------------------------
 -------------------------
 Execution Stack:
 (print(varc); (readRFile(<file name>, varc); (print(varc); closeRFile(<file name>))))
 Symbols Table:
-varf --> test1.txt
-varc --> 15
+varf
+varc
 Out List:
 
 File Table:
-test1.txt
+test1.txt --> java.io.BufferedReader@14514713
+Heap Table
+
 -------------------------
 -------------------------
 Execution Stack:
 print(varc)
 (readRFile(<file name>, varc); (print(varc); closeRFile(<file name>)))
 Symbols Table:
-varf --> test1.txt
-varc --> 15
+varf
+varc
 Out List:
 
 File Table:
-test1.txt
+test1.txt --> java.io.BufferedReader@14514713
+Heap Table
+
 -------------------------
 -------------------------
 Execution Stack:
 (readRFile(<file name>, varc); (print(varc); closeRFile(<file name>)))
 Symbols Table:
-varf --> test1.txt
-varc --> 15
+varf
+varc
 Out List:
 15
 File Table:
-test1.txt
+test1.txt --> java.io.BufferedReader@14514713
+Heap Table
+
 -------------------------
 -------------------------
 Execution Stack:
 readRFile(<file name>, varc)
 (print(varc); closeRFile(<file name>))
 Symbols Table:
-varf --> test1.txt
-varc --> 15
+varf
+varc
 Out List:
 15
 File Table:
-test1.txt
+test1.txt --> java.io.BufferedReader@14514713
+Heap Table
+
 -------------------------
 -------------------------
 Execution Stack:
 (print(varc); closeRFile(<file name>))
 Symbols Table:
-varf --> test1.txt
-varc --> 50
+varf
+varc
 Out List:
 15
 File Table:
-test1.txt
+test1.txt --> java.io.BufferedReader@14514713
+Heap Table
+
 -------------------------
 -------------------------
 Execution Stack:
 print(varc)
 closeRFile(<file name>)
 Symbols Table:
-varf --> test1.txt
-varc --> 50
+varf
+varc
 Out List:
 15
 File Table:
-test1.txt
+test1.txt --> java.io.BufferedReader@14514713
+Heap Table
+
 -------------------------
 -------------------------
 Execution Stack:
 closeRFile(<file name>)
 Symbols Table:
-varf --> test1.txt
-varc --> 50
+varf
+varc
 Out List:
 15
 50
 File Table:
-test1.txt
+test1.txt --> java.io.BufferedReader@14514713
+Heap Table
+
 -------------------------
 -------------------------
 Execution Stack:
 
 Symbols Table:
-varf --> test1.txt
-varc --> 50
+varf
+varc
 Out List:
 15
 50
 File Table:
+
+Heap Table
 
 -------------------------

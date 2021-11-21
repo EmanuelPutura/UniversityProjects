@@ -11,5 +11,5 @@ public interface IADTDictionary<K, V> {
     boolean containsKey(K key);
 
     String toString();
-    String toFileString(boolean print_values);
+    String toFileString(int dictionary_type) throws DictionaryException;
 }

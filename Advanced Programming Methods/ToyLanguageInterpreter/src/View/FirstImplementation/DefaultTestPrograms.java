@@ -51,12 +51,12 @@ public class DefaultTestPrograms {
                 new ArithmeticExpression(new VariableExpression("a"), new VariableExpression("b"), '/')));
 
         List<ProgramState> states = new ArrayList<ProgramState>();
-        ProgramState program_state1 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(), new ADTDictionary<StringValue, BufferedReader>(), st1);
-        ProgramState program_state2 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(), new ADTDictionary<StringValue, BufferedReader>(), st2);
-        ProgramState program_state3 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(), new ADTDictionary<StringValue, BufferedReader>(), st3);
-        ProgramState program_state4 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(), new ADTDictionary<StringValue, BufferedReader>(), st4);
-        ProgramState program_state5 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(), new ADTDictionary<StringValue, BufferedReader>(), st5);
-        ProgramState program_state6 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(), new ADTDictionary<StringValue, BufferedReader>(), st6);
+        ProgramState program_state1 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(), new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st1);
+        ProgramState program_state2 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(), new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st2);
+        ProgramState program_state3 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(), new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st3);
+        ProgramState program_state4 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(), new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st4);
+        ProgramState program_state5 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(), new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st5);
+        ProgramState program_state6 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(), new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st6);
 
         states.add(program_state1);
         states.add(program_state2);

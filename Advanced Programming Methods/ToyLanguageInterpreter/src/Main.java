@@ -1,5 +1,6 @@
 import Controller.Controller;
 import Model.DataStructures.ADTDictionary;
+import Model.DataStructures.ADTHeapDictionary;
 import Model.DataStructures.ADTList;
 import Model.DataStructures.ADTStack;
 import Model.Expressions.ArithmeticExpression;
@@ -61,7 +62,8 @@ public class Main {
         // int v; v = 2; print(v);
         IStatement st1 = new CompoundStatement(new DeclarationStatement("v", new IntType()), new CompoundStatement(
                 new AssignmentStatement("v", new ValueExpression(new IntValue(2))), new PrintStatement(new VariableExpression("v"))));
-        ProgramState program_state1 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(), new ADTDictionary<StringValue, BufferedReader>(), st1);
+        ProgramState program_state1 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
+                new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st1);
         Repository repository1 = new Repository(program_state1, file_paths[0]);
         Controller controller1 = new Controller(repository1);
 
@@ -70,7 +72,8 @@ public class Main {
                 new CompoundStatement(new AssignmentStatement("a", new ArithmeticExpression(new ValueExpression(new IntValue(2)),new ArithmeticExpression(
                         new ValueExpression(new IntValue(3)), new ValueExpression(new IntValue(5)), '*'), '+')), new CompoundStatement(new AssignmentStatement("b",
                         new ArithmeticExpression(new VariableExpression("a"), new ValueExpression(new IntValue(1)), '+')), new PrintStatement(new VariableExpression("b"))))));
-        ProgramState program_state2 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(), new ADTDictionary<StringValue, BufferedReader>(), st2);
+        ProgramState program_state2 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
+                new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st2);
         Repository repository2 = new Repository(program_state2, file_paths[1]);
         Controller controller2 = new Controller(repository2);
 
@@ -79,14 +82,16 @@ public class Main {
                 new CompoundStatement(new AssignmentStatement("a", new ValueExpression(new BoolValue(true))), new CompoundStatement(new ConditionalStatement(
                         new VariableExpression("a"),new AssignmentStatement("v", new ValueExpression(new IntValue(2))), new AssignmentStatement("v", new ValueExpression(
                         new IntValue(3)))), new PrintStatement(new VariableExpression("v"))))));
-        ProgramState program_state3 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(), new ADTDictionary<StringValue, BufferedReader>(), st3);
+        ProgramState program_state3 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
+                new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st3);
         Repository repository3 = new Repository(program_state3, file_paths[2]);
         Controller controller3 = new Controller(repository3);
 
         // int v; v = 2; print(v); int a; a = v + 2; print(a);
         IStatement st4 = new CompoundStatement(st1, new CompoundStatement(new CompoundStatement(new DeclarationStatement("a", new IntType()), new AssignmentStatement("a",
                 new ArithmeticExpression(new VariableExpression("v"), new ValueExpression(new IntValue(2)), '+'))), new PrintStatement(new VariableExpression("a"))));
-        ProgramState program_state4 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(), new ADTDictionary<StringValue, BufferedReader>(), st4);
+        ProgramState program_state4 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
+                new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st4);
         Repository repository4 = new Repository(program_state4, file_paths[3]);
         Controller controller4 = new Controller(repository4);
 
@@ -94,7 +99,8 @@ public class Main {
         IStatement st5 = new CompoundStatement(new CompoundStatement(new CompoundStatement(new DeclarationStatement("a", new IntType()), new AssignmentStatement("a", new ValueExpression(
                 new IntValue(2)))), new CompoundStatement(new DeclarationStatement("b", new IntType()), new AssignmentStatement("b", new ValueExpression(new IntValue(-5))))), new PrintStatement(
                 new ArithmeticExpression(new VariableExpression("a"), new VariableExpression("b"), '+')));
-        ProgramState program_state5 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(), new ADTDictionary<StringValue, BufferedReader>(), st5);
+        ProgramState program_state5 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
+                new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st5);
         Repository repository5 = new Repository(program_state5, file_paths[4]);
         Controller controller5 = new Controller(repository5);
 
@@ -102,7 +108,8 @@ public class Main {
         IStatement st6 = new CompoundStatement(new CompoundStatement(new CompoundStatement(new DeclarationStatement("a", new IntType()), new AssignmentStatement("a", new ValueExpression(
                 new IntValue(2)))), new CompoundStatement(new DeclarationStatement("b", new IntType()), new AssignmentStatement("b", new ValueExpression(new IntValue(0))))), new PrintStatement(
                 new ArithmeticExpression(new VariableExpression("a"), new VariableExpression("b"), '/')));
-        ProgramState program_state6 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(), new ADTDictionary<StringValue, BufferedReader>(), st6);
+        ProgramState program_state6 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
+                new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st6);
         Repository repository6 = new Repository(program_state6, file_paths[5]);
         Controller controller6 = new Controller(repository6);
 
@@ -111,7 +118,8 @@ public class Main {
                 new CompoundStatement(new OpenRFileStatement(new VariableExpression("varf")), new CompoundStatement(new DeclarationStatement("varc", new IntType()),
                 new CompoundStatement(new ReadFileStatement(new VariableExpression("varf"), "varc"), new CompoundStatement(new PrintStatement(new VariableExpression("varc")), new CompoundStatement((
                 new ReadFileStatement(new VariableExpression("varf"), "varc")), new CompoundStatement(new PrintStatement(new VariableExpression("varc")), new CloseRFileStatement(new VariableExpression(("varf")))))))))));
-        ProgramState program_state7 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(), new ADTDictionary<StringValue, BufferedReader>(), st7);
+        ProgramState program_state7 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
+                new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st7);
         Repository repository7 = new Repository(program_state7, file_paths[6]);
         Controller controller7 = new Controller(repository7);
 
@@ -120,7 +128,8 @@ public class Main {
                 new CompoundStatement(new AssignmentStatement("a", new ValueExpression(new IntValue(25))), new CompoundStatement(new ConditionalStatement(
                         new RelationalExpression(new VariableExpression("a"), new ValueExpression(new IntValue(15)), ">="),new AssignmentStatement("v",
                         new ValueExpression(new IntValue(2))), new AssignmentStatement("v", new ValueExpression(new IntValue(3)))), new PrintStatement(new VariableExpression("v"))))));
-        ProgramState program_state8 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(), new ADTDictionary<StringValue, BufferedReader>(), st8);
+        ProgramState program_state8 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
+                new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st8);
         Repository repository8 = new Repository(program_state8, file_paths[7]);
         Controller controller8 = new Controller(repository8);
 
@@ -128,7 +137,8 @@ public class Main {
         IStatement st9 = new CompoundStatement(new DeclarationStatement("file1", new StringType()), new CompoundStatement(new AssignmentStatement("file1", new ValueExpression(new StringValue("test1.txt"))),
                 new CompoundStatement(new OpenRFileStatement(new VariableExpression("file1")), new CompoundStatement(new DeclarationStatement("file2", new StringType()), new CompoundStatement(new AssignmentStatement("file2",
                         new ValueExpression(new StringValue("test1.txt"))), new OpenRFileStatement(new VariableExpression("file2")))))));
-        ProgramState program_state9 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(), new ADTDictionary<StringValue, BufferedReader>(), st9);
+        ProgramState program_state9 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
+                new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st9);
         Repository repository9 = new Repository(program_state9, file_paths[8]);
         Controller controller9 = new Controller(repository9);
 

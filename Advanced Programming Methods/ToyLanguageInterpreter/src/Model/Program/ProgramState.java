@@ -1,8 +1,11 @@
 package Model.Program;
 
 import Model.DataStructures.IADTDictionary;
+import Model.DataStructures.IADTHeapDictionary;
 import Model.DataStructures.IADTList;
 import Model.DataStructures.IADTStack;
+import Model.Exceptions.DictionaryException;
+import Model.Exceptions.ProgramException;
 import Model.Statements.IStatement;
 import Model.Values.IValue;
 import Model.Values.StringValue;
@@ -14,7 +17,19 @@ public class ProgramState {
     private IADTDictionary<String, IValue> symbols_table;
     private IADTList<IValue> out_list;
     private IADTDictionary<StringValue, BufferedReader> file_table;
+    private IADTHeapDictionary heap_table;
     private IStatement initial_statement;
+
+    public ProgramState(IADTStack<IStatement> exec_stack, IADTDictionary<String, IValue> sym_table, IADTList<IValue> out_list,
+                        IADTDictionary<StringValue, BufferedReader> file_table, IADTHeapDictionary heap_table, IStatement statement) {
+        this.execution_stack = exec_stack;
+        this.symbols_table = sym_table;
+        this.out_list = out_list;
+        this.initial_statement = statement.deepCopy();
+        this.file_table = file_table;
+        this.heap_table = heap_table;
+        this.execution_stack.push(statement);
+    }
 
     public IADTStack<IStatement> executionStack() {
         return execution_stack;
@@ -30,6 +45,10 @@ public class ProgramState {
 
     public IADTDictionary<StringValue, BufferedReader> fileTable() {
         return file_table;
+    }
+
+    public IADTHeapDictionary heapTable() {
+        return heap_table;
     }
 
     public IStatement getInitialStatement() {
@@ -52,23 +71,24 @@ public class ProgramState {
         file_table = other;
     }
 
-    public ProgramState(IADTStack<IStatement> exec_stack, IADTDictionary<String, IValue> sym_table, IADTList<IValue> out_list, IADTDictionary<StringValue, BufferedReader> file_table, IStatement statement) {
-        this.execution_stack = exec_stack;
-        this.symbols_table = sym_table;
-        this.out_list = out_list;
-        this.initial_statement = statement.deepCopy();
-        this.file_table = file_table;
-        this.execution_stack.push(statement);
+    public void setHeapTable(IADTHeapDictionary other) {
+        heap_table = other;
     }
 
     @Override
     public String toString() {
-        return String.format("[ProgramState: execution stack (%s), symbols table (%s), out (%s)]", execution_stack.toString(), symbols_table.toString(), out_list.toString());
+        return String.format("[ProgramState: execution stack (%s), symbols table (%s), out (%s), file table (%s), heap table (%s)]",
+                execution_stack.toString(), symbols_table.toString(), out_list.toString(), file_table.toString(), heap_table.toString());
     }
 
-    public String toFileString() {
+    public String toFileString() throws ProgramException {
         StringBuilder limit = new StringBuilder();
         limit.append("-".repeat(25));
-        return limit.toString() + '\n' + execution_stack.toFileString() + symbols_table.toFileString(true) + out_list.toFileString() + file_table.toFileString(false) + limit.toString() + '\n';
+        try {
+            return limit.toString() + '\n' + execution_stack.toFileString() + symbols_table.toFileString(1) +
+                    out_list.toFileString() + file_table.toFileString(2) + heap_table.toFileString(3) + limit.toString() + '\n';
+        } catch (DictionaryException error) {
+            throw new ProgramException(error.getMessage());
+        }
     }
 }

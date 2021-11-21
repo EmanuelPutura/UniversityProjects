@@ -79,17 +79,22 @@ public class ADTDictionary<K, V> implements IADTDictionary<K, V> {
     }
 
     @Override
-    public String toFileString(boolean print_values) {
-        String type = "Symbols Table:\n";
-        if (!print_values)
-            type = "File Table:\n";
+    public String toFileString(int dictionary_type) throws DictionaryException {
+        String type;
+        switch(dictionary_type) {
+            case 1 -> type = "Symbols Table:\n";
+            case 2 -> type = "File Table:\n";
+            case 3 -> type = "Heap Table:\n";
+            default -> throw new DictionaryException("Invalid dictionary type!");
+        }
+
         StringBuilder return_string = new StringBuilder(type);
         if (dictionary.isEmpty())
             return return_string.toString() + "\n";
 
         for (Map.Entry<K, V> entry : dictionary.entrySet()) {
             return_string.append(entry.getKey().toString());
-            if (print_values)
+            if (dictionary_type != 1)
                 return_string.append(" --> ").append(entry.getValue().toString()).append('\n');
             else
                 return_string.append('\n');
