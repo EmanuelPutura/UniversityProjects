@@ -52,6 +52,11 @@ public class HeapWritingStatement implements IStatement {
 
     @Override
     public IStatement deepCopy() {
-        return null;
+        return new HeapWritingStatement(variable_name, expression);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("heapWrite(%s, %s)", variable_name, expression.toString());
     }
 }
