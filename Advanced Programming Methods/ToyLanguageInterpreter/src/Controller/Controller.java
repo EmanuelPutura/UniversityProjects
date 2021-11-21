@@ -36,16 +36,30 @@ public class Controller {
         execution_logs = "";
     }
 
-    List<Integer> getAddressesFromSymbolsTable(Collection<IValue> symbols_table_values) {
+    private List<Integer> getAddressesFromSymbolsTable(Collection<IValue> symbols_table_values) {
         return symbols_table_values.stream()
                 .filter(value -> value instanceof ReferenceValue)
                 .map(value -> ((ReferenceValue) value).getHeapAddress())
                 .collect(Collectors.toList());
     }
 
-    Map<Integer, IValue> unsafeGarbageCollector(List<Integer> symbols_table_addresses, Map<Integer, IValue> heap) {
+    private List<Integer> getAddressesReferencedByHeapVariables(Collection<IValue> heap_table_values) {
+        return heap_table_values.stream()
+                .filter(value -> value instanceof ReferenceValue)
+                .map(value -> ((ReferenceValue) value).getHeapAddress())
+                .collect(Collectors.toList());
+    }
+
+    private Map<Integer, IValue> unsafeGarbageCollector(List<Integer> symbols_table_addresses, Map<Integer, IValue> heap) {
         return heap.entrySet().stream()
                 .filter(dict_elem -> symbols_table_addresses.contains(dict_elem.getKey()))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    }
+
+    private Map<Integer, IValue> safeGarbageCollector(List<Integer> symbols_table_addresses, Map<Integer, IValue> heap) {
+        List<Integer> addresses_referenced_from_heap = getAddressesReferencedByHeapVariables(heap.values());
+        return heap.entrySet().stream()
+                .filter(dict_elem -> (symbols_table_addresses.contains(dict_elem.getKey()) || addresses_referenced_from_heap.contains(dict_elem.getKey())))
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 
