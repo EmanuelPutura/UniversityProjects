@@ -1,12 +1,13 @@
 package Model.DataStructures;
 
 import Model.Exceptions.DictionaryException;
+import Model.Values.IValue;
 import Model.Values.StringValue;
 
 import java.util.*;
 
 public class ADTDictionary<K, V> implements IADTDictionary<K, V> {
-    protected HashMap<K, V> dictionary;
+    protected Map<K, V> dictionary;
 
     public ADTDictionary() {
         dictionary = new HashMap<K, V>();
@@ -58,6 +59,16 @@ public class ADTDictionary<K, V> implements IADTDictionary<K, V> {
     @Override
     public boolean containsKey(K key) {
         return dictionary.containsKey(key);
+    }
+
+    @Override
+    public Map<K, V> getContent() {
+        return dictionary;
+    }
+
+    @Override
+    public void setContent(Map<K, V> other) {
+        dictionary = other;
     }
 
     @Override

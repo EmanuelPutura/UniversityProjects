@@ -4,10 +4,15 @@ import Model.DataStructures.IADTStack;
 import Model.Exceptions.*;
 import Model.Program.ProgramState;
 import Model.Statements.IStatement;
+import Model.Values.IValue;
+import Model.Values.ReferenceValue;
 import Repository.IRepository;
 import Repository.RepositoryException;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Controller {
     private IRepository repository;
@@ -29,6 +34,19 @@ public class Controller {
 
     private void resetLogs() {
         execution_logs = "";
+    }
+
+    List<Integer> getAddressesFromSymbolsTable(Collection<IValue> symbols_table_values) {
+        return symbols_table_values.stream()
+                .filter(value -> value instanceof ReferenceValue)
+                .map(value -> ((ReferenceValue) value).getHeapAddress())
+                .collect(Collectors.toList());
+    }
+
+    Map<Integer, IValue> unsafeGarbageCollector(List<Integer> symbols_table_addresses, Map<Integer, IValue> heap) {
+        return heap.entrySet().stream()
+                .filter(dict_elem -> symbols_table_addresses.contains(dict_elem.getKey()))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 
     public ProgramState oneStepExecution(boolean reset_logs, boolean display_logs) throws ControllerException, EmptyExecutionStackException {
@@ -70,6 +88,12 @@ public class Controller {
 
             if (display_logs)
                 System.out.println(execution_logs);
+
+            return_state.heapTable().setContent(unsafeGarbageCollector(
+                    getAddressesFromSymbolsTable(return_state.symbolsTable().getContent().values()),
+                    return_state.heapTable().getContent()
+            ));
+
             return return_state;
         } catch (StatementException | UndeclaredVariableException exception) {
             throw new ControllerException(exception.getMessage());

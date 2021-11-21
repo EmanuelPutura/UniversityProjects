@@ -3,6 +3,8 @@ package Model.DataStructures;
 import Model.Exceptions.DictionaryException;
 import Model.Values.IValue;
 
+import java.util.Map;
+
 public class ADTHeapDictionary extends ADTDictionary<Integer, IValue> implements IADTHeapDictionary {
     private int next_free_location;
 
