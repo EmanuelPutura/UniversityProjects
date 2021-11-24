@@ -1,0 +1,62 @@
+-------------------------
+Execution Stack:
+(int i; (i = 5; while(v > 0) { (print(v); i = i - 1) }))
+Symbols Table:
+
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Execution Stack:
+int i
+(i = 5; while(v > 0) { (print(v); i = i - 1) })
+Symbols Table:
+
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Execution Stack:
+(i = 5; while(v > 0) { (print(v); i = i - 1) })
+Symbols Table:
+i --> 0
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Execution Stack:
+i = 5
+while(v > 0) { (print(v); i = i - 1) }
+Symbols Table:
+i --> 0
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Execution Stack:
+while(v > 0) { (print(v); i = i - 1) }
+Symbols Table:
+i --> 5
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------

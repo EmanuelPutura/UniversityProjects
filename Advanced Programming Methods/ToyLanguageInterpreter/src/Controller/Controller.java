@@ -155,7 +155,6 @@ public class Controller {
         }
 
         execution_logs = string_builder.toString();
-
         if (display_logs)
             System.out.println(execution_logs);
     }

@@ -54,7 +54,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        int files_cnt = 14;
+        int files_cnt = 16;
         String[] file_paths = getFilePaths(files_cnt);
 
         // int v; v = 2; print(v);
@@ -178,14 +178,34 @@ public class Main {
         Repository repository13 = new Repository(program_state13, file_paths[12]);
         Controller controller13 = new Controller(repository13);
 
-        // int v; v = 4; while (v > 0) { print(v); v = v - 1; } print(v);
-        IStatement st14 = new CompoundStatement(new DeclarationStatement("v", new IntType()), new CompoundStatement(new AssignmentStatement("v", new ValueExpression(new IntValue(4))),
-                new CompoundStatement(new WhileStatement(new RelationalExpression(new VariableExpression("v"), new ValueExpression(new IntValue(0)), ">"), new CompoundStatement(new PrintStatement(new VariableExpression("v")),
-                new AssignmentStatement("v", new ArithmeticExpression(new VariableExpression("v"), new ValueExpression(new IntValue(1)), '-')))), new PrintStatement(new VariableExpression("v")))));
+        // Ref(int) v; new(v, 20); Ref(Ref(int)) a; new(a, v); new(v, 30); print(heapRead(heapRead(a)));
+        IStatement st14 = new CompoundStatement(new DeclarationStatement("v", new ReferenceType(new IntType())), new CompoundStatement(new HeapAllocationStatement("v", new ValueExpression(new IntValue(20))),
+                new CompoundStatement(new DeclarationStatement("a", new ReferenceType(new ReferenceType(new IntType()))), new CompoundStatement(new HeapAllocationStatement("a", new VariableExpression("v")),
+                        new CompoundStatement(new HeapAllocationStatement("v", new ValueExpression(new IntValue(30))), new PrintStatement(new HeapReadingExpression(
+                                new HeapReadingExpression(new VariableExpression("a")))))))));
         ProgramState program_state14 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st14);
         Repository repository14 = new Repository(program_state14, file_paths[13]);
         Controller controller14 = new Controller(repository14);
+
+        // Ref(int) v; new(v, 20); Ref(Ref(int)) a; new(a, v); new(v, 30); print(heapRead(heapRead(a)));
+        IStatement st15 = new CompoundStatement(new DeclarationStatement("v", new ReferenceType(new IntType())), new CompoundStatement(new HeapAllocationStatement("v", new ValueExpression(new IntValue(20))),
+                new CompoundStatement(new DeclarationStatement("a", new ReferenceType(new ReferenceType(new IntType()))), new CompoundStatement(new HeapAllocationStatement("a", new VariableExpression("v")),
+                new CompoundStatement(new HeapAllocationStatement("v", new ValueExpression(new IntValue(30))), new CompoundStatement(new HeapAllocationStatement("a", new VariableExpression("v")),
+                new PrintStatement(new HeapReadingExpression(new HeapReadingExpression(new VariableExpression("a"))))))))));
+        ProgramState program_state15 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
+                new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st15);
+        Repository repository15 = new Repository(program_state15, file_paths[14]);
+        Controller controller15 = new Controller(repository15);
+
+        IStatement st16 = new CompoundStatement(new DeclarationStatement("i", new IntType()), new CompoundStatement(new AssignmentStatement("i", new ValueExpression(new IntValue(5))), new WhileStatement(new RelationalExpression(
+                new VariableExpression("i"), new ValueExpression(new IntValue(0)), ">"), new CompoundStatement(new PrintStatement(new VariableExpression("i")),
+                new AssignmentStatement("i", new ArithmeticExpression(new VariableExpression("i"), new ValueExpression(new IntValue(1)), '-'))))));
+        ProgramState program_state16 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
+                new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st16);
+        Repository repository16 = new Repository(program_state16, file_paths[15]);
+        Controller controller16 = new Controller(repository16);
+
 
         TextMenu menu = new TextMenu();
         menu.addCommand(new ExitCommand("0", "exit"));
@@ -203,6 +223,8 @@ public class Main {
         menu.addCommand(new RunExampleCommand("12", st12.toString(), controller12));
         menu.addCommand(new RunExampleCommand("13", st13.toString(), controller13));
         menu.addCommand(new RunExampleCommand("14", st14.toString(), controller14));
+        menu.addCommand(new RunExampleCommand("15", st15.toString(), controller15));
+        menu.addCommand(new RunExampleCommand("16", st16.toString(), controller16));
         menu.show();
     }
 }
