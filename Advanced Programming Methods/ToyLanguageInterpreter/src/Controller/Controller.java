@@ -77,7 +77,8 @@ public class Controller {
         return oneStepExecution(program, reset_logs, display_logs);
     }
 
-    public ProgramState oneStepExecution(ProgramState program, boolean reset_logs, boolean display_logs) throws ControllerException, EmptyExecutionStackException {
+    public ProgramState
+    oneStepExecution(ProgramState program, boolean reset_logs, boolean display_logs) throws ControllerException, EmptyExecutionStackException {
         if (program == null)
             throw new ControllerException("Invalid program state!");
         if (reset_logs)

@@ -46,6 +46,7 @@ public class Repository implements IRepository {
 
     @Override
     public ProgramState getCurrentProgram() throws RepositoryException {
+        // TODO: remove this method (no longer used since A5)
         if (program_states.size() == 0)
             throw new RepositoryException("There is no program loaded into the repository!");
         return program_states.get(program_states.size() - 1);
@@ -73,6 +74,7 @@ public class Repository implements IRepository {
 
     @Override
     public void logProgramStateExec() throws RepositoryException {
+        // TODO: change this method
         try(PrintWriter logFile = new PrintWriter(new BufferedWriter(new FileWriter(logFilePath, true)))) {
             logFile.write(getCurrentProgram().toFileString());
         } catch (IOException | ProgramException error) {

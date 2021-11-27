@@ -4,8 +4,7 @@ import Model.DataStructures.IADTDictionary;
 import Model.DataStructures.IADTHeapDictionary;
 import Model.DataStructures.IADTList;
 import Model.DataStructures.IADTStack;
-import Model.Exceptions.DictionaryException;
-import Model.Exceptions.ProgramException;
+import Model.Exceptions.*;
 import Model.Statements.IStatement;
 import Model.Values.IValue;
 import Model.Values.StringValue;
@@ -73,6 +72,22 @@ public class ProgramState {
 
     public void setHeapTable(IADTHeapDictionary other) {
         heap_table = other;
+    }
+
+    public Boolean isNotCompleted() {
+        return !execution_stack.empty();
+    }
+
+    ProgramState oneStepExecution() throws ProgramException, EmptyExecutionStackException {
+        if (execution_stack.empty())
+            throw new EmptyExecutionStackException("Empty execution stack error!");
+        IStatement current_statement = null;
+        try {
+            current_statement = execution_stack.pop();
+            return current_statement.execute(this);
+        } catch (StackException | StatementException | UndeclaredVariableException error) {
+            throw new ProgramException(error.getMessage());
+        }
     }
 
     @Override
