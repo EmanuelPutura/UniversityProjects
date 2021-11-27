@@ -10,6 +10,9 @@ public interface IADTList<E> {
     E remove(int index) throws ListException, InvalidIndexException;
     boolean isEmpty();
     int size();
+
+    IADTList<E> deepCopy();
+
     String toString();
     String toFileString();
 }

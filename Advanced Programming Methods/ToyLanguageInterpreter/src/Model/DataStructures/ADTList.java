@@ -62,6 +62,14 @@ public class ADTList<E> implements IADTList<E> {
     }
 
     @Override
+    public IADTList<E> deepCopy() {
+        IADTList<E> new_list = new ADTList<E>();
+        for (int i = 0; i < list.size(); ++i)
+            new_list.add(list.get(i));
+        return new_list;
+    }
+
+    @Override
     public String toString() {
         StringBuilder return_string = new StringBuilder("ADTList: [");
         if (list.isEmpty())
