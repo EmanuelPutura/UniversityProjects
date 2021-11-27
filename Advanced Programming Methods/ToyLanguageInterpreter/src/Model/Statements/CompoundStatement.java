@@ -18,7 +18,7 @@ public class CompoundStatement implements IStatement {
         IADTStack<IStatement> execution_stack = state.executionStack();
         execution_stack.push(second);
         execution_stack.push(first);
-        return state;
+        return null;
     }
 
     @Override

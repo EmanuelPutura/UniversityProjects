@@ -16,7 +16,7 @@ public class ForkStatement implements IStatement {
     @Override
     public ProgramState execute(ProgramState state) throws StatementException, UndeclaredVariableException {
         IADTStack<IStatement> new_execution_stack = new ADTStack<IStatement>();
-        return new ProgramState(new_execution_stack, state.symbolsTable(), state.outList(), state.fileTable(), state.heapTable(), statement);
+        return new ProgramState(new_execution_stack, state.symbolsTable().deepCopy(), state.outList(), state.fileTable(), state.heapTable(), statement);
     }
 
     @Override
@@ -24,8 +24,8 @@ public class ForkStatement implements IStatement {
         return new ForkStatement(statement);
     }
 
-//    @Override
-//    public String toString() {
-//        return "";
-//    }
+    @Override
+    public String toString() {
+        return String.format("fork(%s)", statement.toString());
+    }
 }

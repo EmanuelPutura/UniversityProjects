@@ -36,7 +36,7 @@ public class CloseRFileStatement implements IStatement {
             throw new StatementException(error.getMessage());
         }
 
-        return state;
+        return null;
     }
 
     @Override

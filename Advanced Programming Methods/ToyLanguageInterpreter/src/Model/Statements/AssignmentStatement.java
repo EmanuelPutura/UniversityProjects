@@ -35,7 +35,7 @@ public class AssignmentStatement implements IStatement {
             throw new StatementException(exception.getMessage());
         }
 
-        return state;
+        return null;
     }
 
     @Override

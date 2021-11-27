@@ -39,7 +39,7 @@ public class WhileStatement implements IStatement {
             throw new StatementException(error.getMessage());
         }
 
-        return state;
+        return null;
     }
 
     @Override

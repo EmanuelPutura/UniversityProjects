@@ -39,7 +39,7 @@ public class ConditionalStatement implements IStatement {
         } catch (ExpressionException | DivisionByZeroException exception) {
             throw new StatementException(exception.getMessage());
         }
-        return state;
+        return null;
     }
 
     @Override

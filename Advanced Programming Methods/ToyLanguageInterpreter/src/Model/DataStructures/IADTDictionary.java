@@ -16,6 +16,8 @@ public interface IADTDictionary<K, V> {
     Map<K, V> getContent();
     void setContent(Map<K, V> other);
 
+    IADTDictionary<K, V> deepCopy();
+
     String toString();
     String toFileString(int dictionary_type);
 }

@@ -25,7 +25,7 @@ public class PrintStatement implements IStatement {
         } catch (ExpressionException | DivisionByZeroException exception) {
             throw new StatementException(exception.getMessage());
         }
-        return state;
+        return null;
     }
 
     @Override

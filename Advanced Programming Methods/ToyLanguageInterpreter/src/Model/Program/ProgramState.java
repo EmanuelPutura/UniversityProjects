@@ -82,7 +82,7 @@ public class ProgramState {
         return !execution_stack.empty();
     }
 
-    ProgramState oneStepExecution() throws ProgramException, EmptyExecutionStackException {
+    public ProgramState oneStepExecution() throws ProgramException, EmptyExecutionStackException {
         if (execution_stack.empty())
             throw new EmptyExecutionStackException("Empty execution stack error!");
         IStatement current_statement = null;
