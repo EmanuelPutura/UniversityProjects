@@ -90,14 +90,16 @@ public class ADTDictionary<K, V> implements IADTDictionary<K, V> {
     }
 
     @Override
-    public String toFileString(int dictionary_type) throws DictionaryException {
-        String type;
+    public String toFileString(int dictionary_type) {
+        String type = "";
         switch(dictionary_type) {
             case 1 -> type = "Symbols Table:\n";
             case 2 -> type = "File Table:\n";
             case 3 -> type = "Heap Table:\n";
-            default -> throw new DictionaryException("Invalid dictionary type!");
         }
+
+        if (type.equals(""))
+            return type;
 
         StringBuilder return_string = new StringBuilder(type);
         if (dictionary.isEmpty())

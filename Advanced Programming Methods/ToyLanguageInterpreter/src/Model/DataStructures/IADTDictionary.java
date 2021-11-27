@@ -17,5 +17,5 @@ public interface IADTDictionary<K, V> {
     void setContent(Map<K, V> other);
 
     String toString();
-    String toFileString(int dictionary_type) throws DictionaryException;
+    String toFileString(int dictionary_type);
 }

@@ -19,6 +19,9 @@ public class ProgramState {
     private IADTHeapDictionary heap_table;
     private IStatement initial_statement;
 
+    private int id;
+    private static int current_generated_id = 0;
+
     public ProgramState(IADTStack<IStatement> exec_stack, IADTDictionary<String, IValue> sym_table, IADTList<IValue> out_list,
                         IADTDictionary<StringValue, BufferedReader> file_table, IADTHeapDictionary heap_table, IStatement statement) {
         this.execution_stack = exec_stack;
@@ -28,6 +31,7 @@ public class ProgramState {
         this.file_table = file_table;
         this.heap_table = heap_table;
         this.execution_stack.push(statement);
+        this.id = getID();
     }
 
     public IADTStack<IStatement> executionStack() {
@@ -90,20 +94,21 @@ public class ProgramState {
         }
     }
 
-    @Override
-    public String toString() {
-        return String.format("[ProgramState: execution stack (%s), symbols table (%s), out (%s), file table (%s), heap table (%s)]",
-                execution_stack.toString(), symbols_table.toString(), out_list.toString(), file_table.toString(), heap_table.toString());
+    private static synchronized int getID() {
+        return ++current_generated_id;
     }
 
-    public String toFileString() throws ProgramException {
+    @Override
+    public String toString() {
+        return logProgramStateExecution();
+    //        return String.format("[ProgramState: execution stack (%s), symbols table (%s), out (%s), file table (%s), heap table (%s)]",
+    //                execution_stack.toString(), symbols_table.toString(), out_list.toString(), file_table.toString(), heap_table.toString());
+    }
+
+    public String logProgramStateExecution() {
         StringBuilder limit = new StringBuilder();
-        limit.append("-".repeat(25));
-        try {
-            return limit.toString() + '\n' + execution_stack.toFileString() + symbols_table.toFileString(1) +
-                    out_list.toFileString() + file_table.toFileString(2) + heap_table.toFileString(3) + limit.toString() + '\n';
-        } catch (DictionaryException error) {
-            throw new ProgramException(error.getMessage());
-        }
+        limit.append("-".repeat(25)).append(String.format("Program ID: %d\n", id));
+        return limit.toString() + '\n' + execution_stack.toFileString() + symbols_table.toFileString(1) +
+                out_list.toFileString() + file_table.toFileString(2) + heap_table.toFileString(3) + limit.toString() + '\n';
     }
 }

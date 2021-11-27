@@ -1,6 +1,5 @@
 package Repository;
 
-import Model.Exceptions.DictionaryException;
 import Model.Exceptions.ProgramException;
 import Model.Program.ProgramState;
 
@@ -76,7 +75,7 @@ public class Repository implements IRepository {
     public void logProgramStateExec() throws RepositoryException {
         // TODO: change this method
         try(PrintWriter logFile = new PrintWriter(new BufferedWriter(new FileWriter(logFilePath, true)))) {
-            logFile.write(getCurrentProgram().toFileString());
+            logFile.write(getCurrentProgram().logProgramStateExecution());
         } catch (IOException | ProgramException error) {
             throw new RepositoryException(error.toString());
         }

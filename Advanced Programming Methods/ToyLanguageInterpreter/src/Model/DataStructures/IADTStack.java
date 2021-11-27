@@ -7,6 +7,9 @@ public interface IADTStack<E> {
     E top() throws StackException;
     void push(E element);
     boolean empty();
+
+    IADTStack<E> deepCopy();
+
     String toString();
     String toFileString();
 }

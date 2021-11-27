@@ -41,6 +41,22 @@ public class ADTStack<E> implements IADTStack<E> {
     }
 
     @Override
+    public IADTStack<E> deepCopy() {
+        IADTStack<E> new_stack = new ADTStack<E>();
+        Stack<E> temp_stack = new Stack<E>();
+
+        while (!stack.empty())
+            temp_stack.push(stack.pop());
+
+        while (!temp_stack.empty()) {
+            stack.push(temp_stack.peek());
+            new_stack.push(temp_stack.pop());
+        }
+
+        return new_stack;
+    }
+
+    @Override
     public String toString() {
         StringBuilder return_string = new StringBuilder("Stack: (");
         if (stack.isEmpty())
