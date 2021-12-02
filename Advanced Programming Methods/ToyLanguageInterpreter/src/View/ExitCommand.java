@@ -1,4 +1,4 @@
-package View.Refactoring;
+package View;
 
 public class ExitCommand extends Command {
     public ExitCommand(String key, String description) {

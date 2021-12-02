@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.DataStructures.IADTDictionary;
+import Model.DataStructures.IADTHeapDictionary;
 import Model.DataStructures.IADTStack;
 import Model.Exceptions.*;
 import Model.Program.ProgramState;
@@ -9,34 +11,20 @@ import Model.Values.ReferenceValue;
 import Repository.IRepository;
 import Repository.RepositoryException;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
 public class Controller {
     private IRepository repository;
-    private String execution_logs;
     private ExecutorService executor;
 
     public Controller(IRepository repository) {
         this.repository = repository;
-        this.execution_logs = "";
     }
 
     public void addProgram(ProgramState program) {
         repository.addProgram(program);
-        this.execution_logs = "";
-    }
-
-    public String logs() {
-        return execution_logs;
-    }
-
-    private void resetLogs() {
-        execution_logs = "";
     }
 
     private List<Integer> getAddressesFromSymbolsTable(Collection<IValue> symbols_table_values) {
@@ -64,75 +52,6 @@ public class Controller {
         return heap.entrySet().stream()
                 .filter(dict_elem -> (symbols_table_addresses.contains(dict_elem.getKey()) || addresses_referenced_from_heap.contains(dict_elem.getKey())))
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-    }
-
-    public ProgramState oneStepExecution(boolean reset_logs, boolean display_logs) throws ControllerException, EmptyExecutionStackException {
-        if (reset_logs)
-            resetLogs();
-
-        ProgramState program = null;
-        try {
-            program = repository.getCurrentProgram();
-        } catch (RepositoryException exception) {
-            throw new ControllerException(exception.getMessage());
-        }
-
-        return oneStepExecution(program, reset_logs, display_logs);
-    }
-
-    public ProgramState
-    oneStepExecution(ProgramState program, boolean reset_logs, boolean display_logs) throws ControllerException, EmptyExecutionStackException {
-        if (program == null)
-            throw new ControllerException("Invalid program state!");
-        if (reset_logs)
-            resetLogs();
-
-        IADTStack<IStatement> execution_stack = program.executionStack();
-        if (execution_stack.empty())
-            throw new EmptyExecutionStackException("Empty execution stack error!");
-
-        execution_logs = String.format("Initial program state: %s\n", program.toString());
-        IStatement to_execute;
-
-        try {
-            to_execute = execution_stack.pop();
-        } catch (StackException exception) {
-            throw new ControllerException(exception.getMessage());
-        }
-
-        try {
-            ProgramState return_state = to_execute.execute(program);
-            execution_logs += String.format("Current program state: %s", return_state.toString());
-
-            if (display_logs)
-                System.out.println(execution_logs);
-
-            return_state.heapTable().setContent(safeGarbageCollector(
-                    getAddressesFromSymbolsTable(return_state.symbolsTable().getContent().values()),
-                    return_state.heapTable().getContent()
-            ));
-
-            return return_state;
-        } catch (StatementException | UndeclaredVariableException exception) {
-            throw new ControllerException(exception.getMessage());
-        }
-    }
-
-    public void setAndSwapCurrentProgram(int new_index) throws InvalidIndexException, ControllerException {
-        try {
-            ProgramState current_program = repository.getCurrentProgram();
-            if (new_index < 0 || new_index >= repository.size())
-                throw new InvalidIndexException("Index out of bounds!");
-
-            repository.setCurrentProgram(repository.getProgramStateList().get(new_index));
-            repository.getProgramStateList().set(new_index, current_program);
-        } catch (RepositoryException exception) {
-            throw new ControllerException(exception.getMessage());
-        }
-    }
-
-    public List<ProgramState> getAllProgramStates() {
-        return repository.getProgramStateList();
     }
 
     public void oneStepForAllPrograms(List<ProgramState> programs) throws ControllerException {
@@ -191,6 +110,23 @@ public class Controller {
         // remove the completed programs
         List<ProgramState> programs = removeCompletedPrograms(repository.getProgramStateList());
         while (programs.size() > 0) {
+            // ------------------- safe garbage collector -------------------
+            IADTHeapDictionary shared_heap = programs.get(0).heapTable();
+            List<IADTDictionary<String, IValue>> all_symbols_tables = programs.stream()
+                    .map(ProgramState::symbolsTable)
+                    .collect(Collectors.toList());
+
+            List<Integer> addresses_from_all_symbol_tables = new ArrayList<Integer>();
+            all_symbols_tables.stream()
+                    .map(table -> getAddressesFromSymbolsTable(table.getContent().values()))
+                    .forEach(addresses_from_all_symbol_tables::addAll);
+
+            shared_heap.setContent(safeGarbageCollector(
+                    addresses_from_all_symbol_tables,
+                    shared_heap.getContent()
+            ));
+            // --------------------------------------------------------------
+
             oneStepForAllPrograms(programs);
 
             // remove the completed programs
@@ -210,9 +146,5 @@ public class Controller {
         return input_programs.stream()
                 .filter(ProgramState::isNotCompleted)
                 .collect(Collectors.toList());
-    }
-
-    public int size() {
-        return repository.size();
     }
 }

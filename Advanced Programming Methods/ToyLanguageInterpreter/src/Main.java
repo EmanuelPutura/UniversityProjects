@@ -15,9 +15,9 @@ import Model.Values.IValue;
 import Model.Values.IntValue;
 import Model.Values.StringValue;
 import Repository.Repository;
-import View.Refactoring.ExitCommand;
-import View.Refactoring.RunExampleCommand;
-import View.Refactoring.TextMenu;
+import View.ExitCommand;
+import View.RunExampleCommand;
+import View.TextMenu;
 
 import java.io.BufferedReader;
 import java.util.Scanner;
@@ -54,7 +54,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        int files_cnt = 16;
+        int files_cnt = 17;
         String[] file_paths = getFilePaths(files_cnt);
 
         // int v; v = 2; print(v);
@@ -206,6 +206,20 @@ public class Main {
         Repository repository16 = new Repository(program_state16, file_paths[15]);
         Controller controller16 = new Controller(repository16);
 
+        /*
+            int v; Ref(int) a; v = 10; new(a, 22);
+            fork(heapWrite(a, 30); v = 32; print(v); print(heapRead(a)));
+            print(v); print(heapRead(a));
+         */
+        IStatement st17 = new CompoundStatement(new DeclarationStatement("v", new IntType()), new CompoundStatement(new DeclarationStatement("a", new ReferenceType(new IntType())), new CompoundStatement(
+                new AssignmentStatement("v", new ValueExpression(new IntValue(10))), new CompoundStatement(new HeapAllocationStatement("a", new ValueExpression(new IntValue(22))), new CompoundStatement(
+                new ForkStatement(new CompoundStatement(new HeapWritingStatement("a", new ValueExpression(new IntValue(30))), new CompoundStatement(new AssignmentStatement("v", new ValueExpression(new IntValue(32))), new CompoundStatement(
+                new PrintStatement(new VariableExpression("v")), new PrintStatement(new HeapReadingExpression(new VariableExpression("a")))
+                )))), new CompoundStatement(new PrintStatement(new VariableExpression("v")), new PrintStatement(new HeapReadingExpression(new VariableExpression("a")))))))));
+        ProgramState program_state17 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
+                new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st17);
+        Repository repository17 = new Repository(program_state17, file_paths[16]);
+        Controller controller17 = new Controller(repository17);
 
         TextMenu menu = new TextMenu();
         menu.addCommand(new ExitCommand("0", "exit"));
@@ -225,6 +239,7 @@ public class Main {
         menu.addCommand(new RunExampleCommand("14", st14.toString(), controller14));
         menu.addCommand(new RunExampleCommand("15", st15.toString(), controller15));
         menu.addCommand(new RunExampleCommand("16", st16.toString(), controller16));
+        menu.addCommand(new RunExampleCommand("17", st17.toString(), controller17));
         menu.show();
     }
 }

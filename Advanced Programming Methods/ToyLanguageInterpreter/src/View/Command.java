@@ -1,4 +1,4 @@
-package View.Refactoring;
+package View;
 
 public abstract class Command {
     private String key;

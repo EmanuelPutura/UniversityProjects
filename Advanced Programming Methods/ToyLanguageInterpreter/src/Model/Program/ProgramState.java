@@ -101,14 +101,12 @@ public class ProgramState {
     @Override
     public String toString() {
         return logProgramStateExecution();
-    //        return String.format("[ProgramState: execution stack (%s), symbols table (%s), out (%s), file table (%s), heap table (%s)]",
-    //                execution_stack.toString(), symbols_table.toString(), out_list.toString(), file_table.toString(), heap_table.toString());
     }
 
     public String logProgramStateExecution() {
         StringBuilder limit = new StringBuilder();
-        limit.append("-".repeat(25)).append(String.format("Program ID: %d\n", id));
-        return limit.toString() + '\n' + execution_stack.toFileString() + symbols_table.toFileString(1) +
+        limit.append("-".repeat(25));
+        return limit.toString() + String.format("\nProgram ID: %d", id) + '\n' + execution_stack.toFileString() + symbols_table.toFileString(1) +
                 out_list.toFileString() + file_table.toFileString(2) + heap_table.toFileString(3) + limit.toString() + '\n';
     }
 }

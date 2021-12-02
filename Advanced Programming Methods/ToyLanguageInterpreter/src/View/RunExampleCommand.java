@@ -1,9 +1,7 @@
-package View.Refactoring;
+package View;
 
 import Controller.Controller;
 import Controller.ControllerException;
-import Model.Exceptions.EmptyExecutionStackException;
-import Model.Exceptions.ProgramException;
 
 public class RunExampleCommand extends Command {
     private Controller controller;
@@ -15,8 +13,8 @@ public class RunExampleCommand extends Command {
     @Override
     public void execute() {
         try {
-            controller.allStepsExecution(true);
-        } catch (EmptyExecutionStackException | ControllerException error) {
+            controller.allStepsExecution();
+        } catch (ControllerException error) {
             System.out.println(error.getMessage());
         } catch (Exception error) {
             System.out.println(error.getMessage());
