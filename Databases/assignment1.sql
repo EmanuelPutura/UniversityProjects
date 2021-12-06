@@ -3,6 +3,8 @@ DROP DATABASE FCSB;
 CREATE DATABASE FCSB;
 */
 
+USE FCSB;
+
 DROP TABLE SeasonAssists;
 DROP TABLE PlayerHasPosition;
 DROP TABLE FitnessCoachesSalaries;

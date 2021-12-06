@@ -1,3 +1,5 @@
+USE FCSB;
+
 /* Inserts */
 INSERT INTO TeamMatches (playedAgainst, matchDate)
 VALUES ('FC Barcelona', '2022-05-07');

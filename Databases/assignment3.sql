@@ -1,3 +1,5 @@
+USE FCSB;
+
 /*
 	a. modify the type of a column
 */
