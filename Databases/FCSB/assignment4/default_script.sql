@@ -218,7 +218,7 @@ CREATE TABLE [Tests] (
 
 	[TestID] [int] IDENTITY (1, 1) NOT NULL ,
 
-	[Name] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL 
+	[Name] [nvarchar] (MAX) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL 
 
 ) ON [PRIMARY]
 

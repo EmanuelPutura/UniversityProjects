@@ -1,23 +1,25 @@
 /*
-DROP DATABASE FCSB;
+USE [master];
+
+DROP DATABASE IF EXISTS FCSB;
 CREATE DATABASE FCSB;
 */
 
 USE FCSB;
 
-DROP TABLE SeasonAssists;
-DROP TABLE PlayerHasPosition;
-DROP TABLE FitnessCoachesSalaries;
-DROP TABLE TeamCoachesSalaries;
-DROP TABLE PlayersSalaries;
-DROP TABLE SeasonGoals;
-DROP TABLE Players;
-DROP TABLE TeamCoaches;
-DROP TABLE FitnessCoaches;
-DROP TABLE Trophies;
-DROP TABLE TeamFormations;
-DROP TABLE FieldPositions;
-DROP TABLE TeamMatches;
+DROP TABLE IF EXISTS SeasonAssists;
+DROP TABLE IF EXISTS PlayerHasPosition;
+DROP TABLE IF EXISTS FitnessCoachesSalaries;
+DROP TABLE IF EXISTS TeamCoachesSalaries;
+DROP TABLE IF EXISTS PlayersSalaries;
+DROP TABLE IF EXISTS SeasonGoals;
+DROP TABLE IF EXISTS Players;
+DROP TABLE IF EXISTS TeamCoaches;
+DROP TABLE IF EXISTS FitnessCoaches;
+DROP TABLE IF EXISTS Trophies;
+DROP TABLE IF EXISTS TeamFormations;
+DROP TABLE IF EXISTS FieldPositions;
+DROP TABLE IF EXISTS TeamMatches;
 
 CREATE TABLE FieldPositions (
 	position varchar(255) NOT NULL,
@@ -35,7 +37,7 @@ CREATE TABLE Trophies (
 	trophyID INT NOT NULL IDENTITY,
 	trophyType varchar(255) NOT NULL,
 	winningDate DATE,
-	mostPlayedFormation varchar(255) NOT NULL REFERENCES TeamFormations(formation) ON DELETE NO ACTION ON UPDATE CASCADE,
+	mostPlayedFormation varchar(255) NOT NULL REFERENCES TeamFormations(formation) ON DELETE CASCADE ON UPDATE CASCADE,
 	PRIMARY KEY (trophyID)
 );
 
@@ -51,8 +53,8 @@ CREATE TABLE TeamCoaches (
 	lastName varchar(255) NOT NULL,
 	firstName varchar(255) NOT NULL,
 	coachRole varchar(255),
-	prefferedFormation varchar(255) NOT NULL REFERENCES TeamFormations(formation) ON DELETE NO ACTION ON UPDATE CASCADE,
-	assistantFitnessCoach INT NOT NULL REFERENCES FitnessCoaches(coachID) ON DELETE NO ACTION ON UPDATE CASCADE,
+	prefferedFormation varchar(255) NOT NULL REFERENCES TeamFormations(formation) ON DELETE CASCADE ON UPDATE CASCADE,
+	assistantFitnessCoach INT NOT NULL REFERENCES FitnessCoaches(coachID) ON DELETE CASCADE ON UPDATE CASCADE,
 	PRIMARY KEY (coachID)
 );
 
@@ -60,7 +62,7 @@ CREATE TABLE Players (
 	playerID int NOT NULL IDENTITY,
 	lastName varchar(255) NOT NULL,
 	firstName varchar(255) NOT NULL,
-	mainTeamCoach INT NOT NULL REFERENCES TeamCoaches(coachID) ON DELETE NO ACTION ON UPDATE CASCADE,
+	mainTeamCoach INT NOT NULL REFERENCES TeamCoaches(coachID) ON DELETE CASCADE ON UPDATE CASCADE,
 	marketValueInEuros INT CHECK (marketValueInEuros >= 0),
 	PRIMARY KEY (playerID),
 	UNIQUE (lastName, firstName)
@@ -68,7 +70,7 @@ CREATE TABLE Players (
 
 CREATE TABLE SeasonGoals (
 	goalID INT NOT NULL IDENTITY,
-	player INT NOT NULL REFERENCES Players (playerID) ON DELETE NO ACTION ON UPDATE CASCADE,
+	player INT NOT NULL REFERENCES Players (playerID) ON DELETE CASCADE ON UPDATE CASCADE,
 	playedAgainst varchar(255),
 	matchDate DATE,
 	PRIMARY KEY (goalID)
@@ -76,34 +78,34 @@ CREATE TABLE SeasonGoals (
 
 CREATE TABLE SeasonAssists (
 	assistID INT NOT NULL IDENTITY,
-	player INT NOT NULL REFERENCES Players (playerID) ON DELETE NO ACTION ON UPDATE CASCADE,
+	player INT NOT NULL REFERENCES Players (playerID) ON DELETE CASCADE ON UPDATE CASCADE,
 	playedAgainst varchar(255),
 	matchDate DATE,
 	PRIMARY KEY (assistID)
 );
 
 CREATE TABLE PlayersSalaries (
-	player INT NOT NULL REFERENCES Players (playerID) ON DELETE NO ACTION ON UPDATE CASCADE,
+	player INT NOT NULL REFERENCES Players (playerID) ON DELETE CASCADE ON UPDATE CASCADE,
 	amountInEuros DECIMAL (16, 2) CHECK (amountInEuros >= 0),
 	/* PRIMARY KEY (player) */
 );
 
 CREATE TABLE TeamCoachesSalaries (
-	coach INT NOT NULL REFERENCES TeamCoaches (coachID) ON DELETE NO ACTION ON UPDATE CASCADE,
+	coach INT NOT NULL REFERENCES TeamCoaches (coachID) ON DELETE CASCADE ON UPDATE CASCADE,
 	amountInEuros DECIMAL (16, 2) CHECK (amountInEuros >= 0),
 	PRIMARY KEY (coach)
 );
 
 CREATE TABLE FitnessCoachesSalaries (
-	coach INT NOT NULL REFERENCES FitnessCoaches (coachID) ON DELETE NO ACTION ON UPDATE CASCADE,
+	coach INT NOT NULL REFERENCES FitnessCoaches (coachID) ON DELETE CASCADE ON UPDATE CASCADE,
 	amountInEuros DECIMAL (16, 2),
 	PRIMARY KEY (coach)
 );
 
 CREATE TABLE PlayerHasPosition (
-	player INT NOT NULL REFERENCES Players (playerID) ON DELETE NO ACTION ON UPDATE CASCADE,
+	player INT NOT NULL REFERENCES Players (playerID) ON DELETE CASCADE ON UPDATE CASCADE,
 	position varchar(255) NOT NULL 
-	REFERENCES FieldPositions(position),
+	REFERENCES FieldPositions(position) ON DELETE CASCADE ON UPDATE CASCADE,
 	PRIMARY KEY (player, position)
 );
 
