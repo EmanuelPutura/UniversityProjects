@@ -12,8 +12,6 @@
     getFirst(l1l2...ln) = the empty set, if n = 0
                         = mainGetFirst(l1) U getFirst(l2...ln), if l1 is a list
                         = getFirst(l2...ln), otherwise
-                        
-    
 ||#
 
 (defun listLength (list)
