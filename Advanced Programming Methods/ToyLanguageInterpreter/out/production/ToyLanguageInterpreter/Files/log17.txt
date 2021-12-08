@@ -1,50 +1,10 @@
 -------------------------
 Program ID: 17
 Execution Stack:
-(int v; (Ref(int) a; (v = 10; (new(a, 22); (fork((heapWrite(a, 30); (v = 32; (print(v); print(readHeap(a)))))); (print(v); print(readHeap(a))))))))
-Symbols Table:
-
-Out List:
-
-File Table:
-
-Heap Table:
-
--------------------------
--------------------------
-Program ID: 17
-Execution Stack:
 int v
 (Ref(int) a; (v = 10; (new(a, 22); (fork((heapWrite(a, 30); (v = 32; (print(v); print(readHeap(a)))))); (print(v); print(readHeap(a)))))))
 Symbols Table:
 
-Out List:
-
-File Table:
-
-Heap Table:
-
--------------------------
--------------------------
-Program ID: 17
-Execution Stack:
-int v
-(Ref(int) a; (v = 10; (new(a, 22); (fork((heapWrite(a, 30); (v = 32; (print(v); print(readHeap(a)))))); (print(v); print(readHeap(a)))))))
-Symbols Table:
-
-Out List:
-
-File Table:
-
-Heap Table:
-
--------------------------
--------------------------
-Program ID: 17
-Execution Stack:
-(Ref(int) a; (v = 10; (new(a, 22); (fork((heapWrite(a, 30); (v = 32; (print(v); print(readHeap(a)))))); (print(v); print(readHeap(a)))))))
-Symbols Table:
-v --> 0
 Out List:
 
 File Table:
@@ -82,50 +42,7 @@ Heap Table:
 -------------------------
 Program ID: 17
 Execution Stack:
-Ref(int) a
 (v = 10; (new(a, 22); (fork((heapWrite(a, 30); (v = 32; (print(v); print(readHeap(a)))))); (print(v); print(readHeap(a))))))
-Symbols Table:
-v --> 0
-Out List:
-
-File Table:
-
-Heap Table:
-
--------------------------
--------------------------
-Program ID: 17
-Execution Stack:
-(v = 10; (new(a, 22); (fork((heapWrite(a, 30); (v = 32; (print(v); print(readHeap(a)))))); (print(v); print(readHeap(a))))))
-Symbols Table:
-a --> (0, int)
-v --> 0
-Out List:
-
-File Table:
-
-Heap Table:
-
--------------------------
--------------------------
-Program ID: 17
-Execution Stack:
-(v = 10; (new(a, 22); (fork((heapWrite(a, 30); (v = 32; (print(v); print(readHeap(a)))))); (print(v); print(readHeap(a))))))
-Symbols Table:
-a --> (0, int)
-v --> 0
-Out List:
-
-File Table:
-
-Heap Table:
-
--------------------------
--------------------------
-Program ID: 17
-Execution Stack:
-v = 10
-(new(a, 22); (fork((heapWrite(a, 30); (v = 32; (print(v); print(readHeap(a)))))); (print(v); print(readHeap(a)))))
 Symbols Table:
 a --> (0, int)
 v --> 0
@@ -168,35 +85,6 @@ Heap Table:
 -------------------------
 Program ID: 17
 Execution Stack:
-(new(a, 22); (fork((heapWrite(a, 30); (v = 32; (print(v); print(readHeap(a)))))); (print(v); print(readHeap(a)))))
-Symbols Table:
-a --> (0, int)
-v --> 10
-Out List:
-
-File Table:
-
-Heap Table:
-
--------------------------
--------------------------
-Program ID: 17
-Execution Stack:
-new(a, 22)
-(fork((heapWrite(a, 30); (v = 32; (print(v); print(readHeap(a)))))); (print(v); print(readHeap(a))))
-Symbols Table:
-a --> (0, int)
-v --> 10
-Out List:
-
-File Table:
-
-Heap Table:
-
--------------------------
--------------------------
-Program ID: 17
-Execution Stack:
 new(a, 22)
 (fork((heapWrite(a, 30); (v = 32; (print(v); print(readHeap(a)))))); (print(v); print(readHeap(a))))
 Symbols Table:
@@ -226,65 +114,8 @@ Heap Table:
 -------------------------
 Program ID: 17
 Execution Stack:
-(fork((heapWrite(a, 30); (v = 32; (print(v); print(readHeap(a)))))); (print(v); print(readHeap(a))))
-Symbols Table:
-a --> (1, int)
-v --> 10
-Out List:
-
-File Table:
-
-Heap Table:
-1 --> 22
--------------------------
--------------------------
-Program ID: 17
-Execution Stack:
 fork((heapWrite(a, 30); (v = 32; (print(v); print(readHeap(a))))))
 (print(v); print(readHeap(a)))
-Symbols Table:
-a --> (1, int)
-v --> 10
-Out List:
-
-File Table:
-
-Heap Table:
-1 --> 22
--------------------------
--------------------------
-Program ID: 17
-Execution Stack:
-fork((heapWrite(a, 30); (v = 32; (print(v); print(readHeap(a))))))
-(print(v); print(readHeap(a)))
-Symbols Table:
-a --> (1, int)
-v --> 10
-Out List:
-
-File Table:
-
-Heap Table:
-1 --> 22
--------------------------
--------------------------
-Program ID: 17
-Execution Stack:
-(print(v); print(readHeap(a)))
-Symbols Table:
-a --> (1, int)
-v --> 10
-Out List:
-
-File Table:
-
-Heap Table:
-1 --> 22
--------------------------
--------------------------
-Program ID: 18
-Execution Stack:
-(heapWrite(a, 30); (v = 32; (print(v); print(readHeap(a)))))
 Symbols Table:
 a --> (1, int)
 v --> 10
@@ -356,64 +187,6 @@ Heap Table:
 -------------------------
 Program ID: 17
 Execution Stack:
-print(v)
-print(readHeap(a))
-Symbols Table:
-a --> (1, int)
-v --> 10
-Out List:
-
-File Table:
-
-Heap Table:
-1 --> 22
--------------------------
--------------------------
-Program ID: 18
-Execution Stack:
-heapWrite(a, 30)
-(v = 32; (print(v); print(readHeap(a))))
-Symbols Table:
-a --> (1, int)
-v --> 10
-Out List:
-
-File Table:
-
-Heap Table:
-1 --> 22
--------------------------
--------------------------
-Program ID: 17
-Execution Stack:
-print(readHeap(a))
-Symbols Table:
-a --> (1, int)
-v --> 10
-Out List:
-10
-File Table:
-
-Heap Table:
-1 --> 30
--------------------------
--------------------------
-Program ID: 18
-Execution Stack:
-(v = 32; (print(v); print(readHeap(a))))
-Symbols Table:
-a --> (1, int)
-v --> 10
-Out List:
-10
-File Table:
-
-Heap Table:
-1 --> 30
--------------------------
--------------------------
-Program ID: 17
-Execution Stack:
 print(readHeap(a))
 Symbols Table:
 a --> (1, int)
@@ -473,37 +246,6 @@ Heap Table:
 -------------------------
 Program ID: 18
 Execution Stack:
-v = 32
-(print(v); print(readHeap(a)))
-Symbols Table:
-a --> (1, int)
-v --> 10
-Out List:
-10
-30
-File Table:
-
-Heap Table:
-1 --> 30
--------------------------
--------------------------
-Program ID: 18
-Execution Stack:
-(print(v); print(readHeap(a)))
-Symbols Table:
-a --> (1, int)
-v --> 32
-Out List:
-10
-30
-File Table:
-
-Heap Table:
-1 --> 30
--------------------------
--------------------------
-Program ID: 18
-Execution Stack:
 (print(v); print(readHeap(a)))
 Symbols Table:
 a --> (1, int)
@@ -527,38 +269,6 @@ v --> 32
 Out List:
 10
 30
-File Table:
-
-Heap Table:
-1 --> 30
--------------------------
--------------------------
-Program ID: 18
-Execution Stack:
-print(v)
-print(readHeap(a))
-Symbols Table:
-a --> (1, int)
-v --> 32
-Out List:
-10
-30
-File Table:
-
-Heap Table:
-1 --> 30
--------------------------
--------------------------
-Program ID: 18
-Execution Stack:
-print(readHeap(a))
-Symbols Table:
-a --> (1, int)
-v --> 32
-Out List:
-10
-30
-32
 File Table:
 
 Heap Table:

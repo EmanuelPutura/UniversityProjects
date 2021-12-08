@@ -1,3 +1,7 @@
+#||
+    d) Write a function to return the sum of all numerical atoms in a list at superficial level. 
+||#
+
 ; numSum(list - list)
 ; numSum(l1l2...ln) = 0, if n = 0
 ; 					= l1 + numSum(l2...ln), if l1 is a number

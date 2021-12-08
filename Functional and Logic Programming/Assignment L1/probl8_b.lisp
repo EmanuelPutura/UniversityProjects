@@ -1,3 +1,7 @@
+#||
+    b) Write a function to reverse a list with its all sublists, on all levels. 
+||#
+
 ; method 1 mathematical model
 ; reverseList(list - list)
 ; reverseList(l1l2...ln) = the empty set, if n = 0 or if l1l2...ln is an atom
@@ -24,4 +28,4 @@
   (reverseList list ())
 )
 
-; test: (reverselistmain '(1 2 (3 (4 5) (6 7)) 8 (9 10 11)))
+; test: (reverselistmain '(1 2 (3 (4 5) (6 7)) 8 (9 10 11))) => ((11 10 9) 8 ((7 6) (5 4) 3) 2 1)
