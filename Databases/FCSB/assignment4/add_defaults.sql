@@ -32,13 +32,6 @@ GO
 DROP PROCEDURE IF EXISTS insertIntoTables;
 GO
 
-DELETE FROM Tables;
-DELETE FROM Views;
-DELETE FROM Tests;
-DELETE FROM TestViews;
-DELETE FROM TestTables;
-GO
-
 CREATE PROCEDURE insertIntoTables AS
 	INSERT INTO Tables (Name)
 	VALUES ('FieldPositions');

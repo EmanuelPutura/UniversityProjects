@@ -3,6 +3,9 @@
 		- select all trophies won by having 4-3-3 as the most played formation
 */
 
+USE FCSB;
+GO
+
 CREATE OR ALTER VIEW BestFormation
 AS
 	SELECT * FROM Trophies

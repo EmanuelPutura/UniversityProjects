@@ -415,6 +415,50 @@ GO
 
 --------------------------------------------------------
 
+DROP PROCEDURE IF EXISTS addAndTest;
+GO
+
+CREATE PROCEDURE addAndTest (@test_name NVARCHAR(MAX), @table_name NVARCHAR(MAX), @rows_no INT, @position INT, @view_name NVARCHAR(MAX))
+AS
+BEGIN
+	SET NOCOUNT ON;
+	DECLARE @table_id INT = -1;
+	DECLARE @view_id  INT = -1;
+	DECLARE @test_id  INT = -1;
+
+	SELECT @table_id = TableID FROM Tables
+	WHERE Name = @table_name;
+
+	SELECT @view_id = ViewID FROM Views
+	WHERE Name = @view_name;
+
+	IF @table_id = -1
+	BEGIN
+		RAISERROR('Invalid table name!', 10, 1);
+		RETURN
+	END
+
+	IF @view_id = -1
+	BEGIN
+		RAISERROR('Invalid table name!', 10, 1);
+		RETURN
+	END
+
+	INSERT INTO Tests (Name)
+	VALUES (@test_name);
+
+	SELECT @test_id = TestID FROM Tests
+	WHERE Name = @test_name;
+
+	EXEC associateTestWithTable @test_id, @table_id, @rows_no, @position;
+	EXEC associateTestWithView @test_id, @view_id;
+	
+	EXEC runSingleTest @test_id;
+	PRINT '...executing single test ' + CONVERT(NVARCHAR(MAX), @test_id);
+	SET NOCOUNT OFF;
+END
+GO
+
 DROP PROCEDURE IF EXISTS runAllTests;
 GO
 
@@ -447,4 +491,10 @@ END
 GO
 
 EXEC runAllTests;
+GO
+
+EXEC addAndTest 'Testing table (PlayerHasPosition) and view (BestFormation)', 'PlayerHasPosition', 100, 2, 'BestFormation';
+GO
+
 PRINT 'All tests done!';
+GO

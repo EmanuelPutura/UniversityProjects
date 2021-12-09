@@ -1,3 +1,14 @@
+USE FCSB;
+
+DROP TABLE IF EXISTS TestTables;
+DROP TABLE IF EXISTS TestRunTables;
+DROP TABLE IF EXISTS dbo.Tables;
+
+DROP TABLE IF EXISTS TestRunViews;
+DROP TABLE IF EXISTS TestRuns;
+DROP TABLE IF EXISTS TestViews;
+DROP TABLE IF EXISTS Views;
+
 if exists (select * from dbo.sysobjects where id = object_id(N'[FK_TestRunTables_Tables]') and OBJECTPROPERTY(id, N'IsForeignKey') = 1)
 
 ALTER TABLE [TestRunTables] DROP CONSTRAINT FK_TestRunTables_Tables
