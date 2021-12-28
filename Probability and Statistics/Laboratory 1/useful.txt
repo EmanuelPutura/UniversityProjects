@@ -1,0 +1,2 @@
+https://en.wikibooks.org/wiki/Octave_Programming_Tutorial/Vectors_and_matrices
+https://octave.sourceforge.io/octave/function/plot.html
