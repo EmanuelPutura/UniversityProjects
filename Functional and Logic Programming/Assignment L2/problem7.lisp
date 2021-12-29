@@ -6,6 +6,15 @@
     cddr(x) = cdr(cdr(x))
 ||#
 
+
+#||
+    chooseLevel1(lvl1, lvl2) = -1,       if lvl1 = lvl2 = -1
+                             = lvl2 + 1, if lvl1 = -1
+                             = lvl1 + 1, if lvl2 = -1
+                             = lvl1 + 1, if (lvl1 < lvl2)
+                             = lvl2 + 1, otherwise
+||#
+
 (defun chooseLevel1 (lvl1 lvl2)
     (cond
         ((and (= lvl1 -1) (= lvl2 -1)) -1)
@@ -16,6 +25,12 @@
     )
 )
 
+#||
+    rightSubtreeHelper(t - list, vtx - number, edges - number)
+    rightSubtreeHelper(t1t2...tn, vtx, edges) = the empty set, if n = 0
+                                              = t1t2...tn, if vtx = edges + 1
+                                              = rightSubtreeHelper(t3...tn, vtx + 1, edges + t2), otherwise
+||#
 (defun rightSubtreeHelper (tree vtx edges)
     (cond
         ((null tree) nil)
@@ -24,10 +39,31 @@
     )
 )
 
+#||
+    rightSubtree(t1t2...tn) = rightSubtreeHelper(t3...tn, 0, 0)
+||#
 (defun rightSubtree (tree)
     (rightSubtreeHelper (cddr tree) 0 0)
 )
 
+#||
+    callAndBind(x1x2, node) = level1(x2, node, 0, 0)
+||#
+(defun callAndBind (x node)
+    (setq y (level1 (cadr x) node 0 0))
+    y
+)
+
+#||
+    level1(t - list, node - atom, vtx - number, edges - number)
+    level1(t1t2...tn, node, vtx, edges) = {-1, {}}, if n = 0
+                                        = {0, rightSubtree(t1t2...tn)}, if t1 = node
+                                        = {-1, t1t2...tn}, if vtx = edges + 1
+                                        = {-1, t3...tn}, if t2 = 0
+                                        = {chooseLevel1(-1, r1), r2}, where r1r2 = level1(t3...tn, node, vtx + 1, edges + 1), if t2 = 1
+                                        = {chooseLevel(x1, cb1), y2}, where 
+                                            x1x2 = level1(t3...tn, node, 0, 0) and y1y2 = callAndBind(x, node), otherwise (if t2 = 2)
+||#
 (defun level1 (tree node vtx edges)
     (cond
         ((null tree) (list -1 nil))
@@ -44,11 +80,6 @@
             ;(list (chooseLevel1 (car (level1 (cddr tree) node 0 0)) (car (level1 (cadr (level1 (cddr tree) node 0 0)) node 0 0))) (cadr (level1 (cadr (level1 (cddr tree) node 0 0)) node 0 0)))
         )
     )
-)
-
-(defun callAndBind (x node)
-    (setq y (level1 (cadr x) node 0 0))
-    y
 )
 
 (defun level1Main (tree node)
