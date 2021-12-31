@@ -56,7 +56,7 @@
 
 #||
     level1(t - list, node - atom, vtx - number, edges - number)
-    level1(t1t2...tn, node, vtx, edges) = {-1, {}}, if n = 0
+    level1(t1t2...tn, node, vtx, edges) = {-1, the empty set}, if n = 0
                                         = {0, rightSubtree(t1t2...tn)}, if t1 = node
                                         = {-1, t1t2...tn}, if vtx = edges + 1
                                         = {-1, t3...tn}, if t2 = 0
