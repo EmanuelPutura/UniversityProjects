@@ -5,6 +5,8 @@ import Model.DataStructures.IADTHeapDictionary;
 import Model.Exceptions.DivisionByZeroException;
 import Model.Exceptions.ExpressionException;
 import Model.Types.BoolType;
+import Model.Types.IType;
+import Model.Types.IntType;
 import Model.Values.BoolValue;
 import Model.Values.IValue;
 
@@ -41,6 +43,18 @@ public class LogicalExpression implements IExpression {
         }
         else
             throw new ExpressionException("First operand is not a boolean value!");
+    }
+
+    @Override
+    public IType typeCheck(IADTDictionary<String, IType> type_env) throws ExpressionException {
+        IType type1 = left.typeCheck(type_env);
+        IType type2 = right.typeCheck(type_env);
+
+        if (type1.equals(new BoolType()))
+            if (type2.equals(new BoolType()))
+                return new BoolType();
+            else throw new ExpressionException(String.format("The second operand of expression '%s' is not a boolean!", toString()));
+        else throw new ExpressionException(String.format("The first operand of expression '%s' is not a boolean!", toString()));
     }
 
     @Override

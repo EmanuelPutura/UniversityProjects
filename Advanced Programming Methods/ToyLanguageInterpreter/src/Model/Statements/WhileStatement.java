@@ -1,5 +1,6 @@
 package Model.Statements;
 
+import Model.DataStructures.IADTDictionary;
 import Model.DataStructures.IADTStack;
 import Model.Exceptions.DivisionByZeroException;
 import Model.Exceptions.ExpressionException;
@@ -8,8 +9,11 @@ import Model.Exceptions.UndeclaredVariableException;
 import Model.Expressions.IExpression;
 import Model.Program.ProgramState;
 import Model.Types.BoolType;
+import Model.Types.IType;
 import Model.Values.BoolValue;
 import Model.Values.IValue;
+
+import javax.swing.plaf.nimbus.State;
 
 public class WhileStatement implements IStatement {
     private IExpression while_expression;
@@ -40,6 +44,19 @@ public class WhileStatement implements IStatement {
         }
 
         return null;
+    }
+
+    @Override
+    public IADTDictionary<String, IType> typeCheck(IADTDictionary<String, IType> type_env) throws StatementException {
+        try {
+            IType exp_type = while_expression.typeCheck(type_env);
+            if (!exp_type.equals(new BoolType()))
+                throw new StatementException(String.format("The while condition from the statement '%s' must have boolean type!", toString()));
+            statement.typeCheck(type_env.deepCopy());
+            return type_env;
+        } catch (ExpressionException e) {
+            throw new StatementException(e.getMessage());
+        }
     }
 
     @Override

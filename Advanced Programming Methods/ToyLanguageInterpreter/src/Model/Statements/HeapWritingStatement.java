@@ -5,6 +5,7 @@ import Model.DataStructures.IADTHeapDictionary;
 import Model.Exceptions.*;
 import Model.Expressions.IExpression;
 import Model.Program.ProgramState;
+import Model.Types.IType;
 import Model.Types.ReferenceType;
 import Model.Values.IValue;
 import Model.Values.ReferenceValue;
@@ -48,6 +49,20 @@ public class HeapWritingStatement implements IStatement {
         }
 
         return null;
+    }
+
+    @Override
+    public IADTDictionary<String, IType> typeCheck(IADTDictionary<String, IType> type_env) throws StatementException {
+        try {
+            IType var_type = type_env.get(variable_name);
+            IType exp_type = expression.typeCheck(type_env);
+
+            if (var_type.equals(new ReferenceType(exp_type)))
+                return type_env;
+            throw new StatementException(String.format("Types in statement '%s' do not match!", toString()));
+        } catch (DictionaryException | ExpressionException e) {
+            throw new StatementException(e.getMessage());
+        }
     }
 
     @Override

@@ -33,6 +33,16 @@ public class DeclarationStatement implements IStatement {
     }
 
     @Override
+    public IADTDictionary<String, IType> typeCheck(IADTDictionary<String, IType> type_env) throws StatementException {
+        try {
+            type_env.put(label, type);
+            return type_env;
+        } catch (DictionaryException e) {
+            throw new StatementException(e.getMessage());
+        }
+    }
+
+    @Override
     public IStatement deepCopy() {
         return new DeclarationStatement(label, type);
     }

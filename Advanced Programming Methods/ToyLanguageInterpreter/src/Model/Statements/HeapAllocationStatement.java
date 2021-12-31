@@ -51,6 +51,20 @@ public class HeapAllocationStatement implements IStatement {
     }
 
     @Override
+    public IADTDictionary<String, IType> typeCheck(IADTDictionary<String, IType> type_env) throws StatementException {
+        try {
+            IType exp_type = expression.typeCheck(type_env);
+            IType var_type = type_env.get(variable_name);
+
+            if (var_type.equals(new ReferenceType(exp_type)))
+                return type_env;
+            throw new StatementException(String.format("Left and right hand-sides in the statement '%s' have different types!", toString()));
+        } catch (ExpressionException | DictionaryException e) {
+            throw new StatementException(e.getMessage());
+        }
+    }
+
+    @Override
     public IStatement deepCopy() {
         return new HeapAllocationStatement(variable_name, expression);
     }

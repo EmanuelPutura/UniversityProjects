@@ -39,6 +39,19 @@ public class AssignmentStatement implements IStatement {
     }
 
     @Override
+    public IADTDictionary<String, IType> typeCheck(IADTDictionary<String, IType> type_env) throws StatementException {
+        try {
+            IType var_type = type_env.get(label);
+            IType exp_type = expression.typeCheck(type_env);
+            if (var_type.equals(exp_type))
+                return type_env;
+            throw new StatementException(String.format("Assignment error: left and right hand-side of expression '%s' have different types!", toString()));
+        } catch (DictionaryException | ExpressionException e) {
+            throw new StatementException(e.getMessage());
+        }
+    }
+
+    @Override
     public IStatement deepCopy() {
         return new AssignmentStatement(label, expression);
     }

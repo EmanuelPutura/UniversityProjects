@@ -5,6 +5,8 @@ import Model.DataStructures.IADTHeapDictionary;
 import Model.Exceptions.DictionaryException;
 import Model.Exceptions.DivisionByZeroException;
 import Model.Exceptions.ExpressionException;
+import Model.Types.IType;
+import Model.Types.ReferenceType;
 import Model.Values.IValue;
 import Model.Values.ReferenceValue;
 
@@ -35,6 +37,14 @@ public class HeapReadingExpression implements IExpression {
         }
 
         return value;
+    }
+
+    @Override
+    public IType typeCheck(IADTDictionary<String, IType> type_env) throws ExpressionException {
+        IType type = expression.typeCheck(type_env);
+        if (type instanceof ReferenceType ref_type)
+            return ((ReferenceType) ref_type).getLocationType();
+        throw new ExpressionException(String.format("The argument of heapRead() from expression '%s' is not a reference type!", toString()));
     }
 
     @Override

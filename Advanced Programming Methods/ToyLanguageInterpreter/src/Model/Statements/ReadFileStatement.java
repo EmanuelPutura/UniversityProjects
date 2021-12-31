@@ -4,6 +4,7 @@ import Model.DataStructures.IADTDictionary;
 import Model.Exceptions.*;
 import Model.Expressions.IExpression;
 import Model.Program.ProgramState;
+import Model.Types.IType;
 import Model.Types.IntType;
 import Model.Types.StringType;
 import Model.Values.IValue;
@@ -58,6 +59,23 @@ public class ReadFileStatement implements IStatement {
         }
 
         return null;
+    }
+
+    @Override
+    public IADTDictionary<String, IType> typeCheck(IADTDictionary<String, IType> type_env) throws StatementException {
+        try {
+            IType exp_type = expression.typeCheck(type_env);
+            IType var_type = type_env.get(variable_name);
+
+            if (!exp_type.equals(new StringType()))
+                throw new StatementException(String.format("Expression in statement '%s' must be a string!", toString()));
+            if (!var_type.equals(new IntType()))
+                throw new StatementException(String.format("Type of variable in statement '%s' must be integer!", toString()));
+
+            return type_env;
+        } catch (ExpressionException | DictionaryException e) {
+            throw new StatementException(e.getMessage());
+        }
     }
 
     @Override

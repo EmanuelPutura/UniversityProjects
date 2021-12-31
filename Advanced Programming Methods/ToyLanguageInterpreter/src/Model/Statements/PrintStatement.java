@@ -8,6 +8,7 @@ import Model.Exceptions.ExpressionException;
 import Model.Exceptions.StatementException;
 import Model.Expressions.IExpression;
 import Model.Program.ProgramState;
+import Model.Types.IType;
 import Model.Values.IValue;
 
 public class PrintStatement implements IStatement {
@@ -26,6 +27,17 @@ public class PrintStatement implements IStatement {
             throw new StatementException(exception.getMessage());
         }
         return null;
+    }
+
+    @Override
+    public IADTDictionary<String, IType> typeCheck(IADTDictionary<String, IType> type_env) throws StatementException {
+        try {
+            expression.typeCheck(type_env);
+            return type_env;
+        } catch (ExpressionException e) {
+            throw new StatementException(e.getMessage());
+        }
+
     }
 
     @Override

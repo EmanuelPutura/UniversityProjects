@@ -1,12 +1,15 @@
 package Model.Statements;
 
+import Model.DataStructures.IADTDictionary;
 import Model.Exceptions.*;
 import Model.Expressions.IExpression;
 import Model.Program.ProgramState;
+import Model.Types.IType;
 import Model.Types.StringType;
 import Model.Values.IValue;
 import Model.Values.StringValue;
 
+import javax.swing.plaf.nimbus.State;
 import java.io.BufferedReader;
 import java.io.IOException;
 
@@ -37,6 +40,18 @@ public class CloseRFileStatement implements IStatement {
         }
 
         return null;
+    }
+
+    @Override
+    public IADTDictionary<String, IType> typeCheck(IADTDictionary<String, IType> type_env) throws StatementException {
+        try {
+            IType type = expression.typeCheck(type_env);
+            if (type.equals(new StringType()))
+                return type_env;
+            throw new StatementException(String.format("Expression from statement '%s' must have string type!", toString()));
+        } catch (ExpressionException e) {
+            throw new StatementException(e.getMessage());
+        }
     }
 
     @Override

@@ -1,8 +1,10 @@
 package Model.Statements;
 
+import Model.DataStructures.IADTDictionary;
 import Model.Exceptions.*;
 import Model.Expressions.IExpression;
 import Model.Program.ProgramState;
+import Model.Types.IType;
 import Model.Types.StringType;
 import Model.Values.IValue;
 import Model.Values.StringValue;
@@ -40,6 +42,18 @@ public class OpenRFileStatement implements IStatement {
             throw new StatementException(error.getMessage());
         }
         return null;
+    }
+
+    @Override
+    public IADTDictionary<String, IType> typeCheck(IADTDictionary<String, IType> type_env) throws StatementException {
+        try {
+            IType type = expression.typeCheck(type_env);
+            if (type.equals(new StringType()))
+                return type_env;
+            throw new StatementException(String.format("Expression in statement '%s' is not a string!", toString()));
+        } catch (ExpressionException e) {
+            throw new StatementException(e.getMessage());
+        }
     }
 
     @Override
