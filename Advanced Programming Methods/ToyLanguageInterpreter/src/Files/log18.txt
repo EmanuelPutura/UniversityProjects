@@ -1,0 +1,158 @@
+-------------------------
+Program ID: 18
+Execution Stack:
+(int v; v = 2; print(v))
+(int a; a = v + hey; print(a))
+Symbols Table:
+
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 18
+Execution Stack:
+int v
+(v = 2; print(v))
+(int a; a = v + hey; print(a))
+Symbols Table:
+
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 18
+Execution Stack:
+(v = 2; print(v))
+(int a; a = v + hey; print(a))
+Symbols Table:
+v --> 0
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 18
+Execution Stack:
+v = 2
+print(v)
+(int a; a = v + hey; print(a))
+Symbols Table:
+v --> 0
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 18
+Execution Stack:
+print(v)
+(int a; a = v + hey; print(a))
+Symbols Table:
+v --> 2
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 18
+Execution Stack:
+(int a; a = v + hey; print(a))
+Symbols Table:
+v --> 2
+Out List:
+2
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 18
+Execution Stack:
+(int a; a = v + hey)
+print(a)
+Symbols Table:
+v --> 2
+Out List:
+2
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 18
+Execution Stack:
+int a
+a = v + hey
+print(a)
+Symbols Table:
+v --> 2
+Out List:
+2
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 18
+Execution Stack:
+a = v + hey
+print(a)
+Symbols Table:
+a --> 0
+v --> 2
+Out List:
+2
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 18
+Execution Stack:
+print(a)
+Symbols Table:
+a --> 0
+v --> 2
+Out List:
+2
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 18
+Execution Stack:
+
+Symbols Table:
+a --> 0
+v --> 2
+Out List:
+2
+0
+File Table:
+
+Heap Table:
+
+-------------------------

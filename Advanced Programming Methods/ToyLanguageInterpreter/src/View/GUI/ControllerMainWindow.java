@@ -2,6 +2,7 @@ package View.GUI;
 
 import Controller.Controller;
 import Controller.ControllerException;
+import Model.Exceptions.ProgramException;
 import Model.Program.ProgramState;
 import Model.Statements.IStatement;
 import Model.Values.IValue;
@@ -60,6 +61,9 @@ public class ControllerMainWindow {
     @FXML
     private ListView<IStatement> stack_list_view;
 
+    @FXML
+    private TextField programs_text_field;
+
     public void setController(Controller controller) {
         this.controller = controller;
 
@@ -73,9 +77,15 @@ public class ControllerMainWindow {
         try {
             controller.oneStepForAllPrograms(controller.removeCompletedPrograms(controller.getRepository().getProgramStateList()));
             applyRepositoryModifications();
+            programs_text_field.setText("Number of ProgramStates: " + Integer.toString(controller.getRepository().getProgramStateList().size()));
         } catch (ControllerException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("A ControllerException occurred!!");
+            alert.setTitle("A ControllerException occurred!");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("An unknown exception occurred!");
             alert.setHeaderText(e.getMessage());
             alert.showAndWait();
         }

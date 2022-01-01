@@ -8,21 +8,22 @@
     <padding>
         <Insets bottom="10.0" left="25.0" right="25.0" top="25.0" />
     </padding>
-    <TableView fx:id="heap_table_view" accessibleRole="IMAGE_VIEW" editable="true" prefHeight="400.0" prefWidth="200.0" GridPane.rowIndex="0" GridPane.columnIndex="0">
+    <TableView fx:id="heap_table_view" accessibleRole="IMAGE_VIEW" editable="true" prefHeight="400.0" prefWidth="200.0" GridPane.rowIndex="1" GridPane.columnIndex="0">
         <columns>
             <TableColumn fx:id="heap_address_column" prefWidth="100.0" text="Address"/>
             <TableColumn fx:id="heap_value_column" prefWidth="100.0" text="Value"/>
         </columns>
     </TableView>
-    <ListView fx:id="out_list_view" editable="true" prefHeight="400.0" prefWidth="100.0" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
-    <ListView fx:id="file_list_view" editable="true" prefHeight="400.0" prefWidth="100.0" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
-    <ListView fx:id="programs_list_view" editable="true" prefHeight="400.0" prefWidth="100.0" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+    <ListView fx:id="out_list_view" editable="true" prefHeight="400.0" prefWidth="100.0" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+    <ListView fx:id="file_list_view" editable="true" prefHeight="400.0" prefWidth="100.0" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+    <ListView fx:id="programs_list_view" editable="true" prefHeight="400.0" prefWidth="100.0" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
     <TableView fx:id="sym_table_view" accessibleRole="IMAGE_VIEW" editable="true" prefHeight="400.0" prefWidth="200.0" GridPane.rowIndex="0" GridPane.columnIndex="4">
         <columns>
             <TableColumn fx:id="sym_var_column" prefWidth="100.0" text="Variable"/>
             <TableColumn fx:id="sym_value_column" prefWidth="100.0" text="Value"/>
         </columns>
     </TableView>
-    <ListView fx:id="stack_list_view" editable="true" prefHeight="400.0" prefWidth="200.0" GridPane.rowIndex="0" GridPane.columnIndex="5"/>
-    <Button mnemonicParsing="false" onAction="#handleRunOneStepButton" prefHeight="40" prefWidth="200" text="Run One Step" GridPane.rowIndex="1" GridPane.columnIndex="5"/>
+    <ListView fx:id="stack_list_view" editable="true" prefHeight="400.0" prefWidth="200.0" GridPane.rowIndex="1" GridPane.columnIndex="5"/>
+    <TextField fx:id="programs_text_field" GridPane.rowIndex="2" GridPane.columnIndex="4" editable="false" text="Number of ProgramStates: 1"/>
+    <Button mnemonicParsing="false" onAction="#handleRunOneStepButton" prefHeight="40" prefWidth="200" text="Run One Step" GridPane.rowIndex="2" GridPane.columnIndex="5"/>
 </GridPane>
