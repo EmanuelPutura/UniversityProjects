@@ -78,6 +78,10 @@ public class ProgramState {
         heap_table = other;
     }
 
+    public int programID() {
+        return id;
+    }
+
     public Boolean isNotCompleted() {
         return !execution_stack.empty();
     }

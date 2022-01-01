@@ -13,4 +13,12 @@ public interface IStatement {
 
     @Override
     String toString();
+
+    /*
+        All statements but for CompoundStatement return the normal result from the toString() method.
+        When applied for a CompoundStatements, toPresentationString() returns (toString()), in order to highlight the structure of all compounds statements blocks.
+     */
+    default String toPresentationString() {
+        return toString();
+    }
 }

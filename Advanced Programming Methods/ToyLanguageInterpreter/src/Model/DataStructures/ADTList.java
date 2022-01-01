@@ -70,6 +70,11 @@ public class ADTList<E> implements IADTList<E> {
     }
 
     @Override
+    public List<E> getInnerList() {
+        return list;
+    }
+
+    @Override
     public String toString() {
         StringBuilder return_string = new StringBuilder("ADTList: [");
         if (list.isEmpty())

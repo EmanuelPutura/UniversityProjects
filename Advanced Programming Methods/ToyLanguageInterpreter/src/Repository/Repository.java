@@ -13,6 +13,7 @@ import java.util.List;
 public class Repository implements IRepository {
     private List<ProgramState> program_states;
     private String logFilePath;
+    private ProgramState initial_state;
 
     public Repository() {
         this.program_states = new ArrayList<ProgramState>();
@@ -28,10 +29,15 @@ public class Repository implements IRepository {
         }
     }
 
+    public ProgramState getInitialProgramState() {
+        return initial_state;
+    }
+
     public Repository(ProgramState initial_state, String logFilePath) {
         this.program_states = new ArrayList<ProgramState>();
         this.program_states.add(initial_state);
         this.logFilePath = logFilePath;
+        this.initial_state = initial_state;
 
         try(PrintWriter logFile = new PrintWriter(new BufferedWriter(new FileWriter(logFilePath, false)))) {
             logFile.write("");

@@ -56,13 +56,14 @@ public class Controller {
 
     public void oneStepForAllPrograms(List<ProgramState> programs) throws ControllerException {
         // before the execution, print the ProgramState list into the log file
-        for (ProgramState program : programs) {
-            try {
-                repository.logProgramStateExec(program);
-            } catch (RepositoryException error) {
-                throw new ControllerException(error.getMessage());
-            }
-        }
+
+//        for (ProgramState program : programs) {
+//            try {
+//                repository.logProgramStateExec(program);
+//            } catch (RepositoryException error) {
+//                throw new ControllerException(error.getMessage());
+//            }
+//        }
 
         // run concurrently one step for each of the existing PrgStates
         // prepare the list of callables
@@ -71,8 +72,11 @@ public class Controller {
                 .collect(Collectors.toList());
 
         // start the execution of the callables
-        // returns the lis of newly created ProgramStates (namely threads)
+        // returns the list of newly created ProgramStates (namely threads)
         try {
+            if (executor == null)
+                executor = Executors.newFixedThreadPool(2);
+
             List<ProgramState> new_programs_list = executor.invokeAll(call_list).stream()
                     .map(future -> {
                         try {
@@ -142,9 +146,13 @@ public class Controller {
         repository.setProgramStateList(programs);
     }
 
-    List<ProgramState> removeCompletedPrograms(List<ProgramState> input_programs) {
+    public List<ProgramState> removeCompletedPrograms(List<ProgramState> input_programs) {
         return input_programs.stream()
                 .filter(ProgramState::isNotCompleted)
                 .collect(Collectors.toList());
+    }
+
+    public IRepository getRepository() {
+        return this.repository;
     }
 }

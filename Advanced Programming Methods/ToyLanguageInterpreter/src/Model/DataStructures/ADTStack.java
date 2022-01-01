@@ -2,6 +2,7 @@ package Model.DataStructures;
 
 import Model.Exceptions.EmptyStackException;
 import Model.Exceptions.StackException;
+import Model.Statements.IStatement;
 
 import java.util.Stack;
 
@@ -86,7 +87,10 @@ public class ADTStack<E> implements IADTStack<E> {
 
         Stack<E> stack_copy = new Stack<E>();
         while (!stack.isEmpty()) {
-            return_string.append(stack.peek().toString()).append('\n');
+            if (stack.peek() instanceof IStatement)
+                return_string.append(((IStatement) stack.peek()).toPresentationString()).append('\n');
+            else
+                return_string.append(stack.peek().toString()).append('\n');
             stack_copy.push(stack.pop());
         }
 

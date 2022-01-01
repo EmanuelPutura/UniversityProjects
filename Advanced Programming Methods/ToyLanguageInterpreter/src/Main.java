@@ -18,27 +18,19 @@ import View.Console.RunExampleCommand;
 import View.Console.TextMenu;
 import View.GUI.ControllerSelectWindow;
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.Stack;
-
-record ProgramWrapper(IStatement statement, Controller controller) {
-}
 
 public class Main extends Application {
-    private static List<ProgramWrapper> programs = new ArrayList<ProgramWrapper>();
+    private static List<Controller> controllers = new ArrayList<Controller>();
 
     private static String[] readFilePaths(int files_cnt) {
         String[] file_paths = new String[files_cnt];
@@ -91,6 +83,7 @@ public class Main extends Application {
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st1);
         Repository repository1 = new Repository(program_state1, file_paths[0]);
         Controller controller1 = new Controller(repository1);
+        controllers.add(controller1);
 
         // int a; int b; a = 2 + 3 * 5; b = a + 1; print(b);
         IStatement st2 = new CompoundStatement(new DeclarationStatement("a", new IntType()), new CompoundStatement(new DeclarationStatement("b", new IntType()),
@@ -102,6 +95,7 @@ public class Main extends Application {
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st2);
         Repository repository2 = new Repository(program_state2, file_paths[1]);
         Controller controller2 = new Controller(repository2);
+        controllers.add(controller2);
 
         // bool a; int v; a = true; (If a Then v = 2 Else v = 3); print(v);
         IStatement st3 = new CompoundStatement(new DeclarationStatement("a", new BoolType()), new CompoundStatement(new DeclarationStatement("v", new IntType()),
@@ -113,6 +107,7 @@ public class Main extends Application {
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st3);
         Repository repository3 = new Repository(program_state3, file_paths[2]);
         Controller controller3 = new Controller(repository3);
+        controllers.add(controller3);
 
         // int v; v = 2; print(v); int a; a = v + 2; print(a);
         IStatement st4 = new CompoundStatement(st1, new CompoundStatement(new CompoundStatement(new DeclarationStatement("a", new IntType()), new AssignmentStatement("a",
@@ -122,6 +117,7 @@ public class Main extends Application {
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st4);
         Repository repository4 = new Repository(program_state4, file_paths[3]);
         Controller controller4 = new Controller(repository4);
+        controllers.add(controller4);
 
         // int a; a = 2; int b; b = -5; print(a - b);
         IStatement st5 = new CompoundStatement(new CompoundStatement(new CompoundStatement(new DeclarationStatement("a", new IntType()), new AssignmentStatement("a", new ValueExpression(
@@ -132,6 +128,7 @@ public class Main extends Application {
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st5);
         Repository repository5 = new Repository(program_state5, file_paths[4]);
         Controller controller5 = new Controller(repository5);
+        controllers.add(controller5);
 
         // int a; a = 2; int b; b = 0; print(a / b);
         IStatement st6 = new CompoundStatement(new CompoundStatement(new CompoundStatement(new DeclarationStatement("a", new IntType()), new AssignmentStatement("a", new ValueExpression(
@@ -142,6 +139,7 @@ public class Main extends Application {
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st6);
         Repository repository6 = new Repository(program_state6, file_paths[5]);
         Controller controller6 = new Controller(repository6);
+        controllers.add(controller6);
 
         // string varf; varf = "test1.txt"; openRFile(varf); int varc; readFile(varf, varc); print(varc); readFile(varf, varc); print(varc); closeRFile(varf);
         IStatement st7 = new CompoundStatement(new DeclarationStatement("varf", new StringType()), new CompoundStatement(new AssignmentStatement("varf", new ValueExpression(new StringValue("test1.txt"))),
@@ -153,6 +151,7 @@ public class Main extends Application {
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st7);
         Repository repository7 = new Repository(program_state7, file_paths[6]);
         Controller controller7 = new Controller(repository7);
+        controllers.add(controller7);
 
         // int a; int v; a = 25; (If a >= 15 Then v = 2 Else v = 3); print(v);
         IStatement st8 = new CompoundStatement(new DeclarationStatement("a", new IntType()), new CompoundStatement(new DeclarationStatement("v", new IntType()),
@@ -164,6 +163,7 @@ public class Main extends Application {
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st8);
         Repository repository8 = new Repository(program_state8, file_paths[7]);
         Controller controller8 = new Controller(repository8);
+        controllers.add(controller8);
 
         // string file1; file1 = "test1.txt"; openRFile(file1); string file2; file2 = "test1.txt"; openRFile(file2);
         IStatement st9 = new CompoundStatement(new DeclarationStatement("file1", new StringType()), new CompoundStatement(new AssignmentStatement("file1", new ValueExpression(new StringValue("test1.txt"))),
@@ -174,6 +174,7 @@ public class Main extends Application {
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st9);
         Repository repository9 = new Repository(program_state9, file_paths[8]);
         Controller controller9 = new Controller(repository9);
+        controllers.add(controller9);
 
         // Ref(int) v; new(v, 20); Ref(Ref(int)) a; new(a, v); print(v); print(a);
         IStatement st10 = new CompoundStatement(new DeclarationStatement("v", new ReferenceType(new IntType())), new CompoundStatement(new HeapAllocationStatement("v", new ValueExpression(new IntValue(20))),
@@ -184,6 +185,7 @@ public class Main extends Application {
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st10);
         Repository repository10 = new Repository(program_state10, file_paths[9]);
         Controller controller10 = new Controller(repository10);
+        controllers.add(controller10);
 
         //  Ref(int) v; new(v, 20); Ref(Ref(int)) a; new(a, v); print(heapRead(v)); print(heapRead(heapRead(a)) + 5);
         IStatement st11 = new CompoundStatement(new DeclarationStatement("v", new ReferenceType(new IntType())), new CompoundStatement(new HeapAllocationStatement("v", new ValueExpression(new IntValue(20))),
@@ -195,6 +197,7 @@ public class Main extends Application {
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st11);
         Repository repository11 = new Repository(program_state11, file_paths[10]);
         Controller controller11 = new Controller(repository11);
+        controllers.add(controller11);
 
         // Ref(int) v; new(v, 20); print(heapRead(v)); heapWrite(v, 30); print(heapRead(v) + 5);
         IStatement st12 = new CompoundStatement(new DeclarationStatement("v", new ReferenceType(new IntType())), new CompoundStatement(new HeapAllocationStatement("v", new ValueExpression(new IntValue(20))),
@@ -205,6 +208,7 @@ public class Main extends Application {
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st12);
         Repository repository12 = new Repository(program_state12, file_paths[11]);
         Controller controller12 = new Controller(repository12);
+        controllers.add(controller12);
 
         // Ref(int) v; new(v, 20); Ref(Ref(int)) a; new(a, v); new(v, 30); print(heapRead(heapRead(a)));
         IStatement st13 = new CompoundStatement(new DeclarationStatement("v", new ReferenceType(new IntType())), new CompoundStatement(new HeapAllocationStatement("v", new ValueExpression(new IntValue(20))),
@@ -216,6 +220,7 @@ public class Main extends Application {
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st13);
         Repository repository13 = new Repository(program_state13, file_paths[12]);
         Controller controller13 = new Controller(repository13);
+        controllers.add(controller13);
 
         // Ref(int) v; new(v, 20); Ref(Ref(int)) a; new(a, v); new(v, 30); print(heapRead(heapRead(a)));
         IStatement st14 = new CompoundStatement(new DeclarationStatement("v", new ReferenceType(new IntType())), new CompoundStatement(new HeapAllocationStatement("v", new ValueExpression(new IntValue(20))),
@@ -227,6 +232,7 @@ public class Main extends Application {
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st14);
         Repository repository14 = new Repository(program_state14, file_paths[13]);
         Controller controller14 = new Controller(repository14);
+        controllers.add(controller14);
 
         // Ref(int) v; new(v, 20); Ref(Ref(int)) a; new(a, v); new(v, 30); print(heapRead(heapRead(a)));
         IStatement st15 = new CompoundStatement(new DeclarationStatement("v", new ReferenceType(new IntType())), new CompoundStatement(new HeapAllocationStatement("v", new ValueExpression(new IntValue(20))),
@@ -238,6 +244,7 @@ public class Main extends Application {
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st15);
         Repository repository15 = new Repository(program_state15, file_paths[14]);
         Controller controller15 = new Controller(repository15);
+        controllers.add(controller15);
 
         IStatement st16 = new CompoundStatement(new DeclarationStatement("i", new IntType()), new CompoundStatement(new AssignmentStatement("i", new ValueExpression(new IntValue(5))), new WhileStatement(new RelationalExpression(
                 new VariableExpression("i"), new ValueExpression(new IntValue(0)), ">"), new CompoundStatement(new PrintStatement(new VariableExpression("i")),
@@ -247,6 +254,7 @@ public class Main extends Application {
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st16);
         Repository repository16 = new Repository(program_state16, file_paths[15]);
         Controller controller16 = new Controller(repository16);
+        controllers.add(controller16);
 
         /*
             int v; Ref(int) a; v = 10; new(a, 22);
@@ -263,6 +271,7 @@ public class Main extends Application {
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st17);
         Repository repository17 = new Repository(program_state17, file_paths[16]);
         Controller controller17 = new Controller(repository17);
+        controllers.add(controller17);
 
         // int v; v = 2; print(v); int a; a = v + "hey"; print(a);
         IStatement st18 = new CompoundStatement(st1, new CompoundStatement(new CompoundStatement(new DeclarationStatement("a", new IntType()), new AssignmentStatement("a",
@@ -272,44 +281,18 @@ public class Main extends Application {
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st18);
         Repository repository18 = new Repository(program_state18, file_paths[17]);
         Controller controller18 = new Controller(repository18);
-
-        programs.add(new ProgramWrapper(st1, controller1));
-        programs.add(new ProgramWrapper(st2, controller2));
-        programs.add(new ProgramWrapper(st3, controller3));
-        programs.add(new ProgramWrapper(st4, controller4));
-        programs.add(new ProgramWrapper(st5, controller5));
-        programs.add(new ProgramWrapper(st6, controller6));
-        programs.add(new ProgramWrapper(st7, controller7));
-        programs.add(new ProgramWrapper(st8, controller8));
-        programs.add(new ProgramWrapper(st9, controller9));
-        programs.add(new ProgramWrapper(st10, controller10));
-        programs.add(new ProgramWrapper(st11, controller11));
-        programs.add(new ProgramWrapper(st12, controller12));
-        programs.add(new ProgramWrapper(st13, controller13));
-        programs.add(new ProgramWrapper(st14, controller14));
-        programs.add(new ProgramWrapper(st15, controller15));
-        programs.add(new ProgramWrapper(st16, controller16));
-        programs.add(new ProgramWrapper(st17, controller17));
-        programs.add(new ProgramWrapper(st18, controller18));
-    }
-
-    private static ObservableList<IStatement> convertProgramsToObservableList() {
-        ObservableList<IStatement> list = FXCollections.observableArrayList();
-        for (ProgramWrapper pw : programs)
-            list.add(pw.statement());
-
-        return list;
+        controllers.add(controller18);
     }
 
     private static void consoleLaunch(String[] args) {
         TextMenu menu = new TextMenu();
 
         menu.addCommand(new ExitCommand("0", "exit"));
-        for (var i = 1; i <= programs.size(); ++i) {
+        for (var i = 1; i <= controllers.size(); ++i) {
             String key = Integer.toString(i);
-            ProgramWrapper pw = programs.get(i - 1);
-            menu.addCommand(new RunExampleCommand(key, pw.statement().toString(), pw.controller()));
-            typeCheck(pw.statement());
+            IStatement statement = controllers.get(i - 1).getRepository().getInitialProgramState().getInitialStatement();
+            menu.addCommand(new RunExampleCommand(key, statement.toPresentationString(), controllers.get(i - 1)));
+            typeCheck(statement);
         }
 
         menu.show();
@@ -324,7 +307,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(new File("src/View/GUI/SelectWindow.fxml").toURI().toURL());
         StackPane root = (StackPane) loader.load();
         ControllerSelectWindow select_window_controller = loader.getController();
-        select_window_controller.setStatements(convertProgramsToObservableList());
+        select_window_controller.setPrograms(controllers);
 
         Scene scene = new Scene(root,400,150);
         scene.getStylesheets().add(new File("src/View/GUI/SelectWindow.css").toURI().toURL().toExternalForm());
@@ -337,7 +320,7 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         initPrograms();
-        // consoleLaunch(args);
+//        consoleLaunch(args);
         guiLaunch(args);
     }
 }
