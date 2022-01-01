@@ -3,7 +3,6 @@ import Model.DataStructures.ADTDictionary;
 import Model.DataStructures.ADTHeapDictionary;
 import Model.DataStructures.ADTList;
 import Model.DataStructures.ADTStack;
-import Model.Exceptions.DictionaryException;
 import Model.Exceptions.StatementException;
 import Model.Expressions.*;
 import Model.Program.ProgramState;
@@ -14,14 +13,22 @@ import Model.Values.IValue;
 import Model.Values.IntValue;
 import Model.Values.StringValue;
 import Repository.Repository;
-import View.ExitCommand;
-import View.RunExampleCommand;
-import View.TextMenu;
+import View.Console.ExitCommand;
+import View.Console.RunExampleCommand;
+import View.Console.TextMenu;
+import Repository.IRepository;
 
 import java.io.BufferedReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
+record ProgramWrapper(IStatement statement, Controller controller) {
+}
+
 public class Main {
+    private static List<ProgramWrapper> programs = new ArrayList<ProgramWrapper>();
+
     private static String[] readFilePaths(int files_cnt) {
         String[] file_paths = new String[files_cnt];
         Scanner scanner = new Scanner(System.in);
@@ -61,7 +68,7 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) {
+    private static void initPrograms() {
         int files_cnt = 18;
         String[] file_paths = getFilePaths(files_cnt);
 
@@ -69,7 +76,6 @@ public class Main {
         IStatement st1 = new CompoundStatement(new DeclarationStatement("v", new IntType()), new CompoundStatement(
                 new AssignmentStatement("v", new ValueExpression(new IntValue(2))), new PrintStatement(new VariableExpression("v"))));
 
-        typeCheck(st1);
         ProgramState program_state1 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st1);
         Repository repository1 = new Repository(program_state1, file_paths[0]);
@@ -81,7 +87,6 @@ public class Main {
                         new ValueExpression(new IntValue(3)), new ValueExpression(new IntValue(5)), '*'), '+')), new CompoundStatement(new AssignmentStatement("b",
                         new ArithmeticExpression(new VariableExpression("a"), new ValueExpression(new IntValue(1)), '+')), new PrintStatement(new VariableExpression("b"))))));
 
-        typeCheck(st2);
         ProgramState program_state2 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st2);
         Repository repository2 = new Repository(program_state2, file_paths[1]);
@@ -93,7 +98,6 @@ public class Main {
                         new VariableExpression("a"),new AssignmentStatement("v", new ValueExpression(new IntValue(2))), new AssignmentStatement("v", new ValueExpression(
                         new IntValue(3)))), new PrintStatement(new VariableExpression("v"))))));
 
-        typeCheck(st3);
         ProgramState program_state3 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st3);
         Repository repository3 = new Repository(program_state3, file_paths[2]);
@@ -103,7 +107,6 @@ public class Main {
         IStatement st4 = new CompoundStatement(st1, new CompoundStatement(new CompoundStatement(new DeclarationStatement("a", new IntType()), new AssignmentStatement("a",
                 new ArithmeticExpression(new VariableExpression("v"), new ValueExpression(new IntValue(2)), '+'))), new PrintStatement(new VariableExpression("a"))));
 
-        typeCheck(st4);
         ProgramState program_state4 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st4);
         Repository repository4 = new Repository(program_state4, file_paths[3]);
@@ -114,7 +117,6 @@ public class Main {
                 new IntValue(2)))), new CompoundStatement(new DeclarationStatement("b", new IntType()), new AssignmentStatement("b", new ValueExpression(new IntValue(-5))))), new PrintStatement(
                 new ArithmeticExpression(new VariableExpression("a"), new VariableExpression("b"), '+')));
 
-        typeCheck(st5);
         ProgramState program_state5 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st5);
         Repository repository5 = new Repository(program_state5, file_paths[4]);
@@ -125,7 +127,6 @@ public class Main {
                 new IntValue(2)))), new CompoundStatement(new DeclarationStatement("b", new IntType()), new AssignmentStatement("b", new ValueExpression(new IntValue(0))))), new PrintStatement(
                 new ArithmeticExpression(new VariableExpression("a"), new VariableExpression("b"), '/')));
 
-        typeCheck(st6);
         ProgramState program_state6 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st6);
         Repository repository6 = new Repository(program_state6, file_paths[5]);
@@ -134,10 +135,9 @@ public class Main {
         // string varf; varf = "test1.txt"; openRFile(varf); int varc; readFile(varf, varc); print(varc); readFile(varf, varc); print(varc); closeRFile(varf);
         IStatement st7 = new CompoundStatement(new DeclarationStatement("varf", new StringType()), new CompoundStatement(new AssignmentStatement("varf", new ValueExpression(new StringValue("test1.txt"))),
                 new CompoundStatement(new OpenRFileStatement(new VariableExpression("varf")), new CompoundStatement(new DeclarationStatement("varc", new IntType()),
-                new CompoundStatement(new ReadFileStatement(new VariableExpression("varf"), "varc"), new CompoundStatement(new PrintStatement(new VariableExpression("varc")), new CompoundStatement((
-                new ReadFileStatement(new VariableExpression("varf"), "varc")), new CompoundStatement(new PrintStatement(new VariableExpression("varc")), new CloseRFileStatement(new VariableExpression(("varf")))))))))));
+                        new CompoundStatement(new ReadFileStatement(new VariableExpression("varf"), "varc"), new CompoundStatement(new PrintStatement(new VariableExpression("varc")), new CompoundStatement((
+                                new ReadFileStatement(new VariableExpression("varf"), "varc")), new CompoundStatement(new PrintStatement(new VariableExpression("varc")), new CloseRFileStatement(new VariableExpression(("varf")))))))))));
 
-        typeCheck(st7);
         ProgramState program_state7 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st7);
         Repository repository7 = new Repository(program_state7, file_paths[6]);
@@ -149,7 +149,6 @@ public class Main {
                         new RelationalExpression(new VariableExpression("a"), new ValueExpression(new IntValue(15)), ">="),new AssignmentStatement("v",
                         new ValueExpression(new IntValue(2))), new AssignmentStatement("v", new ValueExpression(new IntValue(3)))), new PrintStatement(new VariableExpression("v"))))));
 
-        typeCheck(st8);
         ProgramState program_state8 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st8);
         Repository repository8 = new Repository(program_state8, file_paths[7]);
@@ -160,7 +159,6 @@ public class Main {
                 new CompoundStatement(new OpenRFileStatement(new VariableExpression("file1")), new CompoundStatement(new DeclarationStatement("file2", new StringType()), new CompoundStatement(new AssignmentStatement("file2",
                         new ValueExpression(new StringValue("test1.txt"))), new OpenRFileStatement(new VariableExpression("file2")))))));
 
-        typeCheck(st9);
         ProgramState program_state9 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st9);
         Repository repository9 = new Repository(program_state9, file_paths[8]);
@@ -171,7 +169,6 @@ public class Main {
                 new CompoundStatement(new DeclarationStatement("a", new ReferenceType(new ReferenceType(new IntType()))), new CompoundStatement(new HeapAllocationStatement("a", new VariableExpression("v")),
                         new CompoundStatement(new PrintStatement(new VariableExpression("v")), new PrintStatement(new VariableExpression("a")))))));
 
-        typeCheck(st10);
         ProgramState program_state10 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st10);
         Repository repository10 = new Repository(program_state10, file_paths[9]);
@@ -181,9 +178,8 @@ public class Main {
         IStatement st11 = new CompoundStatement(new DeclarationStatement("v", new ReferenceType(new IntType())), new CompoundStatement(new HeapAllocationStatement("v", new ValueExpression(new IntValue(20))),
                 new CompoundStatement(new DeclarationStatement("a", new ReferenceType(new ReferenceType(new IntType()))), new CompoundStatement(new HeapAllocationStatement("a", new VariableExpression("v")),
                         new CompoundStatement(new PrintStatement(new HeapReadingExpression(new VariableExpression("v"))), new PrintStatement(new ArithmeticExpression(
-                        new HeapReadingExpression(new HeapReadingExpression(new VariableExpression("a"))), new ValueExpression(new IntValue(5)), '+')))))));
+                                new HeapReadingExpression(new HeapReadingExpression(new VariableExpression("a"))), new ValueExpression(new IntValue(5)), '+')))))));
 
-        typeCheck(st11);
         ProgramState program_state11 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st11);
         Repository repository11 = new Repository(program_state11, file_paths[10]);
@@ -192,9 +188,8 @@ public class Main {
         // Ref(int) v; new(v, 20); print(heapRead(v)); heapWrite(v, 30); print(heapRead(v) + 5);
         IStatement st12 = new CompoundStatement(new DeclarationStatement("v", new ReferenceType(new IntType())), new CompoundStatement(new HeapAllocationStatement("v", new ValueExpression(new IntValue(20))),
                 new CompoundStatement(new PrintStatement(new HeapReadingExpression(new VariableExpression("v"))), new CompoundStatement(new HeapWritingStatement("v", new ValueExpression(new IntValue(30))),
-                new PrintStatement(new ArithmeticExpression(new HeapReadingExpression(new VariableExpression("v")), new ValueExpression(new IntValue(5)), '+'))))));
+                        new PrintStatement(new ArithmeticExpression(new HeapReadingExpression(new VariableExpression("v")), new ValueExpression(new IntValue(5)), '+'))))));
 
-        typeCheck(st12);
         ProgramState program_state12 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st12);
         Repository repository12 = new Repository(program_state12, file_paths[11]);
@@ -203,10 +198,9 @@ public class Main {
         // Ref(int) v; new(v, 20); Ref(Ref(int)) a; new(a, v); new(v, 30); print(heapRead(heapRead(a)));
         IStatement st13 = new CompoundStatement(new DeclarationStatement("v", new ReferenceType(new IntType())), new CompoundStatement(new HeapAllocationStatement("v", new ValueExpression(new IntValue(20))),
                 new CompoundStatement(new DeclarationStatement("a", new ReferenceType(new ReferenceType(new IntType()))), new CompoundStatement(new HeapAllocationStatement("a", new VariableExpression("v")),
-                new CompoundStatement(new HeapAllocationStatement("v", new ValueExpression(new IntValue(30))), new PrintStatement(new HeapReadingExpression(
-                new HeapReadingExpression(new VariableExpression("a")))))))));
+                        new CompoundStatement(new HeapAllocationStatement("v", new ValueExpression(new IntValue(30))), new PrintStatement(new HeapReadingExpression(
+                                new HeapReadingExpression(new VariableExpression("a")))))))));
 
-        typeCheck(st13);
         ProgramState program_state13 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st13);
         Repository repository13 = new Repository(program_state13, file_paths[12]);
@@ -218,7 +212,6 @@ public class Main {
                         new CompoundStatement(new HeapAllocationStatement("v", new ValueExpression(new IntValue(30))), new PrintStatement(new HeapReadingExpression(
                                 new HeapReadingExpression(new VariableExpression("a")))))))));
 
-        typeCheck(st14);
         ProgramState program_state14 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st14);
         Repository repository14 = new Repository(program_state14, file_paths[13]);
@@ -227,10 +220,9 @@ public class Main {
         // Ref(int) v; new(v, 20); Ref(Ref(int)) a; new(a, v); new(v, 30); print(heapRead(heapRead(a)));
         IStatement st15 = new CompoundStatement(new DeclarationStatement("v", new ReferenceType(new IntType())), new CompoundStatement(new HeapAllocationStatement("v", new ValueExpression(new IntValue(20))),
                 new CompoundStatement(new DeclarationStatement("a", new ReferenceType(new ReferenceType(new IntType()))), new CompoundStatement(new HeapAllocationStatement("a", new VariableExpression("v")),
-                new CompoundStatement(new HeapAllocationStatement("v", new ValueExpression(new IntValue(30))), new CompoundStatement(new HeapAllocationStatement("a", new VariableExpression("v")),
-                new PrintStatement(new HeapReadingExpression(new HeapReadingExpression(new VariableExpression("a"))))))))));
+                        new CompoundStatement(new HeapAllocationStatement("v", new ValueExpression(new IntValue(30))), new CompoundStatement(new HeapAllocationStatement("a", new VariableExpression("v")),
+                                new PrintStatement(new HeapReadingExpression(new HeapReadingExpression(new VariableExpression("a"))))))))));
 
-        typeCheck(st15);
         ProgramState program_state15 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st15);
         Repository repository15 = new Repository(program_state15, file_paths[14]);
@@ -240,7 +232,6 @@ public class Main {
                 new VariableExpression("i"), new ValueExpression(new IntValue(0)), ">"), new CompoundStatement(new PrintStatement(new VariableExpression("i")),
                 new AssignmentStatement("i", new ArithmeticExpression(new VariableExpression("i"), new ValueExpression(new IntValue(1)), '-'))))));
 
-        typeCheck(st16);
         ProgramState program_state16 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st16);
         Repository repository16 = new Repository(program_state16, file_paths[15]);
@@ -254,10 +245,9 @@ public class Main {
         IStatement st17 = new CompoundStatement(new DeclarationStatement("v", new IntType()), new CompoundStatement(new DeclarationStatement("a", new ReferenceType(new IntType())), new CompoundStatement(
                 new AssignmentStatement("v", new ValueExpression(new IntValue(10))), new CompoundStatement(new HeapAllocationStatement("a", new ValueExpression(new IntValue(22))), new CompoundStatement(
                 new ForkStatement(new CompoundStatement(new HeapWritingStatement("a", new ValueExpression(new IntValue(30))), new CompoundStatement(new AssignmentStatement("v", new ValueExpression(new IntValue(32))), new CompoundStatement(
-                new PrintStatement(new VariableExpression("v")), new PrintStatement(new HeapReadingExpression(new VariableExpression("a")))
+                        new PrintStatement(new VariableExpression("v")), new PrintStatement(new HeapReadingExpression(new VariableExpression("a")))
                 )))), new CompoundStatement(new PrintStatement(new VariableExpression("v")), new PrintStatement(new HeapReadingExpression(new VariableExpression("a")))))))));
 
-        typeCheck(st17);
         ProgramState program_state17 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st17);
         Repository repository17 = new Repository(program_state17, file_paths[16]);
@@ -267,32 +257,43 @@ public class Main {
         IStatement st18 = new CompoundStatement(st1, new CompoundStatement(new CompoundStatement(new DeclarationStatement("a", new IntType()), new AssignmentStatement("a",
                 new ArithmeticExpression(new VariableExpression("v"), new ValueExpression(new StringValue("hey")), '+'))), new PrintStatement(new VariableExpression("a"))));
 
-        typeCheck(st18);
         ProgramState program_state18 = new ProgramState(new ADTStack<IStatement>(), new ADTDictionary<String, IValue>(), new ADTList<IValue>(),
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st18);
         Repository repository18 = new Repository(program_state18, file_paths[17]);
         Controller controller18 = new Controller(repository18);
 
+        programs.add(new ProgramWrapper(st1, controller1));
+        programs.add(new ProgramWrapper(st2, controller2));
+        programs.add(new ProgramWrapper(st3, controller3));
+        programs.add(new ProgramWrapper(st4, controller4));
+        programs.add(new ProgramWrapper(st5, controller5));
+        programs.add(new ProgramWrapper(st6, controller6));
+        programs.add(new ProgramWrapper(st7, controller7));
+        programs.add(new ProgramWrapper(st8, controller8));
+        programs.add(new ProgramWrapper(st9, controller9));
+        programs.add(new ProgramWrapper(st10, controller10));
+        programs.add(new ProgramWrapper(st11, controller11));
+        programs.add(new ProgramWrapper(st12, controller12));
+        programs.add(new ProgramWrapper(st13, controller13));
+        programs.add(new ProgramWrapper(st14, controller14));
+        programs.add(new ProgramWrapper(st15, controller15));
+        programs.add(new ProgramWrapper(st16, controller16));
+        programs.add(new ProgramWrapper(st17, controller17));
+        programs.add(new ProgramWrapper(st18, controller18));
+    }
+
+    public static void main(String[] args) {
+        initPrograms();
         TextMenu menu = new TextMenu();
+
         menu.addCommand(new ExitCommand("0", "exit"));
-        menu.addCommand(new RunExampleCommand("1", st1.toString(), controller1));
-        menu.addCommand(new RunExampleCommand("2", st2.toString(), controller2));
-        menu.addCommand(new RunExampleCommand("3", st3.toString(), controller3));
-        menu.addCommand(new RunExampleCommand("4", st4.toString(), controller4));
-        menu.addCommand(new RunExampleCommand("5", st5.toString(), controller5));
-        menu.addCommand(new RunExampleCommand("6", st6.toString(), controller6));
-        menu.addCommand(new RunExampleCommand("7", st7.toString(), controller7));
-        menu.addCommand(new RunExampleCommand("8", st8.toString(), controller8));
-        menu.addCommand(new RunExampleCommand("9", st9.toString(), controller9));
-        menu.addCommand(new RunExampleCommand("10", st10.toString(), controller10));
-        menu.addCommand(new RunExampleCommand("11", st11.toString(), controller11));
-        menu.addCommand(new RunExampleCommand("12", st12.toString(), controller12));
-        menu.addCommand(new RunExampleCommand("13", st13.toString(), controller13));
-        menu.addCommand(new RunExampleCommand("14", st14.toString(), controller14));
-        menu.addCommand(new RunExampleCommand("15", st15.toString(), controller15));
-        menu.addCommand(new RunExampleCommand("16", st16.toString(), controller16));
-        menu.addCommand(new RunExampleCommand("17", st17.toString(), controller17));
-        menu.addCommand(new RunExampleCommand("18", st18.toString(), controller18));
+        for (var i = 1; i <= programs.size(); ++i) {
+            String key = Integer.toString(i);
+            ProgramWrapper pw = programs.get(i - 1);
+            menu.addCommand(new RunExampleCommand(key, pw.statement().toString(), pw.controller()));
+            typeCheck(pw.statement());
+        }
+
         menu.show();
     }
 }

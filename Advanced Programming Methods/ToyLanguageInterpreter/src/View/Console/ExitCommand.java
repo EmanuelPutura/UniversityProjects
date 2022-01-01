@@ -1,4 +1,4 @@
-package View;
+package View.Console;
 
 public class ExitCommand extends Command {
     public ExitCommand(String key, String description) {
