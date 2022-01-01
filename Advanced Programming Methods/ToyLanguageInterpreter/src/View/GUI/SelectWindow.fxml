@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <StackPane xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
            fx:controller="View.GUI.ControllerSelectWindow"
-           prefHeight="400.0" prefWidth="600.0">
-    <VBox prefHeight="130.0" prefWidth="430.0">
-        <ListView fx:id="listView" editable="true" prefHeight="500.0" prefWidth="150.0"/>
+           prefHeight="600.0" prefWidth="1000.0">
+    <VBox prefHeight="600.0" prefWidth="1000.0">
+        <ListView fx:id="list_view" editable="true" prefHeight="600.0" prefWidth="1000.0"/>
     </VBox>
 </StackPane>

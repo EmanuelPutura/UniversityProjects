@@ -10,4 +10,7 @@ public interface IStatement {
     ProgramState execute(ProgramState state) throws StatementException, UndeclaredVariableException;
     IADTDictionary<String, IType> typeCheck(IADTDictionary<String, IType> type_env) throws StatementException;
     IStatement deepCopy();
+
+    @Override
+    String toString();
 }

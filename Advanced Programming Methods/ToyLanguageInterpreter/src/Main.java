@@ -16,17 +16,28 @@ import Repository.Repository;
 import View.Console.ExitCommand;
 import View.Console.RunExampleCommand;
 import View.Console.TextMenu;
-import Repository.IRepository;
+import View.GUI.ControllerSelectWindow;
+import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Stack;
 
 record ProgramWrapper(IStatement statement, Controller controller) {
 }
 
-public class Main {
+public class Main extends Application {
     private static List<ProgramWrapper> programs = new ArrayList<ProgramWrapper>();
 
     private static String[] readFilePaths(int files_cnt) {
@@ -282,8 +293,15 @@ public class Main {
         programs.add(new ProgramWrapper(st18, controller18));
     }
 
-    public static void main(String[] args) {
-        initPrograms();
+    private static ObservableList<IStatement> convertProgramsToObservableList() {
+        ObservableList<IStatement> list = FXCollections.observableArrayList();
+        for (ProgramWrapper pw : programs)
+            list.add(pw.statement());
+
+        return list;
+    }
+
+    private static void consoleLaunch(String[] args) {
         TextMenu menu = new TextMenu();
 
         menu.addCommand(new ExitCommand("0", "exit"));
@@ -295,5 +313,31 @@ public class Main {
         }
 
         menu.show();
+    }
+
+    private static void guiLaunch(String[] args) {
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage stage) throws Exception {
+        FXMLLoader loader = new FXMLLoader(new File("src/View/GUI/SelectWindow.fxml").toURI().toURL());
+        StackPane root = (StackPane) loader.load();
+        ControllerSelectWindow select_window_controller = loader.getController();
+        select_window_controller.setStatements(convertProgramsToObservableList());
+
+        Scene scene = new Scene(root,400,150);
+        scene.getStylesheets().add(new File("src/View/GUI/SelectWindow.css").toURI().toURL().toExternalForm());
+        stage.setScene(scene);
+        stage.setWidth(1000);
+        stage.setHeight(600);
+        stage.setTitle("Select a program");
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+        initPrograms();
+        // consoleLaunch(args);
+        guiLaunch(args);
     }
 }
