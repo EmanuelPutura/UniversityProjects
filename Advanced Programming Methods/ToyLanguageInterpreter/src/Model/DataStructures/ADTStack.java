@@ -58,6 +58,11 @@ public class ADTStack<E> implements IADTStack<E> {
     }
 
     @Override
+    public Stack<E> getContent() {
+        return stack;
+    }
+
+    @Override
     public String toString() {
         StringBuilder return_string = new StringBuilder("Stack: (");
         if (stack.isEmpty())

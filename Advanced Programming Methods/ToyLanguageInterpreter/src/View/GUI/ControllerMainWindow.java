@@ -24,8 +24,7 @@ import javafx.util.Callback;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class ControllerMainWindow {
@@ -46,26 +45,27 @@ public class ControllerMainWindow {
     @FXML
     private ListView<String> file_list_view;
 
-//    @FXML
-//    private ListView<ProgramState> programs_list_view;
+    @FXML
+    private ListView<ProgramState> programs_list_view;
 
     @FXML
-    private ListView<Integer> programs_list_view;
+    private TableView<Map.Entry<String, IValue>> sym_table_view;
+
+    @FXML
+    private TableColumn<Map.Entry<String, IValue>, String> sym_var_column;
+
+    @FXML
+    private TableColumn<Map.Entry<String, IValue>, IValue> sym_value_column;
+
+    @FXML
+    private ListView<IStatement> stack_list_view;
 
     public void setController(Controller controller) {
         this.controller = controller;
 
-        ObservableList<Map.Entry<Integer, IValue>> heap_obs = FXCollections.observableArrayList();
-        heap_obs.addAll(controller.getRepository().getInitialProgramState().heapTable().getContent().entrySet());
-        heap_table_view.setItems(heap_obs);
-
-        ObservableList<String> out_obs = FXCollections.observableArrayList();
-        out_obs.addAll(controller.getRepository().getInitialProgramState().outList().getInnerList().stream().map(Object::toString).collect(Collectors.toList()));
-        out_list_view.setItems(out_obs);
-
-        ObservableList<String> file_obs = FXCollections.observableArrayList();
-        file_obs.addAll(controller.getRepository().getInitialProgramState().fileTable().getContent().keySet().stream().map(StringValue::toString).collect(Collectors.toList()));
-        file_list_view.setItems(file_obs);
+        ObservableList<ProgramState> programs_obs = FXCollections.observableArrayList();
+        programs_obs.addAll(new ArrayList<ProgramState>(controller.getRepository().getProgramStateList()));
+        programs_list_view.setItems(programs_obs);
     }
 
     @FXML
@@ -94,12 +94,8 @@ public class ControllerMainWindow {
         file_obs.addAll(controller.getRepository().getInitialProgramState().fileTable().getContent().keySet().stream().map(StringValue::toString).collect(Collectors.toList()));
         file_list_view.setItems(file_obs);
 
-//        ObservableList<ProgramState> programs_obs = FXCollections.observableArrayList();
-//        programs_obs.addAll(new ArrayList<ProgramState>(controller.getRepository().getProgramStateList()));
-//        programs_list_view.setItems(programs_obs);
-
-        ObservableList<Integer> programs_obs = FXCollections.observableArrayList();
-        programs_obs.addAll(controller.getRepository().getProgramStateList().stream().map(ProgramState::programID).collect(Collectors.toList()));
+        ObservableList<ProgramState> programs_obs = FXCollections.observableArrayList();
+        programs_obs.addAll(new ArrayList<ProgramState>(controller.getRepository().getProgramStateList()));
         programs_list_view.setItems(programs_obs);
     }
 
@@ -130,15 +126,53 @@ public class ControllerMainWindow {
         programs_list_view.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         programs_list_view.getSelectionModel().selectIndices(0);
 
-//        // populate list view by calling custom function (not toString(), which is default)
-//        programs_list_view.setCellFactory(param -> new ListCell<ProgramState>() {
-//            @Override
-//            protected void updateItem(ProgramState item, boolean empty) {
-//                if (item == null)
-//                    setText(null);
-//                else
-//                    setText(Integer.toString(item.programID()));
-//            }
-//        });
+        // populate list view by calling custom function (not toString(), which is default)
+        programs_list_view.setCellFactory(param -> new ListCell<ProgramState>() {
+            @Override
+            protected void updateItem(ProgramState item, boolean empty) {
+                super.updateItem(item, empty);
+                if (item == null)
+                    setText(null);
+                else
+                    setText(Integer.toString(item.programID()));
+            }
+        });
+
+        programs_list_view.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<ProgramState>() {
+            @Override
+            public void changed(ObservableValue<? extends ProgramState> observableValue, ProgramState old_ps, ProgramState new_ps) {
+                if (new_ps == null)
+                    return;
+
+                ObservableList<Map.Entry<String, IValue>> sym_obs = FXCollections.observableArrayList();
+                sym_obs.addAll(new_ps.symbolsTable().getContent().entrySet());
+                sym_table_view.setItems(sym_obs);
+
+                ObservableList<IStatement> stack_obs = FXCollections.observableArrayList();
+                List<IStatement> content = new ArrayList<>(new_ps.executionStack().getContent());
+                Collections.reverse(content);
+                stack_obs.addAll(content);
+                stack_list_view.setItems(stack_obs);
+            }
+        });
+
+        sym_var_column.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Map.Entry<String, IValue>, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Map.Entry<String, IValue>, String> entry) {
+                Map.Entry<String, IValue> map_entry = entry.getValue();
+                return new SimpleObjectProperty<String>(map_entry.getKey());
+            }
+        });
+
+        sym_value_column.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Map.Entry<String, IValue>, IValue>, ObservableValue<IValue>>() {
+            @Override
+            public ObservableValue<IValue> call(TableColumn.CellDataFeatures<Map.Entry<String, IValue>, IValue> entry) {
+                Map.Entry<String, IValue> map_entry = entry.getValue();
+                return new SimpleObjectProperty<IValue>(map_entry.getValue());
+            }
+        });
+
+        stack_list_view.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        stack_list_view.getSelectionModel().selectIndices(0);
     }
 }
