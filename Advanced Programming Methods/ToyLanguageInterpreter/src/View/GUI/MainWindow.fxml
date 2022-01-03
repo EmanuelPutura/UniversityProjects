@@ -21,9 +21,9 @@
             <TableColumn fx:id="heap_value_column" prefWidth="100.0" text="Value"/>
         </columns>
     </TableView>
-    <ListView fx:id="out_list_view" editable="true" prefHeight="400.0" prefWidth="100.0" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
-    <ListView fx:id="file_list_view" editable="true" prefHeight="400.0" prefWidth="100.0" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
-    <ListView fx:id="programs_list_view" editable="true" prefHeight="400.0" prefWidth="100.0" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+    <ListView fx:id="out_list_view" editable="true" prefHeight="400.0" prefWidth="110.0" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+    <ListView fx:id="file_list_view" editable="true" prefHeight="400.0" prefWidth="110.0" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+    <ListView fx:id="programs_list_view" editable="true" prefHeight="400.0" prefWidth="110.0" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
     <TableView fx:id="sym_table_view" accessibleRole="IMAGE_VIEW" editable="true" prefHeight="400.0" prefWidth="200.0" GridPane.rowIndex="1" GridPane.columnIndex="4">
         <columns>
             <TableColumn fx:id="sym_var_column" prefWidth="100.0" text="Variable"/>
