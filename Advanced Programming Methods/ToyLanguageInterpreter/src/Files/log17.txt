@@ -290,3 +290,20 @@ File Table:
 Heap Table:
 1 --> 30
 -------------------------
+-------------------------
+Program ID: 19
+Execution Stack:
+
+Symbols Table:
+a --> (1, int)
+v --> 32
+Out List:
+10
+30
+32
+30
+File Table:
+
+Heap Table:
+1 --> 30
+-------------------------
