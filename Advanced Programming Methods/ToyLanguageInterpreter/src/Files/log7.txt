@@ -1,0 +1,241 @@
+-------------------------
+Program ID: 7
+Execution Stack:
+string varf
+(varf = test1.txt; openRFile(<file name>); int varc; readRFile(<file name>, varc); print(varc); readRFile(<file name>, varc); print(varc); closeRFile(<file name>))
+Symbols Table:
+
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 7
+Execution Stack:
+(varf = test1.txt; openRFile(<file name>); int varc; readRFile(<file name>, varc); print(varc); readRFile(<file name>, varc); print(varc); closeRFile(<file name>))
+Symbols Table:
+varf --> 
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 7
+Execution Stack:
+varf = test1.txt
+(openRFile(<file name>); int varc; readRFile(<file name>, varc); print(varc); readRFile(<file name>, varc); print(varc); closeRFile(<file name>))
+Symbols Table:
+varf --> 
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 7
+Execution Stack:
+(openRFile(<file name>); int varc; readRFile(<file name>, varc); print(varc); readRFile(<file name>, varc); print(varc); closeRFile(<file name>))
+Symbols Table:
+varf --> test1.txt
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 7
+Execution Stack:
+openRFile(<file name>)
+(int varc; readRFile(<file name>, varc); print(varc); readRFile(<file name>, varc); print(varc); closeRFile(<file name>))
+Symbols Table:
+varf --> test1.txt
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 7
+Execution Stack:
+(int varc; readRFile(<file name>, varc); print(varc); readRFile(<file name>, varc); print(varc); closeRFile(<file name>))
+Symbols Table:
+varf --> test1.txt
+Out List:
+
+File Table:
+test1.txt
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 7
+Execution Stack:
+int varc
+(readRFile(<file name>, varc); print(varc); readRFile(<file name>, varc); print(varc); closeRFile(<file name>))
+Symbols Table:
+varf --> test1.txt
+Out List:
+
+File Table:
+test1.txt
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 7
+Execution Stack:
+(readRFile(<file name>, varc); print(varc); readRFile(<file name>, varc); print(varc); closeRFile(<file name>))
+Symbols Table:
+varf --> test1.txt
+varc --> 0
+Out List:
+
+File Table:
+test1.txt
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 7
+Execution Stack:
+readRFile(<file name>, varc)
+(print(varc); readRFile(<file name>, varc); print(varc); closeRFile(<file name>))
+Symbols Table:
+varf --> test1.txt
+varc --> 0
+Out List:
+
+File Table:
+test1.txt
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 7
+Execution Stack:
+(print(varc); readRFile(<file name>, varc); print(varc); closeRFile(<file name>))
+Symbols Table:
+varf --> test1.txt
+varc --> 15
+Out List:
+
+File Table:
+test1.txt
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 7
+Execution Stack:
+print(varc)
+(readRFile(<file name>, varc); print(varc); closeRFile(<file name>))
+Symbols Table:
+varf --> test1.txt
+varc --> 15
+Out List:
+
+File Table:
+test1.txt
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 7
+Execution Stack:
+(readRFile(<file name>, varc); print(varc); closeRFile(<file name>))
+Symbols Table:
+varf --> test1.txt
+varc --> 15
+Out List:
+15
+File Table:
+test1.txt
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 7
+Execution Stack:
+readRFile(<file name>, varc)
+(print(varc); closeRFile(<file name>))
+Symbols Table:
+varf --> test1.txt
+varc --> 15
+Out List:
+15
+File Table:
+test1.txt
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 7
+Execution Stack:
+(print(varc); closeRFile(<file name>))
+Symbols Table:
+varf --> test1.txt
+varc --> 50
+Out List:
+15
+File Table:
+test1.txt
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 7
+Execution Stack:
+print(varc)
+closeRFile(<file name>)
+Symbols Table:
+varf --> test1.txt
+varc --> 50
+Out List:
+15
+File Table:
+test1.txt
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 7
+Execution Stack:
+closeRFile(<file name>)
+Symbols Table:
+varf --> test1.txt
+varc --> 50
+Out List:
+15
+50
+File Table:
+test1.txt
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 7
+Execution Stack:
+
+Symbols Table:
+varf --> test1.txt
+varc --> 50
+Out List:
+15
+50
+File Table:
+
+Heap Table:
+
+-------------------------

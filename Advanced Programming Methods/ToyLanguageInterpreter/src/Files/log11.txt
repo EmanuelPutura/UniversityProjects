@@ -95,3 +95,65 @@ File Table:
 Heap Table:
 1 --> 20
 -------------------------
+-------------------------
+Program ID: 11
+Execution Stack:
+(print(readHeap(v)); print(readHeap(readHeap(a)) + 5))
+Symbols Table:
+a --> (2, Ref(int))
+v --> (1, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> (1, int)
+-------------------------
+-------------------------
+Program ID: 11
+Execution Stack:
+print(readHeap(v))
+print(readHeap(readHeap(a)) + 5)
+Symbols Table:
+a --> (2, Ref(int))
+v --> (1, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> (1, int)
+-------------------------
+-------------------------
+Program ID: 11
+Execution Stack:
+print(readHeap(readHeap(a)) + 5)
+Symbols Table:
+a --> (2, Ref(int))
+v --> (1, int)
+Out List:
+20
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> (1, int)
+-------------------------
+-------------------------
+Program ID: 11
+Execution Stack:
+
+Symbols Table:
+a --> (2, Ref(int))
+v --> (1, int)
+Out List:
+20
+25
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> (1, int)
+-------------------------
