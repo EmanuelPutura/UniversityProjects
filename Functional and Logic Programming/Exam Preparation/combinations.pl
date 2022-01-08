@@ -1,3 +1,4 @@
+comb(_, 0, []) :- !.
 comb([H|_], 1, [H]).
 comb([_|T], K, R) :-
     comb(T, K, R).
