@@ -1,0 +1,38 @@
+(defun comp (el1 el2)
+    (cond
+        ((< (cadr el1) (cadr el2)) t)
+        (t nil)
+    )
+)
+
+(defun insertSorted (lst el)
+    (cond
+        ((atom lst) (list el))
+        ((comp el (car lst)) (cons el lst))
+        (t (cons (car lst) (insertSorted (cdr lst) el)))
+    )
+)
+
+(defun sortList (lst)
+    (cond
+        ((atom lst) lst)
+        (t (insertSorted (sortList (cdr lst)) (car lst)))
+    )
+)
+
+(defun findNodes (crt lvl)
+    (cond
+        ((and (atom crt) (zerop (mod lvl 2))) (list (list crt lvl)))
+        ((atom crt) nil)
+        (t (apply #'append (mapcar #'(lambda (c) (findNodes c (+ lvl 1))) crt)))
+    )
+)
+
+(defun findNodesMain (crt)
+    (sortList (findNodes crt -1))
+)
+
+(write (findNodesMain '(a (b (g)) (c (d (e (h))) (f)))))
+(terpri)
+
+

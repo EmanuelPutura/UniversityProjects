@@ -1,0 +1,20 @@
+(defun findLvl (crt lvl nd)
+    (cond
+        ((and (atom crt) (eq crt nd)) (list lvl))
+        ((atom crt) nil)
+        (t (apply #'append (mapcar #'(lambda (c) (findLvl c (+ 1 lvl) nd)) crt)))
+    )
+)
+
+(defun findMaxLvl (crt lvl)
+    (cond
+        ((atom crt) lvl)
+        (t (apply #'max (mapcar #'(lambda (c) (findMaxLvl c (+ 1 lvl))) crt)))
+    )
+)
+
+(defun solve (tree nd)
+    (- (findMaxLvl tree -1) (car (findLvl tree -1 nd)))
+)
+
+(write (solve '(a (b (g)) (c (d (e)) (f))) 'c))

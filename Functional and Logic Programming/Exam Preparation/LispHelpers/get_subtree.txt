@@ -1,0 +1,11 @@
+(defun subtree (crt node)
+    (cond
+        ((atom crt) nil)
+        ((and (listp crt) (equal (car crt) node)) (cdr crt))
+        (t (apply #'append (mapcar #'(lambda (c) (subtree c node)) crt)))
+    )
+)
+
+(defun getSubtree (crt node) (cons node (subtree crt node)))
+
+(write (getSubtree '(a (b (g)) (c (d (e)) (f))) 'c))
