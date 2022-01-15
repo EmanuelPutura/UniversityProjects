@@ -338,7 +338,7 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         initPrograms();
-//        consoleLaunch(args);
-        guiLaunch(args);
+        consoleLaunch(args);
+//        guiLaunch(args);
     }
 }

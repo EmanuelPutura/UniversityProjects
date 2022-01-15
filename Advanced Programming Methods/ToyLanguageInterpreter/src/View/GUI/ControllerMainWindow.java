@@ -95,6 +95,9 @@ public class ControllerMainWindow {
         ObservableList<Map.Entry<Integer, IValue>> heap_obs = FXCollections.observableArrayList();
         heap_obs.addAll(controller.getRepository().getInitialProgramState().heapTable().getContent().entrySet());
         heap_table_view.setItems(heap_obs);
+        heap_table_view.refresh();
+
+//        System.out.println(controller.getRepository().getProgramStateList().get(0).heapTable());
 
         ObservableList<String> out_obs = FXCollections.observableArrayList();
         out_obs.addAll(controller.getRepository().getInitialProgramState().outList().getInnerList().stream().map(Object::toString).collect(Collectors.toList()));
@@ -106,7 +109,7 @@ public class ControllerMainWindow {
 
         ObservableList<ProgramState> programs_obs = FXCollections.observableArrayList();
         programs_obs.addAll(new ArrayList<ProgramState>(controller.getRepository().getProgramStateList()));
-        programs_list_view.setItems(programs_obs);
+        programs_list_view.setItems(programs_obs);  // notice that this call updates also the execution stack list view
     }
 
     @FXML
@@ -157,6 +160,7 @@ public class ControllerMainWindow {
                 ObservableList<Map.Entry<String, IValue>> sym_obs = FXCollections.observableArrayList();
                 sym_obs.addAll(new_ps.symbolsTable().getContent().entrySet());
                 sym_table_view.setItems(sym_obs);
+                sym_table_view.refresh();
 
                 ObservableList<IStatement> stack_obs = FXCollections.observableArrayList();
                 List<IStatement> content = new ArrayList<>(new_ps.executionStack().getContent());
