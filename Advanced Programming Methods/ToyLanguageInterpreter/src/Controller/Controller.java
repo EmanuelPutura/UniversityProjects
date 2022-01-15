@@ -54,7 +54,7 @@ public class Controller {
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 
-    public void oneStepForAllPrograms(List<ProgramState> programs) throws ControllerException {
+    private void oneStepForAllPrograms(List<ProgramState> programs) throws ControllerException {
         // before the execution, print the ProgramState list into the log file
 
 //        for (ProgramState program : programs) {
@@ -74,8 +74,8 @@ public class Controller {
         // start the execution of the callables
         // returns the list of newly created ProgramStates (namely threads)
         try {
-            if (executor == null)
-                executor = Executors.newFixedThreadPool(2);
+//            if (executor == null)
+//                executor = Executors.newFixedThreadPool(2);
 
             List<ProgramState> new_programs_list = executor.invokeAll(call_list).stream()
                     .map(future -> {
@@ -106,6 +106,44 @@ public class Controller {
         } catch (InterruptedException ignored) {
         }
 
+    }
+
+    public void runOneStepForAllPrograms() throws ControllerException {
+        executor = Executors.newFixedThreadPool(2);
+
+        // remove the completed programs
+        List<ProgramState> programs = removeCompletedPrograms(repository.getProgramStateList());
+        if (programs.size() > 0) {
+            // ------------------- safe garbage collector -------------------
+            IADTHeapDictionary shared_heap = programs.get(0).heapTable();
+            List<IADTDictionary<String, IValue>> all_symbols_tables = programs.stream()
+                    .map(ProgramState::symbolsTable)
+                    .collect(Collectors.toList());
+
+            List<Integer> addresses_from_all_symbol_tables = new ArrayList<Integer>();
+            all_symbols_tables.stream()
+                    .map(table -> getAddressesFromSymbolsTable(table.getContent().values()))
+                    .forEach(addresses_from_all_symbol_tables::addAll);
+
+            shared_heap.setContent(safeGarbageCollector(
+                    addresses_from_all_symbol_tables,
+                    shared_heap.getContent()
+            ));
+            // --------------------------------------------------------------
+
+            oneStepForAllPrograms(programs);
+
+            // remove the completed programs
+            programs = removeCompletedPrograms(repository.getProgramStateList());
+        }
+
+        executor.shutdownNow();
+        // here the repository still contains at least one completed program
+        // and its List<ProgramState> is not empty. Note that oneStepForAllPrograms(...)
+        // calls the method setProgramStateList(...) of repository in order to change the repository
+
+        // update the repository state
+        repository.setProgramStateList(programs);
     }
 
     public void allStepsExecution() throws ControllerException {

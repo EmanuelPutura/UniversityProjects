@@ -282,7 +282,7 @@ public class Main extends Application {
                 new ADTDictionary<StringValue, BufferedReader>(), new ADTHeapDictionary(), st18);
         Repository repository18 = new Repository(program_state18, file_paths[17]);
         Controller controller18 = new Controller(repository18);
-        controllers.add(controller18);
+//        controllers.add(controller18);
     }
 
     private static void consoleLaunch(String[] args) {
@@ -338,7 +338,7 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         initPrograms();
-        consoleLaunch(args);
-//        guiLaunch(args);
+//        consoleLaunch(args);
+        guiLaunch(args);
     }
 }

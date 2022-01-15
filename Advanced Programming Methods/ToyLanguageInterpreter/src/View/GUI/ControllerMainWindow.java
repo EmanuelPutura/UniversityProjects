@@ -75,9 +75,20 @@ public class ControllerMainWindow {
     @FXML
     public void handleRunOneStepButton(ActionEvent event) {
         try {
-            controller.oneStepForAllPrograms(controller.removeCompletedPrograms(controller.getRepository().getProgramStateList()));
-            applyRepositoryModifications();
-            programs_text_field.setText("Number of ProgramStates: " + Integer.toString(controller.getRepository().getProgramStateList().size()));
+            if (controller.removeCompletedPrograms(controller.getRepository().getProgramStateList()).size() > 0) {
+                controller.runOneStepForAllPrograms();
+                applyRepositoryModifications();
+                programs_text_field.setText("Number of ProgramStates: " + Integer.toString(controller.getRepository().getProgramStateList().size()));
+            }
+            if (controller.removeCompletedPrograms(controller.getRepository().getProgramStateList()).size() == 0) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Program execution finished");
+                alert.setHeaderText("All the program instructions have been executed!");
+                alert.showAndWait();
+
+                stack_list_view.setItems(FXCollections.observableArrayList());
+            }
+
         } catch (ControllerException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("A ControllerException occurred!");
@@ -96,8 +107,6 @@ public class ControllerMainWindow {
         heap_obs.addAll(controller.getRepository().getInitialProgramState().heapTable().getContent().entrySet());
         heap_table_view.setItems(heap_obs);
         heap_table_view.refresh();
-
-//        System.out.println(controller.getRepository().getProgramStateList().get(0).heapTable());
 
         ObservableList<String> out_obs = FXCollections.observableArrayList();
         out_obs.addAll(controller.getRepository().getInitialProgramState().outList().getInnerList().stream().map(Object::toString).collect(Collectors.toList()));
