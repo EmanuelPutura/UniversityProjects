@@ -1,40 +1,40 @@
 package Model.Statements;
 
 import Model.DataStructures.IADTDictionary;
-import Model.Exceptions.*;
-import Model.Expressions.IExpression;
+import Model.Exceptions.DictionaryException;
+import Model.Exceptions.StatementException;
+import Model.Exceptions.UndeclaredVariableException;
 import Model.Program.ProgramState;
 import Model.Types.IType;
 import Model.Types.IntType;
 import Model.Values.IValue;
 import Model.Values.IntValue;
 
-public class NewLatchStatement implements IStatement {
+public class LatchAwaitStatement implements IStatement {
     private String variable_name;
-    private IExpression expression_n;
 
-    public NewLatchStatement(String variable_name, IExpression expression_n) {
+    public LatchAwaitStatement(String variable_name) {
         this.variable_name = variable_name;
-        this.expression_n = expression_n;
     }
 
     @Override
     public ProgramState execute(ProgramState state) throws StatementException, UndeclaredVariableException {
         try {
-            IValue expression_val = expression_n.eval(state.symbolsTable(), state.heapTable());
-            if (!expression_val.getType().equals(new IntType()))
-                throw new StatementException(String.format("Expression '%s' should evaluate to an integer!", expression_n.toString()));
-
-            int latch_n = ((IntValue) expression_val).getValue();
-            int latch_location = state.latchTable().put(latch_n);
-
             IValue var_value = state.symbolsTable().get(variable_name);
             if (var_value == null)
                 throw new StatementException(String.format("Variable '%s' has not been declared!", variable_name));
             if (!var_value.getType().equals(new IntType()))
                 throw new StatementException(String.format("Variable '%s' should be of integer type!", variable_name));
-            state.symbolsTable().replace(variable_name, new IntValue(latch_location));
-        } catch (ExpressionException | DivisionByZeroException | DictionaryException e) {
+
+            Integer latch_location = ((IntValue) var_value).getValue();
+            Integer latch_value = state.latchTable().get(latch_location);
+
+            if (latch_value == null)
+                throw new StatementException("Invalid latch table location!");
+            if (latch_value != 0)
+                state.executionStack().push(this);
+
+        } catch (DictionaryException e) {
             throw new StatementException(e.getMessage());
         }
 
@@ -49,11 +49,7 @@ public class NewLatchStatement implements IStatement {
                 throw new StatementException(String.format("Variable '%s' has not been declared!", variable_name));
             if (!var_type.equals(new IntType()))
                 throw new StatementException(String.format("Variable '%s' should be of integer type!", variable_name));
-
-            IType expression_type = expression_n.typeCheck(type_env);
-            if (!expression_type.equals(new IntType()))
-                throw new StatementException(String.format("Expression '%s' should evaluate to an integer!", expression_n.toString()));
-        } catch (DictionaryException | ExpressionException e) {
+        } catch (DictionaryException e) {
             throw new StatementException(e.getMessage());
         }
 
@@ -62,11 +58,11 @@ public class NewLatchStatement implements IStatement {
 
     @Override
     public IStatement deepCopy() {
-        return new NewLatchStatement(variable_name, expression_n);
+        return new LatchAwaitStatement(variable_name);
     }
 
     @Override
     public String toString() {
-        return String.format("newLatch(%s, %s)", variable_name, expression_n.toString());
+        return String.format("latchAwait(%s)", variable_name);
     }
 }
