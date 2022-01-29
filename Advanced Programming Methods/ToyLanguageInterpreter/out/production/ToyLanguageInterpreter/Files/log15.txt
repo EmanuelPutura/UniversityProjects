@@ -1,0 +1,194 @@
+-------------------------
+Program ID: 15
+Execution Stack:
+Ref(int) v
+(new(v, 20); Ref(Ref(int)) a; new(a, v); new(v, 30); new(a, v); print(readHeap(readHeap(a))))
+Symbols Table:
+
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 15
+Execution Stack:
+(new(v, 20); Ref(Ref(int)) a; new(a, v); new(v, 30); new(a, v); print(readHeap(readHeap(a))))
+Symbols Table:
+v --> (0, int)
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 15
+Execution Stack:
+new(v, 20)
+(Ref(Ref(int)) a; new(a, v); new(v, 30); new(a, v); print(readHeap(readHeap(a))))
+Symbols Table:
+v --> (0, int)
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 15
+Execution Stack:
+(Ref(Ref(int)) a; new(a, v); new(v, 30); new(a, v); print(readHeap(readHeap(a))))
+Symbols Table:
+v --> (1, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 20
+-------------------------
+-------------------------
+Program ID: 15
+Execution Stack:
+Ref(Ref(int)) a
+(new(a, v); new(v, 30); new(a, v); print(readHeap(readHeap(a))))
+Symbols Table:
+v --> (1, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 20
+-------------------------
+-------------------------
+Program ID: 15
+Execution Stack:
+(new(a, v); new(v, 30); new(a, v); print(readHeap(readHeap(a))))
+Symbols Table:
+a --> (0, Ref(int))
+v --> (1, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 20
+-------------------------
+-------------------------
+Program ID: 15
+Execution Stack:
+new(a, v)
+(new(v, 30); new(a, v); print(readHeap(readHeap(a))))
+Symbols Table:
+a --> (0, Ref(int))
+v --> (1, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 20
+-------------------------
+-------------------------
+Program ID: 15
+Execution Stack:
+(new(v, 30); new(a, v); print(readHeap(readHeap(a))))
+Symbols Table:
+a --> (2, Ref(int))
+v --> (1, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> (1, int)
+-------------------------
+-------------------------
+Program ID: 15
+Execution Stack:
+new(v, 30)
+(new(a, v); print(readHeap(readHeap(a))))
+Symbols Table:
+a --> (2, Ref(int))
+v --> (1, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> (1, int)
+-------------------------
+-------------------------
+Program ID: 15
+Execution Stack:
+(new(a, v); print(readHeap(readHeap(a))))
+Symbols Table:
+a --> (2, Ref(int))
+v --> (3, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> (1, int)
+3 --> 30
+-------------------------
+-------------------------
+Program ID: 15
+Execution Stack:
+new(a, v)
+print(readHeap(readHeap(a)))
+Symbols Table:
+a --> (2, Ref(int))
+v --> (3, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> (1, int)
+3 --> 30
+-------------------------
+-------------------------
+Program ID: 15
+Execution Stack:
+print(readHeap(readHeap(a)))
+Symbols Table:
+a --> (4, Ref(int))
+v --> (3, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> (1, int)
+3 --> 30
+4 --> (3, int)
+-------------------------
+-------------------------
+Program ID: 15
+Execution Stack:
+
+Symbols Table:
+a --> (4, Ref(int))
+v --> (3, int)
+Out List:
+30
+File Table:
+
+Heap Table:
+1 --> 20
+3 --> 30
+4 --> (3, int)
+-------------------------

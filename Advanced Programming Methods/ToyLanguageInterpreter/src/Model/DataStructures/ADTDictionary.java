@@ -5,12 +5,13 @@ import Model.Values.IValue;
 import Model.Values.StringValue;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class ADTDictionary<K, V> implements IADTDictionary<K, V> {
     protected Map<K, V> dictionary;
 
     public ADTDictionary() {
-        dictionary = new HashMap<K, V>();
+        dictionary = new ConcurrentHashMap<K, V>();
     }
 
     @Override

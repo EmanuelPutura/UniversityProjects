@@ -5,12 +5,13 @@ import Model.Exceptions.ListException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 public class ADTList<E> implements IADTList<E> {
     private List<E> list;
 
     public ADTList() {
-        list = new ArrayList<E>();
+        list = new Vector<E>();
     }
 
     @Override
