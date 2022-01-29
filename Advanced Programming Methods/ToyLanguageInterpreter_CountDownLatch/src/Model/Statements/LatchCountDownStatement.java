@@ -10,10 +10,10 @@ import Model.Types.IntType;
 import Model.Values.IValue;
 import Model.Values.IntValue;
 
-public class LatchAwaitStatement implements IStatement {
+public class LatchCountDownStatement implements IStatement {
     private String variable_name;
 
-    public LatchAwaitStatement(String variable_name) {
+    public LatchCountDownStatement(String variable_name) {
         this.variable_name = variable_name;
     }
 
@@ -31,8 +31,11 @@ public class LatchAwaitStatement implements IStatement {
 
             if (latch_value == null)
                 throw new StatementException("Invalid latch table location!");
-            if (latch_value != 0)
-                state.executionStack().push(this);
+            if (latch_value > 0)
+                state.latchTable().replace(latch_location, latch_value - 1);
+
+            // write into the out table the current program state ID
+            state.outList().add(new IntValue(state.programID()));
         } catch (DictionaryException e) {
             throw new StatementException(e.getMessage());
         }
@@ -57,11 +60,11 @@ public class LatchAwaitStatement implements IStatement {
 
     @Override
     public IStatement deepCopy() {
-        return new LatchAwaitStatement(variable_name);
+        return new LatchCountDownStatement(variable_name);
     }
 
     @Override
     public String toString() {
-        return String.format("latchAwait(%s)", variable_name);
+        return String.format("latchCountDown(%s)", variable_name);
     }
 }
