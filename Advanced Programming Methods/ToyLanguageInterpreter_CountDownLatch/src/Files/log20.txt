@@ -1,0 +1,977 @@
+-------------------------
+Program ID: 20
+Execution Stack:
+Ref(int) v1
+(Ref(int) v2; Ref(int) v3; int cnt; new(v1, 2); new(v2, 3); new(v3, 4); newLatch(cnt, readHeap(v2)); fork(heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); latchCountDown(cnt)); fork(heapWrite(v2, readHeap(v2) * 10); print(readHeap(v2)); latchCountDown(cnt)); fork(heapWrite(v3, readHeap(v3) * 10); print(readHeap(v3)); latchCountDown(cnt)); latchAwait(cnt); print(100); latchCountDown(cnt); print(100))
+Symbols Table:
+
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+(Ref(int) v2; Ref(int) v3; int cnt; new(v1, 2); new(v2, 3); new(v3, 4); newLatch(cnt, readHeap(v2)); fork(heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); latchCountDown(cnt)); fork(heapWrite(v2, readHeap(v2) * 10); print(readHeap(v2)); latchCountDown(cnt)); fork(heapWrite(v3, readHeap(v3) * 10); print(readHeap(v3)); latchCountDown(cnt)); latchAwait(cnt); print(100); latchCountDown(cnt); print(100))
+Symbols Table:
+v1 --> (0, int)
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+Ref(int) v2
+(Ref(int) v3; int cnt; new(v1, 2); new(v2, 3); new(v3, 4); newLatch(cnt, readHeap(v2)); fork(heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); latchCountDown(cnt)); fork(heapWrite(v2, readHeap(v2) * 10); print(readHeap(v2)); latchCountDown(cnt)); fork(heapWrite(v3, readHeap(v3) * 10); print(readHeap(v3)); latchCountDown(cnt)); latchAwait(cnt); print(100); latchCountDown(cnt); print(100))
+Symbols Table:
+v1 --> (0, int)
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+(Ref(int) v3; int cnt; new(v1, 2); new(v2, 3); new(v3, 4); newLatch(cnt, readHeap(v2)); fork(heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); latchCountDown(cnt)); fork(heapWrite(v2, readHeap(v2) * 10); print(readHeap(v2)); latchCountDown(cnt)); fork(heapWrite(v3, readHeap(v3) * 10); print(readHeap(v3)); latchCountDown(cnt)); latchAwait(cnt); print(100); latchCountDown(cnt); print(100))
+Symbols Table:
+v1 --> (0, int)
+v2 --> (0, int)
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+Ref(int) v3
+(int cnt; new(v1, 2); new(v2, 3); new(v3, 4); newLatch(cnt, readHeap(v2)); fork(heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); latchCountDown(cnt)); fork(heapWrite(v2, readHeap(v2) * 10); print(readHeap(v2)); latchCountDown(cnt)); fork(heapWrite(v3, readHeap(v3) * 10); print(readHeap(v3)); latchCountDown(cnt)); latchAwait(cnt); print(100); latchCountDown(cnt); print(100))
+Symbols Table:
+v1 --> (0, int)
+v2 --> (0, int)
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+(int cnt; new(v1, 2); new(v2, 3); new(v3, 4); newLatch(cnt, readHeap(v2)); fork(heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); latchCountDown(cnt)); fork(heapWrite(v2, readHeap(v2) * 10); print(readHeap(v2)); latchCountDown(cnt)); fork(heapWrite(v3, readHeap(v3) * 10); print(readHeap(v3)); latchCountDown(cnt)); latchAwait(cnt); print(100); latchCountDown(cnt); print(100))
+Symbols Table:
+v1 --> (0, int)
+v2 --> (0, int)
+v3 --> (0, int)
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+int cnt
+(new(v1, 2); new(v2, 3); new(v3, 4); newLatch(cnt, readHeap(v2)); fork(heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); latchCountDown(cnt)); fork(heapWrite(v2, readHeap(v2) * 10); print(readHeap(v2)); latchCountDown(cnt)); fork(heapWrite(v3, readHeap(v3) * 10); print(readHeap(v3)); latchCountDown(cnt)); latchAwait(cnt); print(100); latchCountDown(cnt); print(100))
+Symbols Table:
+v1 --> (0, int)
+v2 --> (0, int)
+v3 --> (0, int)
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+(new(v1, 2); new(v2, 3); new(v3, 4); newLatch(cnt, readHeap(v2)); fork(heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); latchCountDown(cnt)); fork(heapWrite(v2, readHeap(v2) * 10); print(readHeap(v2)); latchCountDown(cnt)); fork(heapWrite(v3, readHeap(v3) * 10); print(readHeap(v3)); latchCountDown(cnt)); latchAwait(cnt); print(100); latchCountDown(cnt); print(100))
+Symbols Table:
+cnt --> 0
+v1 --> (0, int)
+v2 --> (0, int)
+v3 --> (0, int)
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+new(v1, 2)
+(new(v2, 3); new(v3, 4); newLatch(cnt, readHeap(v2)); fork(heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); latchCountDown(cnt)); fork(heapWrite(v2, readHeap(v2) * 10); print(readHeap(v2)); latchCountDown(cnt)); fork(heapWrite(v3, readHeap(v3) * 10); print(readHeap(v3)); latchCountDown(cnt)); latchAwait(cnt); print(100); latchCountDown(cnt); print(100))
+Symbols Table:
+cnt --> 0
+v1 --> (0, int)
+v2 --> (0, int)
+v3 --> (0, int)
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+(new(v2, 3); new(v3, 4); newLatch(cnt, readHeap(v2)); fork(heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); latchCountDown(cnt)); fork(heapWrite(v2, readHeap(v2) * 10); print(readHeap(v2)); latchCountDown(cnt)); fork(heapWrite(v3, readHeap(v3) * 10); print(readHeap(v3)); latchCountDown(cnt)); latchAwait(cnt); print(100); latchCountDown(cnt); print(100))
+Symbols Table:
+cnt --> 0
+v1 --> (1, int)
+v2 --> (0, int)
+v3 --> (0, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 2
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+new(v2, 3)
+(new(v3, 4); newLatch(cnt, readHeap(v2)); fork(heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); latchCountDown(cnt)); fork(heapWrite(v2, readHeap(v2) * 10); print(readHeap(v2)); latchCountDown(cnt)); fork(heapWrite(v3, readHeap(v3) * 10); print(readHeap(v3)); latchCountDown(cnt)); latchAwait(cnt); print(100); latchCountDown(cnt); print(100))
+Symbols Table:
+cnt --> 0
+v1 --> (1, int)
+v2 --> (0, int)
+v3 --> (0, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 2
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+(new(v3, 4); newLatch(cnt, readHeap(v2)); fork(heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); latchCountDown(cnt)); fork(heapWrite(v2, readHeap(v2) * 10); print(readHeap(v2)); latchCountDown(cnt)); fork(heapWrite(v3, readHeap(v3) * 10); print(readHeap(v3)); latchCountDown(cnt)); latchAwait(cnt); print(100); latchCountDown(cnt); print(100))
+Symbols Table:
+cnt --> 0
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (0, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 2
+2 --> 3
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+new(v3, 4)
+(newLatch(cnt, readHeap(v2)); fork(heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); latchCountDown(cnt)); fork(heapWrite(v2, readHeap(v2) * 10); print(readHeap(v2)); latchCountDown(cnt)); fork(heapWrite(v3, readHeap(v3) * 10); print(readHeap(v3)); latchCountDown(cnt)); latchAwait(cnt); print(100); latchCountDown(cnt); print(100))
+Symbols Table:
+cnt --> 0
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (0, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 2
+2 --> 3
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+(newLatch(cnt, readHeap(v2)); fork(heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); latchCountDown(cnt)); fork(heapWrite(v2, readHeap(v2) * 10); print(readHeap(v2)); latchCountDown(cnt)); fork(heapWrite(v3, readHeap(v3) * 10); print(readHeap(v3)); latchCountDown(cnt)); latchAwait(cnt); print(100); latchCountDown(cnt); print(100))
+Symbols Table:
+cnt --> 0
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 2
+2 --> 3
+3 --> 4
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+newLatch(cnt, readHeap(v2))
+(fork(heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); latchCountDown(cnt)); fork(heapWrite(v2, readHeap(v2) * 10); print(readHeap(v2)); latchCountDown(cnt)); fork(heapWrite(v3, readHeap(v3) * 10); print(readHeap(v3)); latchCountDown(cnt)); latchAwait(cnt); print(100); latchCountDown(cnt); print(100))
+Symbols Table:
+cnt --> 0
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 2
+2 --> 3
+3 --> 4
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+(fork(heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); latchCountDown(cnt)); fork(heapWrite(v2, readHeap(v2) * 10); print(readHeap(v2)); latchCountDown(cnt)); fork(heapWrite(v3, readHeap(v3) * 10); print(readHeap(v3)); latchCountDown(cnt)); latchAwait(cnt); print(100); latchCountDown(cnt); print(100))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 2
+2 --> 3
+3 --> 4
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+fork(heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); latchCountDown(cnt))
+(fork(heapWrite(v2, readHeap(v2) * 10); print(readHeap(v2)); latchCountDown(cnt)); fork(heapWrite(v3, readHeap(v3) * 10); print(readHeap(v3)); latchCountDown(cnt)); latchAwait(cnt); print(100); latchCountDown(cnt); print(100))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 2
+2 --> 3
+3 --> 4
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+(fork(heapWrite(v2, readHeap(v2) * 10); print(readHeap(v2)); latchCountDown(cnt)); fork(heapWrite(v3, readHeap(v3) * 10); print(readHeap(v3)); latchCountDown(cnt)); latchAwait(cnt); print(100); latchCountDown(cnt); print(100))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 2
+2 --> 3
+3 --> 4
+-------------------------
+-------------------------
+Program ID: 21
+Execution Stack:
+(heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); latchCountDown(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 2
+2 --> 3
+3 --> 4
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+fork(heapWrite(v2, readHeap(v2) * 10); print(readHeap(v2)); latchCountDown(cnt))
+(fork(heapWrite(v3, readHeap(v3) * 10); print(readHeap(v3)); latchCountDown(cnt)); latchAwait(cnt); print(100); latchCountDown(cnt); print(100))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 2
+2 --> 3
+3 --> 4
+-------------------------
+-------------------------
+Program ID: 21
+Execution Stack:
+heapWrite(v1, readHeap(v1) * 10)
+(print(readHeap(v1)); latchCountDown(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 2
+2 --> 3
+3 --> 4
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+(fork(heapWrite(v3, readHeap(v3) * 10); print(readHeap(v3)); latchCountDown(cnt)); latchAwait(cnt); print(100); latchCountDown(cnt); print(100))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 3
+3 --> 4
+-------------------------
+-------------------------
+Program ID: 21
+Execution Stack:
+(print(readHeap(v1)); latchCountDown(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 3
+3 --> 4
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+(heapWrite(v2, readHeap(v2) * 10); print(readHeap(v2)); latchCountDown(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 3
+3 --> 4
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+fork(heapWrite(v3, readHeap(v3) * 10); print(readHeap(v3)); latchCountDown(cnt))
+(latchAwait(cnt); print(100); latchCountDown(cnt); print(100))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 3
+3 --> 4
+-------------------------
+-------------------------
+Program ID: 21
+Execution Stack:
+print(readHeap(v1))
+latchCountDown(cnt)
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 3
+3 --> 4
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+heapWrite(v2, readHeap(v2) * 10)
+(print(readHeap(v2)); latchCountDown(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 3
+3 --> 4
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+(latchAwait(cnt); print(100); latchCountDown(cnt); print(100))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+20
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 30
+3 --> 4
+-------------------------
+-------------------------
+Program ID: 21
+Execution Stack:
+latchCountDown(cnt)
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+20
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 30
+3 --> 4
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+(print(readHeap(v2)); latchCountDown(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+20
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 30
+3 --> 4
+-------------------------
+-------------------------
+Program ID: 23
+Execution Stack:
+(heapWrite(v3, readHeap(v3) * 10); print(readHeap(v3)); latchCountDown(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+20
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 30
+3 --> 4
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+latchAwait(cnt)
+(print(100); latchCountDown(cnt); print(100))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+20
+21
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 30
+3 --> 4
+-------------------------
+-------------------------
+Program ID: 21
+Execution Stack:
+
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+20
+21
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 30
+3 --> 4
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+print(readHeap(v2))
+latchCountDown(cnt)
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+20
+21
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 30
+3 --> 4
+-------------------------
+-------------------------
+Program ID: 23
+Execution Stack:
+heapWrite(v3, readHeap(v3) * 10)
+(print(readHeap(v3)); latchCountDown(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+20
+21
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 30
+3 --> 4
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+latchAwait(cnt)
+(print(100); latchCountDown(cnt); print(100))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+20
+21
+30
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 30
+3 --> 40
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+latchCountDown(cnt)
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+20
+21
+30
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 30
+3 --> 40
+-------------------------
+-------------------------
+Program ID: 23
+Execution Stack:
+(print(readHeap(v3)); latchCountDown(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+20
+21
+30
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 30
+3 --> 40
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+latchAwait(cnt)
+(print(100); latchCountDown(cnt); print(100))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+20
+21
+30
+22
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 30
+3 --> 40
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+20
+21
+30
+22
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 30
+3 --> 40
+-------------------------
+-------------------------
+Program ID: 23
+Execution Stack:
+print(readHeap(v3))
+latchCountDown(cnt)
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+20
+21
+30
+22
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 30
+3 --> 40
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+latchAwait(cnt)
+(print(100); latchCountDown(cnt); print(100))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+20
+21
+30
+22
+40
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 30
+3 --> 40
+-------------------------
+-------------------------
+Program ID: 23
+Execution Stack:
+latchCountDown(cnt)
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+20
+21
+30
+22
+40
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 30
+3 --> 40
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+latchAwait(cnt)
+(print(100); latchCountDown(cnt); print(100))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+20
+21
+30
+22
+40
+23
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 30
+3 --> 40
+-------------------------
+-------------------------
+Program ID: 23
+Execution Stack:
+
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+20
+21
+30
+22
+40
+23
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 30
+3 --> 40
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+(print(100); latchCountDown(cnt); print(100))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+20
+21
+30
+22
+40
+23
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 30
+3 --> 40
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+print(100)
+(latchCountDown(cnt); print(100))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+20
+21
+30
+22
+40
+23
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 30
+3 --> 40
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+(latchCountDown(cnt); print(100))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+20
+21
+30
+22
+40
+23
+100
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 30
+3 --> 40
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+latchCountDown(cnt)
+print(100)
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+20
+21
+30
+22
+40
+23
+100
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 30
+3 --> 40
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+print(100)
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+20
+21
+30
+22
+40
+23
+100
+20
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 30
+3 --> 40
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+v2 --> (2, int)
+v3 --> (3, int)
+Out List:
+20
+21
+30
+22
+40
+23
+100
+20
+100
+File Table:
+
+Heap Table:
+1 --> 20
+2 --> 30
+3 --> 40
+-------------------------

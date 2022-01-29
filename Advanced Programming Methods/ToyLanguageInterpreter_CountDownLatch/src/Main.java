@@ -70,7 +70,7 @@ public class Main extends Application {
     }
 
     private static void initPrograms() {
-        int files_cnt = 19;
+        int files_cnt = 20;
         String[] file_paths = getFilePaths(files_cnt);
 
         // int v; v = 2; print(v);
@@ -327,6 +327,43 @@ public class Main extends Application {
         Repository repository19 = new Repository(program_state19, file_paths[18]);
         Controller controller19 = new Controller(repository19);
         controllers.add(controller19);
+
+        List<IStatement> statements20 = new Vector<IStatement>(Arrays.asList(
+                new DeclarationStatement("v1", new ReferenceType(new IntType())),
+                new DeclarationStatement("v2", new ReferenceType(new IntType())),
+                new DeclarationStatement("v3", new ReferenceType(new IntType())),
+                new DeclarationStatement("cnt", new IntType()),
+                new HeapAllocationStatement("v1", new ValueExpression(new IntValue(2))),
+                new HeapAllocationStatement("v2", new ValueExpression(new IntValue(3))),
+                new HeapAllocationStatement("v3", new ValueExpression(new IntValue(4))),
+                new NewLatchStatement("cnt", new HeapReadingExpression(new VariableExpression("v2"))),
+                new ForkStatement(MergeStatements.merge(new Vector<IStatement>(Arrays.asList(
+                        new HeapWritingStatement("v1", new ArithmeticExpression(new HeapReadingExpression(new VariableExpression("v1")), new ValueExpression(new IntValue(10)), '*')),
+                        new PrintStatement(new HeapReadingExpression(new VariableExpression("v1"))),
+                        new LatchCountDownStatement("cnt")
+                )))),
+                new ForkStatement(MergeStatements.merge(new Vector<IStatement>(Arrays.asList(
+                        new HeapWritingStatement("v2", new ArithmeticExpression(new HeapReadingExpression(new VariableExpression("v2")), new ValueExpression(new IntValue(10)), '*')),
+                        new PrintStatement(new HeapReadingExpression(new VariableExpression("v2"))),
+                        new LatchCountDownStatement("cnt")
+                )))),
+                new ForkStatement(MergeStatements.merge(new Vector<IStatement>(Arrays.asList(
+                        new HeapWritingStatement("v3", new ArithmeticExpression(new HeapReadingExpression(new VariableExpression("v3")), new ValueExpression(new IntValue(10)), '*')),
+                        new PrintStatement(new HeapReadingExpression(new VariableExpression("v3"))),
+                        new LatchCountDownStatement("cnt")
+                )))),
+                new LatchAwaitStatement("cnt"),
+                new PrintStatement(new ValueExpression(new IntValue(100))),
+                new LatchCountDownStatement("cnt"),
+                new PrintStatement(new ValueExpression(new IntValue(100)))
+        ));
+
+        IStatement st20 = MergeStatements.merge(statements20);
+        ProgramState program_state20 = new ProgramState(new ToyStack<IStatement>(), new ToyDictionary<String, IValue>(), new ToyList<IValue>(),
+                new ToyDictionary<StringValue, BufferedReader>(), new ToyHeapDictionary(), new ToyLockTable(), new ToyLatchTable(), st20);
+        Repository repository20 = new Repository(program_state20, file_paths[19]);
+        Controller controller20 = new Controller(repository20);
+        controllers.add(controller20);
     }
 
     private static void consoleLaunch(String[] args) {

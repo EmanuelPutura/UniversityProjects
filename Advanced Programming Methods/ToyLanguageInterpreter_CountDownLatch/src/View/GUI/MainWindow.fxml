@@ -16,6 +16,7 @@
     <Label text="Symbols Table" GridPane.rowIndex="0" GridPane.columnIndex="4"/>
     <Label text="Execution Stack" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
     <Label text="Lock Table" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+    <Label text="Latch Table" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
     <TableView fx:id="heap_table_view" accessibleRole="IMAGE_VIEW" editable="true" prefHeight="400.0" prefWidth="200.0" GridPane.rowIndex="1" GridPane.columnIndex="0">
         <columns>
             <TableColumn fx:id="heap_address_column" prefWidth="100.0" text="Address"/>
@@ -36,6 +37,12 @@
         <columns>
             <TableColumn fx:id="lock_location_column" prefWidth="80.0" text="Location"/>
             <TableColumn fx:id="lock_program_column" prefWidth="80.0" text="ProgramID"/>
+        </columns>
+    </TableView>
+    <TableView fx:id="latch_table_view" accessibleRole="IMAGE_VIEW" editable="true" prefHeight="400.0" prefWidth="200.0" GridPane.rowIndex="3" GridPane.columnIndex="2">
+        <columns>
+            <TableColumn fx:id="latch_location_column" prefWidth="100.0" text="Location"/>
+            <TableColumn fx:id="latch_value_column" prefWidth="100.0" text="Value"/>
         </columns>
     </TableView>
 

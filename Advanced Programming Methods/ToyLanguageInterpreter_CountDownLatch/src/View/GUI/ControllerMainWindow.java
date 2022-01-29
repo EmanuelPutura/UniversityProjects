@@ -62,6 +62,15 @@ public class ControllerMainWindow {
     private TableColumn<Map.Entry<Integer, Integer>, Integer> lock_program_column;
 
     @FXML
+    private TableView<Map.Entry<Integer, Integer>> latch_table_view;
+
+    @FXML
+    private TableColumn<Map.Entry<Integer, Integer>, Integer> latch_location_column;
+
+    @FXML
+    private TableColumn<Map.Entry<Integer, Integer>, Integer> latch_value_column;
+
+    @FXML
     private TextField programs_text_field;
 
     public void setController(Controller controller) {
@@ -126,6 +135,11 @@ public class ControllerMainWindow {
         lock_obs.addAll(controller.getRepository().getInitialProgramState().lockTable().getContent().entrySet());
         lock_table_view.setItems(lock_obs);
         lock_table_view.refresh();
+
+        ObservableList<Map.Entry<Integer, Integer>> latch_obs = FXCollections.observableArrayList();
+        latch_obs.addAll(controller.getRepository().getInitialProgramState().latchTable().getContent().entrySet());
+        latch_table_view.setItems(latch_obs);
+        latch_table_view.refresh();
 
         // deselect already completed programs
         if (programs_list_view.getSelectionModel().getSelectedIndices().size() == 0) {
@@ -216,6 +230,22 @@ public class ControllerMainWindow {
         });
 
         lock_program_column.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Map.Entry<Integer, Integer>, Integer>, ObservableValue<Integer>>() {
+            @Override
+            public ObservableValue<Integer> call(TableColumn.CellDataFeatures<Map.Entry<Integer, Integer>, Integer> entry) {
+                Map.Entry<Integer, Integer> map_entry = entry.getValue();
+                return new SimpleObjectProperty<Integer>(map_entry.getValue());
+            }
+        });
+
+        latch_location_column.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Map.Entry<Integer, Integer>, Integer>, ObservableValue<Integer>>() {
+            @Override
+            public ObservableValue<Integer> call(TableColumn.CellDataFeatures<Map.Entry<Integer, Integer>, Integer> entry) {
+                Map.Entry<Integer, Integer> map_entry = entry.getValue();
+                return new SimpleObjectProperty<Integer>(map_entry.getKey());
+            }
+        });
+
+        latch_value_column.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Map.Entry<Integer, Integer>, Integer>, ObservableValue<Integer>>() {
             @Override
             public ObservableValue<Integer> call(TableColumn.CellDataFeatures<Map.Entry<Integer, Integer>, Integer> entry) {
                 Map.Entry<Integer, Integer> map_entry = entry.getValue();
