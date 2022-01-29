@@ -15,13 +15,15 @@ public class ProgramState {
     private IADTDictionary<StringValue, BufferedReader> file_table;
     private IADTHeapDictionary heap_table;
     private IADTLockTable lock_table;
+    private IADTLatchTable latch_table;
     private IStatement initial_statement;
 
     private int id;
     private static int current_generated_id = 0;
 
     public ProgramState(IADTStack<IStatement> exec_stack, IADTDictionary<String, IValue> sym_table, IADTList<IValue> out_list,
-                        IADTDictionary<StringValue, BufferedReader> file_table, IADTHeapDictionary heap_table, IADTLockTable lock_table, IStatement statement) {
+                        IADTDictionary<StringValue, BufferedReader> file_table, IADTHeapDictionary heap_table, IADTLockTable lock_table,
+                        IADTLatchTable latch_table, IStatement statement) {
         this.execution_stack = exec_stack;
         this.symbols_table = sym_table;
         this.out_list = out_list;
@@ -29,6 +31,7 @@ public class ProgramState {
         this.file_table = file_table;
         this.heap_table = heap_table;
         this.lock_table = lock_table;
+        this.latch_table = latch_table;
         this.execution_stack.push(statement);
         this.id = getID();
     }
@@ -57,6 +60,10 @@ public class ProgramState {
         return lock_table;
     }
 
+    public IADTLatchTable latchTable() {
+        return latch_table;
+    }
+
     public IStatement getInitialStatement() {
         return initial_statement;
     }
@@ -83,6 +90,10 @@ public class ProgramState {
 
     public void setLockTable(IADTLockTable other) {
         lock_table = other;
+    }
+
+    public void setLatchTable(IADTLatchTable other) {
+        latch_table = other;
     }
 
     public int programID() {
