@@ -6,7 +6,7 @@ import Model.Statements.IStatement;
 import java.util.Stack;
 
 public class ToyStack<E> implements IADTStack<E> {
-    private Stack<E> stack;
+    protected Stack<E> stack;
 
     public ToyStack() {
         stack = new Stack<E>();
