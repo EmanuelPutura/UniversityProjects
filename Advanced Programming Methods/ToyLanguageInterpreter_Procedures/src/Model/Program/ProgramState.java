@@ -11,7 +11,7 @@ import java.io.BufferedReader;
 public class ProgramState {
     private IADTStack<IStatement> execution_stack;
 //    private IADTDictionary<String, IValue> symbols_table;
-    ToySymbolTablesStack symbols_tables;
+    private IADTStack<IADTDictionary<String, IValue>> symbols_tables;
     private IADTList<IValue> out_list;
     private IADTDictionary<StringValue, BufferedReader> file_table;
     private IADTHeapDictionary heap_table;
@@ -47,7 +47,7 @@ public class ProgramState {
     public IADTDictionary<String, IValue> symbolsTable() {
         try {
             return symbols_tables.top();
-        } catch (EmptyStackException e) {
+        } catch (StackException e) {
             return null;
         }
     }
@@ -70,6 +70,10 @@ public class ProgramState {
 
     public IADTProcedureTable procedureTable() {
         return procedure_table;
+    }
+
+    public IADTStack<IADTDictionary<String, IValue>> allSymbolTables() {
+        return symbols_tables;
     }
 
     public IStatement getInitialStatement() {

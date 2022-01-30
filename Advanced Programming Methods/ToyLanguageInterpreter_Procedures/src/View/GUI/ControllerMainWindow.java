@@ -15,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.util.Callback;
+import javafx.util.Pair;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -62,6 +63,15 @@ public class ControllerMainWindow {
     private TableColumn<Map.Entry<Integer, Integer>, Integer> lock_program_column;
 
     @FXML
+    private TableView<Map.Entry<String, Pair<List<String>, IStatement>>> procedure_table_view;
+
+    @FXML
+    private TableColumn<Map.Entry<String, Pair<List<String>, IStatement>>, String> procedure_proc_column;
+
+    @FXML
+    private TableColumn<Map.Entry<String, Pair<List<String>, IStatement>>, IStatement> procedure_body_column;
+
+    @FXML
     private TextField programs_text_field;
 
     public void setController(Controller controller) {
@@ -82,7 +92,7 @@ public class ControllerMainWindow {
                 programs_text_field.setText("Number of ProgramStates: " + Integer.toString(controller.getRepository().getProgramStateList().size()));
             }
 
-            if (controller.removeCompletedPrograms(controller.getRepository().getProgramStateList()).size() == 0) {
+            if (completed_programs.size() == 0) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Program execution finished");
                 alert.setHeaderText("All the program instructions have been executed!");
@@ -126,6 +136,11 @@ public class ControllerMainWindow {
         lock_obs.addAll(controller.getRepository().getInitialProgramState().lockTable().getContent().entrySet());
         lock_table_view.setItems(lock_obs);
         lock_table_view.refresh();
+
+        ObservableList<Map.Entry<String, Pair<List<String>, IStatement>>> proc_obs = FXCollections.observableArrayList();
+        proc_obs.addAll(controller.getRepository().getInitialProgramState().procedureTable().getContent().entrySet());
+        procedure_table_view.setItems(proc_obs);
+        procedure_table_view.refresh();
 
         // deselect already completed programs
         if (programs_list_view.getSelectionModel().getSelectedIndices().size() == 0) {
@@ -220,6 +235,32 @@ public class ControllerMainWindow {
             public ObservableValue<Integer> call(TableColumn.CellDataFeatures<Map.Entry<Integer, Integer>, Integer> entry) {
                 Map.Entry<Integer, Integer> map_entry = entry.getValue();
                 return new SimpleObjectProperty<Integer>(map_entry.getValue());
+            }
+        });
+
+        procedure_proc_column.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Map.Entry<String, Pair<List<String>, IStatement>>, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Map.Entry<String, Pair<List<String>, IStatement>>, String> entry) {
+                Map.Entry<String, Pair<List<String>, IStatement>> map_entry = entry.getValue();
+                StringBuilder res = new StringBuilder(map_entry.getKey() + "(");
+
+                List<String> param_list = map_entry.getValue().getKey();
+                for (int i = 0; i < param_list.size() - 1; ++i)
+                    res.append(param_list.get(i)).append(", ");
+
+                if (param_list.size() > 0)
+                    res.append(param_list.get(param_list.size() - 1));
+                res.append(")");
+
+                return new SimpleObjectProperty<String>(res.toString());
+            }
+        });
+
+        procedure_body_column.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Map.Entry<String, Pair<List<String>, IStatement>>, IStatement>, ObservableValue<IStatement>>() {
+            @Override
+            public ObservableValue<IStatement> call(TableColumn.CellDataFeatures<Map.Entry<String, Pair<List<String>, IStatement>>, IStatement> entry) {
+                Map.Entry<String, Pair<List<String>, IStatement>> map_entry = entry.getValue();
+                return new SimpleObjectProperty<IStatement>(map_entry.getValue().getValue());
             }
         });
 

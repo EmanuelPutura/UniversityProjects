@@ -1,0 +1,572 @@
+-------------------------
+Program ID: 20
+Execution Stack:
+int v
+(v = 2; int w; w = 5; call_sum(v * 10, w); print(v); fork(call_product(v, w); fork(call_sum(v, w))))
+Symbol Tables Stack:
+ADTDictionary: {}
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+(v = 2; int w; w = 5; call_sum(v * 10, w); print(v); fork(call_product(v, w); fork(call_sum(v, w))))
+Symbol Tables Stack:
+ADTDictionary: {v: 0}
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+v = 2
+(int w; w = 5; call_sum(v * 10, w); print(v); fork(call_product(v, w); fork(call_sum(v, w))))
+Symbol Tables Stack:
+ADTDictionary: {v: 0}
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+(int w; w = 5; call_sum(v * 10, w); print(v); fork(call_product(v, w); fork(call_sum(v, w))))
+Symbol Tables Stack:
+ADTDictionary: {v: 2}
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+int w
+(w = 5; call_sum(v * 10, w); print(v); fork(call_product(v, w); fork(call_sum(v, w))))
+Symbol Tables Stack:
+ADTDictionary: {v: 2}
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+(w = 5; call_sum(v * 10, w); print(v); fork(call_product(v, w); fork(call_sum(v, w))))
+Symbol Tables Stack:
+ADTDictionary: {v: 2, w: 0}
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+w = 5
+(call_sum(v * 10, w); print(v); fork(call_product(v, w); fork(call_sum(v, w))))
+Symbol Tables Stack:
+ADTDictionary: {v: 2, w: 0}
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+(call_sum(v * 10, w); print(v); fork(call_product(v, w); fork(call_sum(v, w))))
+Symbol Tables Stack:
+ADTDictionary: {v: 2, w: 5}
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+call_sum(v * 10, w)
+(print(v); fork(call_product(v, w); fork(call_sum(v, w))))
+Symbol Tables Stack:
+ADTDictionary: {v: 2, w: 5}
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+(int v; v = a + b; print(v))
+return
+(print(v); fork(call_product(v, w); fork(call_sum(v, w))))
+Symbol Tables Stack:
+ADTDictionary: {a: 20, b: 5}
+ADTDictionary: {v: 2, w: 5}
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+int v
+(v = a + b; print(v))
+return
+(print(v); fork(call_product(v, w); fork(call_sum(v, w))))
+Symbol Tables Stack:
+ADTDictionary: {a: 20, b: 5}
+ADTDictionary: {v: 2, w: 5}
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+(v = a + b; print(v))
+return
+(print(v); fork(call_product(v, w); fork(call_sum(v, w))))
+Symbol Tables Stack:
+ADTDictionary: {a: 20, b: 5, v: 0}
+ADTDictionary: {v: 2, w: 5}
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+v = a + b
+print(v)
+return
+(print(v); fork(call_product(v, w); fork(call_sum(v, w))))
+Symbol Tables Stack:
+ADTDictionary: {a: 20, b: 5, v: 0}
+ADTDictionary: {v: 2, w: 5}
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+print(v)
+return
+(print(v); fork(call_product(v, w); fork(call_sum(v, w))))
+Symbol Tables Stack:
+ADTDictionary: {a: 20, b: 5, v: 25}
+ADTDictionary: {v: 2, w: 5}
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+return
+(print(v); fork(call_product(v, w); fork(call_sum(v, w))))
+Symbol Tables Stack:
+ADTDictionary: {a: 20, b: 5, v: 25}
+ADTDictionary: {v: 2, w: 5}
+Out List:
+25
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+(print(v); fork(call_product(v, w); fork(call_sum(v, w))))
+Symbol Tables Stack:
+ADTDictionary: {v: 2, w: 5}
+Out List:
+25
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+print(v)
+fork(call_product(v, w); fork(call_sum(v, w)))
+Symbol Tables Stack:
+ADTDictionary: {v: 2, w: 5}
+Out List:
+25
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+fork(call_product(v, w); fork(call_sum(v, w)))
+Symbol Tables Stack:
+ADTDictionary: {v: 2, w: 5}
+Out List:
+25
+2
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+
+Symbol Tables Stack:
+ADTDictionary: {v: 2, w: 5}
+Out List:
+25
+2
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 21
+Execution Stack:
+(call_product(v, w); fork(call_sum(v, w)))
+Symbol Tables Stack:
+ADTDictionary: {v: 2, w: 5}
+Out List:
+25
+2
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 21
+Execution Stack:
+call_product(v, w)
+fork(call_sum(v, w))
+Symbol Tables Stack:
+ADTDictionary: {v: 2, w: 5}
+Out List:
+25
+2
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 21
+Execution Stack:
+(int v; v = a * b; print(v))
+return
+fork(call_sum(v, w))
+Symbol Tables Stack:
+ADTDictionary: {a: 2, b: 5}
+ADTDictionary: {v: 2, w: 5}
+Out List:
+25
+2
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 21
+Execution Stack:
+int v
+(v = a * b; print(v))
+return
+fork(call_sum(v, w))
+Symbol Tables Stack:
+ADTDictionary: {a: 2, b: 5}
+ADTDictionary: {v: 2, w: 5}
+Out List:
+25
+2
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 21
+Execution Stack:
+(v = a * b; print(v))
+return
+fork(call_sum(v, w))
+Symbol Tables Stack:
+ADTDictionary: {a: 2, b: 5, v: 0}
+ADTDictionary: {v: 2, w: 5}
+Out List:
+25
+2
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 21
+Execution Stack:
+v = a * b
+print(v)
+return
+fork(call_sum(v, w))
+Symbol Tables Stack:
+ADTDictionary: {a: 2, b: 5, v: 0}
+ADTDictionary: {v: 2, w: 5}
+Out List:
+25
+2
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 21
+Execution Stack:
+print(v)
+return
+fork(call_sum(v, w))
+Symbol Tables Stack:
+ADTDictionary: {a: 2, b: 5, v: 10}
+ADTDictionary: {v: 2, w: 5}
+Out List:
+25
+2
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 21
+Execution Stack:
+return
+fork(call_sum(v, w))
+Symbol Tables Stack:
+ADTDictionary: {a: 2, b: 5, v: 10}
+ADTDictionary: {v: 2, w: 5}
+Out List:
+25
+2
+10
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 21
+Execution Stack:
+fork(call_sum(v, w))
+Symbol Tables Stack:
+ADTDictionary: {v: 2, w: 5}
+Out List:
+25
+2
+10
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 21
+Execution Stack:
+
+Symbol Tables Stack:
+ADTDictionary: {v: 2, w: 5}
+Out List:
+25
+2
+10
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+call_sum(v, w)
+Symbol Tables Stack:
+ADTDictionary: {v: 2, w: 5}
+Out List:
+25
+2
+10
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+(int v; v = a + b; print(v))
+return
+Symbol Tables Stack:
+ADTDictionary: {a: 2, b: 5}
+ADTDictionary: {v: 2, w: 5}
+Out List:
+25
+2
+10
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+int v
+(v = a + b; print(v))
+return
+Symbol Tables Stack:
+ADTDictionary: {a: 2, b: 5}
+ADTDictionary: {v: 2, w: 5}
+Out List:
+25
+2
+10
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+(v = a + b; print(v))
+return
+Symbol Tables Stack:
+ADTDictionary: {a: 2, b: 5, v: 0}
+ADTDictionary: {v: 2, w: 5}
+Out List:
+25
+2
+10
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+v = a + b
+print(v)
+return
+Symbol Tables Stack:
+ADTDictionary: {a: 2, b: 5, v: 0}
+ADTDictionary: {v: 2, w: 5}
+Out List:
+25
+2
+10
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+print(v)
+return
+Symbol Tables Stack:
+ADTDictionary: {a: 2, b: 5, v: 7}
+ADTDictionary: {v: 2, w: 5}
+Out List:
+25
+2
+10
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+return
+Symbol Tables Stack:
+ADTDictionary: {a: 2, b: 5, v: 7}
+ADTDictionary: {v: 2, w: 5}
+Out List:
+25
+2
+10
+7
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+
+Symbol Tables Stack:
+ADTDictionary: {v: 2, w: 5}
+Out List:
+25
+2
+10
+7
+File Table:
+
+Heap Table:
+
+-------------------------

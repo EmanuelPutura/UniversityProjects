@@ -1,5 +1,6 @@
 import Controller.Controller;
 import Model.DataStructures.*;
+import Model.Exceptions.DictionaryException;
 import Model.Exceptions.StatementException;
 import Model.Expressions.*;
 import Model.Program.ProgramState;
@@ -21,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.util.Pair;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -70,7 +72,7 @@ public class Main extends Application {
     }
 
     private static void initPrograms() {
-        int files_cnt = 19;
+        int files_cnt = 20;
         String[] file_paths = getFilePaths(files_cnt);
 
         // int v; v = 2; print(v);
@@ -327,6 +329,51 @@ public class Main extends Application {
         Repository repository19 = new Repository(program_state19, file_paths[18]);
         Controller controller19 = new Controller(repository19);
         controllers.add(controller19);
+
+        IADTProcedureTable procedure_table = new ToyProcedureTable();
+        IStatement f1 = MergeStatements.merge(new Vector<IStatement>(Arrays.asList(
+                new DeclarationStatement("v", new IntType()),
+                new AssignmentStatement("v", new ArithmeticExpression(new VariableExpression("a"), new VariableExpression("b"), '+')),
+                new PrintStatement(new VariableExpression("v"))
+        )));
+        IStatement f2 = MergeStatements.merge(new Vector<IStatement>(Arrays.asList(
+                new DeclarationStatement("v", new IntType()),
+                new AssignmentStatement("v", new ArithmeticExpression(new VariableExpression("a"), new VariableExpression("b"), '*')),
+                new PrintStatement(new VariableExpression("v"))
+        )));
+        try {
+            procedure_table.put("sum", new Pair<List<String>, IStatement>(Arrays.asList("a", "b"), f1));
+            procedure_table.put("product", new Pair<List<String>, IStatement>(Arrays.asList("a", "b"), f2));
+        } catch (DictionaryException ignored) {
+        }
+        IStatement st20 = MergeStatements.merge(new Vector<IStatement>(Arrays.asList(
+                new DeclarationStatement("v", new IntType()),
+                new AssignmentStatement("v", new ValueExpression(new IntValue(2))),
+                new DeclarationStatement("w", new IntType()),
+                new AssignmentStatement("w", new ValueExpression(new IntValue(5))),
+                new FunctionCallStatement("sum", Arrays.asList(
+                        new ArithmeticExpression(new VariableExpression("v"), new ValueExpression(new IntValue(10)), '*'),
+                        new VariableExpression("w")
+                )),
+                new PrintStatement(new VariableExpression("v")),
+                new ForkStatement(MergeStatements.merge(Arrays.asList(
+                        new FunctionCallStatement("product", Arrays.asList(
+                                new VariableExpression("v"),
+                                new VariableExpression("w")
+                        )),
+                        new ForkStatement(MergeStatements.merge(Arrays.asList(
+                                new FunctionCallStatement("sum", Arrays.asList(
+                                        new VariableExpression("v"),
+                                        new VariableExpression("w")
+                                ))
+                        )))
+                )))
+        )));
+        ProgramState program_state20 = new ProgramState(new ToyStack<IStatement>(), new ToyDictionary<String, IValue>(), new ToyList<IValue>(),
+                new ToyDictionary<StringValue, BufferedReader>(), new ToyHeapDictionary(), new ToyLockTable(), procedure_table, st20);
+        Repository repository20 = new Repository(program_state20, file_paths[19]);
+        Controller controller20 = new Controller(repository20);
+        controllers.add(controller20);
     }
 
     private static void consoleLaunch(String[] args) {
