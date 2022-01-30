@@ -53,7 +53,7 @@ public class ControllerSelectWindow {
                     scene.getStylesheets().add(new File("src/View/GUI/MainWindow.css").toURI().toURL().toExternalForm());
 
                     new_window.setScene(scene);
-                    new_window.setWidth(900);
+                    new_window.setWidth(1000);
                     new_window.setHeight(600);
                     new_window.setTitle("Program no. " + Integer.toString(index + 1));
                     new_window.show();
