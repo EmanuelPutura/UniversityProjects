@@ -3,8 +3,8 @@ Program ID: 19
 Execution Stack:
 Ref(int) v1
 (Ref(int) v2; int x; int q; new(v1, 20); new(v2, 30); newLock(x); fork(fork(lock(x); heapWrite(v1, readHeap(v1) - 1); unlock(x)); lock(x); heapWrite(v1, readHeap(v1) * 10); unlock(x)); newLock(q); fork(fork(lock(q); heapWrite(v2, readHeap(v2) + 5); unlock(q)); lock(q); heapWrite(v2, readHeap(v2) * 10); unlock(q)); no operation; no operation; no operation; no operation; lock(x); print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-
+Execution Stack:
+ADTDictionary: {}
 Out List:
 
 File Table:
@@ -16,8 +16,8 @@ Heap Table:
 Program ID: 19
 Execution Stack:
 (Ref(int) v2; int x; int q; new(v1, 20); new(v2, 30); newLock(x); fork(fork(lock(x); heapWrite(v1, readHeap(v1) - 1); unlock(x)); lock(x); heapWrite(v1, readHeap(v1) * 10); unlock(x)); newLock(q); fork(fork(lock(q); heapWrite(v2, readHeap(v2) + 5); unlock(q)); lock(q); heapWrite(v2, readHeap(v2) * 10); unlock(q)); no operation; no operation; no operation; no operation; lock(x); print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-v1 --> (0, int)
+Execution Stack:
+ADTDictionary: {v1: (0, int)}
 Out List:
 
 File Table:
@@ -30,8 +30,8 @@ Program ID: 19
 Execution Stack:
 Ref(int) v2
 (int x; int q; new(v1, 20); new(v2, 30); newLock(x); fork(fork(lock(x); heapWrite(v1, readHeap(v1) - 1); unlock(x)); lock(x); heapWrite(v1, readHeap(v1) * 10); unlock(x)); newLock(q); fork(fork(lock(q); heapWrite(v2, readHeap(v2) + 5); unlock(q)); lock(q); heapWrite(v2, readHeap(v2) * 10); unlock(q)); no operation; no operation; no operation; no operation; lock(x); print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-v1 --> (0, int)
+Execution Stack:
+ADTDictionary: {v1: (0, int)}
 Out List:
 
 File Table:
@@ -43,9 +43,8 @@ Heap Table:
 Program ID: 19
 Execution Stack:
 (int x; int q; new(v1, 20); new(v2, 30); newLock(x); fork(fork(lock(x); heapWrite(v1, readHeap(v1) - 1); unlock(x)); lock(x); heapWrite(v1, readHeap(v1) * 10); unlock(x)); newLock(q); fork(fork(lock(q); heapWrite(v2, readHeap(v2) + 5); unlock(q)); lock(q); heapWrite(v2, readHeap(v2) * 10); unlock(q)); no operation; no operation; no operation; no operation; lock(x); print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-v1 --> (0, int)
-v2 --> (0, int)
+Execution Stack:
+ADTDictionary: {v1: (0, int), v2: (0, int)}
 Out List:
 
 File Table:
@@ -58,9 +57,8 @@ Program ID: 19
 Execution Stack:
 int x
 (int q; new(v1, 20); new(v2, 30); newLock(x); fork(fork(lock(x); heapWrite(v1, readHeap(v1) - 1); unlock(x)); lock(x); heapWrite(v1, readHeap(v1) * 10); unlock(x)); newLock(q); fork(fork(lock(q); heapWrite(v2, readHeap(v2) + 5); unlock(q)); lock(q); heapWrite(v2, readHeap(v2) * 10); unlock(q)); no operation; no operation; no operation; no operation; lock(x); print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-v1 --> (0, int)
-v2 --> (0, int)
+Execution Stack:
+ADTDictionary: {v1: (0, int), v2: (0, int)}
 Out List:
 
 File Table:
@@ -72,10 +70,8 @@ Heap Table:
 Program ID: 19
 Execution Stack:
 (int q; new(v1, 20); new(v2, 30); newLock(x); fork(fork(lock(x); heapWrite(v1, readHeap(v1) - 1); unlock(x)); lock(x); heapWrite(v1, readHeap(v1) * 10); unlock(x)); newLock(q); fork(fork(lock(q); heapWrite(v2, readHeap(v2) + 5); unlock(q)); lock(q); heapWrite(v2, readHeap(v2) * 10); unlock(q)); no operation; no operation; no operation; no operation; lock(x); print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-x --> 0
-v1 --> (0, int)
-v2 --> (0, int)
+Execution Stack:
+ADTDictionary: {x: 0, v1: (0, int), v2: (0, int)}
 Out List:
 
 File Table:
@@ -88,10 +84,8 @@ Program ID: 19
 Execution Stack:
 int q
 (new(v1, 20); new(v2, 30); newLock(x); fork(fork(lock(x); heapWrite(v1, readHeap(v1) - 1); unlock(x)); lock(x); heapWrite(v1, readHeap(v1) * 10); unlock(x)); newLock(q); fork(fork(lock(q); heapWrite(v2, readHeap(v2) + 5); unlock(q)); lock(q); heapWrite(v2, readHeap(v2) * 10); unlock(q)); no operation; no operation; no operation; no operation; lock(x); print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-x --> 0
-v1 --> (0, int)
-v2 --> (0, int)
+Execution Stack:
+ADTDictionary: {x: 0, v1: (0, int), v2: (0, int)}
 Out List:
 
 File Table:
@@ -103,11 +97,8 @@ Heap Table:
 Program ID: 19
 Execution Stack:
 (new(v1, 20); new(v2, 30); newLock(x); fork(fork(lock(x); heapWrite(v1, readHeap(v1) - 1); unlock(x)); lock(x); heapWrite(v1, readHeap(v1) * 10); unlock(x)); newLock(q); fork(fork(lock(q); heapWrite(v2, readHeap(v2) + 5); unlock(q)); lock(q); heapWrite(v2, readHeap(v2) * 10); unlock(q)); no operation; no operation; no operation; no operation; lock(x); print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-q --> 0
-x --> 0
-v1 --> (0, int)
-v2 --> (0, int)
+Execution Stack:
+ADTDictionary: {q: 0, x: 0, v1: (0, int), v2: (0, int)}
 Out List:
 
 File Table:
@@ -120,11 +111,8 @@ Program ID: 19
 Execution Stack:
 new(v1, 20)
 (new(v2, 30); newLock(x); fork(fork(lock(x); heapWrite(v1, readHeap(v1) - 1); unlock(x)); lock(x); heapWrite(v1, readHeap(v1) * 10); unlock(x)); newLock(q); fork(fork(lock(q); heapWrite(v2, readHeap(v2) + 5); unlock(q)); lock(q); heapWrite(v2, readHeap(v2) * 10); unlock(q)); no operation; no operation; no operation; no operation; lock(x); print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-q --> 0
-x --> 0
-v1 --> (0, int)
-v2 --> (0, int)
+Execution Stack:
+ADTDictionary: {q: 0, x: 0, v1: (0, int), v2: (0, int)}
 Out List:
 
 File Table:
@@ -136,11 +124,8 @@ Heap Table:
 Program ID: 19
 Execution Stack:
 (new(v2, 30); newLock(x); fork(fork(lock(x); heapWrite(v1, readHeap(v1) - 1); unlock(x)); lock(x); heapWrite(v1, readHeap(v1) * 10); unlock(x)); newLock(q); fork(fork(lock(q); heapWrite(v2, readHeap(v2) + 5); unlock(q)); lock(q); heapWrite(v2, readHeap(v2) * 10); unlock(q)); no operation; no operation; no operation; no operation; lock(x); print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-q --> 0
-x --> 0
-v1 --> (1, int)
-v2 --> (0, int)
+Execution Stack:
+ADTDictionary: {q: 0, x: 0, v1: (1, int), v2: (0, int)}
 Out List:
 
 File Table:
@@ -153,11 +138,8 @@ Program ID: 19
 Execution Stack:
 new(v2, 30)
 (newLock(x); fork(fork(lock(x); heapWrite(v1, readHeap(v1) - 1); unlock(x)); lock(x); heapWrite(v1, readHeap(v1) * 10); unlock(x)); newLock(q); fork(fork(lock(q); heapWrite(v2, readHeap(v2) + 5); unlock(q)); lock(q); heapWrite(v2, readHeap(v2) * 10); unlock(q)); no operation; no operation; no operation; no operation; lock(x); print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-q --> 0
-x --> 0
-v1 --> (1, int)
-v2 --> (0, int)
+Execution Stack:
+ADTDictionary: {q: 0, x: 0, v1: (1, int), v2: (0, int)}
 Out List:
 
 File Table:
@@ -169,11 +151,8 @@ Heap Table:
 Program ID: 19
 Execution Stack:
 (newLock(x); fork(fork(lock(x); heapWrite(v1, readHeap(v1) - 1); unlock(x)); lock(x); heapWrite(v1, readHeap(v1) * 10); unlock(x)); newLock(q); fork(fork(lock(q); heapWrite(v2, readHeap(v2) + 5); unlock(q)); lock(q); heapWrite(v2, readHeap(v2) * 10); unlock(q)); no operation; no operation; no operation; no operation; lock(x); print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-q --> 0
-x --> 0
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 0, x: 0, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -187,11 +166,8 @@ Program ID: 19
 Execution Stack:
 newLock(x)
 (fork(fork(lock(x); heapWrite(v1, readHeap(v1) - 1); unlock(x)); lock(x); heapWrite(v1, readHeap(v1) * 10); unlock(x)); newLock(q); fork(fork(lock(q); heapWrite(v2, readHeap(v2) + 5); unlock(q)); lock(q); heapWrite(v2, readHeap(v2) * 10); unlock(q)); no operation; no operation; no operation; no operation; lock(x); print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-q --> 0
-x --> 0
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 0, x: 0, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -204,11 +180,8 @@ Heap Table:
 Program ID: 19
 Execution Stack:
 (fork(fork(lock(x); heapWrite(v1, readHeap(v1) - 1); unlock(x)); lock(x); heapWrite(v1, readHeap(v1) * 10); unlock(x)); newLock(q); fork(fork(lock(q); heapWrite(v2, readHeap(v2) + 5); unlock(q)); lock(q); heapWrite(v2, readHeap(v2) * 10); unlock(q)); no operation; no operation; no operation; no operation; lock(x); print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-q --> 0
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 0, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -222,11 +195,8 @@ Program ID: 19
 Execution Stack:
 fork(fork(lock(x); heapWrite(v1, readHeap(v1) - 1); unlock(x)); lock(x); heapWrite(v1, readHeap(v1) * 10); unlock(x))
 (newLock(q); fork(fork(lock(q); heapWrite(v2, readHeap(v2) + 5); unlock(q)); lock(q); heapWrite(v2, readHeap(v2) * 10); unlock(q)); no operation; no operation; no operation; no operation; lock(x); print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-q --> 0
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 0, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -239,11 +209,8 @@ Heap Table:
 Program ID: 19
 Execution Stack:
 (newLock(q); fork(fork(lock(q); heapWrite(v2, readHeap(v2) + 5); unlock(q)); lock(q); heapWrite(v2, readHeap(v2) * 10); unlock(q)); no operation; no operation; no operation; no operation; lock(x); print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-q --> 0
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 0, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -256,11 +223,8 @@ Heap Table:
 Program ID: 20
 Execution Stack:
 (fork(lock(x); heapWrite(v1, readHeap(v1) - 1); unlock(x)); lock(x); heapWrite(v1, readHeap(v1) * 10); unlock(x))
-Symbols Table:
-q --> 0
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 0, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -274,11 +238,8 @@ Program ID: 19
 Execution Stack:
 newLock(q)
 (fork(fork(lock(q); heapWrite(v2, readHeap(v2) + 5); unlock(q)); lock(q); heapWrite(v2, readHeap(v2) * 10); unlock(q)); no operation; no operation; no operation; no operation; lock(x); print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-q --> 0
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 0, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -292,11 +253,8 @@ Program ID: 20
 Execution Stack:
 fork(lock(x); heapWrite(v1, readHeap(v1) - 1); unlock(x))
 (lock(x); heapWrite(v1, readHeap(v1) * 10); unlock(x))
-Symbols Table:
-q --> 0
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 0, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -309,11 +267,8 @@ Heap Table:
 Program ID: 19
 Execution Stack:
 (fork(fork(lock(q); heapWrite(v2, readHeap(v2) + 5); unlock(q)); lock(q); heapWrite(v2, readHeap(v2) * 10); unlock(q)); no operation; no operation; no operation; no operation; lock(x); print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -326,11 +281,8 @@ Heap Table:
 Program ID: 20
 Execution Stack:
 (lock(x); heapWrite(v1, readHeap(v1) * 10); unlock(x))
-Symbols Table:
-q --> 0
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 0, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -343,11 +295,8 @@ Heap Table:
 Program ID: 21
 Execution Stack:
 (lock(x); heapWrite(v1, readHeap(v1) - 1); unlock(x))
-Symbols Table:
-q --> 0
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 0, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -361,11 +310,8 @@ Program ID: 19
 Execution Stack:
 fork(fork(lock(q); heapWrite(v2, readHeap(v2) + 5); unlock(q)); lock(q); heapWrite(v2, readHeap(v2) * 10); unlock(q))
 (no operation; no operation; no operation; no operation; lock(x); print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -379,11 +325,8 @@ Program ID: 20
 Execution Stack:
 lock(x)
 (heapWrite(v1, readHeap(v1) * 10); unlock(x))
-Symbols Table:
-q --> 0
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 0, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -397,11 +340,8 @@ Program ID: 21
 Execution Stack:
 lock(x)
 (heapWrite(v1, readHeap(v1) - 1); unlock(x))
-Symbols Table:
-q --> 0
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 0, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -414,11 +354,8 @@ Heap Table:
 Program ID: 19
 Execution Stack:
 (no operation; no operation; no operation; no operation; lock(x); print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -432,11 +369,8 @@ Program ID: 20
 Execution Stack:
 lock(x)
 (heapWrite(v1, readHeap(v1) * 10); unlock(x))
-Symbols Table:
-q --> 0
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 0, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -449,11 +383,8 @@ Heap Table:
 Program ID: 21
 Execution Stack:
 (heapWrite(v1, readHeap(v1) - 1); unlock(x))
-Symbols Table:
-q --> 0
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 0, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -466,11 +397,8 @@ Heap Table:
 Program ID: 22
 Execution Stack:
 (fork(lock(q); heapWrite(v2, readHeap(v2) + 5); unlock(q)); lock(q); heapWrite(v2, readHeap(v2) * 10); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -484,11 +412,8 @@ Program ID: 19
 Execution Stack:
 no operation
 (no operation; no operation; no operation; lock(x); print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -502,11 +427,8 @@ Program ID: 20
 Execution Stack:
 lock(x)
 (heapWrite(v1, readHeap(v1) * 10); unlock(x))
-Symbols Table:
-q --> 0
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 0, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -520,11 +442,8 @@ Program ID: 21
 Execution Stack:
 heapWrite(v1, readHeap(v1) - 1)
 unlock(x)
-Symbols Table:
-q --> 0
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 0, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -538,11 +457,8 @@ Program ID: 22
 Execution Stack:
 fork(lock(q); heapWrite(v2, readHeap(v2) + 5); unlock(q))
 (lock(q); heapWrite(v2, readHeap(v2) * 10); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -555,11 +471,8 @@ Heap Table:
 Program ID: 19
 Execution Stack:
 (no operation; no operation; no operation; lock(x); print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -573,11 +486,8 @@ Program ID: 20
 Execution Stack:
 lock(x)
 (heapWrite(v1, readHeap(v1) * 10); unlock(x))
-Symbols Table:
-q --> 0
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 0, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -590,11 +500,8 @@ Heap Table:
 Program ID: 21
 Execution Stack:
 unlock(x)
-Symbols Table:
-q --> 0
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 0, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -607,11 +514,8 @@ Heap Table:
 Program ID: 22
 Execution Stack:
 (lock(q); heapWrite(v2, readHeap(v2) * 10); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -624,11 +528,8 @@ Heap Table:
 Program ID: 23
 Execution Stack:
 (lock(q); heapWrite(v2, readHeap(v2) + 5); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -642,11 +543,8 @@ Program ID: 19
 Execution Stack:
 no operation
 (no operation; no operation; lock(x); print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -659,11 +557,8 @@ Heap Table:
 Program ID: 20
 Execution Stack:
 (heapWrite(v1, readHeap(v1) * 10); unlock(x))
-Symbols Table:
-q --> 0
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 0, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -676,11 +571,8 @@ Heap Table:
 Program ID: 21
 Execution Stack:
 
-Symbols Table:
-q --> 0
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 0, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -694,11 +586,8 @@ Program ID: 22
 Execution Stack:
 lock(q)
 (heapWrite(v2, readHeap(v2) * 10); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -712,11 +601,8 @@ Program ID: 23
 Execution Stack:
 lock(q)
 (heapWrite(v2, readHeap(v2) + 5); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -729,11 +615,8 @@ Heap Table:
 Program ID: 19
 Execution Stack:
 (no operation; no operation; lock(x); print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -747,11 +630,8 @@ Program ID: 20
 Execution Stack:
 heapWrite(v1, readHeap(v1) * 10)
 unlock(x)
-Symbols Table:
-q --> 0
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 0, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -764,11 +644,8 @@ Heap Table:
 Program ID: 22
 Execution Stack:
 (heapWrite(v2, readHeap(v2) * 10); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -782,11 +659,8 @@ Program ID: 23
 Execution Stack:
 lock(q)
 (heapWrite(v2, readHeap(v2) + 5); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -800,11 +674,8 @@ Program ID: 19
 Execution Stack:
 no operation
 (no operation; lock(x); print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -817,11 +688,8 @@ Heap Table:
 Program ID: 20
 Execution Stack:
 unlock(x)
-Symbols Table:
-q --> 0
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 0, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -835,11 +703,8 @@ Program ID: 22
 Execution Stack:
 heapWrite(v2, readHeap(v2) * 10)
 unlock(q)
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -853,11 +718,8 @@ Program ID: 23
 Execution Stack:
 lock(q)
 (heapWrite(v2, readHeap(v2) + 5); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -870,11 +732,8 @@ Heap Table:
 Program ID: 19
 Execution Stack:
 (no operation; lock(x); print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -887,11 +746,8 @@ Heap Table:
 Program ID: 20
 Execution Stack:
 
-Symbols Table:
-q --> 0
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 0, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -904,11 +760,8 @@ Heap Table:
 Program ID: 22
 Execution Stack:
 unlock(q)
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -922,11 +775,8 @@ Program ID: 23
 Execution Stack:
 lock(q)
 (heapWrite(v2, readHeap(v2) + 5); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -940,11 +790,8 @@ Program ID: 19
 Execution Stack:
 no operation
 (lock(x); print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -957,11 +804,8 @@ Heap Table:
 Program ID: 22
 Execution Stack:
 
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -975,11 +819,8 @@ Program ID: 23
 Execution Stack:
 lock(q)
 (heapWrite(v2, readHeap(v2) + 5); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -992,11 +833,8 @@ Heap Table:
 Program ID: 19
 Execution Stack:
 (lock(x); print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -1009,11 +847,8 @@ Heap Table:
 Program ID: 23
 Execution Stack:
 (heapWrite(v2, readHeap(v2) + 5); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -1027,11 +862,8 @@ Program ID: 19
 Execution Stack:
 lock(x)
 (print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -1045,11 +877,8 @@ Program ID: 23
 Execution Stack:
 heapWrite(v2, readHeap(v2) + 5)
 unlock(q)
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -1062,11 +891,8 @@ Heap Table:
 Program ID: 19
 Execution Stack:
 (print(readHeap(v1)); unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -1079,11 +905,8 @@ Heap Table:
 Program ID: 23
 Execution Stack:
 unlock(q)
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -1097,11 +920,8 @@ Program ID: 19
 Execution Stack:
 print(readHeap(v1))
 (unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -1114,11 +934,8 @@ Heap Table:
 Program ID: 23
 Execution Stack:
 
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 
 File Table:
@@ -1131,11 +948,8 @@ Heap Table:
 Program ID: 19
 Execution Stack:
 (unlock(x); lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 190
 File Table:
@@ -1149,11 +963,8 @@ Program ID: 19
 Execution Stack:
 unlock(x)
 (lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 190
 File Table:
@@ -1166,11 +977,8 @@ Heap Table:
 Program ID: 19
 Execution Stack:
 (lock(q); print(readHeap(v2)); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 190
 File Table:
@@ -1184,11 +992,8 @@ Program ID: 19
 Execution Stack:
 lock(q)
 (print(readHeap(v2)); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 190
 File Table:
@@ -1201,11 +1006,8 @@ Heap Table:
 Program ID: 19
 Execution Stack:
 (print(readHeap(v2)); unlock(q))
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 190
 File Table:
@@ -1219,11 +1021,8 @@ Program ID: 19
 Execution Stack:
 print(readHeap(v2))
 unlock(q)
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 190
 File Table:
@@ -1236,11 +1035,8 @@ Heap Table:
 Program ID: 19
 Execution Stack:
 unlock(q)
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 190
 305
@@ -1254,11 +1050,8 @@ Heap Table:
 Program ID: 19
 Execution Stack:
 
-Symbols Table:
-q --> 2
-x --> 1
-v1 --> (1, int)
-v2 --> (2, int)
+Execution Stack:
+ADTDictionary: {q: 2, x: 1, v1: (1, int), v2: (2, int)}
 Out List:
 190
 305
