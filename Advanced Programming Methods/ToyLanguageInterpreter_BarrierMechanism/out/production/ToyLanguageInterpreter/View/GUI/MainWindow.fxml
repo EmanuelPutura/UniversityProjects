@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<GridPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="View.GUI.ControllerMainWindow"
+          prefHeight="600.0" prefWidth="1000.0" vgap="10.0" hgap="10.0" stylesheets="@MainWindow.css">
+    <padding>
+        <Insets bottom="10.0" left="25.0" right="25.0" top="25.0" />
+    </padding>
+    <Label text="Heap Table" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+    <Label text="Out List" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+    <Label text="File Table" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+    <Label text="ProgramState IDs" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+    <Label text="Symbols Table" GridPane.rowIndex="0" GridPane.columnIndex="4"/>
+    <Label text="Execution Stack" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+    <Label text="Lock Table" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+    <TableView fx:id="heap_table_view" accessibleRole="IMAGE_VIEW" editable="true" prefHeight="400.0" prefWidth="200.0" GridPane.rowIndex="1" GridPane.columnIndex="0">
+        <columns>
+            <TableColumn fx:id="heap_address_column" prefWidth="100.0" text="Address"/>
+            <TableColumn fx:id="heap_value_column" prefWidth="100.0" text="Value"/>
+        </columns>
+    </TableView>
+    <ListView fx:id="out_list_view" editable="true" prefHeight="400.0" prefWidth="110.0" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+    <ListView fx:id="file_list_view" editable="true" prefHeight="400.0" prefWidth="110.0" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+    <ListView fx:id="programs_list_view" editable="true" prefHeight="400.0" prefWidth="110.0" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+    <TableView fx:id="sym_table_view" accessibleRole="IMAGE_VIEW" editable="true" prefHeight="400.0" prefWidth="200.0" GridPane.rowIndex="1" GridPane.columnIndex="4">
+        <columns>
+            <TableColumn fx:id="sym_var_column" prefWidth="100.0" text="Variable"/>
+            <TableColumn fx:id="sym_value_column" prefWidth="100.0" text="Value"/>
+        </columns>
+    </TableView>
+    <ListView fx:id="stack_list_view" editable="true" prefHeight="400.0" prefWidth="200.0" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+    <TableView fx:id="lock_table_view" accessibleRole="IMAGE_VIEW" editable="true" prefHeight="400.0" prefWidth="160.0" GridPane.rowIndex="3" GridPane.columnIndex="1">
+        <columns>
+            <TableColumn fx:id="lock_location_column" prefWidth="80.0" text="Location"/>
+            <TableColumn fx:id="lock_program_column" prefWidth="80.0" text="ProgramID"/>
+        </columns>
+    </TableView>
+
+    <TextField fx:id="programs_text_field" GridPane.rowIndex="4" GridPane.columnIndex="2" GridPane.columnSpan="2" editable="false" text="Number of ProgramStates: 1"/>
+    <Button mnemonicParsing="false" onAction="#handleRunOneStepButton" prefHeight="40" prefWidth="200" text="Run One Step" GridPane.rowIndex="4" GridPane.columnIndex="4"/>
+</GridPane>
