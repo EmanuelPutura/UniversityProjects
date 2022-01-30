@@ -1,5 +1,6 @@
 package Model.Statements;
 
+import Model.DataStructures.ToyProcedureTable;
 import Model.DataStructures.ToyStack;
 import Model.DataStructures.IADTDictionary;
 import Model.DataStructures.IADTStack;
@@ -18,7 +19,7 @@ public class ForkStatement implements IStatement {
     @Override
     public ProgramState execute(ProgramState state) throws StatementException, UndeclaredVariableException {
         IADTStack<IStatement> new_execution_stack = new ToyStack<IStatement>();
-        return new ProgramState(new_execution_stack, state.symbolsTable().deepCopy(), state.outList(), state.fileTable(), state.heapTable(), state.lockTable(), statement);
+        return new ProgramState(new_execution_stack, state.symbolsTable().deepCopy(), state.outList(), state.fileTable(), state.heapTable(), state.lockTable(), new ToyProcedureTable(), statement);
     }
 
     @Override
