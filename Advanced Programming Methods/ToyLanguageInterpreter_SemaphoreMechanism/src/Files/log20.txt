@@ -1,0 +1,680 @@
+-------------------------
+Program ID: 20
+Execution Stack:
+Ref(int) v1
+(int cnt; new(v1, 1); newSemaphore(cnt, readHeap(v1)); fork(acquireSemaphore(cnt); heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); releaseSemaphore(cnt)); fork(acquireSemaphore(cnt); heapWrite(v1, readHeap(v1) * 10); heapWrite(v1, readHeap(v1) * 2); print(readHeap(v1)); releaseSemaphore(cnt)); acquireSemaphore(cnt); print(readHeap(v1) - 1); releaseSemaphore(cnt))
+Symbols Table:
+
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+(int cnt; new(v1, 1); newSemaphore(cnt, readHeap(v1)); fork(acquireSemaphore(cnt); heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); releaseSemaphore(cnt)); fork(acquireSemaphore(cnt); heapWrite(v1, readHeap(v1) * 10); heapWrite(v1, readHeap(v1) * 2); print(readHeap(v1)); releaseSemaphore(cnt)); acquireSemaphore(cnt); print(readHeap(v1) - 1); releaseSemaphore(cnt))
+Symbols Table:
+v1 --> (0, int)
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+int cnt
+(new(v1, 1); newSemaphore(cnt, readHeap(v1)); fork(acquireSemaphore(cnt); heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); releaseSemaphore(cnt)); fork(acquireSemaphore(cnt); heapWrite(v1, readHeap(v1) * 10); heapWrite(v1, readHeap(v1) * 2); print(readHeap(v1)); releaseSemaphore(cnt)); acquireSemaphore(cnt); print(readHeap(v1) - 1); releaseSemaphore(cnt))
+Symbols Table:
+v1 --> (0, int)
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+(new(v1, 1); newSemaphore(cnt, readHeap(v1)); fork(acquireSemaphore(cnt); heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); releaseSemaphore(cnt)); fork(acquireSemaphore(cnt); heapWrite(v1, readHeap(v1) * 10); heapWrite(v1, readHeap(v1) * 2); print(readHeap(v1)); releaseSemaphore(cnt)); acquireSemaphore(cnt); print(readHeap(v1) - 1); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 0
+v1 --> (0, int)
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+new(v1, 1)
+(newSemaphore(cnt, readHeap(v1)); fork(acquireSemaphore(cnt); heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); releaseSemaphore(cnt)); fork(acquireSemaphore(cnt); heapWrite(v1, readHeap(v1) * 10); heapWrite(v1, readHeap(v1) * 2); print(readHeap(v1)); releaseSemaphore(cnt)); acquireSemaphore(cnt); print(readHeap(v1) - 1); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 0
+v1 --> (0, int)
+Out List:
+
+File Table:
+
+Heap Table:
+
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+(newSemaphore(cnt, readHeap(v1)); fork(acquireSemaphore(cnt); heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); releaseSemaphore(cnt)); fork(acquireSemaphore(cnt); heapWrite(v1, readHeap(v1) * 10); heapWrite(v1, readHeap(v1) * 2); print(readHeap(v1)); releaseSemaphore(cnt)); acquireSemaphore(cnt); print(readHeap(v1) - 1); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 0
+v1 --> (1, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 1
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+newSemaphore(cnt, readHeap(v1))
+(fork(acquireSemaphore(cnt); heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); releaseSemaphore(cnt)); fork(acquireSemaphore(cnt); heapWrite(v1, readHeap(v1) * 10); heapWrite(v1, readHeap(v1) * 2); print(readHeap(v1)); releaseSemaphore(cnt)); acquireSemaphore(cnt); print(readHeap(v1) - 1); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 0
+v1 --> (1, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 1
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+(fork(acquireSemaphore(cnt); heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); releaseSemaphore(cnt)); fork(acquireSemaphore(cnt); heapWrite(v1, readHeap(v1) * 10); heapWrite(v1, readHeap(v1) * 2); print(readHeap(v1)); releaseSemaphore(cnt)); acquireSemaphore(cnt); print(readHeap(v1) - 1); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 1
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+fork(acquireSemaphore(cnt); heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); releaseSemaphore(cnt))
+(fork(acquireSemaphore(cnt); heapWrite(v1, readHeap(v1) * 10); heapWrite(v1, readHeap(v1) * 2); print(readHeap(v1)); releaseSemaphore(cnt)); acquireSemaphore(cnt); print(readHeap(v1) - 1); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 1
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+(fork(acquireSemaphore(cnt); heapWrite(v1, readHeap(v1) * 10); heapWrite(v1, readHeap(v1) * 2); print(readHeap(v1)); releaseSemaphore(cnt)); acquireSemaphore(cnt); print(readHeap(v1) - 1); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 1
+-------------------------
+-------------------------
+Program ID: 21
+Execution Stack:
+(acquireSemaphore(cnt); heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 1
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+fork(acquireSemaphore(cnt); heapWrite(v1, readHeap(v1) * 10); heapWrite(v1, readHeap(v1) * 2); print(readHeap(v1)); releaseSemaphore(cnt))
+(acquireSemaphore(cnt); print(readHeap(v1) - 1); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 1
+-------------------------
+-------------------------
+Program ID: 21
+Execution Stack:
+acquireSemaphore(cnt)
+(heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 1
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+(acquireSemaphore(cnt); print(readHeap(v1) - 1); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 1
+-------------------------
+-------------------------
+Program ID: 21
+Execution Stack:
+(heapWrite(v1, readHeap(v1) * 10); print(readHeap(v1)); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 1
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+(acquireSemaphore(cnt); heapWrite(v1, readHeap(v1) * 10); heapWrite(v1, readHeap(v1) * 2); print(readHeap(v1)); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 1
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+acquireSemaphore(cnt)
+(print(readHeap(v1) - 1); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 1
+-------------------------
+-------------------------
+Program ID: 21
+Execution Stack:
+heapWrite(v1, readHeap(v1) * 10)
+(print(readHeap(v1)); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 1
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+acquireSemaphore(cnt)
+(heapWrite(v1, readHeap(v1) * 10); heapWrite(v1, readHeap(v1) * 2); print(readHeap(v1)); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 1
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+acquireSemaphore(cnt)
+(print(readHeap(v1) - 1); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 10
+-------------------------
+-------------------------
+Program ID: 21
+Execution Stack:
+(print(readHeap(v1)); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 10
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+acquireSemaphore(cnt)
+(heapWrite(v1, readHeap(v1) * 10); heapWrite(v1, readHeap(v1) * 2); print(readHeap(v1)); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 10
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+acquireSemaphore(cnt)
+(print(readHeap(v1) - 1); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 10
+-------------------------
+-------------------------
+Program ID: 21
+Execution Stack:
+print(readHeap(v1))
+releaseSemaphore(cnt)
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 10
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+acquireSemaphore(cnt)
+(heapWrite(v1, readHeap(v1) * 10); heapWrite(v1, readHeap(v1) * 2); print(readHeap(v1)); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+
+File Table:
+
+Heap Table:
+1 --> 10
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+acquireSemaphore(cnt)
+(print(readHeap(v1) - 1); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+10
+File Table:
+
+Heap Table:
+1 --> 10
+-------------------------
+-------------------------
+Program ID: 21
+Execution Stack:
+releaseSemaphore(cnt)
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+10
+File Table:
+
+Heap Table:
+1 --> 10
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+acquireSemaphore(cnt)
+(heapWrite(v1, readHeap(v1) * 10); heapWrite(v1, readHeap(v1) * 2); print(readHeap(v1)); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+10
+File Table:
+
+Heap Table:
+1 --> 10
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+acquireSemaphore(cnt)
+(print(readHeap(v1) - 1); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+10
+File Table:
+
+Heap Table:
+1 --> 10
+-------------------------
+-------------------------
+Program ID: 21
+Execution Stack:
+
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+10
+File Table:
+
+Heap Table:
+1 --> 10
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+acquireSemaphore(cnt)
+(heapWrite(v1, readHeap(v1) * 10); heapWrite(v1, readHeap(v1) * 2); print(readHeap(v1)); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+10
+File Table:
+
+Heap Table:
+1 --> 10
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+(print(readHeap(v1) - 1); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+10
+File Table:
+
+Heap Table:
+1 --> 10
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+acquireSemaphore(cnt)
+(heapWrite(v1, readHeap(v1) * 10); heapWrite(v1, readHeap(v1) * 2); print(readHeap(v1)); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+10
+File Table:
+
+Heap Table:
+1 --> 10
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+print(readHeap(v1) - 1)
+releaseSemaphore(cnt)
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+10
+File Table:
+
+Heap Table:
+1 --> 10
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+acquireSemaphore(cnt)
+(heapWrite(v1, readHeap(v1) * 10); heapWrite(v1, readHeap(v1) * 2); print(readHeap(v1)); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+10
+File Table:
+
+Heap Table:
+1 --> 10
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+releaseSemaphore(cnt)
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+10
+9
+File Table:
+
+Heap Table:
+1 --> 10
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+acquireSemaphore(cnt)
+(heapWrite(v1, readHeap(v1) * 10); heapWrite(v1, readHeap(v1) * 2); print(readHeap(v1)); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+10
+9
+File Table:
+
+Heap Table:
+1 --> 10
+-------------------------
+-------------------------
+Program ID: 20
+Execution Stack:
+
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+10
+9
+File Table:
+
+Heap Table:
+1 --> 10
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+(heapWrite(v1, readHeap(v1) * 10); heapWrite(v1, readHeap(v1) * 2); print(readHeap(v1)); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+10
+9
+File Table:
+
+Heap Table:
+1 --> 10
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+heapWrite(v1, readHeap(v1) * 10)
+(heapWrite(v1, readHeap(v1) * 2); print(readHeap(v1)); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+10
+9
+File Table:
+
+Heap Table:
+1 --> 10
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+(heapWrite(v1, readHeap(v1) * 2); print(readHeap(v1)); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+10
+9
+File Table:
+
+Heap Table:
+1 --> 100
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+heapWrite(v1, readHeap(v1) * 2)
+(print(readHeap(v1)); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+10
+9
+File Table:
+
+Heap Table:
+1 --> 100
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+(print(readHeap(v1)); releaseSemaphore(cnt))
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+10
+9
+File Table:
+
+Heap Table:
+1 --> 200
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+print(readHeap(v1))
+releaseSemaphore(cnt)
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+10
+9
+File Table:
+
+Heap Table:
+1 --> 200
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+releaseSemaphore(cnt)
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+10
+9
+200
+File Table:
+
+Heap Table:
+1 --> 200
+-------------------------
+-------------------------
+Program ID: 22
+Execution Stack:
+
+Symbols Table:
+cnt --> 1
+v1 --> (1, int)
+Out List:
+10
+9
+200
+File Table:
+
+Heap Table:
+1 --> 200
+-------------------------
