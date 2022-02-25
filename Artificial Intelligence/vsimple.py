@@ -23,10 +23,10 @@ DOWN = 1
 UP = 3
 
 # sleeping time in seconds before performing DFS
-SLEEPING_TIME = 0.25
+SLEEPING_TIME = 0.2
 
 # filling factor of the environment
-FILL_FACTOR = 0.6
+FILL_FACTOR = 0.2
 
 # define indexes variations
 variations = [[-1, 0], [1, 0], [0, 1], [0, -1]]
