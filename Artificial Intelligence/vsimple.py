@@ -1,5 +1,7 @@
 # import the pygame module, so you can use it
 import pickle
+import time
+
 import pygame
 from random import random, randint
 
@@ -20,8 +22,14 @@ DOWN = 2
 LEFT = 1
 RIGHT = 3
 
+# sleeping time in seconds before performing DFS
+SLEEPING_TIME = 0.1
+
+# filling factor of the environment
+FILL_FACTOR = 0.5
+
 # define indexes variations
-v = [[-1, 0], [1, 0], [0, 1], [0, -1]]
+variations = [[-1, 0], [1, 0], [0, 1], [0, -1]]
 
 
 class Environment:
@@ -30,7 +38,7 @@ class Environment:
         self.__m = 20
         self.__surface = np.zeros((self.__n, self.__m))
 
-    def randomMap(self, fill=0.2):
+    def randomMap(self, fill=FILL_FACTOR):
         for i in range(self.__n):
             for j in range(self.__m):
                 if random() <= fill:
@@ -69,13 +77,13 @@ class Environment:
 
         return readings
 
-    def saveEnvironment(self, numFile):
-        with open(numFile, 'wb') as f:
+    def saveEnvironment(self, num_file):
+        with open(num_file, 'wb') as f:
             pickle.dump(self, f)
             f.close()
 
-    def loadEnvironment(self, numfile):
-        with open(numfile, "rb") as f:
+    def loadEnvironment(self, num_file):
+        with open(num_file, "rb") as f:
             dummy = pickle.load(f)
             self.__n = dummy.__n
             self.__m = dummy.__m
@@ -94,6 +102,15 @@ class Environment:
 
         return imagine
 
+    def randomEmptyPosition(self):
+        x = randint(0, 19)
+        y = randint(0, 19)
+
+        while self.__surface[x][y] != 0:
+            x = randint(0, 19)
+            y = randint(0, 19)
+        return x, y
+
 
 class DMap:
     def __init__(self):
@@ -105,36 +122,36 @@ class DMap:
                 self.surface[i][j] = -1
 
     def markDetectedWalls(self, e, x, y):
-        #   To DO
-        # mark on this map the wals that you detect
-        wals = e.readUDMSensors(x, y)
+        # TODO
+        # mark on this map the walls that you detect
+        walls = e.readUDMSensors(x, y)
         i = x - 1
-        if wals[UP] > 0:
-            while (i >= 0) and (i >= x - wals[UP]):
+        if walls[UP] > 0:
+            while (i >= 0) and (i >= x - walls[UP]):
                 self.surface[i][y] = 0
                 i = i - 1
         if i >= 0:
             self.surface[i][y] = 1
 
         i = x + 1
-        if wals[DOWN] > 0:
-            while (i < self.__n) and (i <= x + wals[DOWN]):
+        if walls[DOWN] > 0:
+            while (i < self.__n) and (i <= x + walls[DOWN]):
                 self.surface[i][y] = 0
                 i = i + 1
         if i < self.__n:
             self.surface[i][y] = 1
 
         j = y + 1
-        if wals[LEFT] > 0:
-            while (j < self.__m) and (j <= y + wals[LEFT]):
+        if walls[LEFT] > 0:
+            while (j < self.__m) and (j <= y + walls[LEFT]):
                 self.surface[x][j] = 0
                 j = j + 1
         if j < self.__m:
             self.surface[x][j] = 1
 
         j = y - 1
-        if wals[RIGHT] > 0:
-            while (j >= 0) and (j >= y - wals[RIGHT]):
+        if walls[RIGHT] > 0:
+            while (j >= 0) and (j >= y - walls[RIGHT]):
                 self.surface[x][j] = 0
                 j = j - 1
         if j >= 0:
@@ -168,6 +185,9 @@ class Drone:
         self.x = x
         self.y = y
 
+        self.__dfs_visited = set()
+        self.__dfs_stack = [(x, y)]
+
     def move(self, detectedMap):
         pressed_keys = pygame.key.get_pressed()
         if self.x > 0:
@@ -184,18 +204,39 @@ class Drone:
             if pressed_keys[K_RIGHT] and detectedMap.surface[self.x][self.y + 1] == 0:
                 self.y = self.y + 1
 
-    def moveDSF(self, detectedMap):
-        pass
-        # TO DO!
-        # rewrite this function in such a way that you perform an automatic
-        # mapping with DFS
+    def __isValidIndex(self, x, y, detectedMap):
+        return 0 <= x <= 19 and 0 <= y <= 19 and detectedMap.surface[x][y] != 1
+
+    def moveDFS(self, detectedMap):
+        if not self.__dfs_stack:
+            self.x, self.y = None, None
+            return
+
+        top = self.__dfs_stack.pop()
+        while detectedMap.surface[top[0]][top[1]] == 1 or top in self.__dfs_visited:
+            if not self.__dfs_stack:
+                self.x, self.y = None, None
+                return
+            top = self.__dfs_stack.pop()
+
+        self.__dfs_visited.add(top)
+        self.x = top[0]
+        self.y = top[1]
+
+        for variation in variations:
+            current = (top[0] + variation[0], top[1] + variation[1])
+            if self.__isValidIndex(current[0], current[1], detectedMap) and (current[0] != self.x or current[1] != self.y):
+                # TODO optimization in adding new graph nodes to the stack
+                if current not in self.__dfs_visited:
+                    self.__dfs_stack.append((top[0] + variation[0], top[1] + variation[1]))
 
 
 # define a main function
 def main():
     # we create the environment
     e = Environment()
-    e.loadEnvironment("test2.map")
+    # e.loadEnvironment("test2.map")
+    e.randomMap()
     # print(str(e))
 
     # we create the map
@@ -209,10 +250,11 @@ def main():
     pygame.display.set_caption("drone exploration")
 
     # we position the drone somewhere in the area
-    x = randint(0, 19)
-    y = randint(0, 19)
+    # x = randint(0, 19)
+    # y = randint(0, 19)
+    (x, y) = e.randomEmptyPosition()
 
-    # cream drona
+    # creaate drone
     d = Drone(x, y)
 
     # create a surface on screen that has the size of 800 x 480
@@ -231,12 +273,25 @@ def main():
             if event.type == pygame.QUIT:
                 # change the value to False, to exit the main loop
                 running = False
-            if event.type == KEYDOWN:
-                # use this function instead of move
-                # d.moveDSF(m)
-                d.move(m)
-        m.markDetectedWalls(e, d.x, d.y)
-        screen.blit(m.image(d.x, d.y), (400, 0))
+            # if event.type == KEYDOWN:
+            #     # use this function instead of move
+            #     d.moveDFS(m)
+            #     # d.move(m)
+
+        time.sleep(SLEEPING_TIME)
+        last_x, last_y = d.x, d.y
+        d.moveDFS(m)
+
+        if d.x is not None and d.y is not None:
+            m.markDetectedWalls(e, d.x, d.y)
+            screen.blit(m.image(d.x, d.y), (400, 0))
+        elif last_x is not None and last_y is not None:
+            # final_cell = pygame.Surface((20, 20))
+            # final_cell.fill(GREEN)
+            # map_image = m.image(last_x, last_y)
+            # map_image.blit(final_cell, (last_y * 20, last_x * 20))
+            # screen.blit(map_image, (400, 0))
+            pass
         pygame.display.flip()
 
     pygame.quit()
