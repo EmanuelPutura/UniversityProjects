@@ -17,19 +17,20 @@ BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 
 # define directions
-UP = 0
-DOWN = 2
-LEFT = 1
-RIGHT = 3
+LEFT = 0
+RIGHT = 2
+DOWN = 1
+UP = 3
 
 # sleeping time in seconds before performing DFS
-SLEEPING_TIME = 0.1
+SLEEPING_TIME = 0.25
 
 # filling factor of the environment
-FILL_FACTOR = 0.5
+FILL_FACTOR = 0.6
 
 # define indexes variations
 variations = [[-1, 0], [1, 0], [0, 1], [0, -1]]
+direction_variations_mapping = {(-1, 0): LEFT, (1, 0): RIGHT, (0, -1): UP, (0, 1): DOWN}
 
 
 class Environment:
@@ -58,22 +59,22 @@ class Environment:
         xf = x - 1
         while (xf >= 0) and (self.__surface[xf][y] == 0):
             xf = xf - 1
-            readings[UP] = readings[UP] + 1
+            readings[LEFT] = readings[LEFT] + 1
         # DOWN
         xf = x + 1
         while (xf < self.__n) and (self.__surface[xf][y] == 0):
             xf = xf + 1
-            readings[DOWN] = readings[DOWN] + 1
+            readings[RIGHT] = readings[RIGHT] + 1
         # LEFT
         yf = y + 1
         while (yf < self.__m) and (self.__surface[x][yf] == 0):
             yf = yf + 1
-            readings[LEFT] = readings[LEFT] + 1
+            readings[DOWN] = readings[DOWN] + 1
         # RIGHT
         yf = y - 1
         while (yf >= 0) and (self.__surface[x][yf] == 0):
             yf = yf - 1
-            readings[RIGHT] = readings[RIGHT] + 1
+            readings[UP] = readings[UP] + 1
 
         return readings
 
@@ -126,32 +127,32 @@ class DMap:
         # mark on this map the walls that you detect
         walls = e.readUDMSensors(x, y)
         i = x - 1
-        if walls[UP] > 0:
-            while (i >= 0) and (i >= x - walls[UP]):
+        if walls[LEFT] > 0:
+            while (i >= 0) and (i >= x - walls[LEFT]):
                 self.surface[i][y] = 0
                 i = i - 1
         if i >= 0:
             self.surface[i][y] = 1
 
         i = x + 1
-        if walls[DOWN] > 0:
-            while (i < self.__n) and (i <= x + walls[DOWN]):
+        if walls[RIGHT] > 0:
+            while (i < self.__n) and (i <= x + walls[RIGHT]):
                 self.surface[i][y] = 0
                 i = i + 1
         if i < self.__n:
             self.surface[i][y] = 1
 
         j = y + 1
-        if walls[LEFT] > 0:
-            while (j < self.__m) and (j <= y + walls[LEFT]):
+        if walls[DOWN] > 0:
+            while (j < self.__m) and (j <= y + walls[DOWN]):
                 self.surface[x][j] = 0
                 j = j + 1
         if j < self.__m:
             self.surface[x][j] = 1
 
         j = y - 1
-        if walls[RIGHT] > 0:
-            while (j >= 0) and (j >= y - walls[RIGHT]):
+        if walls[UP] > 0:
+            while (j >= 0) and (j >= y - walls[UP]):
                 self.surface[x][j] = 0
                 j = j - 1
         if j >= 0:
@@ -186,6 +187,7 @@ class Drone:
         self.y = y
 
         self.__dfs_visited = set()
+        self.__dfs_parents = dict()
         self.__dfs_stack = [(x, y)]
 
     def move(self, detectedMap):
@@ -207,13 +209,13 @@ class Drone:
     def __isValidIndex(self, x, y, detectedMap):
         return 0 <= x <= 19 and 0 <= y <= 19 and detectedMap.surface[x][y] != 1
 
-    def moveDFS(self, detectedMap):
+    def moveDFS(self, detectedMap, environment):
         if not self.__dfs_stack:
             self.x, self.y = None, None
             return
 
         top = self.__dfs_stack.pop()
-        while detectedMap.surface[top[0]][top[1]] == 1 or top in self.__dfs_visited:
+        while top in self.__dfs_visited:
             if not self.__dfs_stack:
                 self.x, self.y = None, None
                 return
@@ -223,24 +225,29 @@ class Drone:
         self.x = top[0]
         self.y = top[1]
 
+        sensors_data = environment.readUDMSensors(top[0], top[1])
         for variation in variations:
+            if sensors_data[direction_variations_mapping[(variation[0], variation[1])]] == 0:
+                continue
+
             current = (top[0] + variation[0], top[1] + variation[1])
             if self.__isValidIndex(current[0], current[1], detectedMap) and (current[0] != self.x or current[1] != self.y):
                 # TODO optimization in adding new graph nodes to the stack
                 if current not in self.__dfs_visited:
-                    self.__dfs_stack.append((top[0] + variation[0], top[1] + variation[1]))
+                    self.__dfs_stack.append(current)
+                    self.__dfs_parents[current] = top
 
 
 # define a main function
 def main():
     # we create the environment
-    e = Environment()
+    environment = Environment()
     # e.loadEnvironment("test2.map")
-    e.randomMap()
+    environment.randomMap()
     # print(str(e))
 
     # we create the map
-    m = DMap()
+    map = DMap()
 
     # initialize the pygame module
     pygame.init()
@@ -252,15 +259,15 @@ def main():
     # we position the drone somewhere in the area
     # x = randint(0, 19)
     # y = randint(0, 19)
-    (x, y) = e.randomEmptyPosition()
+    (x, y) = environment.randomEmptyPosition()
 
     # creaate drone
-    d = Drone(x, y)
+    drone = Drone(x, y)
 
     # create a surface on screen that has the size of 800 x 480
     screen = pygame.display.set_mode((800, 400))
     screen.fill(WHITE)
-    screen.blit(e.image(), (0, 0))
+    screen.blit(environment.image(), (0, 0))
 
     # define a variable to control the main loop
     running = True
@@ -279,12 +286,12 @@ def main():
             #     # d.move(m)
 
         time.sleep(SLEEPING_TIME)
-        last_x, last_y = d.x, d.y
-        d.moveDFS(m)
+        last_x, last_y = drone.x, drone.y
+        drone.moveDFS(map, environment)
 
-        if d.x is not None and d.y is not None:
-            m.markDetectedWalls(e, d.x, d.y)
-            screen.blit(m.image(d.x, d.y), (400, 0))
+        if drone.x is not None and drone.y is not None:
+            map.markDetectedWalls(environment, drone.x, drone.y)
+            screen.blit(map.image(drone.x, drone.y), (400, 0))
         elif last_x is not None and last_y is not None:
             # final_cell = pygame.Surface((20, 20))
             # final_cell.fill(GREEN)
