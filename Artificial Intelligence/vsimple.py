@@ -23,10 +23,10 @@ DOWN = 1
 UP = 3
 
 # sleeping time in seconds before performing DFS
-SLEEPING_TIME = 0.2
+SLEEPING_TIME = 0.5
 
 # filling factor of the environment
-FILL_FACTOR = 0.2
+FILL_FACTOR = 0.5
 
 # define indexes variations
 variations = [[-1, 0], [1, 0], [0, 1], [0, -1]]
@@ -189,6 +189,7 @@ class Drone:
         self.__dfs_visited = set()
         self.__dfs_parents = dict()
         self.__dfs_stack = [(x, y)]
+        self.__backtrack = False
 
     def move(self, detectedMap):
         pressed_keys = pygame.key.get_pressed()
@@ -213,6 +214,10 @@ class Drone:
         if not self.__dfs_stack:
             self.x, self.y = None, None
             return
+        # if self.__backtrack:
+        #     self.__doBacktrack()
+        #     # if self.__backtrack:
+        #     #     return
 
         top = self.__dfs_stack.pop()
         while top in self.__dfs_visited:
@@ -226,6 +231,8 @@ class Drone:
         self.y = top[1]
 
         sensors_data = environment.readUDMSensors(top[0], top[1])
+        added_neighbours = 0
+
         for variation in variations:
             if sensors_data[direction_variations_mapping[(variation[0], variation[1])]] == 0:
                 continue
@@ -236,6 +243,28 @@ class Drone:
                 if current not in self.__dfs_visited:
                     self.__dfs_stack.append(current)
                     self.__dfs_parents[current] = top
+                    added_neighbours += 1
+
+        # if added_neighbours == 0:
+        #     self.__backtrack = True
+        #     self.__doBacktrack()
+        #     # if not self.__backtrack:
+        #     #     self.moveDFS(detectedMap, environment)
+        # else:
+        #     self.__backtrack = False
+
+    def __doBacktrack(self):
+        if not self.__dfs_stack:
+            self.x, self.y = None, None
+            self.__backtrack = False
+            return
+
+        current = (self.x, self.y)
+        common_parent = self.__dfs_parents[self.__dfs_stack[-1]]
+        if current != common_parent:
+            self.x, self.y = self.__dfs_parents[current]
+        else:
+            self.__backtrack = False
 
 
 # define a main function
