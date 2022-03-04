@@ -187,8 +187,7 @@ class Drone:
         self.y = y
 
         self.__dfs_visited = set()
-        self.__dfs_parents = dict()
-        self.__dfs_stack = [(x, y)]
+        self.__dfs_stack = [(x, y, False)]
         self.__backtrack = False
 
     def move(self, detectedMap):
@@ -214,57 +213,31 @@ class Drone:
         if not self.__dfs_stack:
             self.x, self.y = None, None
             return
-        # if self.__backtrack:
-        #     self.__doBacktrack()
-        #     # if self.__backtrack:
-        #     #     return
 
-        top = self.__dfs_stack.pop()
-        while top in self.__dfs_visited:
+        (x, y, backtrack) = self.__dfs_stack.pop()
+        while (x, y) in self.__dfs_visited and not backtrack:
+            self.__dfs_stack.pop()
             if not self.__dfs_stack:
                 self.x, self.y = None, None
                 return
-            top = self.__dfs_stack.pop()
+            (x, y, backtrack) = self.__dfs_stack.pop()
 
-        self.__dfs_visited.add(top)
-        self.x = top[0]
-        self.y = top[1]
+        if (x, y) not in self.__dfs_visited:
+            self.__dfs_visited.add((x, y))
+        self.x = x
+        self.y = y
 
-        sensors_data = environment.readUDMSensors(top[0], top[1])
-        added_neighbours = 0
-
+        sensors_data = environment.readUDMSensors(x, y)
         for variation in variations:
             if sensors_data[direction_variations_mapping[(variation[0], variation[1])]] == 0:
                 continue
 
-            current = (top[0] + variation[0], top[1] + variation[1])
+            current = (x + variation[0], y + variation[1])
             if self.__isValidIndex(current[0], current[1], detectedMap) and (current[0] != self.x or current[1] != self.y):
                 # TODO optimization in adding new graph nodes to the stack
                 if current not in self.__dfs_visited:
-                    self.__dfs_stack.append(current)
-                    self.__dfs_parents[current] = top
-                    added_neighbours += 1
-
-        # if added_neighbours == 0:
-        #     self.__backtrack = True
-        #     self.__doBacktrack()
-        #     # if not self.__backtrack:
-        #     #     self.moveDFS(detectedMap, environment)
-        # else:
-        #     self.__backtrack = False
-
-    def __doBacktrack(self):
-        if not self.__dfs_stack:
-            self.x, self.y = None, None
-            self.__backtrack = False
-            return
-
-        current = (self.x, self.y)
-        common_parent = self.__dfs_parents[self.__dfs_stack[-1]]
-        if current != common_parent:
-            self.x, self.y = self.__dfs_parents[current]
-        else:
-            self.__backtrack = False
+                    self.__dfs_stack.append((x, y, True))
+                    self.__dfs_stack.append((current[0], current[1], False))
 
 
 # define a main function

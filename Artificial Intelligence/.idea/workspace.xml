@@ -20,7 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6563d514-ab0c-4adb-812b-ed105c1a0718" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/vsimple.py" beforeDir="false" afterPath="$PROJECT_DIR$/vsimple.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assignment1/vsimple.py" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment1/vsimple.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +106,7 @@
       <workItem from="1645780973080" duration="17880000" />
       <workItem from="1646079145951" duration="4564000" />
       <workItem from="1646126490955" duration="31000" />
-      <workItem from="1646382710436" duration="681000" />
+      <workItem from="1646382710436" duration="7172000" />
     </task>
     <servers />
   </component>
@@ -129,44 +130,45 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="526" y="202" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1645781083361" />
-    <state width="1493" height="177" key="GridCell.Tab.0.bottom" timestamp="1646382796602">
+    <state width="1493" height="153" key="GridCell.Tab.0.bottom" timestamp="1646391049273">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="177" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1646382796602" />
-    <state width="1493" height="177" key="GridCell.Tab.0.center" timestamp="1646382796602">
+    <state width="1493" height="153" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1646391049273" />
+    <state width="1493" height="153" key="GridCell.Tab.0.center" timestamp="1646391049273">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="177" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1646382796602" />
-    <state width="1493" height="177" key="GridCell.Tab.0.left" timestamp="1646382796602">
+    <state width="1493" height="153" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1646391049273" />
+    <state width="1493" height="153" key="GridCell.Tab.0.left" timestamp="1646391049273">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="177" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1646382796602" />
-    <state width="1493" height="177" key="GridCell.Tab.0.right" timestamp="1646382796602">
+    <state width="1493" height="153" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1646391049273" />
+    <state width="1493" height="153" key="GridCell.Tab.0.right" timestamp="1646391049273">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="177" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1646382796602" />
-    <state width="1493" height="253" key="GridCell.Tab.1.bottom" timestamp="1646083877971">
+    <state width="1493" height="153" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1646391049273" />
+    <state width="1493" height="253" key="GridCell.Tab.1.bottom" timestamp="1646390644875">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="253" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1646083877971" />
-    <state width="1493" height="253" key="GridCell.Tab.1.center" timestamp="1646083877971">
+    <state width="1493" height="253" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1646390644875" />
+    <state width="1493" height="253" key="GridCell.Tab.1.center" timestamp="1646390644875">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="253" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1646083877971" />
-    <state width="1493" height="253" key="GridCell.Tab.1.left" timestamp="1646083877971">
+    <state width="1493" height="253" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1646390644875" />
+    <state width="1493" height="253" key="GridCell.Tab.1.left" timestamp="1646390644875">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="253" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1646083877971" />
-    <state width="1493" height="253" key="GridCell.Tab.1.right" timestamp="1646083877971">
+    <state width="1493" height="253" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1646390644875" />
+    <state width="1493" height="253" key="GridCell.Tab.1.right" timestamp="1646390644875">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="253" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1646083877971" />
+    <state width="1493" height="253" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1646390644875" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1645800762429">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1645800762429" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Artificial_Intelligence$vsimple.coverage" NAME="vsimple Coverage Results" MODIFIED="1646382796586" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Artificial_Intelligence$vsimple__1_.coverage" NAME="vsimple (1) Coverage Results" MODIFIED="1646391049273" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Assignment1" />
+    <SUITE FILE_PATH="coverage/Artificial_Intelligence$vsimple.coverage" NAME="vsimple Coverage Results" MODIFIED="1646384407609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
