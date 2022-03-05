@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Emanuel-Vasile Putura">
+        <meta name="description" content="Second web assignment, problem 21.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Assignment 2 - problem 21</title>
+
+        <style>
+            h1 {
+                color: black;
+                text-shadow: 1px 1px gray;
+                font-variant: small-caps;
+            }
+
+            div.layer1 {
+                pointer-events: none;
+                background-color: yellow; 
+            }
+
+            div.layer2 {
+                pointer-events: none;
+                background-color: orange; 
+            }
+
+            div.layer3 {
+                pointer-events: none;
+                background-color: indianred; 
+            }
+
+            div.layer4 {
+                pointer-events: auto;
+                background-color: red; 
+            }
+
+            div.layer1:hover {
+                background-color: #00bfff;
+            }
+
+            div.layer2:hover {
+                background-color: #0000ff;
+            }
+
+            div.layer3:hover {
+                background-color: #8000ff;
+            }
+
+            div.layer4:hover {
+                background-color: #ff0080;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>Assignment 2 - Problem 21</h1>
+        </header>
+
+        <main>
+            <div class="layer1">
+                <hr>This is the first div.
+                <div class="layer2">
+                    <hr>This is the second div.
+                    <div class="layer3">
+                        <hr>This is the third div.
+                        <div class="layer4">
+                            <hr>This is the forth div.<br>
+                            This is the forth div.<hr>
+                        </div>
+                        This is the third div.<hr>
+                    </div>
+                    This is the second div.<hr>
+                </div>
+                 This is the first div.<hr>
+            </div>
+        </main>
+    </body>
+</html>
