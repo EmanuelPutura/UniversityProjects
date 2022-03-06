@@ -23,21 +23,38 @@ DOWN = 1
 UP = 3
 
 # sleeping time in seconds before performing DFS
-SLEEPING_TIME = 0.2
+SLEEPING_TIME = 0.75
 
 # filling factor of the environment
-FILL_FACTOR = 0.25
+FILL_FACTOR = 0.2
+
+# board dimensions
+BOARD_DIM = 5
+CELL_SIZE = 20
 
 # define indexes variations
-variations = [[-1, 0], [1, 0], [0, 1], [0, -1]]
+
+variations = [[0, -1], [1, 0], [0, 1], [-1, 0]]
+# variations = [[-1, 0], [1, 0], [0, 1], [0, -1]]
 direction_variations_mapping = {(-1, 0): LEFT, (1, 0): RIGHT, (0, -1): UP, (0, 1): DOWN}
 
 
 class Environment:
     def __init__(self):
-        self.__n = 20
-        self.__m = 20
+        self.__n = BOARD_DIM
+        self.__m = BOARD_DIM
         self.__surface = np.zeros((self.__n, self.__m))
+
+    def loadMapFromTxt(self, file_name):
+        with open(file_name, "r") as file:
+            i = 0
+            for line in file:
+                j = 0
+                for value in line.split(' '):
+                    num = int(value)
+                    self.__surface[i][j] = value
+                    j += 1
+                i += 1
 
     def randomMap(self, fill=FILL_FACTOR):
         for i in range(self.__n):
@@ -55,7 +72,7 @@ class Environment:
 
     def readUDMSensors(self, x, y):
         readings = [0, 0, 0, 0]
-        # UP 
+        # UP
         xf = x - 1
         while (xf >= 0) and (self.__surface[xf][y] == 0):
             xf = xf - 1
@@ -92,31 +109,31 @@ class Environment:
             f.close()
 
     def image(self, colour=BLUE, background=WHITE):
-        imagine = pygame.Surface((420, 420))
-        brick = pygame.Surface((20, 20))
+        imagine = pygame.Surface((BOARD_DIM * CELL_SIZE, BOARD_DIM * CELL_SIZE))
+        brick = pygame.Surface((CELL_SIZE, CELL_SIZE))
         brick.fill(BLUE)
         imagine.fill(WHITE)
         for i in range(self.__n):
             for j in range(self.__m):
                 if self.__surface[i][j] == 1:
-                    imagine.blit(brick, (j * 20, i * 20))
+                    imagine.blit(brick, (j * CELL_SIZE, i * CELL_SIZE))
 
         return imagine
 
     def randomEmptyPosition(self):
-        x = randint(0, 19)
-        y = randint(0, 19)
+        x = randint(0, BOARD_DIM - 1)
+        y = randint(0, BOARD_DIM - 1)
 
         while self.__surface[x][y] != 0:
-            x = randint(0, 19)
-            y = randint(0, 19)
+            x = randint(0, BOARD_DIM - 1)
+            y = randint(0, BOARD_DIM - 1)
         return x, y
 
 
 class DMap:
     def __init__(self):
-        self.__n = 20
-        self.__m = 20
+        self.__n = BOARD_DIM
+        self.__m = BOARD_DIM
         self.surface = np.zeros((self.__n, self.__m))
         for i in range(self.__n):
             for j in range(self.__m):
@@ -161,10 +178,9 @@ class DMap:
         return None
 
     def image(self, x, y):
-
-        imagine = pygame.Surface((420, 420))
-        brick = pygame.Surface((20, 20))
-        empty = pygame.Surface((20, 20))
+        imagine = pygame.Surface((BOARD_DIM * CELL_SIZE, BOARD_DIM * CELL_SIZE))
+        brick = pygame.Surface((CELL_SIZE, CELL_SIZE))
+        empty = pygame.Surface((CELL_SIZE, CELL_SIZE))
         empty.fill(WHITE)
         brick.fill(BLACK)
         imagine.fill(GRAYBLUE)
@@ -172,12 +188,12 @@ class DMap:
         for i in range(self.__n):
             for j in range(self.__m):
                 if self.surface[i][j] == 1:
-                    imagine.blit(brick, (j * 20, i * 20))
+                    imagine.blit(brick, (j * CELL_SIZE, i * CELL_SIZE))
                 elif self.surface[i][j] == 0:
-                    imagine.blit(empty, (j * 20, i * 20))
+                    imagine.blit(empty, (j * CELL_SIZE, i * CELL_SIZE))
 
         drona = pygame.image.load("drona.png")
-        imagine.blit(drona, (y * 20, x * 20))
+        imagine.blit(drona, (y * CELL_SIZE, x * CELL_SIZE))
         return imagine
 
 
@@ -195,19 +211,19 @@ class Drone:
         if self.x > 0:
             if pressed_keys[K_UP] and detectedMap.surface[self.x - 1][self.y] == 0:
                 self.x = self.x - 1
-        if self.x < 19:
+        if self.x < BOARD_DIM - 1:
             if pressed_keys[K_DOWN] and detectedMap.surface[self.x + 1][self.y] == 0:
                 self.x = self.x + 1
 
         if self.y > 0:
             if pressed_keys[K_LEFT] and detectedMap.surface[self.x][self.y - 1] == 0:
                 self.y = self.y - 1
-        if self.y < 19:
+        if self.y < BOARD_DIM - 1:
             if pressed_keys[K_RIGHT] and detectedMap.surface[self.x][self.y + 1] == 0:
                 self.y = self.y + 1
 
     def __isValidIndex(self, x, y, detectedMap):
-        return 0 <= x <= 19 and 0 <= y <= 19 and detectedMap.surface[x][y] != 1
+        return 0 <= x < BOARD_DIM and 0 <= y < BOARD_DIM and detectedMap.surface[x][y] != 1
 
     def moveDFS(self, detectedMap, environment):
         if not self.__dfs_stack:
@@ -240,13 +256,35 @@ class Drone:
                     self.__dfs_stack.append((current[0], current[1], False))
 
 
+def test():
+    environment = Environment()
+    environment.loadMapFromTxt("test.txt")
+
+    map1 = DMap()
+    # (x, y) = environment.randomEmptyPosition()
+    (x, y) = (2, 0)
+
+    # creaate drone
+    drone = Drone(x, y)
+
+    cnt1 = 0
+    while drone.x is not None and drone.y is not None:
+        drone.moveDFS(map1, environment)
+        cnt1 += 1
+
+    print("Result of first test: {} moves".format(cnt1))
+
+
 # define a main function
 def main():
+    test()
+
     # we create the environment
     environment = Environment()
     # e.loadEnvironment("test2.map")
-    environment.randomMap()
+    # environment.randomMap()
     # print(str(e))
+    environment.loadMapFromTxt("test.txt")
 
     # we create the map
     map = DMap()
@@ -261,13 +299,14 @@ def main():
     # we position the drone somewhere in the area
     # x = randint(0, 19)
     # y = randint(0, 19)
-    (x, y) = environment.randomEmptyPosition()
+    # (x, y) = environment.randomEmptyPosition()
+    (x, y) = (2, 0)
 
     # creaate drone
     drone = Drone(x, y)
 
     # create a surface on screen that has the size of 800 x 480
-    screen = pygame.display.set_mode((800, 400))
+    screen = pygame.display.set_mode((BOARD_DIM * CELL_SIZE * 2, BOARD_DIM * CELL_SIZE))
     screen.fill(WHITE)
     screen.blit(environment.image(), (0, 0))
 
@@ -284,7 +323,6 @@ def main():
                 running = False
             # if event.type == KEYDOWN:
             #     # use this function instead of move
-            #     d.moveDFS(m)
             #     # d.move(m)
 
         time.sleep(SLEEPING_TIME)
@@ -293,14 +331,7 @@ def main():
 
         if drone.x is not None and drone.y is not None:
             map.markDetectedWalls(environment, drone.x, drone.y)
-            screen.blit(map.image(drone.x, drone.y), (400, 0))
-        elif last_x is not None and last_y is not None:
-            # final_cell = pygame.Surface((20, 20))
-            # final_cell.fill(GREEN)
-            # map_image = m.image(last_x, last_y)
-            # map_image.blit(final_cell, (last_y * 20, last_x * 20))
-            # screen.blit(map_image, (400, 0))
-            pass
+            screen.blit(map.image(drone.x, drone.y), (BOARD_DIM * CELL_SIZE, 0))
         pygame.display.flip()
 
     pygame.quit()
