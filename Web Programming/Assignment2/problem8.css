@@ -1,0 +1,26 @@
+body {
+    background-image: url("stadium.jpg");
+    background-size: cover;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+    text-shadow: 1px 1px gray;
+    font-variant: small-caps;
+}
+
+div.ball-div {
+    margin: auto;
+    border: 5px solid black;
+    min-width: 500px;
+    min-height: 500px;
+    max-width: 500px;
+    max-height: 500px;
+    background-image: url("ball.png");
+    transition: transform 2s;
+}
+
+div.ball-div:hover {
+    transform: rotateY(360deg);
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Emanuel-Vasile Putura">
+        <meta name="description" content="Second web assignment, problem 25.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Assignment 2 - problem 25</title>
+        <link rel="stylesheet" href="mystyle.css">
+
+        <style>
+            body {
+            display: flex;
+            justify-content: center;
+        }
+ 
+        @keyframes bounce {
+            from    { transform: translate3d(0, 0, 0); }
+            to      { transform: translate3d(0, 100%, 0); transform: translateY(600px); }
+        }
+        
+        .ball {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #FF0000;
+        }
+        
+        .ball:hover {
+            animation: bounce 0.5s;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+        }
+        </style>
+    </head>
+
+    <body>
+        <main>
+            <div class="ball">
+            </div>
+        </main>
+    </body>
+</html>
