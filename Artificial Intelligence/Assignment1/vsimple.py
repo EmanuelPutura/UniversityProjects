@@ -23,13 +23,13 @@ DOWN = 1
 UP = 3
 
 # sleeping time in seconds before performing DFS
-SLEEPING_TIME = 0.75
+SLEEPING_TIME = 0.2
 
 # filling factor of the environment
 FILL_FACTOR = 0.2
 
 # board dimensions
-BOARD_DIM = 5
+BOARD_DIM = 20
 CELL_SIZE = 20
 
 # define indexes variations
@@ -223,15 +223,46 @@ class Drone:
                 self.y = self.y + 1
 
     def __isValidIndex(self, x, y, detectedMap):
-        return 0 <= x < BOARD_DIM and 0 <= y < BOARD_DIM and detectedMap.surface[x][y] != 1
+        return 0 <= x < BOARD_DIM and 0 <= y < BOARD_DIM
 
-    def moveDFS(self, detectedMap, environment):
+    def __isWorthVisiting(self, x, y, detectedMap):
+        # S/N direction
+        for verticalDirection in [-1, 1]:
+            (i, j) = (x, y)
+            while self.__isValidIndex(i, j, detectedMap):
+                if detectedMap.surface[i][j] == -1:
+                    return True
+                if detectedMap.surface[i][j] == 1:
+                    break
+                if self.__isValidIndex(i - 1, j, detectedMap) and detectedMap.surface[i - 1][j] == -1:
+                    return True
+                if self.__isValidIndex(i + 1, j, detectedMap) and detectedMap.surface[i + 1][j] == -1:
+                    return True
+                j += verticalDirection
+
+        # W/E direction
+        for horizontalDirection in [-1, 1]:
+            (i, j) = (x, y)
+            while self.__isValidIndex(i, j, detectedMap):
+                if detectedMap.surface[i][j] == -1:
+                    return True
+                if detectedMap.surface[i][j] == 1:
+                    break
+                if self.__isValidIndex(i, j - 1, detectedMap) and detectedMap.surface[i][j - 1] == -1:
+                    return True
+                if self.__isValidIndex(i, j + 1, detectedMap) and detectedMap.surface[i][j + 1] == -1:
+                    return True
+                i += verticalDirection
+
+        return False
+
+    def moveDFS(self, detectedMap, environment, optimize=True):
         if not self.__dfs_stack:
             self.x, self.y = None, None
             return
 
         (x, y, backtrack) = self.__dfs_stack.pop()
-        while (x, y) in self.__dfs_visited and not backtrack:
+        while ((x, y) in self.__dfs_visited and not backtrack) or (optimize and not self.__isWorthVisiting(x, y, detectedMap) and not backtrack):
             self.__dfs_stack.pop()
             if not self.__dfs_stack:
                 self.x, self.y = None, None
@@ -249,42 +280,45 @@ class Drone:
                 continue
 
             current = (x + variation[0], y + variation[1])
-            if self.__isValidIndex(current[0], current[1], detectedMap) and (current[0] != self.x or current[1] != self.y):
-                # TODO optimization in adding new graph nodes to the stack
+            if self.__isValidIndex(current[0], current[1], detectedMap) and detectedMap.surface[x][y] != 1 and (current[0] != self.x or current[1] != self.y):
                 if current not in self.__dfs_visited:
                     self.__dfs_stack.append((x, y, True))
                     self.__dfs_stack.append((current[0], current[1], False))
 
 
-def test():
-    environment = Environment()
-    environment.loadMapFromTxt("test.txt")
+def testSolution(environment, start_x, start_y, optimize):
+    map = DMap()
+    drone = Drone(start_x, start_y)
 
-    map1 = DMap()
-    # (x, y) = environment.randomEmptyPosition()
-    (x, y) = (2, 0)
-
-    # creaate drone
-    drone = Drone(x, y)
-
-    cnt1 = 0
+    cnt = 0
     while drone.x is not None and drone.y is not None:
-        drone.moveDFS(map1, environment)
-        cnt1 += 1
+        map.markDetectedWalls(environment, drone.x, drone.y)
+        drone.moveDFS(map, environment, optimize)
+        cnt += 1
 
-    print("Result of first test: {} moves".format(cnt1))
+    print("Result of the test, with optimization: {} - {} moves".format(optimize, cnt))
+
+
+def testSolutionMain():
+    environment = Environment()
+    environment.randomMap()
+    # environment.loadMapFromTxt("test.txt")
+    (x, y) = environment.randomEmptyPosition()
+    # (x, y) = (2, 0)
+
+    testSolution(environment, x, y, False)
+    testSolution(environment, x, y, True)
 
 
 # define a main function
 def main():
-    test()
+    testSolutionMain()
 
     # we create the environment
     environment = Environment()
     # e.loadEnvironment("test2.map")
-    # environment.randomMap()
-    # print(str(e))
-    environment.loadMapFromTxt("test.txt")
+    environment.randomMap()
+    # environment.loadMapFromTxt("test.txt")
 
     # we create the map
     map = DMap()
@@ -299,8 +333,8 @@ def main():
     # we position the drone somewhere in the area
     # x = randint(0, 19)
     # y = randint(0, 19)
-    # (x, y) = environment.randomEmptyPosition()
-    (x, y) = (2, 0)
+    (x, y) = environment.randomEmptyPosition()
+    # (x, y) = (2, 0)
 
     # creaate drone
     drone = Drone(x, y)
@@ -326,14 +360,12 @@ def main():
             #     # d.move(m)
 
         time.sleep(SLEEPING_TIME)
-        last_x, last_y = drone.x, drone.y
         drone.moveDFS(map, environment)
 
         if drone.x is not None and drone.y is not None:
             map.markDetectedWalls(environment, drone.x, drone.y)
             screen.blit(map.image(drone.x, drone.y), (BOARD_DIM * CELL_SIZE, 0))
         pygame.display.flip()
-
     pygame.quit()
 
 
