@@ -14,10 +14,10 @@ class Constants:
     UP = 3
 
     # sleeping time in seconds before performing DFS
-    SLEEPING_TIME = 0.2
+    SLEEPING_TIME = 0.25
 
     # filling factor of the environment
-    FILL_FACTOR = 0.2
+    FILL_FACTOR = 0.25
 
     # board dimensions
     BOARD_DIM = 20
@@ -25,4 +25,4 @@ class Constants:
 
     # define indexes variations
     VARIATIONS = [[0, -1], [1, 0], [0, 1], [-1, 0]]
-    DIRECTION_TO_VARIATION = {(-1, 0): LEFT, (1, 0): RIGHT, (0, -1): UP, (0, 1): DOWN}
+    VARIATION_TO_DIRECTION = {(-1, 0): LEFT, (1, 0): RIGHT, (0, -1): UP, (0, 1): DOWN}

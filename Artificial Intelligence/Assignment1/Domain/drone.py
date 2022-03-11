@@ -83,7 +83,7 @@ class Drone:
 
         sensors_data = environment.readUDMSensors(x, y)
         for variation in Constants.VARIATIONS:
-            if sensors_data[Constants.DIRECTION_TO_VARIATION[(variation[0], variation[1])]] == 0:
+            if sensors_data[Constants.VARIATION_TO_DIRECTION[(variation[0], variation[1])]] == 0:
                 continue
 
             current = (x + variation[0], y + variation[1])
