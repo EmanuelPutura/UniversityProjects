@@ -1,0 +1,41 @@
+.hr {
+    border: 1px solid #e2e2d7;
+}
+
+#msn-hzbar-zones {
+    display: flex;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    justify-content: space-between;
+    height: 50px;
+    padding: 10px 170px;
+}
+
+#msn-hzbar-zones > div {
+    text-align: center;
+    font-family: "Segoe UI", "Segoe WP", Arial, Sans-Serif;
+    font-size: 13px;
+    color: #666;
+}
+
+#category-1 {
+    color: #08893E !important;
+}
+
+#category-2-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#category-2-txt {
+    width: 50%;
+}
+
+#category-2-img {
+    width: 50%;
+    height: 100%;
+    background-image: url("resources/moon-logo.png");
+    background-size: cover;
+    background-position: center;
+}
