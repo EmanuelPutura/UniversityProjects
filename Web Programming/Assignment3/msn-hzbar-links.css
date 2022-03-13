@@ -1,0 +1,71 @@
+#hzbar-links {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px 60px;
+    height: 50px;
+}
+
+.hzbar-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hzbar-txt {
+    font-family: 'Segoe UI';
+    font-size: 13px;
+    color: #333;
+    width: 50%;
+}
+
+#outlook-img {
+    background-image: url("https://img.icons8.com/color/48/000000/microsoft-outlook-2019--v2.png");
+    background-size: cover;
+    height: 100%;
+    width: 50%;
+}
+
+#bookhotels-img {
+    background-image: url("resources/bookhotels.png");
+    background-size: cover;
+    height: 100%;
+    width: 50%;
+}
+
+#facebook-img {
+    background-image: url("resources/facebook-logo.png");
+    background-size: cover;
+    height: 100%;
+    width: 50%;
+}
+
+#shopping-img {
+    background-image: url("resources/shopping-logo.png");
+    background-size: cover;
+    height: 100%;
+    width: 50%;
+}
+
+#sports-img {
+    background-image: url("resources/sports-logo.png");
+    background-size: cover;
+    height: 110%;
+    width: 50%;
+    min-width: 30px;
+}
+
+#office-img {
+    background-image: url("resources/office-logo.png");
+    background-size: cover;
+    height: 105%;
+    width: 50%;
+    min-width: 30px;
+}
+
+#twitter-img {
+    background-image: url("resources/twitter-logo.png");
+    background-size: cover;
+    height: 100%;
+    width: 50%;
+    min-width: 30px;
+}

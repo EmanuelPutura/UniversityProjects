@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+    background-color: #F4F4F2;
+}
+
+#head {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 27px 0px 27px;
+    box-sizing: initial;
+}
+
+#logo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 80px;
+}
+
+#logo-image {
+    background-image: url("resources/msn-logo.png");
+    background-size: cover;
+    height: 100%;
+    width: 50%;
+}
+
+#logo-text {
+    font-family: 'Segoe UI';
+    font-size: 18px;
+    color: #333;
+    width: 50%;
+}
+
+#sb-bar {
+    height: 100%;
+    width: 45%;
+}
+
+#sb-bar-form {
+    height: 40px;
+    display: flex;
+}
+
+#sb-bar-search {
+    border: 1px solid gray;
+    border-radius: 4px 0 0 4px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 1.43;
+    font-size: 14px;
+    padding-left: 12px;
+    width: 100%;
+    background-color: white;
+}
+
+#sb-bar-button {
+    border-radius: 0 4px 4px 0;
+    font-size: 0;
+    background: #3775dd;
+    white-space: pre;
+    align-items: flex-start;
+    min-width: 55px;
+    width: 55px;
+    background-color: #188fff;
+    background-image: url("resources/search-icon.jpg");
+    background-position: center;
+    background-size: contain;
+    border: 0;
+}
+
+#sinset {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 80px;
+}
+
+#sinset-image {
+    background-image: url("resources/settings-icon.png");
+    background-size: cover;
+    height: 60%;
+    width: 30%;
+}
+
+#sinset-text {
+    font-family: 'Segoe UI';
+    font-size: 12.04px;
+    color: #333;
+    width: 70%;
+}

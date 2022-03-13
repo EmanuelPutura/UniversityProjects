@@ -1,0 +1,120 @@
+html {
+    background-color: #d5d4d0;
+}
+
+body {
+    background-color: #f4f4f2;
+    margin: 0% 2.5% 0% 2.5%;
+}
+
+.content {
+    margin: 0% 10% 0% 10%;
+}
+
+#header-div {
+    padding-top: 2%;
+    padding-bottom: 1%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#header-div > #header-div-left {
+    width: 75%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#header-div > #header-div-center {
+    width: 200%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#header-div > #header-div-right {
+    width: 45%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#sites-div {
+    display: flex;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+#sites-div > div {
+    width: 12.5%;
+    height: 15%;
+}
+
+.hr {
+    border: 1px solid #e2e2d7;
+}
+
+#category-div {
+    display: flex;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    justify-content: space-between;
+}
+
+#category-div > div {
+    width: 7%;
+    height: 15%;
+    text-align: center;
+    font-size: 80%;
+    line-height: 1.467;
+    font-family: "Segoe UI", "Segoe WP", Arial, Sans-Serif;
+}
+
+#category-div > #category-1 {
+    width: 12%;
+}
+
+#category-div > #category-2 {
+    width: 20%;
+}
+
+#category-div > #category-3, #category-6 {
+    width: 8%;
+}
+
+#category-div > #category-4 {
+    width: 6%;
+}
+
+#category-div > #category-5 {
+    width: 12%;
+}
+
+#category-div > #category-7 {
+    width: 14%;
+}
+
+#category-div > #category-8 {
+    width: 12%;
+}
+
+#category-div > #category-9 {
+    width: 14%;
+}
+
+#category-div > #category-10 {
+    width: 6%;
+}
+
+#category-div > #category-11 {
+    width: 6%;
+}
+
+#category-div > #category-12 {
+    width: 8%;
+}
+
+#category-div > #category-13 {
+    width: 9%;
+}
+
+#category-div > #category-14 {
+    width: 6%;
+}
