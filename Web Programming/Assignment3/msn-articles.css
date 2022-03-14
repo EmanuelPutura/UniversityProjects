@@ -105,11 +105,11 @@
     background-color: white;
 }
 
-#art2-1 {
+#art2-1, #art3-1 {
     position: relative;
 }
 
-#txt-art2-1 {
+#txt-art2-1, #txt-art3-1 {
     position: absolute;
     bottom: 8px;
     left: 16px;
@@ -117,4 +117,8 @@
     font-family: 'Segoe UI';
     font-size: 20px;
     color: white;
+}
+
+#ending-hr {
+    border: 1px solid #a72929;
 }
