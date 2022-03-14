@@ -9,7 +9,7 @@
 #wrapper {
     display: flex;
     flex-wrap: wrap;
-    padding: 10px 150px;
+    padding: 1vh 15vh;
     box-sizing: border-box;
     height: 85vh;
 }
@@ -91,7 +91,7 @@
     left: 16px;
     background-color: transparent;
     font-family: 'Segoe UI';
-    font-size: 28px;
+    font-size: 4vh;
 }
 
 #main-art, #art1-1, #art1-2, #art1-3, #art1-4, #art2-1, #art2-2, #art2-3, #art2-4, #art3-1, #art3-2, #art3-3, #art3-4 {
@@ -101,7 +101,7 @@
 
 .art-txt {
     font-family: 'Segoe UI';
-    font-size: 13px;
+    font-size: 2vh;
     background-color: white;
 }
 
@@ -115,10 +115,28 @@
     left: 16px;
     background-color: transparent;
     font-family: 'Segoe UI';
-    font-size: 20px;
+    font-size: 3vh;
     color: white;
 }
 
 #ending-hr {
     border: 1px solid #a72929;
 }
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media (max-width: 800px) {
+    #col1 {
+        flex: 100%;
+    }
+
+    #col2, #col3 {
+        flex: 50%;
+    }
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media (max-width: 600px) {
+    #col1, #col2, #col3 {
+        flex: 100%;
+    }
+  }
