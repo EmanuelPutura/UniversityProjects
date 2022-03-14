@@ -1,0 +1,886 @@
+#html{
+    background-color: #f4f4f4;
+    font-size: 62.5%;
+}
+
+.body{
+    font-size: 1.5rem;
+    padding-left: 12rem;
+    padding-right: 12rem;
+    font-family: "Segoe UI","Segoe WP", Arial, Sans-Serif;
+    font-weight: normal;
+	margin: 0;
+}
+
+.header{
+	background-color: #f4f4f4;
+    height: 5.5rem;
+    padding-top: 2rem;
+	padding-bottom: 3rem;
+    position: fixed;
+    width: 100%;
+    opacity: 1;
+	z-index: 5;
+}
+
+.logo{
+    display: inline-block;
+    height: 100%;
+    width: 6%;
+    opacity: 1;
+}
+
+#logoI{
+    width: 31px;
+	height: 31px;
+	font-family: "Segoe UI", "Segoe WP", Arial, Sans-Serif;
+}
+
+#msn{
+    color: #333;
+	font-family: "Segoe UI", "Segoe WP", Arial, Sans-Serif;
+	position:relative;
+	display: inline-block;
+	font-size: 2.4rem;
+	top:-0.85rem;
+	left: -0.5rem;
+}
+
+.search{
+    border-radius: 6px 0 0 6px;
+    position: absolute;
+	height: 42%;
+	width: 697px;
+	top: 32px;
+	left: 290px;
+	box-shadow: 0px 2px 7px #888888;
+}
+
+#search-bar {
+    border-radius: 6px 0 0 6px;
+	position: absolute;
+	height: 89%;
+	width: 89.5%;
+	border : none;
+    border-color: #888888;
+}
+
+#search-button {
+	position: absolute;
+	background-color: rgba(0,120,215,.8);
+	width: 10%;
+	height: 105%;
+	left: 90%;
+	border-radius: 0px 5px 5px 0px;
+    border-width: 0;
+
+}
+
+#search-icon {
+	width: 25px;
+	height: 25px;
+}
+
+.signIn{
+    position: absolute;
+	height: 100%;
+	width: 10%;
+	left: 77.25%;
+	top: 35%;
+}
+
+#signIn-link{
+	text-decoration: none;
+}
+
+#signIn-text{
+    color: #505050;;
+	position: relative;
+	font-family: "Segoe UI", "Segoe WP", Arial, Sans-Serif;
+	font-size: 1.204rem;
+	left: 8.6%;
+	bottom: 7%;
+}
+
+#settings-icon{
+    position: absolute;
+	left: 51%;
+	bottom: 74%;
+	width: 23px;
+	height: 23px;
+}
+
+.links{
+    height: 3.8rem;
+    padding-top: 11.9rem;
+	font-weight: 649;
+	font-size: 1.35rem;
+	letter-spacing: -0.5px;
+	color: #333;
+}
+
+#outlook {
+	position: absolute;
+	left: 8.2%;
+}
+
+#outlook-logo {
+	width: 22px;
+	height: 22px;
+}
+
+#outlook-link {
+	text-decoration: none;
+	color: #333;
+}
+
+#outlook-text{
+    display: inline;
+    position: absolute;
+	top: -48%;
+	left: 147%;
+}
+
+#facebook{
+	position: absolute;
+	left: 19.76%;
+}
+
+#facebook-logo{
+	width: 23px;
+	height: 23px;
+}
+
+#facebook-link {
+	text-decoration: none;
+	color: #333;
+}
+
+#facebook-text{
+    display: inline;
+    position: absolute;
+	top: -42%;
+	left: 142%
+}
+
+#sport{
+	position: absolute;
+	left: 30%;
+}
+
+#sport-logo{
+	width: 25px;
+	height: 25px;
+}
+
+#sport-link {
+	text-decoration: none;
+	color: #333;
+}
+
+#sport-text{
+    display: inline;
+    position: absolute;
+	top: -40%;
+	left: 130%
+}
+
+#office{
+	position: absolute;
+	left: 39%;
+}
+
+#office-logo{
+	width: 25px;
+	height: 25px;
+}
+
+#office-link {
+	text-decoration: none;
+	color: #333;
+}
+
+#office-text{
+    display: inline;
+    position: absolute;
+	top: -37%;
+	left: 134%
+}
+
+#twitter{
+	position: absolute;
+	left: 47.4%;
+}
+
+#twitter-logo{
+	width: 24px;
+	height: 24px;
+}
+
+#twitter-link {
+	text-decoration: none;
+	color: #333;
+}
+
+#twitter-text{
+    display: inline;
+    position: absolute;
+	top: -37%;
+	left: 133%
+}
+
+#skype{
+	position: absolute;
+	left: 57.1%;
+}
+
+#skype-logo{
+	width: 23px;
+	height: 23px;
+}
+
+#skype-link {
+	text-decoration: none;
+	color: #333;
+}
+
+#skype-text{
+    display: inline;
+    position: absolute;
+	top: -36.5%;
+	left: 142%
+}
+
+#store{
+	position: absolute;
+	left: 66%;
+}
+
+#store-logo{
+	width: 24px;
+	height: 24px;
+}
+
+#store-link {
+	text-decoration: none;
+	color: #333;
+}
+
+#store-text{
+    display: inline;
+    position: absolute;
+	top: -37%;
+	left: 140%
+}
+
+#store-text1{
+    display: inline;
+    position: absolute;
+	top: -37%;
+	left: 380%
+}
+
+#onedrive{
+	position: absolute;
+	left: 78.4%;
+}
+
+#onedrive-logo{
+	width: 22px;
+	height: 22px;
+}
+
+#onedrive-link {
+	text-decoration: none;
+	color: #333;
+}
+
+#onedrive-text{
+    display: inline;
+    position: absolute;
+	top: -37%;
+	left: 142%
+}
+
+#hr{
+	margin: 0;
+	background-color:  #DCDCDA;
+	height: 0.7px;
+	border: none;
+}
+
+.menu{
+	padding-top: 1rem;
+	padding-left: 0.22rem;
+	display: flex;
+	flex-direction: row;
+	height: 3.6rem;
+	font-size: 1.32rem;
+	font-weight: 598;
+	letter-spacing: -0.5px;
+}
+
+#t1{
+	color: #08893e;
+	text-decoration: none;
+	position: relative;
+	left: 0.1%;
+}
+
+#b1{
+	position: relative;
+	left: 0.9%;
+	top: -72%;
+}
+
+#b1, #b2, #b3{
+	color: #DCDCDA;
+	font-weight: 100;
+	font-size: 2rem;
+}
+
+#t2, #t4, #t5, #t6, #t7, #t8, #t9, #t10, #t11, #t12, #t13{
+	color: #696969;
+	top: 2%;
+}
+
+#weather-logo{
+	height: 25px;
+	width: 25px;
+	position: relative;
+	left: 93%;
+}
+
+#t2 {
+	position: relative;
+	left: 2.4%;
+	text-decoration: none;
+}
+
+#edit-logo{
+	height: 18px;
+	width: 18px;
+	position: relative;
+	left: 235%;
+}
+
+#b2{
+	position: relative;
+	left: 4%;
+	top: -72%;
+}
+
+#t3{
+	color: #146fb1;
+	text-decoration: none;
+	position: relative;
+	left: 5.5%;
+}
+
+#b3{
+	position: relative;
+	left: 7.5%;
+	top: -72%;
+}
+
+#t4{
+	text-decoration: none;
+	position: relative;
+	left: 9%;
+}
+
+#t5{
+	text-decoration: none;
+	position: relative;
+	left: 10.8%;
+}
+
+#t6{
+	text-decoration: none;
+	position: relative;
+	left: 12.5%;
+}
+
+#t7{
+	text-decoration: none;
+	position: relative;
+	left: 14.4%;
+}
+
+#t8{
+	text-decoration: none;
+	position: relative;
+	left: 16.2%;
+}
+
+#t9{
+	text-decoration: none;
+	position: relative;
+	left: 18%;
+}
+
+#t10{
+	text-decoration: none;
+	position: relative;
+	left: 19.9%;
+}
+
+#t11{
+	text-decoration: none;
+	position: relative;
+	left: 21.7%;
+}
+
+#t12{
+	text-decoration: none;
+	position: relative;
+	left: 23.5%;
+	color: #A2A2A1;
+}
+
+#t13{
+	color: #B9B9B9;
+	text-decoration: none;
+	position: relative;
+	left: 25.2%;
+}
+
+#arrow-logo{
+	height: 15.5px;
+	width: 15.5px;
+	position: relative;
+	left: 25.9%;
+	top: 16.2%
+}
+
+.news{
+	display: flex;
+	flex-direction: row;
+	height: 37.3rem;
+	padding-left: 0.3rem;
+}
+
+#art1{
+	background-color: #FFFFFF;
+	width: 49.3%;
+}
+
+#a1{
+	position: relative;
+	height: 98.9%;
+	width: 99%;
+	left: 0.5%;
+	top: 0.4%
+}
+
+#box1{
+	position: absolute;
+	left: 8.5%;
+	top: 48.8%;
+	height: 7.8%;
+	opacity: 0.4;
+}
+
+#box2{
+	position: absolute;
+	left: 46.85%;
+	top: 48.8%;
+	height: 7.8%;
+	opacity: 0.4;
+}
+
+#right-arrow{
+	position: absolute;
+	height: 3.1%;
+	top: 51.2%;
+	left: 47.8%
+}
+
+#left-arrow{
+	position: absolute;
+	height: 3.1%;
+	top: 51.2%;
+	left: 8.97%;
+}
+
+#a2{
+	height: 68.7%;
+	position: relative;
+	left: 1.3%;
+	top: -0.25%
+}
+
+
+#art3{
+	position: relative;
+	height: 10rem;
+	top: 73%;
+	right: 22.5%;
+	width: 30.7rem;
+}
+
+#content{
+	height: 100%;
+	width: 100%;
+}
+
+#a3{
+	position: absolute;
+	right: 63%;
+	top: 12.5%;
+}
+
+#a3-text{
+	color: #333;
+	font-size: 1.3rem;
+	line-height: 1.384;
+	font-family: "Segoe UI","Segoe WP", Arial, Sans-Serif;
+	font-weight: 400;
+	position: absolute;
+	top: -4.5%;
+	left: 14%;
+}
+
+#a3-logo{
+	position: absolute;
+	height: 14%;
+	left: 42%;
+	top: 70%;
+}
+
+#a3-source{
+	position: absolute;
+	font-size: 1.1rem;
+	line-height: 1.364;
+	font-weight: 600;
+	color: #666;
+	text-decoration: none;
+	font-family: "Segoe UI","Segoe WP", Arial, Sans-Serif;
+	top: 60%;
+	left: 48%;
+}
+
+#a3-end{
+	position: absolute;
+	top: -274%;
+	width: 100%;
+	left: 106.5%;
+}
+
+.news2{
+	display: flex;
+	flex-direction: row;
+	height: 13rem;
+	padding-left: 0.3rem;
+}
+
+#art4{
+	position: relative;
+	height: 10rem;
+	width: 30.7rem;
+	top: 12%;
+	left: 0.1%;
+}
+
+#a4-content{
+	height: 100%;
+	width: 100%;
+}
+
+#art5{
+	position: relative;
+	height: 10rem;
+	width: 30.7rem;
+	top: 12%;
+	left: 1.4%;
+}
+
+#a5-content{
+	height: 100%;
+	width: 100%;
+}
+
+#art6{
+	position: relative;
+	height: 10rem;
+	width: 30.7rem;
+	top: 12%;
+	left: 2.8%;
+}
+
+#a6-content{
+	height: 100%;
+	width: 100%;
+}
+
+#a4{
+	position: absolute;
+	z-index: 2;
+	left: 4%;
+	top: 11%
+}
+
+#a4-text{
+	color: #333;
+	font-size: 1.3rem;
+	line-height: 1.384;
+	font-family: "Segoe UI","Segoe WP", Arial, Sans-Serif;
+	font-weight: 400;
+	position: absolute;
+	top: -1.9%;
+	left: 14%;
+}
+
+#a4-logo{
+	position: absolute;
+	height: 6.5%;
+	left: 42%;
+	top: 77%;
+}
+
+#a4-source{
+	position: absolute;
+	font-size: 1.1rem;
+	line-height: 1.364;
+	font-weight: 600;
+	color: #666;
+	text-decoration: none;
+	font-family: "Segoe UI","Segoe WP", Arial, Sans-Serif;
+	top: 63%;
+	left: 51.3%;
+}
+
+#a5{
+	position: absolute;
+	z-index: 2;
+	left: 4%;
+	top: 11%
+}
+
+#a6{
+	position: absolute;
+	z-index: 2;
+	left: 4%;
+	top: 11%
+}
+
+#a5-text{
+	color: #333;
+	font-size: 1.3rem;
+	line-height: 1.384;
+	font-family: "Segoe UI","Segoe WP", Arial, Sans-Serif;
+	font-weight: 400;
+	position: absolute;
+	top: -2%;
+	left: 16%;
+	letter-spacing: -0.2px;
+}
+
+#a5-logo{
+	position: absolute;
+	height: 12%;
+	left: 42.2%;
+	top: 76%;
+}
+
+#a5-source{
+	position: absolute;
+	font-size: 1.1rem;
+	line-height: 1.364;
+	font-weight: 600;
+	color: #666;
+	text-decoration: none;
+	font-family: "Segoe UI","Segoe WP", Arial, Sans-Serif;
+	top: 62%;
+	left: 48%;
+}
+
+#a6-logo{
+	position: absolute;
+	height: 14%;
+	left: 43%;
+	top: 75%;
+}
+
+#a6-source{
+	position: absolute;
+	font-size: 1.1rem;
+	line-height: 1.364;
+	font-weight: 600;
+	color: #666;
+	text-decoration: none;
+	font-family: "Segoe UI","Segoe WP", Arial, Sans-Serif;
+	top: 62%;
+	left: 49%;
+}
+
+#a6-text{
+	color: #333;
+	font-size: 1.3rem;
+	line-height: 1.384;
+	font-family: "Segoe UI","Segoe WP", Arial, Sans-Serif;
+	font-weight: 400;
+	position: absolute;
+	top: -1.9%;
+	left: 17%;
+	letter-spacing: -0.2px;
+}
+
+.news3{
+	display: flex;
+	flex-direction: row;
+	height: 13rem;
+	padding-left: 0.3rem;
+}
+
+#art7{
+	position: relative;
+	height: 10rem;
+	width: 30.7rem;
+	left: 0.1%;
+}
+
+#a7-content{
+	height: 100%;
+	width: 100%;
+}
+
+#art8{
+	position: relative;
+	height: 10rem;
+	width: 30.7rem;
+	left: 1.4%;
+}
+
+#a8-content{
+	height: 100%;
+	width: 100%;
+}
+
+#art9{
+	position: relative;
+	height: 10rem;
+	width: 30.7rem;
+	left: 2.8%;
+}
+
+#a9-content{
+	height: 100%;
+	width: 100%;
+}
+
+#a7{
+	position: absolute;
+	z-index: 2;
+	left: 4%;
+	top: 11%;
+	height: 78%
+}
+
+#a8{
+	position: absolute;
+	z-index: 2;
+	left: 4%;
+	top: 11%;
+	height: 78%
+}
+
+#a9{
+	position: absolute;
+	z-index: 2;
+	left: 4%;
+	top: 11%;
+	height: 78%
+}
+
+#a7-text{
+	color: #333;
+	font-size: 1.3rem;
+	line-height: 1.384;
+	font-family: "Segoe UI","Segoe WP", Arial, Sans-Serif;
+	font-weight: 400;
+	position: absolute;
+	top: -1.9%;
+	left: 14%;
+}
+
+#a7-logo{
+	position: absolute;
+	height: 15%;
+	left: 41.6%;
+	top: 75%;
+}
+
+#a7-source{
+	position: absolute;
+	font-size: 1.1rem;
+	line-height: 1.364;
+	font-weight: 600;
+	color: #666;
+	text-decoration: none;
+	font-family: "Segoe UI","Segoe WP", Arial, Sans-Serif;
+	top: 63%;
+	left: 49%;
+}
+
+#a8-text{
+	color: #333;
+	font-size: 1.3rem;
+	line-height: 1.384;
+	font-family: "Segoe UI","Segoe WP", Arial, Sans-Serif;
+	font-weight: 400;
+	position: absolute;
+	top: -2%;
+	left: 16%;
+	letter-spacing: -0.2px;
+}
+
+#a8-logo{
+	position: absolute;
+	height: 14%;
+	left: 43%;
+	top: 74%;
+}
+
+#a8-source{
+	position: absolute;
+	font-size: 1.1rem;
+	line-height: 1.364;
+	font-weight: 600;
+	color: #666;
+	text-decoration: none;
+	font-family: "Segoe UI","Segoe WP", Arial, Sans-Serif;
+	top: 62%;
+	left: 52%;
+}
+
+#a9-text{
+	color: #333;
+	font-size: 1.3rem;
+	line-height: 1.384;
+	font-family: "Segoe UI","Segoe WP", Arial, Sans-Serif;
+	font-weight: 400;
+	position: absolute;
+	top: -1.9%;
+	left: 17%;
+	letter-spacing: -0.2px;
+}
+
+#a9-logo{
+	position: absolute;
+	height: 15%;
+	left: 43.5%;
+	top: 75%;
+}
+
+#a9-source{
+	position: absolute;
+	font-size: 1.1rem;
+	line-height: 1.364;
+	font-weight: 600;
+	color: #666;
+	text-decoration: none;
+	font-family: "Segoe UI","Segoe WP", Arial, Sans-Serif;
+	top: 65%;
+	left: 51%;
+}

@@ -47,18 +47,21 @@
     flex: 48%;
     height: 22%;
     margin: 1% 1%;
+    position: relative;
 }
 
 #art1-3 {
     flex: 48%;
     height: 22%;
     margin: 1% 1%;
+    position: relative;
 }
 
 #art1-4 {
     flex: 48%;
     height: 22%;
     margin: 1% 1%;
+    position: relative;
 }
 
 #art2-1, #art3-1 {
@@ -71,18 +74,21 @@
     flex: 100%;
     height: 19%;
     margin: 1% 1%;
+    position: relative;
 }
 
 #art2-3, #art3-3 {
     flex: 100%;
     height: 19%;
     margin: 1% 1%;
+    position: relative;
 }
 
 #art2-4, #art3-4 {
     flex: 100%;
     height: 19%;
     margin: 1% 1%;
+    position: relative;
 }
 
 #txt-main-art {
@@ -123,6 +129,100 @@
     border: 1px solid #a72929;
 }
 
+#logo1-2 {
+    height: 8%;
+    width: 20%;
+    position: absolute;
+    bottom: 8px;
+    left: 52%;
+}
+
+#logo1-3 {
+    height: 8%;
+    width: 20%;
+    position: absolute;
+    bottom: 8px;
+    left: 52%;
+
+    background-color: red;
+}
+
+#logo1-4 {
+    height: 8%;
+    width: 20%;
+    position: absolute;
+    bottom: 8px;
+    left: 52%;
+
+    background-color: red;
+}
+
+#logo2-2 {
+    height: 8%;
+    width: 20%;
+    position: absolute;
+    bottom: 8px;
+    left: 52%;
+
+    background-color: red;
+}
+
+#logo2-3 {
+    height: 8%;
+    width: 20%;
+    position: absolute;
+    bottom: 8px;
+    left: 52%;
+
+    background-color: red;
+}
+
+#logo2-4 {
+    height: 8%;
+    width: 20%;
+    position: absolute;
+    bottom: 8px;
+    left: 52%;
+
+    background-color: red;
+}
+
+#logo3-2 {
+    height: 8%;
+    width: 20%;
+    position: absolute;
+    bottom: 8px;
+    left: 52%;
+
+    background-color: red;
+}
+
+#logo3-3 {
+    height: 8%;
+    width: 20%;
+    position: absolute;
+    bottom: 8px;
+    left: 52%;
+
+    background-color: red;
+}
+
+#logo3-4 {
+    height: 8%;
+    width: 20%;
+    position: absolute;
+    bottom: 8px;
+    left: 52%;
+
+    background-color: red;
+}
+
+#logo1-2-txt {
+    width: 75%;
+    font-size: 10px;
+    bottom: 10%;
+}
+
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media (max-width: 800px) {
     #col1 {
@@ -132,11 +232,43 @@
     #col2, #col3 {
         flex: 50%;
     }
+
+    #txt-main-art {
+        font-size: 3vh;
+    }
+
+    #txt-art2-1 {
+        font-size: 2.5vh;
+    }
+
+    #txt-art3-1 {
+        font-size: 2.5vh;;
+    }
+
+    .art-txt {
+        font-size: 1.5vh;
+    }
   }
   
   /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
   @media (max-width: 600px) {
     #col1, #col2, #col3 {
         flex: 100%;
+    }
+
+    #txt-main-art {
+        font-size: 2vh;
+    }
+
+    #txt-art2-1 {
+        font-size: 1.5vh;
+    }
+
+    #txt-art3-1 {
+        font-size: 1.5vh;;
+    }
+
+    .art-txt {
+        font-size: 0.5vh;
     }
   }

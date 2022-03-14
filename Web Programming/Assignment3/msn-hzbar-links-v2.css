@@ -1,0 +1,191 @@
+.links{
+    height: 3.8rem;
+    padding-top: 11.9rem;
+	font-weight: 649;
+	font-size: 1.35rem;
+	letter-spacing: -0.5px;
+	color: #333;
+}
+
+#outlook {
+	position: absolute;
+	left: 8.2%;
+}
+
+#outlook-logo {
+	width: 22px;
+	height: 22px;
+}
+
+#outlook-link {
+	text-decoration: none;
+	color: #333;
+}
+
+#outlook-text{
+    display: inline;
+    position: absolute;
+	top: -48%;
+	left: 147%;
+}
+
+#facebook{
+	position: absolute;
+	left: 19.76%;
+}
+
+#facebook-logo{
+	width: 23px;
+	height: 23px;
+}
+
+#facebook-link {
+	text-decoration: none;
+	color: #333;
+}
+
+#facebook-text{
+    display: inline;
+    position: absolute;
+	top: -42%;
+	left: 142%
+}
+
+#sport{
+	position: absolute;
+	left: 30%;
+}
+
+#sport-logo{
+	width: 25px;
+	height: 25px;
+}
+
+#sport-link {
+	text-decoration: none;
+	color: #333;
+}
+
+#sport-text{
+    display: inline;
+    position: absolute;
+	top: -40%;
+	left: 130%
+}
+
+#office{
+	position: absolute;
+	left: 39%;
+}
+
+#office-logo{
+	width: 25px;
+	height: 25px;
+}
+
+#office-link {
+	text-decoration: none;
+	color: #333;
+}
+
+#office-text{
+    display: inline;
+    position: absolute;
+	top: -37%;
+	left: 134%
+}
+
+#twitter{
+	position: absolute;
+	left: 47.4%;
+}
+
+#twitter-logo{
+	width: 24px;
+	height: 24px;
+}
+
+#twitter-link {
+	text-decoration: none;
+	color: #333;
+}
+
+#twitter-text{
+    display: inline;
+    position: absolute;
+	top: -37%;
+	left: 133%
+}
+
+#skype{
+	position: absolute;
+	left: 57.1%;
+}
+
+#skype-logo{
+	width: 23px;
+	height: 23px;
+}
+
+#skype-link {
+	text-decoration: none;
+	color: #333;
+}
+
+#skype-text{
+    display: inline;
+    position: absolute;
+	top: -36.5%;
+	left: 142%
+}
+
+#store{
+	position: absolute;
+	left: 66%;
+}
+
+#store-logo{
+	width: 24px;
+	height: 24px;
+}
+
+#store-link {
+	text-decoration: none;
+	color: #333;
+}
+
+#store-text{
+    display: inline;
+    position: absolute;
+	top: -37%;
+	left: 140%
+}
+
+#store-text1{
+    display: inline;
+    position: absolute;
+	top: -37%;
+	left: 380%
+}
+
+#onedrive{
+	position: absolute;
+	left: 78.4%;
+}
+
+#onedrive-logo{
+	width: 22px;
+	height: 22px;
+}
+
+#onedrive-link {
+	text-decoration: none;
+	color: #333;
+}
+
+#onedrive-text{
+    display: inline;
+    position: absolute;
+	top: -37%;
+	left: 142%
+}
