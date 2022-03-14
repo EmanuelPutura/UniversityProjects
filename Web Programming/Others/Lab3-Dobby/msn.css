@@ -1,0 +1,278 @@
+html {
+    background-color: #d5d4d0;
+}
+
+body {
+    background-color: #f4f4f2;
+    margin: 0% 2.5% 0% 2.5%;
+}
+
+.content {
+    margin: 0% 10% 0% 10%;
+}
+
+.clearfix::before {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+#sites-div {
+    font-size: 75%;
+}
+
+#header-div {
+    padding-top: 2%;
+    padding-bottom: 1%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#header-div > #header-div-left {
+    width: 75%;
+    display: flex;
+    font-size: 140%;
+    justify-content: flex-start;
+}
+
+#header-div > #header-div-center {
+    width: 200%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#header-div > #header-div-right {
+    width: 45%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#input_search {
+    width: 75%; 
+    height: 45px; 
+    border: 1px solid gray; 
+    border-radius: 4px 0 0 4px; 
+    font-weight: 500; 
+    font-style: normal; 
+    line-height: 1.43;
+    font-size: 14px;
+}
+
+#input_button {
+    width: 8.5%; 
+    border-radius: 0 4px 4px 0;
+    font-size: 0;
+    white-space: pre;
+    align-items: flex-start;
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-image: url("search-icon.jpg");
+    background-position: center;
+    border: 0;
+}
+
+#sites-div {
+    display: flex;
+    padding-top: 1%;
+    justify-content: center;
+    font-family: "Segoe UI","Segoe WP",Arial,Sans-Serif;
+    font-weight: 500;
+    font-size: 85%;
+}
+
+#sites-div > div {
+    width: 15%;
+    height: 15%;
+}
+
+.hr {
+    border: 0.5px solid #e2e2d7;
+}
+
+#category-div {
+    display: flex;
+    padding-top: 0.25%;
+    justify-content: space-between;
+    margin-bottom: 1%;
+    font-family: 'Segoe UI',"Segoe WP",Arial,Sans-Serif;
+    color: gray;
+    font-weight: 600;
+}
+
+#category-div > div {
+    width: 7%;
+    height: 15%;
+    text-align: center;
+    font-size: 80%;
+    line-height: 1.467;
+    font-family: "Segoe UI", "Segoe WP", Arial, Sans-Serif;
+}
+
+#category-div > #category-1 {
+    width: 12%;
+}
+
+#category-div > #category-2 {
+    width: 20%;
+}
+
+#category-div > #category-3, #category-6 {
+    width: 8%;
+}
+
+#category-div > #category-4 {
+    width: 6%;
+}
+
+#category-div > #category-5 {
+    width: 12%;
+}
+
+#category-div > #category-7 {
+    width: 14%;
+}
+
+#category-div > #category-8 {
+    width: 12%;
+}
+
+#category-div > #category-9 {
+    width: 14%;
+}
+
+#category-div > #category-10 {
+    width: 6%;
+}
+
+#category-div > #category-11 {
+    width: 6%;
+}
+
+#category-div > #category-12 {
+    width: 8%;
+}
+
+#category-div > #category-13 {
+    width: 9%;
+}
+
+#category-div > #category-14 {
+    width: 6%;
+}
+
+/*------------------------------------------------------------------------------*/
+
+#wrapper > * {
+    box-sizing: border-box;
+}
+
+#wrapper {
+    display: flex;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#col1, #col2, #col3 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#col1 {
+    flex: 50%;
+}
+
+#col2 {
+    flex: 30%;
+}
+
+#col3 {
+    flex: 20%;
+}
+
+#main-art {
+    flex: 100%;
+    height: 50%;
+    margin: 1% 1%;
+    color: white;
+    position: relative;
+}
+
+#art1-1 {
+    flex: 48%;
+    height: 16%;
+    margin: 1% 1%;
+}
+
+#art1-2 {
+    flex: 48%;
+    height: 16%;
+    margin: 1% 1%;
+}
+
+#art1-3 {
+    flex: 48%;
+    height: 16%;
+    margin: 1% 1%;
+}
+
+#art1-4 {
+    flex: 48%;
+    height: 16%;
+    margin: 1% 1%;
+}
+
+#art2-1 {
+    flex: 100%;
+    height: 30%;
+    margin: 1% 1%;
+}
+
+#art2-2 {
+    flex: 100%;
+    height: 16%;
+    margin: 1% 1%;
+}
+
+#art2-3 {
+    flex: 100%;
+    height: 16%;
+    margin: 1% 1%;
+}
+
+#art2-4 {
+    flex: 100%;
+    height: 16%;
+    margin: 1% 1%;
+}
+
+#art1-1, #art1-2, #art1-3, #art1-4 {
+    background-color: white;
+    margin-top: -8%;
+} 
+
+#art2-2, #art2-3, #art2-4 {
+    background-color: white;
+}
+
+#art2-2 {
+    margin-top: -11%;
+}
+
+#art2-3 {
+    margin-top: -13%;
+}
+
+#art2-4 {
+    margin-top: -13%;
+}
+
+#end-hr {
+    border-width: 2px;
+    border-style: solid;
+    border-color: #a72929;
+}

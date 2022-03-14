@@ -8,7 +8,7 @@
     padding-bottom: 1%;
     justify-content: space-between;
     height: 50px;
-    padding: 10px 170px;
+    padding: 5px 170px;
 }
 
 #msn-hzbar-zones > div {
@@ -16,6 +16,7 @@
     font-family: "Segoe UI", "Segoe WP", Arial, Sans-Serif;
     font-size: 13px;
     color: #666;
+    font-weight: 600;
 }
 
 #category-1 {
