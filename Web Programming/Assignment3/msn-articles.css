@@ -1,0 +1,95 @@
+#wrapper > *, #col1 > *, #col2 > *, #col3 > * {
+    border: 2px solid black;
+}
+
+#wrapper > * {
+    box-sizing: border-box;
+}
+
+#wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 150px;
+    box-sizing: border-box;
+    height: 85vh;
+}
+
+#col1, #col2, #col3 {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 10px;
+}
+
+#col1 {
+    flex: 50%;
+}
+
+#col2, #col3 {
+    flex: 25%;
+}
+
+#main-art {
+    flex: 100%;
+    height: 50%;
+    margin: 1% 1%;
+    /* text-align: center; */
+    color: white;
+    position: relative;
+}
+
+#art1-1 {
+    flex: 48%;
+    height: 22%;
+    margin: 1% 1%;
+}
+
+#art1-2 {
+    flex: 48%;
+    height: 22%;
+    margin: 1% 1%;
+}
+
+#art1-3 {
+    flex: 48%;
+    height: 22%;
+    margin: 1% 1%;
+}
+
+#art1-4 {
+    flex: 48%;
+    height: 22%;
+    margin: 1% 1%;
+}
+
+#art2-1, #art3-1 {
+    flex: 100%;
+    height: 40%;
+    margin: 1% 1%;
+}
+
+#art2-2, #art3-2 {
+    flex: 100%;
+    height: 19%;
+    margin: 1% 1%;
+}
+
+#art2-3, #art3-3 {
+    flex: 100%;
+    height: 19%;
+    margin: 1% 1%;
+}
+
+#art2-4, #art3-4 {
+    flex: 100%;
+    height: 19%;
+    margin: 1% 1%;
+}
+
+#txt-main-art {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    background-color: transparent;
+    font-family: 'Segoe UI';
+    font-size: 28px;
+}
