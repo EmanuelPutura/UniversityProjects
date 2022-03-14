@@ -1,6 +1,6 @@
-#wrapper > *, #col1 > *, #col2 > *, #col3 > * {
+/* #wrapper > *, #col1 > *, #col2 > *, #col3 > * {
     border: 2px solid black;
-}
+} */
 
 #wrapper > * {
     box-sizing: border-box;
@@ -92,4 +92,29 @@
     background-color: transparent;
     font-family: 'Segoe UI';
     font-size: 28px;
+}
+
+#main-art, #art1-1, #art1-2, #art1-3, #art1-4, #art2-1, #art2-2, #art2-3, #art2-4, #art3-1, #art3-2, #art3-3, #art3-4 {
+    background-color: white;
+    border: 1px solid gray;
+} 
+
+.art-txt {
+    font-family: 'Segoe UI';
+    font-size: 13px;
+    background-color: white;
+}
+
+#art2-1 {
+    position: relative;
+}
+
+#txt-art2-1 {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    background-color: transparent;
+    font-family: 'Segoe UI';
+    font-size: 20px;
+    color: white;
 }
