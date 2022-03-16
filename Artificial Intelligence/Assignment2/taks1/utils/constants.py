@@ -15,3 +15,4 @@ class Constants:
 
     # define indexes variations
     VARIATIONS = [[-1, 0], [1, 0], [0, 1], [0, -1]]
+    FILL_FACTOR = 0.25
