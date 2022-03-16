@@ -3,6 +3,7 @@ import pickle
 import pygame
 import time
 from random import random, randint
+from queue import PriorityQueue
 
 import numpy as np
 from pygame.locals import *
@@ -99,19 +100,63 @@ class Drone:
         return mapImage
 
 
+def manhattanDistance(x1, y1, x2, y2):
+    return abs(x2 - x1) + abs(y2 - y1)
+
+
+def search(mapN, droneD, initialX, initialY, finalX, finalY):
+    pass
+
+
 def searchAStar(mapM, droneD, initialX, initialY, finalX, finalY):
     # TO DO 
     # implement the search function and put it in controller
     # returns a list of moves as a list of pairs [x,y]
+    found = False
+    visited = []
+    toVisit = PriorityQueue()
+    toVisit.put((manhattanDistance(initialX, initialY, finalX, finalY), initialX, initialY))
 
-    pass
+    while not toVisit.empty() and not found:
+        (heuristic, nodeX, nodeY) = toVisit.get()
+        steps = heuristic - manhattanDistance(nodeX, nodeY, finalX, finalY)
+
+        visited.append((nodeX, nodeY))
+        if (nodeX, nodeY) == (finalX, finalY):
+            found = True
+
+        # check neighbours of current node
+        for variation in [(0, -1), (1, 0), (0, 1), (-1, 0)]:
+            current = (nodeX + variation[0], nodeY + variation[1])
+            if current not in visited and 0 <= current[0] <= 19 and 0 <= current[1] <= 19 and mapM.surface[current[0]][current[1]] != 1:
+                toVisit.put((steps + 1 + manhattanDistance(nodeX + variation[0], nodeY + variation[1], finalX, finalY), nodeX + variation[0], nodeY + variation[1]))
+
+    return None if not found else visited
 
 
 def searchGreedy(mapM, droneD, initialX, initialY, finalX, finalY):
     # TO DO 
     # implement the search function and put it in controller
     # returns a list of moves as a list of pairs [x,y]
-    pass
+    found = False
+    visited = []
+    toVisit = PriorityQueue()
+    toVisit.put((manhattanDistance(initialX, initialY, finalX, finalY), initialX, initialY))
+
+    while not toVisit.empty() and not found:
+        (_, nodeX, nodeY) = toVisit.get()
+        visited.append((nodeX, nodeY))
+        if (nodeX, nodeY) == (finalX, finalY):
+            found = True
+
+        # check neighbours of current node
+        for variation in [(0, -1), (1, 0), (0, 1), (-1, 0)]:
+            current = (nodeX + variation[0], nodeY + variation[1])
+            if current not in visited and 0 <= current[0] <= 19 and 0 <= current[1] <= 19 and mapM.surface[current[0]][current[1]] != 1:
+                toVisit.put((manhattanDistance(nodeX + variation[0], nodeY + variation[1], finalX, finalY),
+                             nodeX + variation[0], nodeY + variation[1]))
+
+    return None if not found else visited
 
 
 def dummysearch():
@@ -172,7 +217,7 @@ def main():
         screen.blit(d.mapWithDrone(m.image()), (0, 0))
         pygame.display.flip()
 
-    path = dummysearch()
+    path = searchAStar(m, d, x, y, 19, 0)
     screen.blit(displayWithPath(m.image(), path), (0, 0))
 
     pygame.display.flip()
