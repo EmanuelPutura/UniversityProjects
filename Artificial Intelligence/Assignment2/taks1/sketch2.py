@@ -104,40 +104,44 @@ def manhattanDistance(x1, y1, x2, y2):
     return abs(x2 - x1) + abs(y2 - y1)
 
 
-def search(mapN, droneD, initialX, initialY, finalX, finalY):
-    pass
-
-
 def searchAStar(mapM, droneD, initialX, initialY, finalX, finalY):
-    # TO DO 
-    # implement the search function and put it in controller
-    # returns a list of moves as a list of pairs [x,y]
+    distance = {}  # a map that associates, to each accessible vertex, the cost of the minimum cost walk from s to it
+    previous = {}  # a map that maps each accessible vertex to its predecessor on a path from s to it
+    pQueue = PriorityQueue()
+
+    pQueue.put((manhattanDistance(initialX, initialY, finalX, finalY), (initialX, initialY)))
+    distance[(initialX, initialY)] = 0
     found = False
-    visited = []
-    toVisit = PriorityQueue()
-    toVisit.put((manhattanDistance(initialX, initialY, finalX, finalY), initialX, initialY))
 
-    while not toVisit.empty() and not found:
-        (heuristic, nodeX, nodeY) = toVisit.get()
-        steps = heuristic - manhattanDistance(nodeX, nodeY, finalX, finalY)
+    while not pQueue.empty() and not found:
+        (_, current) = pQueue.get()
+        for variation in [(0, -1), (1, 0), (0, 1), (-1, 0)]:
+            neighbour = (current[0] + variation[0], current[1] + variation[1])
+            if neighbour[0] < 0 or neighbour[0] > 19 or neighbour[1] < 0 or neighbour[1] > 19 or mapM.surface[neighbour[0]][neighbour[1]] == 1:
+                continue
 
-        visited.append((nodeX, nodeY))
-        if (nodeX, nodeY) == (finalX, finalY):
+            if neighbour not in distance.keys() or distance[current] + 1 < distance[neighbour]:
+                distance[neighbour] = distance[current] + 1
+                pQueue.put((distance[neighbour] + manhattanDistance(neighbour[0], neighbour[1], finalX, finalY), neighbour))
+                previous[neighbour] = current
+        if current == (finalX, finalY):
             found = True
 
-        # check neighbours of current node
-        for variation in [(0, -1), (1, 0), (0, 1), (-1, 0)]:
-            current = (nodeX + variation[0], nodeY + variation[1])
-            if current not in visited and 0 <= current[0] <= 19 and 0 <= current[1] <= 19 and mapM.surface[current[0]][current[1]] != 1:
-                toVisit.put((steps + 1 + manhattanDistance(nodeX + variation[0], nodeY + variation[1], finalX, finalY), nodeX + variation[0], nodeY + variation[1]))
+    if not found:
+        return None
 
-    return None if not found else visited
+    current = distance[(finalX, finalY)]
+    result = [None] * current
+    result[current - 1] = previous[(finalX, finalY)]
+    current -= 1
+
+    while current > 0:
+        result[current - 1] = previous[result[current]]
+        current -= 1
+    return result
 
 
 def searchGreedy(mapM, droneD, initialX, initialY, finalX, finalY):
-    # TO DO 
-    # implement the search function and put it in controller
-    # returns a list of moves as a list of pairs [x,y]
     found = False
     visited = []
     toVisit = PriorityQueue()
