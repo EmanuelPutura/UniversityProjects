@@ -1,5 +1,5 @@
 var moveCount = 0;
-var running = true;
+var running = false;
 
 const buttonIds = [];
 for (i = 1; i <= 3; ++i) {
@@ -23,11 +23,6 @@ function getButtonText(buttonX, buttonY) {
 
 // returns 1 if the current player won the game, 0 if draw, -1 otherwise
 function checkWinner(player, lastMoveX, lastMoveY) {
-    // check for draw
-    if (moveCount == 9) {
-        return 0;
-    }
-
     // check row constraints
     for (i = 1; i <= 3; ++i) {
         if (getButtonText(i, lastMoveY) != player) {
@@ -72,6 +67,11 @@ function checkWinner(player, lastMoveX, lastMoveY) {
         }
     }
 
+    // check for draw
+    if (moveCount == 9) {
+        return 0;
+    }
+
     return -1;
 }
 
@@ -92,7 +92,7 @@ function move(sign, x, y) {
     return false;
 }
 
-function buttonClicked(button) {
+function gameButtonClicked(button) {
     if (!running) {
         return;
     }
@@ -101,8 +101,9 @@ function buttonClicked(button) {
     const buttonX = buttonXY[0];
     const buttonY = buttonXY[1];
 
-    if (button.innerHTML == "X") {
+    if (button.innerHTML != "") {
         window.alert("Invalid move!");
+        return;
     }
     else {
         button.innerHTML = "X";
@@ -122,4 +123,26 @@ function buttonClicked(button) {
         running = false;
         return;
     }
+}
+
+function startButtonClicked() {
+    if (running) {
+        return;
+    }
+
+    running = true;
+    moveCount = 0;
+}
+
+function restartButtonClicked() {
+    buttonIds.forEach((buttonID) => {
+        document.getElementById(buttonID).innerHTML = "";
+    });
+    running = true;
+    moveCount = 0;
+}
+
+function endGameButtonClicked() {
+    restartButtonClicked();
+    running = false;
 }

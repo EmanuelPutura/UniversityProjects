@@ -6,8 +6,8 @@ body {
     border-collapse: collapse;
     border-spacing: 0;
     table-layout: fixed;
-    width: 50%;
-    max-width: 50vh;
+    width: 60%;
+    max-width: 60vh;
     margin: 0 auto;
     outline: none;
 }
@@ -16,7 +16,7 @@ body {
     padding: 0;
 }
 
-.boardBtn {
+#board button {
     background-color: #D3D3D3;
     color: black;
     padding: 10px 10px;
@@ -35,4 +35,41 @@ body {
 
 #btn31, #btn32, #btn33 {
     border-bottom: 4px solid black;
+}
+
+#navBar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    margin-bottom: 2%;
+}
+
+#navBar > li {
+    float: left;
+    border-right: 1px solid #bbb;
+    width: 10%;
+}
+
+#navBar button {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: transparent;
+    width: 100%;
+}
+
+#navBar li button:hover {
+    background-color: #111;
+}
+
+h1 {
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 7vh;
+    text-align: center;
+    margin-bottom: 2%;
 }
