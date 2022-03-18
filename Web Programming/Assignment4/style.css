@@ -1,0 +1,38 @@
+body {
+    background-color: antiquewhite;
+}
+
+#board {
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+    width: 50%;
+    max-width: 50vh;
+    margin: 0 auto;
+    outline: none;
+}
+
+#board td {
+    padding: 0;
+}
+
+.boardBtn {
+    background-color: #D3D3D3;
+    color: black;
+    padding: 10px 10px;
+    border-top: 4px solid black;
+    border-right: 4px solid black;
+    text-align: center;
+    outline: none;
+    margin: 0;
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+
+#btn11, #btn21, #btn31 {
+    border-left: 4px solid black;
+}
+
+#btn31, #btn32, #btn33 {
+    border-bottom: 4px solid black;
+}
