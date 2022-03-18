@@ -1,4 +1,6 @@
 var moveCount = 0;
+var running = true;
+
 const buttonIds = [];
 for (i = 1; i <= 3; ++i) {
     for (j = 1; j <= 3; ++j) {
@@ -20,13 +22,18 @@ function getButtonText(buttonX, buttonY) {
 }
 
 function checkWinner(player, lastMoveX, lastMoveY) {
+    // check for draw
+    if (moveCount == 9) {
+        return 0;
+    }
+
     // check row constraints
     for (i = 1; i <= 3; ++i) {
         if (getButtonText(i, lastMoveY) != player) {
             break;
         }
         if (i == 3) {
-            return true;
+            return 1;
         }
     }
 
@@ -36,7 +43,7 @@ function checkWinner(player, lastMoveX, lastMoveY) {
             break;
         }
         if (j == 3) {
-            return true;
+            return 1;
         }
     }
 
@@ -47,7 +54,7 @@ function checkWinner(player, lastMoveX, lastMoveY) {
                 break;
             }
             if (k == 3) {
-                return true;
+                return 1;
             }
         }
     }
@@ -59,22 +66,58 @@ function checkWinner(player, lastMoveX, lastMoveY) {
                 break;
             }
             if (k == 3) {
-                return true;
+                return 1;
             }
         }
+    }
+
+    return -1;
+}
+
+function move(sign, x, y) {
+    moveCount++;
+
+    const gameState = checkWinner(sign, x, y);
+    if (gameState == 0) {
+        window.alert("Draw!");
+        return true;
+    }
+    if (gameState == 1) {
+        window.alert("Player " + sign + " has won the game!");
+        return true;
     }
 
     return false;
 }
 
 function buttonClicked(button) {
+    if (!running) {
+        return;
+    }
+
+    const buttonXY = getButtonIDCoordinates(button.id);
+    const buttonX = buttonXY[0];
+    const buttonY = buttonXY[1];
+
     if (button.innerHTML == "X") {
         window.alert("Invalid move!");
     }
     else {
         button.innerHTML = "X";
+        if (move("X", buttonX, buttonY)) {
+            running =  false;
+            return;
+        }
     }
 
     const freeCells = buttonIds.filter((value) => document.getElementById(value).innerHTML == "");
-    document.getElementById(freeCells[0]).innerHTML = "O";
+    const aiLastCell = freeCells[0];
+
+    document.getElementById(aiLastCell).innerHTML = "O";
+    const aiCoordinates = getButtonIDCoordinates(aiLastCell);
+
+    if (move("O", aiCoordinates[0], aiCoordinates[1])) {
+        running = false;
+        return;
+    }
 }
