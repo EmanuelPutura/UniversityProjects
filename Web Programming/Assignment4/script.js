@@ -21,6 +21,7 @@ function getButtonText(buttonX, buttonY) {
     return document.getElementById(createButtonID(buttonX, buttonY)).innerHTML;
 }
 
+// returns 1 if the current player won the game, 0 if draw, -1 otherwise
 function checkWinner(player, lastMoveX, lastMoveY) {
     // check for draw
     if (moveCount == 9) {
@@ -74,6 +75,7 @@ function checkWinner(player, lastMoveX, lastMoveY) {
     return -1;
 }
 
+// returns true if the game ended
 function move(sign, x, y) {
     moveCount++;
 
