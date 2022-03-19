@@ -125,19 +125,24 @@ function gameButtonClicked(button) {
     }
 }
 
+function clearTable() {
+    buttonIds.forEach((buttonID) => {
+        document.getElementById(buttonID).innerHTML = "";
+    });
+}
+
 function startButtonClicked() {
     if (running) {
         return;
     }
 
+    clearTable();
     running = true;
     moveCount = 0;
 }
 
 function restartButtonClicked() {
-    buttonIds.forEach((buttonID) => {
-        document.getElementById(buttonID).innerHTML = "";
-    });
+    clearTable();
     running = true;
     moveCount = 0;
 }
