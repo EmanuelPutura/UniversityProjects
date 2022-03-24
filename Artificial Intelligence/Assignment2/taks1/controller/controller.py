@@ -26,6 +26,17 @@ class Controller:
         # example of some path in test1.map from [5,7] to [7,11]
         return [[5, 7], [5, 8], [5, 9], [5, 10], [5, 11], [6, 11], [7, 11]]
 
+    def __getValidNeighbours(self, mapM, node):
+        neighbours = []
+        for index in range(4):
+            current = (node[0] + Constants.VARIATIONS[index][0], node[1] + Constants.VARIATIONS[index][1])
+            if current[0] < 0 or current[1] < 0 or current[0] > 19 or current[1] > 19:
+                continue
+
+            if mapM.surface[current[0]][current[1]] != 1:
+                neighbours.append(current)
+        return neighbours
+
     def __searchAStar(self, mapM, initialX, initialY, finalX, finalY):
         start_time = timeit.default_timer()
         distance = {}  # a map that associates, to each accessible vertex, the cost of the minimum cost walk from s to it
@@ -138,10 +149,27 @@ class Controller:
         freezeTemperature = 0.0001
         alpha = 0.9
         iterationsNumber = 100
+        optimum = (initialX, initialY)
+        path = set()
 
         while temperature > freezeTemperature:
             for i in range(iterationsNumber):
-                pass
+                path.add(optimum)
+                neighbours = self.__getValidNeighbours(mapM, optimum)
+                current = neighbours[random.randint(0, len(neighbours) - 1)]
+
+                if self.__manhattanDistance(current[0], current[1], finalX, finalY) < self.__manhattanDistance(optimum[0], optimum[1], finalX, finalY):
+                    optimum = current
+                    continue
+
+                randomProbability = random.uniform(0, 1)
+                probability = math.exp(-abs(self.__manhattanDistance(current[0], current[1], finalX, finalY) - self.__manhattanDistance(optimum[0], optimum[1], finalX, finalY)))
+                if randomProbability < probability:
+                    optimum = current
+            temperature *= alpha
+
+        path.add((finalX, finalY))
+        return path
 
     def searchAStar(self):
         return self.__searchAStar(self.__map, self.__startX, self.__startY, 19, 0)
@@ -151,6 +179,9 @@ class Controller:
 
     def searchSimulatedAnnealing(self):
         return self.__searchSimulatedAnnealing(self.__map, self.__startX, self.__startY, 19, 0)
+
+    def searchSimulatedAnnealingV2(self):
+        return self.__searchSimulatedAnnealingV2(self.__map, self.__startX, self.__startY, 19, 0)
 
     def loadMap(self, path):
         # self.__map.randomMap()
