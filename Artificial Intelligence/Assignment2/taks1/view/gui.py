@@ -50,7 +50,8 @@ class Gui:
             pygame.display.flip()
 
         # path = self.__controller.searchGreedy()
-        path = self.__controller.searchGreedy()
+        # path = self.__controller.searchAStar()
+        path = self.__controller.searchSimulatedAnnealing()
         self.__screen.blit(self.__displayWithPath(self.__controller.mapImage(), path), (0, 0))
 
         pygame.display.flip()

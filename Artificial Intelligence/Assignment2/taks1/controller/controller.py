@@ -1,3 +1,6 @@
+import math
+import random
+import timeit
 from queue import PriorityQueue
 from random import randint
 
@@ -23,7 +26,8 @@ class Controller:
         # example of some path in test1.map from [5,7] to [7,11]
         return [[5, 7], [5, 8], [5, 9], [5, 10], [5, 11], [6, 11], [7, 11]]
 
-    def __searchAStar(self, mapM, droneD, initialX, initialY, finalX, finalY):
+    def __searchAStar(self, mapM, initialX, initialY, finalX, finalY):
+        start_time = timeit.default_timer()
         distance = {}  # a map that associates, to each accessible vertex, the cost of the minimum cost walk from s to it
         previous = {}  # a map that maps each accessible vertex to its predecessor on a path from s to it
         pQueue = PriorityQueue()
@@ -59,9 +63,13 @@ class Controller:
         while current > 0:
             result[current - 1] = previous[result[current]]
             current -= 1
+
+        end_time = timeit.default_timer()
+        print("Simulated Annealing Time: {}".format(end_time - start_time))
         return result
 
-    def __searchGreedy(self, mapM, droneD, initialX, initialY, finalX, finalY):
+    def __searchGreedy(self, mapM, initialX, initialY, finalX, finalY, printTime=True):
+        start_time = timeit.default_timer()
         found = False
         visited = []
         toVisit = PriorityQueue()
@@ -81,13 +89,68 @@ class Controller:
                     toVisit.put((self.__manhattanDistance(nodeX + variation[0], nodeY + variation[1], finalX, finalY),
                                  nodeX + variation[0], nodeY + variation[1]))
 
+        end_time = timeit.default_timer()
+        if printTime:
+            print("Simulated Annealing Time: {}".format(end_time - start_time))
         return None if not found else visited
 
-    def searchAStart(self):
-        return self.__searchAStar(self.__map, self.__drone, self.__startX, self.__startY, 19, 0)
+    def __searchSimulatedAnnealing(self, mapM, initialX, initialY, finalX, finalY):
+        T = 1
+        TMin = 0.0001
+        alpha = 0.9
+
+        start_time = timeit.default_timer()
+
+        min_sol = self.__searchGreedy(mapM, initialX, initialY, finalX, finalY, False)
+        current_sol = min_sol
+        pos = 0
+
+        while T > TMin and pos < len(min_sol):
+            for _ in range(10):
+                x = min_sol[pos][0]
+                y = min_sol[pos][1]
+
+                if len(current_sol) < len(min_sol):
+                    min_sol = current_sol
+
+                i = random.randint(0, 3)
+
+                if not (0 <= x + Constants.VARIATIONS[i][0] < 20 and 0 <= y + Constants.VARIATIONS[i][1] < 20 and
+                        mapM.surface[x + Constants.VARIATIONS[i][0]][y + Constants.VARIATIONS[i][1]] != 1):
+                    continue
+
+                next_sol = min_sol[:pos + 1]
+                next_sol.extend(self.__searchGreedy(mapM, x + Constants.VARIATIONS[i][0], y + Constants.VARIATIONS[i][1], finalX, finalY, False))
+                ap = pow(math.e, (len(current_sol) - len(next_sol)) / T)
+
+                if ap > random.random():
+                    current_sol = next_sol
+
+            pos += 1
+            T *= alpha
+
+        end_time = timeit.default_timer()
+        print("Simulated Annealing Time: {}".format(end_time - start_time))
+        return min_sol
+
+    def __searchSimulatedAnnealingV2(self, mapM, initialX, initialY, finalX, finalY):
+        temperature = 1
+        freezeTemperature = 0.0001
+        alpha = 0.9
+        iterationsNumber = 100
+
+        while temperature > freezeTemperature:
+            for i in range(iterationsNumber):
+                pass
+
+    def searchAStar(self):
+        return self.__searchAStar(self.__map, self.__startX, self.__startY, 19, 0)
 
     def searchGreedy(self):
-        return self.__searchGreedy(self.__map, self.__drone, self.__startX, self.__startY, 19, 0)
+        return self.__searchGreedy(self.__map, self.__startX, self.__startY, 19, 0)
+
+    def searchSimulatedAnnealing(self):
+        return self.__searchSimulatedAnnealing(self.__map, self.__startX, self.__startY, 19, 0)
 
     def loadMap(self, path):
         # self.__map.randomMap()
