@@ -51,6 +51,7 @@ class Gui:
 
         # path = self.__controller.searchGreedy()
         # path = self.__controller.searchAStar()
+        # path = self.__controller.searchSimulatedAnnealing()
         path = self.__controller.searchSimulatedAnnealingV2()
         self.__screen.blit(self.__displayWithPath(self.__controller.mapImage(), path), (0, 0))
 

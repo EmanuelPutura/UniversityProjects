@@ -38,7 +38,7 @@ class Controller:
         return neighbours
 
     def __searchAStar(self, mapM, initialX, initialY, finalX, finalY):
-        start_time = timeit.default_timer()
+        startTime = timeit.default_timer()
         distance = {}  # a map that associates, to each accessible vertex, the cost of the minimum cost walk from s to it
         previous = {}  # a map that maps each accessible vertex to its predecessor on a path from s to it
         pQueue = PriorityQueue()
@@ -75,12 +75,12 @@ class Controller:
             result[current - 1] = previous[result[current]]
             current -= 1
 
-        end_time = timeit.default_timer()
-        print("Simulated Annealing Time: {}".format(end_time - start_time))
+        endTime = timeit.default_timer()
+        print("Simulated Annealing Time: {}".format(endTime - startTime))
         return result
 
     def __searchGreedy(self, mapM, initialX, initialY, finalX, finalY, printTime=True):
-        start_time = timeit.default_timer()
+        startTime = timeit.default_timer()
         found = False
         visited = []
         toVisit = PriorityQueue()
@@ -100,49 +100,45 @@ class Controller:
                     toVisit.put((self.__manhattanDistance(nodeX + variation[0], nodeY + variation[1], finalX, finalY),
                                  nodeX + variation[0], nodeY + variation[1]))
 
-        end_time = timeit.default_timer()
+        endTime = timeit.default_timer()
         if printTime:
-            print("Simulated Annealing Time: {}".format(end_time - start_time))
+            print("Simulated Annealing Time: {}".format(endTime - startTime))
         return None if not found else visited
 
     def __searchSimulatedAnnealing(self, mapM, initialX, initialY, finalX, finalY):
-        T = 1
-        TMin = 0.0001
+        temperature = 1
+        freezeTemperature = 0.0001
         alpha = 0.9
 
-        start_time = timeit.default_timer()
+        startTime = timeit.default_timer()
+        optimum = self.__searchGreedy(mapM, initialX, initialY, finalX, finalY, False)
+        current = optimum
+        index = 0
 
-        min_sol = self.__searchGreedy(mapM, initialX, initialY, finalX, finalY, False)
-        current_sol = min_sol
-        pos = 0
-
-        while T > TMin and pos < len(min_sol):
+        while temperature > freezeTemperature and index < len(optimum):
             for _ in range(10):
-                x = min_sol[pos][0]
-                y = min_sol[pos][1]
-
-                if len(current_sol) < len(min_sol):
-                    min_sol = current_sol
+                x = optimum[index][0]
+                y = optimum[index][1]
+                if len(current) < len(optimum):
+                    optimum = current
 
                 i = random.randint(0, 3)
-
-                if not (0 <= x + Constants.VARIATIONS[i][0] < 20 and 0 <= y + Constants.VARIATIONS[i][1] < 20 and
-                        mapM.surface[x + Constants.VARIATIONS[i][0]][y + Constants.VARIATIONS[i][1]] != 1):
+                if not (0 <= x + Constants.VARIATIONS[i][0] < 20 and 0 <= y + Constants.VARIATIONS[i][1] < 20 and mapM.surface[x + Constants.VARIATIONS[i][0]][y + Constants.VARIATIONS[i][1]] != 1):
                     continue
 
-                next_sol = min_sol[:pos + 1]
+                next_sol = optimum[:index + 1]
                 next_sol.extend(self.__searchGreedy(mapM, x + Constants.VARIATIONS[i][0], y + Constants.VARIATIONS[i][1], finalX, finalY, False))
-                ap = pow(math.e, (len(current_sol) - len(next_sol)) / T)
 
+                ap = pow(math.e, (len(current) - len(next_sol)) / temperature)
                 if ap > random.random():
-                    current_sol = next_sol
+                    current = next_sol
 
-            pos += 1
-            T *= alpha
+            index += 1
+            temperature *= alpha
 
-        end_time = timeit.default_timer()
-        print("Simulated Annealing Time: {}".format(end_time - start_time))
-        return min_sol
+        endTime = timeit.default_timer()
+        print("Simulated Annealing Time: {}".format(endTime - startTime))
+        return optimum
 
     def __searchSimulatedAnnealingV2(self, mapM, initialX, initialY, finalX, finalY):
         temperature = 1
@@ -151,6 +147,7 @@ class Controller:
         iterationsNumber = 100
         optimum = (initialX, initialY)
         path = set()
+        startTime = timeit.default_timer()
 
         while temperature > freezeTemperature:
             for i in range(iterationsNumber):
@@ -169,6 +166,8 @@ class Controller:
             temperature *= alpha
 
         path.add((finalX, finalY))
+        endTime = timeit.default_timer()
+        print("Simulated Annealing Time: {}".format(endTime - startTime))
         return path
 
     def searchAStar(self):
