@@ -3,6 +3,9 @@ body {
     color: #333333;
     background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
     min-height: 100vh;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .title {
@@ -21,11 +24,11 @@ body {
 
 #nav-bar > li {
     float: left;
-    border-right: 1px solid #bbb;
     width: auto;
 }
 
 #nav-bar button {
+    border: 0;
     display: block;
     color: white;
     text-align: center;
@@ -39,4 +42,33 @@ body {
     background-color: #111;
 }
 
+.dialog-window {
+    min-width: 25vw;
+    max-width: 25vw;
+    min-height: 25vh;
+    min-height: 25vh;
+    border: 2px solid gray;
+    padding: 0.2% 0.2%;
 
+    position: absolute;
+    z-index: 9;
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+.dialog-window > .dialog-window-header {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: gray;
+    color: #fff;
+}
+
+.dialog-window > .dialog-window-header > .close-btn {
+    float: right;
+}
+
+.dialog-window > .dialog-window-text {
+    text-align: justify;
+    padding: 5% 5%;
+}

@@ -16,7 +16,7 @@
         <main>
             <ul id="nav-bar">
                 <li>
-                    <button id="show-dialog-btn" type="button">Show Dialog Box</button>
+                    <button id="show-dialog-btn" type="button">Show Dialog Window</button>
                 </li>
                 <li>
                     <button id="close" type="button" onclick="window.close();">Close Tab</button>
@@ -24,6 +24,20 @@
             </ul>
 
             <h1 class="title">Assignment 5</h1>
+            <hr>
+
+             <!-- Draggable DIV -->
+            <div class="dialog-window">
+                <!-- Include a header DIV, used for dragging -->
+                <div class="dialog-window-header">
+                    <span><b>Basic Dialog</b></Basic></span>
+                    <button class="close-btn">X</button>
+                </div>
+
+                <div class="dialog-window-text">
+                    This is the default dialog window which is useful for displaying information. The dialog window can be moved around and closed with the 'X' icon.
+                </div>
+            </div> 
         </main>
     </body>
 </html>
