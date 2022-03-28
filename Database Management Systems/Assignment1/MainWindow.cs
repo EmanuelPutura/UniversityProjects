@@ -14,10 +14,10 @@ namespace Assignment1
     public partial class MainWindow : Form
     {
         private SqlConnection connection;
-        private SqlDataAdapter parentTableAdapter;
-        private SqlDataAdapter childTableAdapter;
+        private SqlDataAdapter parentDataAdapter;
+        private SqlDataAdapter childDataAdapter;
         private DataSet dataSet;
-        private SqlCommandBuilder commandBuilder;
+        private SqlCommandBuilder childCommandBuilder;
         private BindingSource bsParent;
         private BindingSource bsChild;
 
@@ -30,12 +30,13 @@ namespace Assignment1
         {
             connection = new SqlConnection(@"Data Source = DESKTOP-PJI8ALC;Initial Catalog=FCSB; Integrated Security = True");
             dataSet = new DataSet();
-            childTableAdapter = new SqlDataAdapter("SELECT* FROM Trophies", connection);
-            parentTableAdapter = new SqlDataAdapter("SELECT* FROM TeamFormations", connection);
-            commandBuilder = new SqlCommandBuilder(childTableAdapter);
+            childDataAdapter = new SqlDataAdapter("SELECT* FROM Trophies", connection);
+            parentDataAdapter = new SqlDataAdapter("SELECT* FROM TeamFormations", connection);
+            
+            childCommandBuilder = new SqlCommandBuilder(childDataAdapter);
 
-            parentTableAdapter.Fill(dataSet, "TeamFormations");
-            childTableAdapter.Fill(dataSet, "Trophies");
+            parentDataAdapter.Fill(dataSet, "TeamFormations");
+            childDataAdapter.Fill(dataSet, "Trophies");
             
             DataRelation dataRelation = new DataRelation("FK_TeamFormations_Trophies",
             dataSet.Tables["TeamFormations"].Columns["formation"], dataSet.Tables["Trophies"].Columns["mostPlayedFormation"]);
@@ -53,7 +54,6 @@ namespace Assignment1
             parentDataGridView.DataSource = bsParent;
             childDataGridView.DataSource = bsChild;
 
-            /*
             String[] childColumnNames = { "Trophy ID", "Type", "Date", "Formation" };
             for (int i = 0; i < 4; ++i)
                 childDataGridView.Columns[i].HeaderCell.Value = childColumnNames[i];
@@ -61,20 +61,46 @@ namespace Assignment1
             String[] parentColumnNames = { "Formation", "Formation Style" };
             for (int i = 0; i < 2; ++i)
                 parentDataGridView.Columns[i].HeaderCell.Value = parentColumnNames[i];
-            */
         }
 
         private void updateDatabaseBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                parentTableAdapter.Update(dataSet, "TeamFormations");
-                childTableAdapter.Update(dataSet, "Trophies");
+                childDataAdapter.Update(dataSet, "Trophies");
             }
             catch (System.InvalidOperationException exception)
             {
                 MessageBox.Show(exception.Message);
             }
+            catch (System.Data.InvalidConstraintException exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+            catch (System.Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            childDataAdapter.InsertCommand = new SqlCommand("INSERT INTO Trophies (trophyType, winningDate, mostPlayedFormation) " +
+                "VALUES ('aa', '', '4-3-3');", connection);
+
+            connection.Open();
+            childDataAdapter.InsertCommand.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

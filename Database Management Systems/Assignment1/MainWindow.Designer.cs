@@ -41,9 +41,11 @@ namespace Assignment1
             this.label3 = new System.Windows.Forms.Label();
             this.trophyTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.opsBtn = new System.Windows.Forms.Button();
+            this.deleteBtn = new System.Windows.Forms.Button();
+            this.addBtn = new System.Windows.Forms.Button();
             this.updateDatabaseBtn = new System.Windows.Forms.Button();
             this.connectBtn = new System.Windows.Forms.Button();
+            this.updateBtn = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.childDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.parentDataGridView)).BeginInit();
@@ -66,8 +68,8 @@ namespace Assignment1
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(966, 433);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -80,7 +82,7 @@ namespace Assignment1
             this.childDataGridView.Name = "childDataGridView";
             this.childDataGridView.RowHeadersWidth = 51;
             this.childDataGridView.RowTemplate.Height = 29;
-            this.childDataGridView.Size = new System.Drawing.Size(463, 239);
+            this.childDataGridView.Size = new System.Drawing.Size(463, 196);
             this.childDataGridView.TabIndex = 0;
             // 
             // parentDataGridView
@@ -92,16 +94,16 @@ namespace Assignment1
             this.parentDataGridView.Name = "parentDataGridView";
             this.parentDataGridView.RowHeadersWidth = 51;
             this.parentDataGridView.RowTemplate.Height = 29;
-            this.parentDataGridView.Size = new System.Drawing.Size(463, 239);
+            this.parentDataGridView.Size = new System.Drawing.Size(463, 196);
             this.parentDataGridView.TabIndex = 1;
             // 
             // opsGroupBox
             // 
             this.opsGroupBox.Controls.Add(this.tableLayoutPanel2);
             this.opsGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.opsGroupBox.Location = new System.Drawing.Point(3, 262);
+            this.opsGroupBox.Location = new System.Drawing.Point(3, 219);
             this.opsGroupBox.Name = "opsGroupBox";
-            this.opsGroupBox.Size = new System.Drawing.Size(477, 168);
+            this.opsGroupBox.Size = new System.Drawing.Size(477, 211);
             this.opsGroupBox.TabIndex = 2;
             this.opsGroupBox.TabStop = false;
             this.opsGroupBox.Text = "Add/Delete/Update";
@@ -124,25 +126,25 @@ namespace Assignment1
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(471, 142);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(471, 185);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // formationTextBox
             // 
             this.formationTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.formationTextBox.Location = new System.Drawing.Point(191, 97);
+            this.formationTextBox.Location = new System.Drawing.Point(191, 125);
             this.formationTextBox.Multiline = true;
             this.formationTextBox.Name = "formationTextBox";
-            this.formationTextBox.Size = new System.Drawing.Size(277, 42);
+            this.formationTextBox.Size = new System.Drawing.Size(277, 57);
             this.formationTextBox.TabIndex = 5;
             // 
             // dateTextBox
             // 
             this.dateTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTextBox.Location = new System.Drawing.Point(191, 50);
+            this.dateTextBox.Location = new System.Drawing.Point(191, 64);
             this.dateTextBox.Multiline = true;
             this.dateTextBox.Name = "dateTextBox";
-            this.dateTextBox.Size = new System.Drawing.Size(277, 41);
+            this.dateTextBox.Size = new System.Drawing.Size(277, 55);
             this.dateTextBox.TabIndex = 4;
             // 
             // label1
@@ -151,18 +153,18 @@ namespace Assignment1
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(182, 47);
+            this.label1.Size = new System.Drawing.Size(182, 61);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Trophy:";
+            this.label1.Text = "Trophy Type:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(3, 47);
+            this.label2.Location = new System.Drawing.Point(3, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(182, 47);
+            this.label2.Size = new System.Drawing.Size(182, 61);
             this.label2.TabIndex = 1;
             this.label2.Text = "Date:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -171,9 +173,9 @@ namespace Assignment1
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(3, 94);
+            this.label3.Location = new System.Drawing.Point(3, 122);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(182, 48);
+            this.label3.Size = new System.Drawing.Size(182, 63);
             this.label3.TabIndex = 2;
             this.label3.Text = "Preferred Formation:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -184,44 +186,62 @@ namespace Assignment1
             this.trophyTextBox.Location = new System.Drawing.Point(191, 3);
             this.trophyTextBox.Multiline = true;
             this.trophyTextBox.Name = "trophyTextBox";
-            this.trophyTextBox.Size = new System.Drawing.Size(277, 41);
+            this.trophyTextBox.Size = new System.Drawing.Size(277, 55);
             this.trophyTextBox.TabIndex = 6;
             // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.opsBtn, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.deleteBtn, 0, 4);
+            this.tableLayoutPanel3.Controls.Add(this.addBtn, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.updateDatabaseBtn, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.connectBtn, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.updateBtn, 0, 3);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(486, 262);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(486, 219);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 3;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(477, 168);
+            this.tableLayoutPanel3.RowCount = 5;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(477, 211);
             this.tableLayoutPanel3.TabIndex = 3;
             // 
-            // opsBtn
+            // deleteBtn
             // 
-            this.opsBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.opsBtn.Location = new System.Drawing.Point(10, 122);
-            this.opsBtn.Margin = new System.Windows.Forms.Padding(10);
-            this.opsBtn.Name = "opsBtn";
-            this.opsBtn.Size = new System.Drawing.Size(457, 36);
-            this.opsBtn.TabIndex = 2;
-            this.opsBtn.Text = "Perform Operation";
-            this.opsBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.deleteBtn.Location = new System.Drawing.Point(5, 173);
+            this.deleteBtn.Margin = new System.Windows.Forms.Padding(5);
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Size = new System.Drawing.Size(467, 33);
+            this.deleteBtn.TabIndex = 3;
+            this.deleteBtn.Text = "Delete";
+            this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
+            // 
+            // addBtn
+            // 
+            this.addBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addBtn.Location = new System.Drawing.Point(5, 89);
+            this.addBtn.Margin = new System.Windows.Forms.Padding(5);
+            this.addBtn.Name = "addBtn";
+            this.addBtn.Size = new System.Drawing.Size(467, 32);
+            this.addBtn.TabIndex = 2;
+            this.addBtn.Text = "Add";
+            this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // updateDatabaseBtn
             // 
             this.updateDatabaseBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.updateDatabaseBtn.Location = new System.Drawing.Point(10, 66);
-            this.updateDatabaseBtn.Margin = new System.Windows.Forms.Padding(10);
+            this.updateDatabaseBtn.Location = new System.Drawing.Point(5, 47);
+            this.updateDatabaseBtn.Margin = new System.Windows.Forms.Padding(5);
             this.updateDatabaseBtn.Name = "updateDatabaseBtn";
-            this.updateDatabaseBtn.Size = new System.Drawing.Size(457, 36);
+            this.updateDatabaseBtn.Size = new System.Drawing.Size(467, 32);
             this.updateDatabaseBtn.TabIndex = 1;
             this.updateDatabaseBtn.Text = "Update Database";
             this.updateDatabaseBtn.UseVisualStyleBackColor = true;
@@ -230,14 +250,26 @@ namespace Assignment1
             // connectBtn
             // 
             this.connectBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.connectBtn.Location = new System.Drawing.Point(10, 10);
-            this.connectBtn.Margin = new System.Windows.Forms.Padding(10);
+            this.connectBtn.Location = new System.Drawing.Point(5, 5);
+            this.connectBtn.Margin = new System.Windows.Forms.Padding(5);
             this.connectBtn.Name = "connectBtn";
-            this.connectBtn.Size = new System.Drawing.Size(457, 36);
+            this.connectBtn.Size = new System.Drawing.Size(467, 32);
             this.connectBtn.TabIndex = 0;
-            this.connectBtn.Text = "Connect";
+            this.connectBtn.Text = "Connect/Refresh Database";
             this.connectBtn.UseVisualStyleBackColor = true;
             this.connectBtn.Click += new System.EventHandler(this.connectBtn_Click);
+            // 
+            // updateBtn
+            // 
+            this.updateBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.updateBtn.Location = new System.Drawing.Point(5, 131);
+            this.updateBtn.Margin = new System.Windows.Forms.Padding(5);
+            this.updateBtn.Name = "updateBtn";
+            this.updateBtn.Size = new System.Drawing.Size(467, 32);
+            this.updateBtn.TabIndex = 4;
+            this.updateBtn.Text = "Update";
+            this.updateBtn.UseVisualStyleBackColor = true;
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
             // MainWindow
             // 
@@ -246,7 +278,7 @@ namespace Assignment1
             this.ClientSize = new System.Drawing.Size(966, 433);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "MainWindow";
-            this.Text = "Form1";
+            this.Text = "Assignment 1";
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.childDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.parentDataGridView)).EndInit();
@@ -272,9 +304,11 @@ namespace Assignment1
         private System.Windows.Forms.TextBox dateTextBox;
         private System.Windows.Forms.TextBox trophyTextBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Button opsBtn;
+        private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.Button updateDatabaseBtn;
         private System.Windows.Forms.Button connectBtn;
+        private System.Windows.Forms.Button deleteBtn;
+        private System.Windows.Forms.Button updateBtn;
     }
 }
 
