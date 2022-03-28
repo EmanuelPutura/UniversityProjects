@@ -30,9 +30,9 @@ namespace Assignment1
         {
             connection = new SqlConnection(@"Data Source = DESKTOP-PJI8ALC;Initial Catalog=FCSB; Integrated Security = True");
             dataSet = new DataSet();
-            parentTableAdapter = new SqlDataAdapter("SELECT* FROM TeamFormations", connection);
             childTableAdapter = new SqlDataAdapter("SELECT* FROM Trophies", connection);
-            commandBuilder = new SqlCommandBuilder(parentTableAdapter);
+            parentTableAdapter = new SqlDataAdapter("SELECT* FROM TeamFormations", connection);
+            commandBuilder = new SqlCommandBuilder(childTableAdapter);
 
             parentTableAdapter.Fill(dataSet, "TeamFormations");
             childTableAdapter.Fill(dataSet, "Trophies");
@@ -50,9 +50,10 @@ namespace Assignment1
 
             childDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             parentDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            childDataGridView.DataSource = bsChild;
             parentDataGridView.DataSource = bsParent;
+            childDataGridView.DataSource = bsChild;
 
+            /*
             String[] childColumnNames = { "Trophy ID", "Type", "Date", "Formation" };
             for (int i = 0; i < 4; ++i)
                 childDataGridView.Columns[i].HeaderCell.Value = childColumnNames[i];
@@ -60,6 +61,20 @@ namespace Assignment1
             String[] parentColumnNames = { "Formation", "Formation Style" };
             for (int i = 0; i < 2; ++i)
                 parentDataGridView.Columns[i].HeaderCell.Value = parentColumnNames[i];
+            */
+        }
+
+        private void updateDatabaseBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                parentTableAdapter.Update(dataSet, "TeamFormations");
+                childTableAdapter.Update(dataSet, "Trophies");
+            }
+            catch (System.InvalidOperationException exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
     }
 }
