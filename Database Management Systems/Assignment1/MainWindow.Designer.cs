@@ -46,6 +46,8 @@ namespace Assignment1
             this.updateDatabaseBtn = new System.Windows.Forms.Button();
             this.connectBtn = new System.Windows.Forms.Button();
             this.updateBtn = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.idTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.childDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.parentDataGridView)).BeginInit();
@@ -113,47 +115,51 @@ namespace Assignment1
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel2.Controls.Add(this.formationTextBox, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.dateTextBox, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label3, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.trophyTextBox, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.formationTextBox, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.dateTextBox, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label2, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.label3, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.trophyTextBox, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label4, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.idTextBox, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 23);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.RowCount = 4;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00015F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00016F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00016F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.99953F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(471, 185);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // formationTextBox
             // 
             this.formationTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.formationTextBox.Location = new System.Drawing.Point(191, 125);
+            this.formationTextBox.Location = new System.Drawing.Point(191, 141);
             this.formationTextBox.Multiline = true;
             this.formationTextBox.Name = "formationTextBox";
-            this.formationTextBox.Size = new System.Drawing.Size(277, 57);
+            this.formationTextBox.Size = new System.Drawing.Size(277, 41);
             this.formationTextBox.TabIndex = 5;
             // 
             // dateTextBox
             // 
             this.dateTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTextBox.Location = new System.Drawing.Point(191, 64);
+            this.dateTextBox.Location = new System.Drawing.Point(191, 95);
             this.dateTextBox.Multiline = true;
             this.dateTextBox.Name = "dateTextBox";
-            this.dateTextBox.Size = new System.Drawing.Size(277, 55);
+            this.dateTextBox.Size = new System.Drawing.Size(277, 40);
             this.dateTextBox.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(3, 46);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(182, 61);
+            this.label1.Size = new System.Drawing.Size(182, 46);
             this.label1.TabIndex = 0;
             this.label1.Text = "Trophy Type:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -162,9 +168,9 @@ namespace Assignment1
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(3, 61);
+            this.label2.Location = new System.Drawing.Point(3, 92);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(182, 61);
+            this.label2.Size = new System.Drawing.Size(182, 46);
             this.label2.TabIndex = 1;
             this.label2.Text = "Date:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -173,9 +179,9 @@ namespace Assignment1
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(3, 122);
+            this.label3.Location = new System.Drawing.Point(3, 138);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(182, 63);
+            this.label3.Size = new System.Drawing.Size(182, 47);
             this.label3.TabIndex = 2;
             this.label3.Text = "Preferred Formation:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -183,10 +189,10 @@ namespace Assignment1
             // trophyTextBox
             // 
             this.trophyTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.trophyTextBox.Location = new System.Drawing.Point(191, 3);
+            this.trophyTextBox.Location = new System.Drawing.Point(191, 49);
             this.trophyTextBox.Multiline = true;
             this.trophyTextBox.Name = "trophyTextBox";
-            this.trophyTextBox.Size = new System.Drawing.Size(277, 55);
+            this.trophyTextBox.Size = new System.Drawing.Size(277, 40);
             this.trophyTextBox.TabIndex = 6;
             // 
             // tableLayoutPanel3
@@ -271,6 +277,26 @@ namespace Assignment1
             this.updateBtn.UseVisualStyleBackColor = true;
             this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Location = new System.Drawing.Point(3, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(182, 46);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Trophy ID:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // idTextBox
+            // 
+            this.idTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.idTextBox.Location = new System.Drawing.Point(191, 3);
+            this.idTextBox.Multiline = true;
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.Size = new System.Drawing.Size(277, 40);
+            this.idTextBox.TabIndex = 8;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -299,8 +325,6 @@ namespace Assignment1
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox formationTextBox;
         private System.Windows.Forms.TextBox dateTextBox;
         private System.Windows.Forms.TextBox trophyTextBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
@@ -309,6 +333,10 @@ namespace Assignment1
         private System.Windows.Forms.Button connectBtn;
         private System.Windows.Forms.Button deleteBtn;
         private System.Windows.Forms.Button updateBtn;
+        private System.Windows.Forms.TextBox formationTextBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox idTextBox;
     }
 }
 
