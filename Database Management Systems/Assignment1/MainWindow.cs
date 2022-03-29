@@ -73,14 +73,6 @@ namespace Assignment1
             {
                 childDataAdapter.Update(dataSet, "Trophies");
             }
-            catch (System.InvalidOperationException exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
-            catch (System.Data.InvalidConstraintException exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
             catch (System.Exception exception)
             {
                 MessageBox.Show(exception.Message);
@@ -141,7 +133,7 @@ namespace Assignment1
             connection.Open();
             try
             {
-                childDataAdapter.InsertCommand.ExecuteNonQuery();
+                childDataAdapter.UpdateCommand.ExecuteNonQuery();
             }
             catch (System.Exception exception)
             {
@@ -164,7 +156,7 @@ namespace Assignment1
 
             try
             {
-                childDataAdapter.InsertCommand.Parameters.Add("@id", SqlDbType.VarChar).Value = Int32.Parse(idTextBox.Text);
+                childDataAdapter.DeleteCommand.Parameters.Add("@id", SqlDbType.VarChar).Value = Int32.Parse(idTextBox.Text);
             }
             catch (System.Exception exception)
             {
