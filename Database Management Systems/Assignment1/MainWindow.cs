@@ -65,6 +65,10 @@ namespace Assignment1
 
         private void updateDatabaseBtn_Click(object sender, EventArgs e)
         {
+            // TODO
+            if (connection == null)
+                return;
+
             try
             {
                 childDataAdapter.Update(dataSet, "Trophies");
@@ -85,6 +89,10 @@ namespace Assignment1
 
         private void addBtn_Click(object sender, EventArgs e)
         {
+            // TODO
+            if (connection == null)
+                return;
+
             childDataAdapter.InsertCommand = new SqlCommand(
                 "INSERT INTO Trophies (trophyType, winningDate, mostPlayedFormation) " +
                 "VALUES (@type, @date, @formation);", connection);
@@ -109,6 +117,10 @@ namespace Assignment1
 
         private void updateBtn_Click(object sender, EventArgs e)
         {
+            // TODO
+            if (connection == null)
+                return;
+
             childDataAdapter.InsertCommand = new SqlCommand("UPDATE Trophies " +
                 "SET trophyType = @type, winningDate = @date, mostPlayedFormation = @formation " +
                 "WHERE trophyID = @id;", connection);
@@ -116,7 +128,15 @@ namespace Assignment1
             childDataAdapter.InsertCommand.Parameters.Add("@type", SqlDbType.VarChar).Value = trophyTextBox.Text;
             childDataAdapter.InsertCommand.Parameters.Add("@date", SqlDbType.VarChar).Value = dateTextBox.Text;
             childDataAdapter.InsertCommand.Parameters.Add("@formation", SqlDbType.VarChar).Value = formationTextBox.Text;
-            childDataAdapter.InsertCommand.Parameters.Add("@id", SqlDbType.VarChar).Value = Int32.Parse(idTextBox.Text);
+
+            try
+            {
+                childDataAdapter.InsertCommand.Parameters.Add("@id", SqlDbType.VarChar).Value = Int32.Parse(idTextBox.Text);
+            }
+            catch (System.Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
 
             connection.Open();
             try
@@ -135,10 +155,21 @@ namespace Assignment1
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
+            // TODO
+            if (connection == null)
+                return;
+
             childDataAdapter.InsertCommand = new SqlCommand("DELETE FROM Trophies " +
                 "WHERE trophyID = @id;", connection);
 
-            childDataAdapter.InsertCommand.Parameters.Add("@id", SqlDbType.VarChar).Value = Int32.Parse(idTextBox.Text);
+            try
+            {
+                childDataAdapter.InsertCommand.Parameters.Add("@id", SqlDbType.VarChar).Value = Int32.Parse(idTextBox.Text);
+            }
+            catch (System.Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
 
             connection.Open();
             try
