@@ -1,7 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
-# imports
 from gui import *
 from controller import *
 from repository import *
@@ -13,7 +9,7 @@ from domain import *
 #         a. create random map
 #         b. load a map
 #         c. save a map
-#         d visualise map
+#         d. visualise map
 #   2. EA options:
 #         a. parameters setup
 #         b. run the solver

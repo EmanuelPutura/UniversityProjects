@@ -1,16 +1,15 @@
 from repository import *
 
 
-class controller():
+class Controller:
     def __init__(self, args):
         # args - list of parameters needed in order to create the controller
         pass
-    
 
     def iteration(self, args):
         # args - list of parameters needed to run one iteration
         # a iteration:
-        # selection of the parrents
+        # selection of the parents
         # create offsprings by crossover of the parents
         # apply some mutations
         # selection of the survivors
@@ -25,8 +24,7 @@ class controller():
         
         # return the results and the info for statistics
         pass
-    
-    
+
     def solver(self, args):
         # args - list of parameters needed in order to run the solver
         
@@ -34,4 +32,3 @@ class controller():
         # run the algorithm
         # return the results and the statistics
         pass
-       
