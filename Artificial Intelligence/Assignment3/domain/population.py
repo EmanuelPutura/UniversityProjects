@@ -2,14 +2,14 @@ from domain.individual import Individual
 
 
 class Population:
-    def __init__(self, populationSize=0, individualSize=0):
+    def __init__(self, generator, populationSize=0, individualSize=0):
         self.__populationSize = populationSize
-        self.__v = [Individual(individualSize) for x in range(populationSize)]
+        self.__individuals = [Individual(generator, individualSize) for _ in range(populationSize)]
 
-    def evaluate(self):
+    def evaluate(self, map):
         # evaluates the population
-        for x in self.__v:
-            x.fitness()
+        for individual in self.__individuals:
+            individual.findFitness(map)
 
     def selection(self, k=0):
         # perform a selection of k individuals from the population

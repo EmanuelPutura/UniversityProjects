@@ -16,5 +16,13 @@ RIGHT = 3
 VARIATIONS = [[-1, 0], [1, 0], [0, 1], [0, -1]]
 
 # define mapsize
-
 MAP_LENGTH = 20
+
+# define default fill factor
+FILL_FACTOR = 0.2
+
+# define start position
+START_POSITION = (2, 2)
+
+# random generate seed
+DEFAULT_SEED = 1

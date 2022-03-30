@@ -33,7 +33,7 @@ def closePyGame():
 
 def movingDrone(currentMap, path, speed=1, markSeen=True):
     # animation of a drone on a path
-    screen = initPyGame((currentMap.n * 20, currentMap.m * 20))
+    screen = initPyGame((currentMap.__n * 20, currentMap.__m * 20))
     drona = pygame.image.load("drona.png")
 
     for i in range(len(path)):
@@ -46,9 +46,9 @@ def movingDrone(currentMap, path, speed=1, markSeen=True):
                 for var in VARIATIONS:
                     x = path[j][0]
                     y = path[j][1]
-                    while ((0 <= x + var[0] < currentMap.n and
-                            0 <= y + var[1] < currentMap.m) and
-                           currentMap.surface[x + var[0]][y + var[1]] != 1):
+                    while ((0 <= x + var[0] < currentMap.__n and
+                            0 <= y + var[1] < currentMap.__m) and
+                           currentMap.__surface[x + var[0]][y + var[1]] != 1):
                         x = x + var[0]
                         y = y + var[1]
                         screen.blit(brick, (y * 20, x * 20))
@@ -61,13 +61,13 @@ def movingDrone(currentMap, path, speed=1, markSeen=True):
 
 def image(currentMap, colour=BLUE, background=WHITE):
     # creates the image of a map
-    imagine = pygame.Surface((currentMap.n * 20, currentMap.m * 20))
+    imagine = pygame.Surface((currentMap.__n * 20, currentMap.__m * 20))
     brick = pygame.Surface((20, 20))
     brick.fill(colour)
     imagine.fill(background)
-    for i in range(currentMap.n):
-        for j in range(currentMap.m):
-            if currentMap.surface[i][j] == 1:
+    for i in range(currentMap.__n):
+        for j in range(currentMap.__m):
+            if currentMap.__surface[i][j] == 1:
                 imagine.blit(brick, (j * 20, i * 20))
 
     return imagine
