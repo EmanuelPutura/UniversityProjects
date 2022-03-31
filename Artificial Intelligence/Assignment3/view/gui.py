@@ -1,13 +1,13 @@
 import pygame
 import time
 
-from utils import WHITE, GREEN, VARIATIONS, BLUE
+from utils.utils import WHITE, GREEN, VARIATIONS, BLUE, START_POSITION
 
 
 def initPyGame(dimension):
     # init the pygame
     pygame.init()
-    logo = pygame.image.load("../logo32x32.png")
+    logo = pygame.image.load("logo32x32.png")
     pygame.display.set_icon(logo)
     pygame.display.set_caption("drone exploration with AE")
 
@@ -33,8 +33,10 @@ def closePyGame():
 
 def movingDrone(currentMap, path, speed=1, markSeen=True):
     # animation of a drone on a path
-    screen = initPyGame((currentMap.__n * 20, currentMap.__m * 20))
-    drona = pygame.image.load("../drona.png")
+    # path = [[2, 3], [2, 4], [2, 5], [2, 6], [3, 6], [4, 6]]
+
+    screen = initPyGame((currentMap.rows * 20, currentMap.columns * 20))
+    drona = pygame.image.load("drona.png")
 
     for i in range(len(path)):
         screen.blit(image(currentMap), (0, 0))
@@ -46,9 +48,7 @@ def movingDrone(currentMap, path, speed=1, markSeen=True):
                 for var in VARIATIONS:
                     x = path[j][0]
                     y = path[j][1]
-                    while ((0 <= x + var[0] < currentMap.__n and
-                            0 <= y + var[1] < currentMap.__m) and
-                           currentMap.__surface[x + var[0]][y + var[1]] != 1):
+                    while (0 <= x + var[0] < currentMap.rows and 0 <= y + var[1] < currentMap.columns) and currentMap.surface[x + var[0]][y + var[1]] != 1:
                         x = x + var[0]
                         y = y + var[1]
                         screen.blit(brick, (y * 20, x * 20))
@@ -61,13 +61,13 @@ def movingDrone(currentMap, path, speed=1, markSeen=True):
 
 def image(currentMap, colour=BLUE, background=WHITE):
     # creates the image of a map
-    imagine = pygame.Surface((currentMap.__n * 20, currentMap.__m * 20))
+    imagine = pygame.Surface((currentMap.rows * 20, currentMap.columns * 20))
     brick = pygame.Surface((20, 20))
     brick.fill(colour)
     imagine.fill(background)
-    for i in range(currentMap.__n):
-        for j in range(currentMap.__m):
-            if currentMap.__surface[i][j] == 1:
+    for i in range(currentMap.rows):
+        for j in range(currentMap.columns):
+            if currentMap.surface[i][j] == 1:
                 imagine.blit(brick, (j * 20, i * 20))
 
     return imagine

@@ -1,6 +1,6 @@
 from random import random
-from Domain.gene import Gene
-from utils import START_POSITION
+from domain.gene import Gene
+from utils.utils import START_POSITION, VARIATIONS
 
 
 class Individual:
@@ -9,6 +9,10 @@ class Individual:
         self.__generator = generator
         self.__chromosome = [Gene(generator) for _ in range(self.__size)]
         self.__fitness = None
+
+    @property
+    def size(self):
+        return self.__size
 
     @property
     def chromosome(self):
@@ -29,16 +33,18 @@ class Individual:
     def findFitness(self, map):
         # compute the fitness for the indivisual
         mapCopy = map.__deepcopy__()
-        currentPosition = START_POSITION
-        visitedCells = set()
+        currentPosition = [START_POSITION[0], START_POSITION[1]]
 
         self.__fitness = mapCopy.markSensorObservedCells(currentPosition[0], currentPosition[1])
         for index in range(self.__size):
-            variation = self.__chromosome[index].value
+            variation = VARIATIONS[self.__chromosome[index].value]
             currentPosition[0] += variation[0]
             currentPosition[1] += variation[1]
 
-            self.__fitness += mapCopy.markSensorObservedCells(currentPosition[0], currentPosition[1])
+            if map.isValidCell(currentPosition[0], currentPosition[1]):
+                self.__fitness += mapCopy.markSensorObservedCells(currentPosition[0], currentPosition[1])
+            else:
+                break
 
     def mutate(self, mutateProbability=0.04):
         # perform a mutation with respect to the representation (with probability mutateProbability)
@@ -82,3 +88,11 @@ class Individual:
 
         newIndividual.chromosome = chromosome
         return newIndividual
+
+    def __eq__(self, other):
+        if self.__size != other.size:
+            return False
+        for index, gene in enumerate(self.__chromosome):
+            if gene != other.chromosome[index]:
+                return False
+        return True

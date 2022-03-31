@@ -22,7 +22,10 @@ MAP_LENGTH = 20
 FILL_FACTOR = 0.2
 
 # define start position
-START_POSITION = (2, 2)
+START_POSITION = [2, 2]
 
 # random generate seed
 DEFAULT_SEED = 1
+
+# max iteration for the evolutionary algorithm
+MAX_ITERATIONS = 200

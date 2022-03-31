@@ -1,5 +1,5 @@
 import random
-from utils import DEFAULT_SEED
+from utils.utils import DEFAULT_SEED
 
 
 class RandomGenerator:

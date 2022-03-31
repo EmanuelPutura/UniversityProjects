@@ -2,7 +2,7 @@ from random import random
 
 import numpy as np
 
-from utils import VARIATIONS, MAP_LENGTH, FILL_FACTOR, START_POSITION
+from utils.utils import FILL_FACTOR, START_POSITION, MAP_LENGTH, VARIATIONS
 
 
 class Map:
@@ -10,6 +10,18 @@ class Map:
         self.__n = n
         self.__m = m
         self.__surface = np.zeros((self.__n, self.__m))
+
+    @property
+    def rows(self):
+        return self.__n
+
+    @property
+    def columns(self):
+        return self.__m
+
+    @property
+    def surface(self):
+        return self.__surface
 
     def setSurfaceCell(self, x, y, value):
         self.__surface[x][y] = value
@@ -23,7 +35,7 @@ class Map:
         # the start position is never occupied
         self.__surface[START_POSITION[0]][START_POSITION[1]] = 0
 
-    def __isValidCell(self, x, y):
+    def isValidCell(self, x, y):
         return 0 <= x < MAP_LENGTH and 0 <= y < MAP_LENGTH and self.__surface[x][y] != 1
 
     def markSensorObservedCells(self, startX, startY):
@@ -32,7 +44,7 @@ class Map:
             x = startX
             y = startY
 
-            while self.__isValidCell(x, y):
+            while self.isValidCell(x, y):
                 if self.__surface[x][y] != 2:
                     markedCells += 1
 

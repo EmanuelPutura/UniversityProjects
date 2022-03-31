@@ -23,3 +23,6 @@ class Gene:
         newGene = Gene(self.__generator)
         newGene.value = self.__value
         return newGene
+
+    def __eq__(self, other):
+        return self.__value == other.value

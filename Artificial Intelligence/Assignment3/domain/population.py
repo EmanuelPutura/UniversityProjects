@@ -2,26 +2,60 @@
     The problem uses a Steady-state Evolutionary Algorithm
     (i.e., each generation creates two offsprings, which replace the same amount of parents which are worse than them)
 """
-from random import random
+from random import random, randint
+from domain.individual import Individual
+from utils.utils import START_POSITION
 
-from Domain.individual import Individual
+
+class PopulationError(Exception):
+    def __init__(self, message):
+        super().__init__(message)
 
 
 class Population:
-    def __init__(self, generator, populationSize=0, individualSize=0):
+    def __init__(self, generator, populationSize=2, individualSize=0):
+        if populationSize < 2:
+            raise PopulationError("Populations size must be greater than or equal to two!")
+
         self.__populationSize = populationSize
         self.__individuals = [Individual(generator, individualSize) for _ in range(populationSize)]
+
+    @property
+    def individuals(self):
+        return self.__individuals
 
     def evaluate(self, map):
         # evaluates the population
         for individual in self.__individuals:
             individual.findFitness(map)
 
-    def survivorsSelection(self, survivorsNumber):
+    def survivorsSelection(self, offspring1, offspring2):
         # selects the survivors for the next generation
-        pass
+        worstParent = self.__individuals[0]
+        secondWorstParent = self.__individuals[1]
 
-    def recombinationSelection(self):
+        for individual in self.__individuals:
+            if individual.fitness < worstParent.fitness:
+                secondWorstParent = worstParent
+                worstParent = individual
+            elif individual.fitness < secondWorstParent.fitness:
+                secondWorstParent = individual
+
+        (worstOffspring, secondWorstOffspring) = (offspring1, offspring2) if offspring1.fitness < offspring2.fitness else (offspring2, offspring1)
+
+        if secondWorstOffspring.fitness < worstParent.fitness:
+            return
+        elif secondWorstParent.fitness <= secondWorstOffspring.fitness and worstParent.fitness <= worstOffspring.fitness:
+            self.__individuals[0] = worstOffspring
+            self.__individuals[1] = secondWorstOffspring
+        elif worstOffspring.fitness < worstParent.fitness:
+            self.__individuals[0] = secondWorstOffspring
+
+    def crossoverSelection(self, random=False):
+        # perform a random selection
+        if random:
+            return self.__individuals[randint(0, self.__populationSize - 1)], self.__individuals[randint(0, self.__populationSize - 1)]
+
         # peform a ranking selection
         # i.e., perform a roulette algorithm taking into account the rank instead of the fitness
         self.__individuals.sort(key=lambda individual: individual.fitness)
