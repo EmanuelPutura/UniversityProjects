@@ -9,13 +9,15 @@ class ConsoleCommands:
         self.__controller = controller
 
     def randomMapCommand(self):
-        self.__controller.getMap().randomMap()
+        self.__controller.generateRandomMap()
 
     def loadMapCommand(self):
-        print("map.load!")
+        filePath = input("Please enter the file path: ")
+        self.__controller.loadMap(filePath)
 
     def saveMapCommand(self):
-        print("map.save!")
+        filePath = input("Please enter the file path: ")
+        self.__controller.saveMap(filePath)
 
     def displayMapCommand(self):
         print("map.display!")

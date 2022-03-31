@@ -20,6 +20,13 @@ class Repository:
     def createPopulation(self, populationSize, individualSize):
         self.__population = Population(RandomGenerator(), populationSize, individualSize)
         return self.__population
-        
-    # TO DO : add the other components for the repository: 
-    #    load and save from file, etc
+
+    def saveMap(self, filePath):
+        with open(filePath, 'wb') as file:
+            pickle.dump(self.__map, file)
+
+    def loadMap(self, filePath):
+        with open(filePath, "rb") as file:
+            fileMap = pickle.load(file)
+            self.__map = fileMap
+            file.close()
