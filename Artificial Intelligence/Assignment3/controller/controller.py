@@ -44,13 +44,16 @@ class Controller:
         # apply some mutations
         # selection of the survivors
 
-        self.__repository.population.evaluate(self.getMap())
+        # self.__repository.population.evaluate(self.getMap())
         parent1, parent2 = self.__repository.population.crossoverSelection(True)  # select two parents for crossover operation
         offspring1, offspring2 = parent1.crossover(parent2)  # perform the crossover
 
         # perform mutations with a predefined probability
         offspring1.mutate()
         offspring2.mutate()
+
+        offspring1.findFitness(self.__repository.map)
+        offspring1.findFitness(self.__repository.map)
 
         # select the survivors
         self.__repository.population.survivorsSelection(offspring1, offspring2)
@@ -61,6 +64,7 @@ class Controller:
         #    save the information need it for the satistics
         # return the results and the info for statistics
 
+        self.__repository.population.evaluate(self.getMap())
         for i in range(MAX_ITERATIONS):
             self.__iteration()
             # TODO: save info for statistics

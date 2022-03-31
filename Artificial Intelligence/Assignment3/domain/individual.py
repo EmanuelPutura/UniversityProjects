@@ -1,7 +1,7 @@
-from random import random
+from random import random, randint
 from domain.gene import Gene
 from domain.map import Map
-from utils.utils import START_POSITION, VARIATIONS
+from utils.utils import START_POSITION, VARIATIONS, PLUS_FITNESS
 
 
 class Individual:
@@ -60,7 +60,10 @@ class Individual:
             if map.isValidCell(currentPosition[0], currentPosition[1]):
                 self.__fitness += self.__markTempMapUsingOriginalMap(currentPosition[0], currentPosition[1], tempMap, map)
             else:
-                break
+                return
+
+        if currentPosition[0] == START_POSITION[0] and currentPosition[1] == START_POSITION[1]:
+            self.__fitness += PLUS_FITNESS
 
     def mutate(self, mutateProbability=0.04):
         # perform a mutation with respect to the representation (with probability mutateProbability)
@@ -71,7 +74,6 @@ class Individual:
             self.__chromosome[geneIndex].value = self.__generator.randint(0, 3)
 
     def crossover(self, otherParent, crossoverProbability=0.8):
-        # offspring1, offspring2 = Individual(self.__generator, self.__size), Individual(self.__generator, self.__size)
         offspring1 = self.__deepcopy__()
         offspring2 = otherParent.__deepcopy__()
 
