@@ -25,6 +25,8 @@ class Map:
         self.__surface[x][y] = value
 
     def randomMap(self, fill=FILL_FACTOR):
+        self.__surface = np.zeros((self.__n, self.__m))
+
         for i in range(self.__n):
             for j in range(self.__m):
                 if random() <= fill:
