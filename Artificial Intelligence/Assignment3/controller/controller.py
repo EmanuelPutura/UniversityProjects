@@ -38,7 +38,6 @@ class Controller:
         return solutionPath
 
     def __iteration(self):
-        # args - list of parameters needed to run one iteration
         # a iteration:
         # selection of the parents
         # create offsprings by crossover of the parents
@@ -46,7 +45,7 @@ class Controller:
         # selection of the survivors
 
         self.__repository.population.evaluate(self.getMap())
-        parent1, parent2 = self.__repository.population.crossoverSelection()  # select two parents for crossover operation
+        parent1, parent2 = self.__repository.population.crossoverSelection(True)  # select two parents for crossover operation
         offspring1, offspring2 = parent1.crossover(parent2)  # perform the crossover
 
         # perform mutations with a predefined probability
@@ -76,9 +75,7 @@ class Controller:
         return bestIndividual
 
     def solver(self, populationSize, individualSize):
-        # args - list of parameters needed in order to run the solver
-
-        # create the population,
+        # create the population
         # run the algorithm
         # return the results and the statistics
 

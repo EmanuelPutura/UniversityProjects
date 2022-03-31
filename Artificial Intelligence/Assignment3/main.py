@@ -1,7 +1,6 @@
 from controller.controller import Controller
-from domain.individual import Individual
+from domain.map import Map
 from repository.repository import Repository
-from utils.generator import RandomGenerator
 from view.console import Console
 
 

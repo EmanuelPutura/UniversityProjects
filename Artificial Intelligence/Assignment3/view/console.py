@@ -13,7 +13,6 @@ create a menu
              function gui.movingDrone(currentMap, path, speed, markseen)
              ATENTION! the function doesn't check if the path passes trough walls
 """
-from utils.utils import START_POSITION
 from view.console_commands import ConsoleCommands
 
 
@@ -62,7 +61,8 @@ class Console:
                 print("'{}' is not a valid command!".format(command))
                 continue
 
-            try:
-                self.__commands[command]()
-            except Exception as error:
-                print("Error: {}".format(str(error)))
+            self.__commands[command]()
+            # try:
+            #     self.__commands[command]()
+            # except Exception as error:
+            #     print("Error: {}".format(str(error)))

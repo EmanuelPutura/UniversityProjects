@@ -1,7 +1,5 @@
 from random import random
-
 import numpy as np
-
 from utils.utils import FILL_FACTOR, START_POSITION, MAP_LENGTH, VARIATIONS
 
 

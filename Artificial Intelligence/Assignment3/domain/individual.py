@@ -1,5 +1,6 @@
 from random import random
 from domain.gene import Gene
+from domain.map import Map
 from utils.utils import START_POSITION, VARIATIONS
 
 
@@ -30,19 +31,34 @@ class Individual:
     def fitness(self, other):
         self.__fitness = other
 
+    def __markTempMapUsingOriginalMap(self, startX, startY, tempMap, originalMap):
+        markedCells = 0
+        for variation in VARIATIONS:
+            x = startX
+            y = startY
+
+            while originalMap.isValidCell(x, y):
+                if tempMap.surface[x][y] != 2:
+                    markedCells += 1
+
+                tempMap.surface[x][y] = 2
+                x += variation[0]
+                y += variation[1]
+        return markedCells
+
     def findFitness(self, map):
         # compute the fitness for the indivisual
-        mapCopy = map.__deepcopy__()
         currentPosition = [START_POSITION[0], START_POSITION[1]]
+        tempMap = Map()
 
-        self.__fitness = mapCopy.markSensorObservedCells(currentPosition[0], currentPosition[1])
+        self.__fitness = self.__markTempMapUsingOriginalMap(currentPosition[0], currentPosition[1], tempMap, map)
         for index in range(self.__size):
             variation = VARIATIONS[self.__chromosome[index].value]
             currentPosition[0] += variation[0]
             currentPosition[1] += variation[1]
 
             if map.isValidCell(currentPosition[0], currentPosition[1]):
-                self.__fitness += mapCopy.markSensorObservedCells(currentPosition[0], currentPosition[1])
+                self.__fitness += self.__markTempMapUsingOriginalMap(currentPosition[0], currentPosition[1], tempMap, map)
             else:
                 break
 

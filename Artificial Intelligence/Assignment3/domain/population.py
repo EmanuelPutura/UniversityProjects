@@ -4,7 +4,6 @@
 """
 from random import random, randint
 from domain.individual import Individual
-from utils.utils import START_POSITION
 
 
 class PopulationError(Exception):
@@ -58,6 +57,7 @@ class Population:
 
         # peform a ranking selection
         # i.e., perform a roulette algorithm taking into account the rank instead of the fitness
+
         self.__individuals.sort(key=lambda individual: individual.fitness)
         ranksSum = self.__populationSize * (self.__populationSize + 1) / 2
         probabilities = []

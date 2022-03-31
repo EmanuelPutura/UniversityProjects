@@ -28,4 +28,4 @@ START_POSITION = [2, 2]
 DEFAULT_SEED = 1
 
 # max iteration for the evolutionary algorithm
-MAX_ITERATIONS = 200
+MAX_ITERATIONS = 1000
