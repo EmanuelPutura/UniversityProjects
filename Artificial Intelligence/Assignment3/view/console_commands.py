@@ -6,7 +6,11 @@ from view.gui import movingDrone
 
 class ConsoleCommands:
     def __init__(self, controller):
+        self.__solutionPath = []
         self.__controller = controller
+
+        self.__populationSize = 2
+        self.__individualSize = 5
 
     def randomMapCommand(self):
         self.__controller.generateRandomMap()
@@ -20,21 +24,31 @@ class ConsoleCommands:
         self.__controller.saveMap(filePath)
 
     def displayMapCommand(self):
-        print("map.display!")
+        movingDrone(self.__controller.getMap(), [START_POSITION], 0, False)
 
     def eaSetupCommand(self):
-        print("ea.setup!")
+        try:
+            self.__populationSize = int(input("Please input the population size: "))
+        except Exception as error:
+            print("Error: {}".format(str(error)))
+
+        try:
+            self.__individualSize = int(input("Please input the maximum number of steps the drone can make: "))
+        except Exception as error:
+            print("Error: {}".format(str(error)))
 
     def eaRunCommand(self):
         startTime = timeit.default_timer()
-        solutionPath = self.__controller.solver(50, 10)
+        self.__solutionPath = self.__controller.solver(self.__populationSize, self.__individualSize)
         endTime = timeit.default_timer()
 
         print("Time: {}".format(str(endTime - startTime)))
-        movingDrone(self.__controller.getMap(), solutionPath)
 
     def eaStatisticsCommand(self):
         print("ea.statistics!")
 
     def eaDroneCommand(self):
-        print("ea.drone!")
+        if not self.__solutionPath:
+            print("You must first run the evolutionary algorithm!")
+            return
+        movingDrone(self.__controller.getMap(), self.__solutionPath)

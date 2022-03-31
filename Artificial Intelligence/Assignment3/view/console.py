@@ -62,4 +62,7 @@ class Console:
                 print("'{}' is not a valid command!".format(command))
                 continue
 
-            self.__commands[command]()
+            try:
+                self.__commands[command]()
+            except Exception as error:
+                print("Error: {}".format(str(error)))
