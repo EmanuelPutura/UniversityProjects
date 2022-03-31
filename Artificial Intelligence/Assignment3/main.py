@@ -1,2 +1,6 @@
+from view.console import Console
+
+
 if __name__ == "__main__":
-    print("Hello world!")
+    console = Console()
+    console.run()

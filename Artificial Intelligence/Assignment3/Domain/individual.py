@@ -1,5 +1,5 @@
 from random import random
-from domain.gene import Gene
+from Domain.gene import Gene
 from utils import START_POSITION
 
 

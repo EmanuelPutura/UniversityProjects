@@ -7,7 +7,7 @@ from utils import WHITE, GREEN, VARIATIONS, BLUE
 def initPyGame(dimension):
     # init the pygame
     pygame.init()
-    logo = pygame.image.load("logo32x32.png")
+    logo = pygame.image.load("../logo32x32.png")
     pygame.display.set_icon(logo)
     pygame.display.set_caption("drone exploration with AE")
 
@@ -34,7 +34,7 @@ def closePyGame():
 def movingDrone(currentMap, path, speed=1, markSeen=True):
     # animation of a drone on a path
     screen = initPyGame((currentMap.__n * 20, currentMap.__m * 20))
-    drona = pygame.image.load("drona.png")
+    drona = pygame.image.load("../drona.png")
 
     for i in range(len(path)):
         screen.blit(image(currentMap), (0, 0))
