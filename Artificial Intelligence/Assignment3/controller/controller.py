@@ -1,11 +1,13 @@
+from utils.generator import RandomGenerator
 from utils.utils import MAX_ITERATIONS, START_POSITION, VARIATIONS
 
 
 class Controller:
-    def __init__(self, repository):
+    def __init__(self, repository, randomGenerator):
         self.__repository = repository
         self.__populationSize = None
         self.__individualSize = None
+        self.__randomGenerator = randomGenerator
 
     def generateRandomMap(self):
         self.__repository.map.randomMap()
@@ -44,8 +46,7 @@ class Controller:
         # apply some mutations
         # selection of the survivors
 
-        # self.__repository.population.evaluate(self.getMap())
-        parent1, parent2 = self.__repository.population.crossoverSelection(True)  # select two parents for crossover operation
+        parent1, parent2 = self.__repository.population.crossoverSelection(False)  # select two parents for crossover operation
         offspring1, offspring2 = parent1.crossover(parent2)  # perform the crossover
 
         # perform mutations with a predefined probability
@@ -53,7 +54,7 @@ class Controller:
         offspring2.mutate()
 
         offspring1.findFitness(self.__repository.map)
-        offspring1.findFitness(self.__repository.map)
+        offspring2.findFitness(self.__repository.map)
 
         # select the survivors
         self.__repository.population.survivorsSelection(offspring1, offspring2)
@@ -65,9 +66,11 @@ class Controller:
         # return the results and the info for statistics
 
         self.__repository.population.evaluate(self.getMap())
+        averageFitness = [self.__repository.population.computeAverageFitness()]
+
         for i in range(MAX_ITERATIONS):
             self.__iteration()
-            # TODO: save info for statistics
+            averageFitness.append(self.__repository.population.computeAverageFitness())
 
         self.__repository.population.evaluate(self.getMap())
         bestIndividual = self.__repository.population.individuals[0]
@@ -76,7 +79,7 @@ class Controller:
             if individual.fitness > bestIndividual.fitness:
                 bestIndividual = individual
 
-        return bestIndividual
+        return bestIndividual, averageFitness
 
     def solver(self, populationSize, individualSize):
         # create the population
@@ -86,7 +89,8 @@ class Controller:
         self.__populationSize = populationSize
         self.__individualSize = individualSize
 
-        self.__repository.createPopulation(self.__populationSize, self.__individualSize)
+        self.__repository.createPopulation(self.__randomGenerator, self.__populationSize, self.__individualSize)
 
-        solution = self.run()
-        return self.__getSolutionPath(solution)
+        (solution, averageFitness) = self.run()
+
+        return self.__getSolutionPath(solution), averageFitness, solution

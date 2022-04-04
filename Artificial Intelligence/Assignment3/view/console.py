@@ -17,11 +17,11 @@ from view.console_commands import ConsoleCommands
 
 
 class Console:
-    def __init__(self, controller):
+    def __init__(self, controller, randomGenerator):
         self.__running = False
         self.__controller = controller
 
-        self.__consoleCommands = ConsoleCommands(controller)
+        self.__consoleCommands = ConsoleCommands(controller, randomGenerator)
         self.__commands = {
             "map.random": self.__consoleCommands.randomMapCommand,
             "map.load": self.__consoleCommands.loadMapCommand,
@@ -61,8 +61,7 @@ class Console:
                 print("'{}' is not a valid command!".format(command))
                 continue
 
-            self.__commands[command]()
-            # try:
-            #     self.__commands[command]()
-            # except Exception as error:
-            #     print("Error: {}".format(str(error)))
+            try:
+                self.__commands[command]()
+            except Exception as error:
+                print("Error: {}".format(str(error)))

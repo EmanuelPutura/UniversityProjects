@@ -23,6 +23,9 @@ class Population:
     def individuals(self):
         return self.__individuals
 
+    def computeAverageFitness(self):
+        return sum(individual.fitness for individual in self.__individuals) / self.__populationSize
+
     def evaluate(self, map):
         # evaluates the population
         for individual in self.__individuals:

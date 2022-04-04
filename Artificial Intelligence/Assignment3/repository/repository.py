@@ -17,8 +17,8 @@ class Repository:
     def population(self):
         return self.__population
 
-    def createPopulation(self, populationSize, individualSize):
-        self.__population = Population(RandomGenerator(), populationSize, individualSize)
+    def createPopulation(self, randomGenerator, populationSize, individualSize):
+        self.__population = Population(randomGenerator, populationSize, individualSize)
         return self.__population
 
     def saveMap(self, filePath):

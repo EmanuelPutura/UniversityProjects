@@ -10,5 +10,9 @@ class RandomGenerator:
     def seed(self):
         return self.__seed
 
+    @seed.setter
+    def seed(self, other):
+        self.__seed = other
+
     def randint(self, a, b):
         return random.randint(a, b)

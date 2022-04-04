@@ -28,7 +28,10 @@ START_POSITION = [2, 2]
 DEFAULT_SEED = 1
 
 # max iteration for the evolutionary algorithm
-MAX_ITERATIONS = 100000
+MAX_ITERATIONS = 1000
 
 # fitness increase amount to encourage certain scenarious
-PLUS_FITNESS = 100
+PLUS_FITNESS = 20
+
+# running times for making statistics
+RUNNING_TIMES = 30
