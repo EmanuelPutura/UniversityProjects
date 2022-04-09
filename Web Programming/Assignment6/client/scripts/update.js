@@ -7,19 +7,19 @@ class EventHandling {
     }
 
     homeBtnClicked(event) {
-        document.location.href = "./index.html";
+        document.location.href = "../../index.html";
     }
 
     dbInsertBtnClicked(event) {
         console.log("Hey!");
-        document.location.href = "./client/pages/insert.html";
+        document.location.href = "./insert.html";
     }
 
     dbUpdateBtnClicked(event) {
-        document.location.href = "./client/pages/update.html";
+        document.location.href = "./update.html";
     }
 
     dbDeleteBtnClicked(event) {
-        document.location.href = "./client/pages/delete.html";
+        document.location.href = "./delete.html";
     }
 }

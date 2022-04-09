@@ -7,13 +7,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>E-Commerce Store</title>
 
-        <link rel="stylesheet" href="client/styles/main.css">
-        <script src="client/scripts/main.js"></script>
+        <link rel="stylesheet" href="./client/styles/main.css">
+        <script src="./client/scripts/main.js"></script>
     </head>
 
     <body>
         <main>
             <ul id="nav-bar">
+                <li>
+                    <button id="home-page" type="button">Home</button>
+                </li>
                 <li>
                     <button id="db-insert" type="button">Insert Product</button>
                 </li>
@@ -31,9 +34,9 @@
             <h1 class="title">E-Commerce Store</h1>
             <hr>
         </main>
-    </body>
 
-    <script language="javascript" type="text/javascript">
-        var eventHandler = new EventHandling("db-insert", "db-update", "db-delete");
-    </script>
+        <script language="javascript" type="text/javascript">
+            var eventHandler = new EventHandling();
+        </script>
+    </body>
 </html>

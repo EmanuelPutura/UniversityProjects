@@ -1,20 +1,45 @@
 class EventHandling {
-    constructor(insertBtnId, updateBtnId, deleteBtnId) {
-        document.getElementById(insertBtnId).addEventListener("click", this.insertBtnClicked);
-        document.getElementById(updateBtnId).addEventListener("click", this.updateBtnClicked);
-        document.getElementById(deleteBtnId).addEventListener("click", this.deleteBtnClicked);
+    constructor() {
+        document.getElementById("home-page").addEventListener("click", this.homeBtnClicked);
+        document.getElementById("db-insert").addEventListener("click", this.dbInsertBtnClicked);
+        document.getElementById("db-update").addEventListener("click", this.dbUpdateBtnClicked);
+        document.getElementById("db-delete").addEventListener("click", this.dbDeleteBtnClicked);
+
+        document.getElementById("submit-insert-btn").addEventListener("click", this.submitBtnClicked);
     }
 
-    insertBtnClicked(event) {
-        // reload current page
+    homeBtnClicked(event) {
+        document.location.href = "../../index.html";
+    }
+
+    dbInsertBtnClicked(event) {
         document.location.href = "./insert.html";
     }
 
-    updateBtnClicked(event) {
-        console.log(event);
+    dbUpdateBtnClicked(event) {
+        document.location.href = "./update.html";
     }
 
-    deleteBtnClicked(event) {
-        console.log(event);
+    dbDeleteBtnClicked(event) {
+        document.location.href = "./delete.html";
     }
+
+    submitBtnClicked(event) {
+        const productName = document.getElementById("product-name").value;
+        const productCategory = document.getElementById("product-category").value;
+        const productPrice = document.getElementById("product-price").value;
+
+        const postRequestBody = "func=insert&productName=" + productName + "&productCategory=" + productCategory + "&productPrice=" + productPrice;
+        const postRequest = new XMLHttpRequest();
+
+        postRequest.onload = function() {
+            console.log(this.responseText);
+        }
+
+        postRequest.open("POST", "../../server/controller/controller.php");
+        postRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        postRequest.send(postRequestBody);
+    }
+
+    
 }

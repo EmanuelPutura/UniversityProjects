@@ -9,7 +9,7 @@
 
         <link rel="stylesheet" href="../styles/main.css">
         <link rel="stylesheet" href="../styles/products_crud.css">
-        <script src="../scripts/insert.js"></script>
+        <script src="../scripts/update.js"></script>
     </head>
 
     <body>
@@ -34,15 +34,16 @@
             
             <h1 class="title">E-Commerce Store</h1><hr>
 
-            <!-- <form class="form" action="../../server/controller/controller.php" method="POST"> -->
-            <form class="form">
+            <form class="form" action="">
+                <label for="product-id">Product ID:</label>
+                <input type="text" id="product-id" name="product-id"><br>
                 <label for="product-name">Product name:</label>
                 <input type="text" id="product-name" name="product-name"><br>
                 <label for="product-category">Product category:</label>
                 <input type="text" id="product-category" name="product-category"><br>
                 <label for="product-price">Product price:</label>
                 <input type="text" id="product-price" name="product-price"><br>
-                <button type="button" id="submit-insert-btn">Insert</button> 
+                <button type="button">Insert</button> 
             </form> 
         </main>
     </body>
