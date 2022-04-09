@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Emanuel-Vasile Putura">
+        <meta name="description" content="E-Commerce Store">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>E-Commerce Store</title>
+
+        <link rel="stylesheet" href="client/styles/main.css">
+        <script src="client/scripts/main.js"></script>
+    </head>
+
+    <body>
+        <main>
+            <ul id="nav-bar">
+                <li>
+                    <button id="db-insert" type="button">Insert Product</button>
+                </li>
+                <li>
+                    <button id="db-update" type="button">Update Product</button>
+                </li>
+                <li>
+                    <button id="db-delete" type="button">Delete Product</button>
+                </li>
+                <li>
+                    <button id="exit" type="button" onclick="window.close();">Exit</button>
+                </li>
+            </ul>
+
+            <h1 class="title">E-Commerce Store</h1>
+            <hr>
+        </main>
+    </body>
+
+    <script language="javascript" type="text/javascript">
+        var eventHandler = new EventHandling("db-insert", "db-update", "db-delete");
+    </script>
+</html>
