@@ -26,22 +26,62 @@ class Repository {
         }
     }
 
-    public function selectProducts(int $pageSize, int $currentPage) {
+    public function selectAllProducts(int $pageSize, int $currentPage) {
         $limit = $pageSize;
         $offset = $pageSize * $currentPage;
-
         $sqlQuery = "SELECT * FROM `" . $this->tableName . "` LIMIT " . (string) $limit . " OFFSET " . (string) $offset;
+
+        if ($currentPage < 0) {
+            return $this->selectAllProducts($pageSize, 0);
+        }
+
         $result = $this->connection->query($sqlQuery);
+        if (!$result)
+            return;
+        $answerArray = array();
 
         if ($result->num_rows > 0) {
             // output data from each row
             while($row = $result->fetch_assoc()) {
-                echo "product: " . $row["ID"] . " " . $row["Name"]. " " . $row["Category"] . " " . $row["Price in dollars"] . "<br>";
-        }
+                $product = new Product((int) $row["ID"], $row["Name"], $row["Category"], (int) $row["Price in dollars"]);
+                array_push($answerArray, json_encode($product));
+            }
         }
         else {
-            $this->selectProducts($pageSize, 0);
+            return $this->selectAllProducts($pageSize, 0);
         }
+        
+        array_push($answerArray, $currentPage);
+        return json_encode($answerArray);
+    }
+
+    public function selectProductsFromCategory(string $category, int $pageSize, int $currentPage) {
+        $limit = $pageSize;
+        $offset = $pageSize * $currentPage;
+        $sqlQuery = "SELECT * FROM `" . $this->tableName . "` WHERE `Category` = '" . $category . "' LIMIT " . (string) $limit . " OFFSET " . (string) $offset;
+    
+        if ($currentPage < 0) {
+            return $this->selectProductsFromCategory($category, $pageSize, 0);
+        }
+
+        $result = $this->connection->query($sqlQuery);
+        if (!$result)
+            return;
+        $answerArray = array();
+        
+        if ($result->num_rows > 0) {
+            // output data from each row
+            while($row = $result->fetch_assoc()) {
+                $product = new Product((int) $row["ID"], $row["Name"], $row["Category"], (int) $row["Price in dollars"]);
+                array_push($answerArray, json_encode($product));
+            }
+        }
+        else {
+            return $this->selectProductsFromCategory($category, $pageSize, 0);
+        }
+        
+        array_push($answerArray, $currentPage);
+        return json_encode($answerArray);
     }
 
     public function insertProduct(Product $product) : bool {

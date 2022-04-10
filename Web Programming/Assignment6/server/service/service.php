@@ -9,17 +9,19 @@ class Service {
         $this->repository = new Repository();
     }
 
-    public function selectProducts(int $pageSize, int $currentPage) {
-        $this->repository->selectProducts($pageSize, $currentPage);
+    public function selectProducts(string $category, int $pageSize, int $currentPage) {
+        if ($category === "all")
+            return $this->repository->selectAllProducts($pageSize, $currentPage);
+        return $this->repository->selectProductsFromCategory($category, $pageSize, $currentPage);
     }
 
     public function insertProduct(string $name, string $category, int $price) {
-        $product = new Product($name, $category, $price);
+        $product = new Product(0, $name, $category, $price);
         $this->repository->insertProduct($product);
     }
 
     public function updateProduct(int $id, string $name, string $category, int $price) {
-        $product = new Product($name, $category, $price);
+        $product = new Product(0, $name, $category, $price);
         $this->repository->updateProduct($id, $product);
     }
 

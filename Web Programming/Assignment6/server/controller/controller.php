@@ -42,10 +42,10 @@ class Controller {
     }
 
     private function serveSelect() {
-        if (!isset($_GET["pageSize"]) || !isset($_GET["currentPage"]))
+        if (!isset($_GET["category"]) || !isset($_GET["pageSize"]) || !isset($_GET["currentPage"]))
             return;
         
-        $this->view->selectProducts((int) $_GET["pageSize"], (int) $_GET["currentPage"]);
+        $this->view->selectProducts($_GET["category"], (int) $_GET["pageSize"], (int) $_GET["currentPage"]);
     }
 
     private function serveInsert() {
