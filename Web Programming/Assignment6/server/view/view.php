@@ -23,5 +23,9 @@ class View {
     public function deleteProduct(int $id) {
         $this->service->deleteProduct($id);
     }
+
+    public function checkProductID(int $id) {
+        echo $this->service->checkProductID($id);
+    }
 }
 ?>

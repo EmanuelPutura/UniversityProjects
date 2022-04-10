@@ -109,5 +109,14 @@ class Repository {
             return true;
         return false;
     }
+
+    public function checkProductID(int $id) : string {
+        $sqlQuery = "SELECT * FROM `" . $this->tableName . "` WHERE `ID` = " . (string) $id;
+        $result = $this->connection->query($sqlQuery);
+
+        if ($result->num_rows > 0)
+            return "valid";
+        return "invalid";
+    }
 }
 ?>

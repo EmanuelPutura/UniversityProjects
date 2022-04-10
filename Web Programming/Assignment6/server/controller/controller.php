@@ -38,7 +38,10 @@ class Controller {
         }
         else if (isset($_GET) && isset($_GET["func"]) && $_GET["func"] === "select") {
             $this->serveSelect();
-        }   
+        }
+        else if (isset($_GET) && isset($_GET["func"]) && $_GET["func"] === "check" && isset($_GET["id"])) {
+            return $this->view->checkProductID((int) $_GET["id"]);
+        } 
     }
 
     private function serveSelect() {

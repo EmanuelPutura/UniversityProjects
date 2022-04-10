@@ -28,5 +28,9 @@ class Service {
     public function deleteProduct(int $id) {
         $this->repository->deleteProduct($id);
     }
+
+    public function checkProductID(int $id) : string {
+        return $this->repository->checkProductID($id);
+    }
 }
 ?>

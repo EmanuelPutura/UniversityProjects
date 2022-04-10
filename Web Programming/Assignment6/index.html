@@ -31,6 +31,13 @@
             <h1 class="title">E-Commerce Store</h1>
             <hr>
             
+            <div id="cart-div">
+                <label for="select-cart-id">Product ID:</label>
+                <input type="text" id="select-cart-id" name="select-cart-id"><br>
+                <button type="button" id="cart-add-btn">Add To Shopping Basket</button>
+                <button type="button" id="cart-remove-btn">Remove From Shopping Basket</button> 
+            </div>
+
             <div id="select-txtbox-div">
                 <label for="select-category">Category:</label>
                 <input type="text" id="select-category" name="select-category"><br>
@@ -75,6 +82,8 @@
                     <button id="next-products-btn" type="button">Next Page</button>
                 </div>
             </div>
+
+            <label id="basket-label">Shopping basket Product IDs:</label>
         </main>
 
         <script language="javascript" type="text/javascript">

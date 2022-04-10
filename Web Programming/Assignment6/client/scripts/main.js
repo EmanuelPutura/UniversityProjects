@@ -2,7 +2,10 @@ class EventHandling {
     constructor() {
         this.pageSize = 4;
         this.currentPage = 0;
+
         const thisObject = this;
+        this.basketProductIds = [];
+        this.basketLabelStartText = "Shopping basket Product IDs: ";
 
         document.getElementById("home-page").addEventListener("click", this.homeBtnClicked);
         document.getElementById("db-insert").addEventListener("click", this.dbInsertBtnClicked);
@@ -27,6 +30,14 @@ class EventHandling {
             thisObject.loadProducts(thisObject, category);
         });
 
+        document.getElementById("cart-add-btn").addEventListener("click", function() {
+            thisObject.addToBasket(thisObject);
+        });
+
+        document.getElementById("cart-remove-btn").addEventListener("click", function() {
+            thisObject.removeFromBasket(thisObject);
+        });
+        
         this.loadProducts(this);
     }
 
@@ -82,5 +93,61 @@ class EventHandling {
 
             thisObject.currentPage = resultArray[thisObject.pageSize];
         }
+    }
+
+    addToBasket(thisObject) {
+        const id = document.getElementById("select-cart-id").value;
+
+        const getRequest = new XMLHttpRequest();
+        getRequest.open("GET", "./server/controller/controller.php?func=check&id=" + id, true);
+        getRequest.send();
+
+        getRequest.onload = function() {
+            if (this.responseText.replace(/[^a-z]/gi, '') == "valid") {
+                if (thisObject.basketProductIds.indexOf(id) == -1) {
+                    thisObject.basketProductIds.push(id);
+                    thisObject.updateShoppingBasket();
+                }
+            }
+            else {
+                alert("Invalid ID!");
+            }
+        }
+    }
+
+    removeFromBasket(thisObject) {
+        const id = document.getElementById("select-cart-id").value;
+
+        const getRequest = new XMLHttpRequest();
+        getRequest.open("GET", "./server/controller/controller.php?func=check&id=" + id, true);
+        getRequest.send();
+
+        getRequest.onload = function() {
+            if (this.responseText.replace(/[^a-z]/gi, '') == "valid") {
+                const idIndex = thisObject.basketProductIds.indexOf(id);
+                if (idIndex != -1) {
+                    thisObject.basketProductIds.splice(idIndex, 1);  // remove element from array
+                    thisObject.updateShoppingBasket();
+                }
+                else {
+                    alert("The product was not added to the shopping basket!");
+                }
+            }
+            else {
+                alert("Invalid ID!");
+            }
+        }
+    }
+
+    updateShoppingBasket() {
+        let basketLabelText = this.basketLabelStartText;
+        if (this.basketProductIds.length > 0)
+            basketLabelText += this.basketProductIds[0];
+        
+        for (let i = 1; i < this.basketProductIds.length; ++i)
+            basketLabelText += ", " + this.basketProductIds[i];
+
+        console.log(basketLabelText);
+        document.getElementById("basket-label").innerHTML = basketLabelText;
     }
 }

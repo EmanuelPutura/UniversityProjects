@@ -107,3 +107,46 @@ tr:nth-child(even) {
     margin: auto;
     height: 33%;
 }
+
+#cart-div {
+    text-align: center;
+    width: 75%;
+    height: 15vh;
+    margin: auto;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+#cart-div label {
+    display: inline-block;
+    width: 17%;
+    height: 33%;
+    text-align: left;
+}
+
+#cart-div input {
+    width: 80%;
+    height: 33%;
+}
+
+#cart-add-btn {
+    width: 49%;
+    margin: auto;
+    height: 33%;
+}
+
+#cart-remove-btn {
+    width: 49%;
+    margin: auto;
+    height: 33%;
+}
+
+#basket-label {
+    display: inline-block;
+    width: 75%;
+    height: 33%;
+    text-align: left;
+    margin: auto;
+    margin-bottom: 5%;
+    margin-left: 12%;
+}
