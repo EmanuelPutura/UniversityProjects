@@ -4,6 +4,8 @@ class EventHandling {
         document.getElementById("db-insert").addEventListener("click", this.dbInsertBtnClicked);
         document.getElementById("db-update").addEventListener("click", this.dbUpdateBtnClicked);
         document.getElementById("db-delete").addEventListener("click", this.dbDeleteBtnClicked);
+
+        document.getElementById("submit-update-btn").addEventListener("click", this.submitBtnClicked);
     }
 
     homeBtnClicked(event) {
@@ -21,5 +23,24 @@ class EventHandling {
 
     dbDeleteBtnClicked(event) {
         document.location.href = "./delete.html";
+    }
+
+    submitBtnClicked(event) {
+        const productID = document.getElementById("product-id").value;
+        const productName = document.getElementById("product-name").value;
+        const productCategory = document.getElementById("product-category").value;
+        const productPrice = document.getElementById("product-price").value;
+
+        const requestContent = {"func": "update", "productID": productID, "productName": productName, "productCategory": productCategory, "productPrice": productPrice};
+        const postRequestBody = JSON.stringify(requestContent);
+        const postRequest = new XMLHttpRequest();
+
+        // postRequest.onload = function() {
+        //     console.log(this.responseText);
+        // }
+
+        postRequest.open("PUT", "../../server/controller/controller.php");
+        postRequest.setRequestHeader("Content-type", "application/json");
+        postRequest.send(postRequestBody);
     }
 }

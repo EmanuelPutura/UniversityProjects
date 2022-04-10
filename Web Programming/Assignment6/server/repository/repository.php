@@ -27,12 +27,25 @@ class Repository {
     }
 
     public function insertProduct(Product $product) : bool {
-        $productName = $product->getName();
-        $productCategory = $product->getCategory();
-        $productPrice = (string) $product->getPrice();
-
         $sqlQuery = "INSERT INTO `" . $this->tableName . "` (`Name`, `Category`, `Price in dollars`) 
-                    VALUES ('" . $productName . "', '" . $productCategory . "', '" . $productPrice . "')";
+                    VALUES ('" . $product->getName() . "', '" . $product->getCategory() . "', '" . (string) $product->getPrice() . "')";
+
+        if ($this->connection->query($sqlQuery) === TRUE)
+            return true;
+        return false;
+    }
+
+    public function updateProduct(int $productID, Product $newProduct) : bool {
+        $sqlQuery = "UPDATE `" . $this->tableName . "` SET `Name` = '" . $newProduct->getName() . "', `Category` = '" 
+                . $newProduct->getCategory() . "', `Price in dollars` = '" . (string) $newProduct->getPrice() . "' WHERE `ID` = '" . (string) $productID . "'";
+
+        if ($this->connection->query($sqlQuery) === TRUE)
+            return true;
+        return false;
+    }
+
+    public function deleteProduct(int $productID) : bool {
+        $sqlQuery = "DELETE FROM `" . $this->tableName . "` WHERE `ID` = '" . $productID . "'";
 
         if ($this->connection->query($sqlQuery) === TRUE)
             return true;

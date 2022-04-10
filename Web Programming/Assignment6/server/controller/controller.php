@@ -10,41 +10,54 @@ class Controller {
     }
 
     public function serve() {
-        if (isset($_POST["func"])) {
-            $function = $_POST["func"];
-            switch($function) {
-                case "insert":
-                    $this->serveInsert();
-                    break;
-                case "update":
-                    $this->serveUpdate();
-                    break;
-                case "delete":
-                    $this->serveDelete();
-                    break;
-                default:
-                    return;
-            }
+        if (isset($_POST["func"]) && $_POST["func"] === "insert")
+            $this->serveInsert();
+        else if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === "PUT") {
+            $putRequestFile = fopen('php://input', 'r');
+            $requestData = '';
+    
+            while($data = fread($putRequestFile, 1024))
+                $requestData .= $data;
+            fclose($putRequestFile);
+            
+            $sentData = json_decode($requestData, true);
+            if (isset($sentData["func"]) && $sentData["func"] === "update")
+                $this->serveUpdate($sentData);
         }
+        else if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === "DELETE") {
+            $putRequestFile = fopen('php://input', 'r');
+            $requestData = '';
+    
+            while($data = fread($putRequestFile, 1024))
+                $requestData .= $data;
+            fclose($putRequestFile);
+            
+            $sentData = json_decode($requestData, true);
+            if (isset($sentData["func"]) && $sentData["func"] === "delete")
+                $this->serveDelete($sentData);
+        }
+            
     }
 
     private function serveInsert() {
         if (!isset($_POST["productName"]) || !isset($_POST["productCategory"]) || !isset($_POST["productPrice"]))
             return;
-        
-        $productName = $_POST["productName"];
-        $productCategory = $_POST["productCategory"];
-        $productPrice = $_POST["productPrice"];
-
-        $this->view->insertProduct($productName, $productCategory, $productPrice);
+    
+        $this->view->insertProduct($_POST["productName"], $_POST["productCategory"], (int) $_POST["productPrice"]);
     }
 
-    private function serveUpdate() {
-        die("update");
+    private function serveUpdate(Array $requestData) {
+        if (!isset($requestData["productID"]) || !isset($requestData["productName"]) || !isset($requestData["productCategory"]) || !isset($requestData["productPrice"]))
+            return;
+
+        $this->view->updateProduct((int) $requestData["productID"], $requestData["productName"], $requestData["productCategory"], (int) $requestData["productPrice"]);
     }
 
-    private function serveDelete() {
-        die("delete");
+    private function serveDelete(Array $requestData) {
+        if (!isset($requestData["productID"]))
+            return;
+
+        $this->view->deleteProduct((int) $requestData["productID"]);
     }
 }
 

@@ -32,14 +32,8 @@ class EventHandling {
         const postRequestBody = "func=insert&productName=" + productName + "&productCategory=" + productCategory + "&productPrice=" + productPrice;
         const postRequest = new XMLHttpRequest();
 
-        postRequest.onload = function() {
-            console.log(this.responseText);
-        }
-
         postRequest.open("POST", "../../server/controller/controller.php");
         postRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         postRequest.send(postRequestBody);
     }
-
-    
 }
