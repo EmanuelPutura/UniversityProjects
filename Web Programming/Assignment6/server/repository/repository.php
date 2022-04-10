@@ -26,6 +26,24 @@ class Repository {
         }
     }
 
+    public function selectProducts(int $pageSize, int $currentPage) {
+        $limit = $pageSize;
+        $offset = $pageSize * $currentPage;
+
+        $sqlQuery = "SELECT * FROM `" . $this->tableName . "` LIMIT " . (string) $limit . " OFFSET " . (string) $offset;
+        $result = $this->connection->query($sqlQuery);
+
+        if ($result->num_rows > 0) {
+            // output data from each row
+            while($row = $result->fetch_assoc()) {
+                echo "product: " . $row["ID"] . " " . $row["Name"]. " " . $row["Category"] . " " . $row["Price in dollars"] . "<br>";
+        }
+        }
+        else {
+            $this->selectProducts($pageSize, 0);
+        }
+    }
+
     public function insertProduct(Product $product) : bool {
         $sqlQuery = "INSERT INTO `" . $this->tableName . "` (`Name`, `Category`, `Price in dollars`) 
                     VALUES ('" . $product->getName() . "', '" . $product->getCategory() . "', '" . (string) $product->getPrice() . "')";

@@ -32,15 +32,15 @@ class EventHandling {
         const productPrice = document.getElementById("product-price").value;
 
         const requestContent = {"func": "update", "productID": productID, "productName": productName, "productCategory": productCategory, "productPrice": productPrice};
-        const postRequestBody = JSON.stringify(requestContent);
-        const postRequest = new XMLHttpRequest();
+        const putRequestBody = JSON.stringify(requestContent);
+        const putRequest = new XMLHttpRequest();
 
-        // postRequest.onload = function() {
+        // putRequest.onload = function() {
         //     console.log(this.responseText);
         // }
 
-        postRequest.open("PUT", "../../server/controller/controller.php");
-        postRequest.setRequestHeader("Content-type", "application/json");
-        postRequest.send(postRequestBody);
+        putRequest.open("PUT", "../../server/controller/controller.php");
+        putRequest.setRequestHeader("Content-type", "application/json");
+        putRequest.send(putRequestBody);
     }
 }

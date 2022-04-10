@@ -8,6 +8,10 @@ class View {
         $this->service = new Service();
     }
 
+    public function selectProducts(int $pageSize, int $currentPage) {
+        $this->service->selectProducts($pageSize, $currentPage);
+    }
+
     public function insertProduct(string $name, string $category, int $price) {
         $this->service->insertProduct($name, $category, $price);
     }

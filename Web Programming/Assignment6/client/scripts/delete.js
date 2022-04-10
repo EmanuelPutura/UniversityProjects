@@ -28,15 +28,15 @@ class EventHandling {
     submitBtnClicked(event) {
         const productID = document.getElementById("product-id").value;
         const requestContent = {"func": "delete", "productID": productID};
-        const postRequestBody = JSON.stringify(requestContent);
-        const postRequest = new XMLHttpRequest();
+        const deleteRequestBody = JSON.stringify(requestContent);
+        const deleteRequest = new XMLHttpRequest();
 
-        // postRequest.onload = function() {
+        // deleteRequest.onload = function() {
         //     console.log(this.responseText);
         // }
 
-        postRequest.open("DELETE", "../../server/controller/controller.php");
-        postRequest.setRequestHeader("Content-type", "application/json");
-        postRequest.send(postRequestBody);
+        deleteRequest.open("DELETE", "../../server/controller/controller.php");
+        deleteRequest.setRequestHeader("Content-type", "application/json");
+        deleteRequest.send(deleteRequestBody);
     }
 }

@@ -36,7 +36,16 @@ class Controller {
             if (isset($sentData["func"]) && $sentData["func"] === "delete")
                 $this->serveDelete($sentData);
         }
-            
+        else if (isset($_GET) && isset($_GET["func"]) && $_GET["func"] === "select") {
+            $this->serveSelect();
+        }   
+    }
+
+    private function serveSelect() {
+        if (!isset($_GET["pageSize"]) || !isset($_GET["currentPage"]))
+            return;
+        
+        $this->view->selectProducts((int) $_GET["pageSize"], (int) $_GET["currentPage"]);
     }
 
     private function serveInsert() {

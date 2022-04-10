@@ -9,6 +9,10 @@ class Service {
         $this->repository = new Repository();
     }
 
+    public function selectProducts(int $pageSize, int $currentPage) {
+        $this->repository->selectProducts($pageSize, $currentPage);
+    }
+
     public function insertProduct(string $name, string $category, int $price) {
         $product = new Product($name, $category, $price);
         $this->repository->insertProduct($product);
