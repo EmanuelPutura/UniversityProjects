@@ -8,8 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
 
-namespace Assignment1
+namespace Assignment2
 {
     public partial class MainWindow : Form
     {

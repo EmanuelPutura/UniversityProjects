@@ -459,9 +459,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Informatica\\UniversityProjects\\Database Management Systems\\Assignment2\\Assignment1.csproj",
-      "projectName": "Assignment1",
-      "projectPath": "D:\\Informatica\\UniversityProjects\\Database Management Systems\\Assignment2\\Assignment1.csproj",
+      "projectUniqueName": "D:\\Informatica\\UniversityProjects\\Database Management Systems\\Assignment2\\Assignment2.csproj",
+      "projectName": "Assignment2",
+      "projectPath": "D:\\Informatica\\UniversityProjects\\Database Management Systems\\Assignment2\\Assignment2.csproj",
       "packagesPath": "C:\\Users\\28082020\\.nuget\\packages\\",
       "outputPath": "D:\\Informatica\\UniversityProjects\\Database Management Systems\\Assignment2\\obj\\",
       "projectStyle": "PackageReference",
