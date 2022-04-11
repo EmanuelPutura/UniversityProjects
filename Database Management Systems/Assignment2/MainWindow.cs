@@ -29,40 +29,41 @@ namespace Assignment2
 
         private void connectBtn_Click(object sender, EventArgs e)
         {
-            connection = new SqlConnection(@"Data Source = DESKTOP-PJI8ALC;Initial Catalog=FCSB; Integrated Security = True");
+            // App.config data
+            var connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+            var parentTableName = ConfigurationManager.AppSettings["parentTable"];
+            var childTableName = ConfigurationManager.AppSettings["childTable"];
+            var parentPrimaryKey = ConfigurationManager.AppSettings["parentPK"];
+            var childForeignKey = ConfigurationManager.AppSettings["childFK"];
+
+            connection = new SqlConnection(connectionString);
             dataSet = new DataSet();
-            childDataAdapter = new SqlDataAdapter("SELECT* FROM Trophies", connection);
-            parentDataAdapter = new SqlDataAdapter("SELECT* FROM TeamFormations", connection);
+
+            childDataAdapter = new SqlDataAdapter($"SELECT* FROM {childTableName}", connection);
+            parentDataAdapter = new SqlDataAdapter($"SELECT* FROM {parentTableName}", connection);
             
             childCommandBuilder = new SqlCommandBuilder(childDataAdapter);
 
-            parentDataAdapter.Fill(dataSet, "TeamFormations");
-            childDataAdapter.Fill(dataSet, "Trophies");
+            dataSet.Clear();
+            parentDataAdapter.Fill(dataSet, parentTableName);
+            childDataAdapter.Fill(dataSet, childTableName);
             
-            DataRelation dataRelation = new DataRelation("FK_TeamFormations_Trophies",
-                    dataSet.Tables["TeamFormations"].Columns["formation"], dataSet.Tables["Trophies"].Columns["mostPlayedFormation"]);
+            DataRelation dataRelation = new DataRelation($"FK_{parentTableName}_{childTableName}",
+                    dataSet.Tables[parentTableName].Columns[parentPrimaryKey], dataSet.Tables[childTableName].Columns[childForeignKey]);
             dataSet.Relations.Add(dataRelation);
 
             bsParent = new BindingSource();
             bsChild = new BindingSource();
             bsParent.DataSource = dataSet;
-            bsParent.DataMember = "TeamFormations";
+            bsParent.DataMember = parentTableName;
             bsChild.DataSource = bsParent;
-            bsChild.DataMember = "FK_TeamFormations_Trophies";
+            bsChild.DataMember = $"FK_{parentTableName}_{childTableName}";
 
             childDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             parentDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             parentDataGridView.DataSource = bsParent;
             childDataGridView.DataSource = bsChild;
-
-            String[] childColumnNames = { "Trophy ID", "Type", "Date", "Formation" };
-            for (int i = 0; i < 4; ++i)
-                childDataGridView.Columns[i].HeaderCell.Value = childColumnNames[i];
-
-            String[] parentColumnNames = { "Formation", "Formation Style" };
-            for (int i = 0; i < 2; ++i)
-                parentDataGridView.Columns[i].HeaderCell.Value = parentColumnNames[i];
         }
 
         private void updateDatabaseBtn_Click(object sender, EventArgs e)
@@ -73,7 +74,8 @@ namespace Assignment2
 
             try
             {
-                childDataAdapter.Update(dataSet, "Trophies");
+                var childTableName = ConfigurationManager.AppSettings["childTable"];
+                childDataAdapter.Update(dataSet, childTableName);
             }
             catch (System.Exception exception)
             {

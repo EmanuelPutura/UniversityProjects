@@ -20,3 +20,5 @@ D:\Informatica\UniversityProjects\Database Management Systems\Assignment2\obj\De
 D:\Informatica\UniversityProjects\Database Management Systems\Assignment2\obj\Debug\netcoreapp3.1\Assignment2.pdb
 D:\Informatica\UniversityProjects\Database Management Systems\Assignment2\obj\Debug\netcoreapp3.1\Assignment2.genruntimeconfig.cache
 D:\Informatica\UniversityProjects\Database Management Systems\Assignment2\obj\Debug\netcoreapp3.1\Assignment2.MainWindow.resources
+D:\Informatica\UniversityProjects\Database Management Systems\Assignment2\bin\Debug\netcoreapp3.1\Assignment2.dll.config
+D:\Informatica\UniversityProjects\Database Management Systems\Assignment2\obj\Debug\netcoreapp3.1\Assignment2.csproj.AssemblyReference.cache
