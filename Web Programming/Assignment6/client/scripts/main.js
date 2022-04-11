@@ -91,7 +91,7 @@ class EventHandling {
                 }
             }
 
-            thisObject.currentPage = resultArray[thisObject.pageSize];
+            thisObject.currentPage = resultArray[resultArray.length - 1];
         }
     }
 
@@ -147,7 +147,6 @@ class EventHandling {
         for (let i = 1; i < this.basketProductIds.length; ++i)
             basketLabelText += ", " + this.basketProductIds[i];
 
-        console.log(basketLabelText);
         document.getElementById("basket-label").innerHTML = basketLabelText;
     }
 }

@@ -65,8 +65,9 @@ class Repository {
         }
 
         $result = $this->connection->query($sqlQuery);
-        if (!$result)
+        if (!$result) {
             return;
+        }
         $answerArray = array();
         
         if ($result->num_rows > 0) {
