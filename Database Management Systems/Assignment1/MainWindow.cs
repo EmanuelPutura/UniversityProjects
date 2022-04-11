@@ -39,7 +39,7 @@ namespace Assignment1
             childDataAdapter.Fill(dataSet, "Trophies");
             
             DataRelation dataRelation = new DataRelation("FK_TeamFormations_Trophies",
-            dataSet.Tables["TeamFormations"].Columns["formation"], dataSet.Tables["Trophies"].Columns["mostPlayedFormation"]);
+                    dataSet.Tables["TeamFormations"].Columns["formation"], dataSet.Tables["Trophies"].Columns["mostPlayedFormation"]);
             dataSet.Relations.Add(dataRelation);
 
             bsParent = new BindingSource();
