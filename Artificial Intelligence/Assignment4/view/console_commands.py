@@ -3,7 +3,7 @@ from view.gui import movingDrone
 
 
 class ConsoleCommands:
-    def __init__(self, controller, randomGenerator):
+    def __init__(self, controller):
         self.__solutionPath = []
         self.__controller = controller
 

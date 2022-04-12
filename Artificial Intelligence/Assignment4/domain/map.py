@@ -1,6 +1,6 @@
 from random import random
 import numpy as np
-from utils.utils import FILL_FACTOR, START_POSITION, MAP_LENGTH, VARIATIONS
+from utils.utils import FILL_FACTOR, START_POSITION, MAP_LENGTH
 
 
 class Map:
@@ -37,21 +37,6 @@ class Map:
 
     def isValidCell(self, x, y):
         return 0 <= x < MAP_LENGTH and 0 <= y < MAP_LENGTH and self.__surface[x][y] != 1
-
-    def markSensorObservedCells(self, startX, startY):
-        markedCells = 0
-        for variation in VARIATIONS:
-            x = startX
-            y = startY
-
-            while self.isValidCell(x, y):
-                if self.__surface[x][y] != 2:
-                    markedCells += 1
-
-                self.__surface[x][y] = 2
-                x += variation[0]
-                y += variation[1]
-        return markedCells
 
     def __str__(self):
         string = ""
