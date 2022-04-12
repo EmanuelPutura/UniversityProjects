@@ -27,10 +27,11 @@ class Console:
             "map.load": self.__consoleCommands.loadMapCommand,
             "map.save": self.__consoleCommands.saveMapCommand,
             "map.display": self.__consoleCommands.displayMapCommand,
-            "ea.setup": self.__consoleCommands.eaSetupCommand,
-            "ea.run": self.__consoleCommands.eaRunCommand,
-            "ea.statistics": self.__consoleCommands.eaStatisticsCommand,
-            "ea.drone": self.__consoleCommands.eaDroneCommand
+            "alg.start": self.__consoleCommands.setDroneStartPositionCommand,
+            "alg.energy": self.__consoleCommands.setDroneEnergyCommand,
+            "alg.sensors": self.__consoleCommands.setSensorsPositionCommand,
+            "alg.run": self.__consoleCommands.runAlgorithmCommand,
+            "alg.drone": self.__consoleCommands.showDronePathCommand
         }
 
     def printMenu(self):
@@ -40,11 +41,12 @@ class Console:
         print("- map.load: load map from a file")
         print("- map.save: save current map to a file")
         print("- map.display: visualize the map")
-        print("Evolutionary algorithm options:")
-        print("- ea.setup: parameters setup")
-        print("- ea.run: run the solver")
-        print("- ea.statistics: visualize the statistics")
-        print("- ea.drone: view the drone moving on a path")
+        print("Algorithm options:")
+        print("- alg.start: set the start position of the drone")
+        print("- alg.energy: set the energy of the drone")
+        print("- alg.sensors: set the position of the sensors")
+        print("- alg.run: run the algorithm")
+        print("- alg.drone: view the drone moving on a path")
         print("Other commands:")
         print("- exit: exit the application")
         print("-" * 100)
