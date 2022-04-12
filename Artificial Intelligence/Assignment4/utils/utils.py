@@ -5,6 +5,7 @@ RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
+YELLOW = (253, 218, 13)
 
 # define directions
 UP = 0
@@ -21,17 +22,8 @@ MAP_LENGTH = 20
 # define default fill factor
 FILL_FACTOR = 0.2
 
-# define start position
-START_POSITION = [2, 2]
+# algorithm default setup parameters
+DRONE_START = (0, 0)
+DRONE_ENERGY = 10
+SENSORS = [(1, 2), (6, 7), (15, 11), (10, 10), (19, 19)]
 
-# random generate seed
-DEFAULT_SEED = 1
-
-# max iteration for the evolutionary algorithm
-MAX_ITERATIONS = 1000
-
-# fitness increase amount to encourage certain scenarious
-PLUS_FITNESS = 20
-
-# running times for making statistics
-RUNNING_TIMES = 30

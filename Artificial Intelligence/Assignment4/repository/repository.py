@@ -3,8 +3,8 @@ from domain.map import Map
 
 
 class Repository:
-    def __init__(self):
-        self.__map = Map()
+    def __init__(self, map):
+        self.__map = map
 
     @property
     def map(self):

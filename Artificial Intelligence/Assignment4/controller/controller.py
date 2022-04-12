@@ -16,5 +16,8 @@ class Controller:
     def getMap(self):
         return self.__repository.map
 
+    def setSensors(self, sensors):
+        self.__repository.map.sensors = sensors
+
     def solve(self):
         pass

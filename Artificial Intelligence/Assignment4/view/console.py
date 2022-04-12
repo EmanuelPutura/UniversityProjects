@@ -27,7 +27,6 @@ class Console:
             "map.load": self.__consoleCommands.loadMapCommand,
             "map.save": self.__consoleCommands.saveMapCommand,
             "map.display": self.__consoleCommands.displayMapCommand,
-            "alg.start": self.__consoleCommands.setDroneStartPositionCommand,
             "alg.energy": self.__consoleCommands.setDroneEnergyCommand,
             "alg.sensors": self.__consoleCommands.setSensorsPositionCommand,
             "alg.run": self.__consoleCommands.runAlgorithmCommand,
@@ -42,7 +41,6 @@ class Console:
         print("- map.save: save current map to a file")
         print("- map.display: visualize the map")
         print("Algorithm options:")
-        print("- alg.start: set the start position of the drone")
         print("- alg.energy: set the energy of the drone")
         print("- alg.sensors: set the position of the sensors")
         print("- alg.run: run the algorithm")

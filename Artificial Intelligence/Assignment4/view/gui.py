@@ -1,7 +1,7 @@
 import pygame
 import time
 
-from utils.utils import WHITE, GREEN, VARIATIONS, BLUE
+from utils.utils import WHITE, GREEN, VARIATIONS, BLUE, YELLOW
 
 
 def initPyGame(dimension):
@@ -50,6 +50,12 @@ def movingDrone(currentMap, path, speed=1, markSeen=True):
                         x = x + var[0]
                         y = y + var[1]
                         screen.blit(brick, (y * 20, x * 20))
+
+        sensor = pygame.Surface((20, 20))
+        sensor.fill(YELLOW)
+
+        for sensorCoordinates in currentMap.sensors:
+            screen.blit(sensor, (sensorCoordinates[0] * 20, sensorCoordinates[1] * 20))
 
         screen.blit(drona, (path[i][1] * 20, path[i][0] * 20))
         pygame.display.flip()

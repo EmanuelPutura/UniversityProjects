@@ -1,13 +1,14 @@
 from random import random
 import numpy as np
-from utils.utils import FILL_FACTOR, START_POSITION, MAP_LENGTH
+from utils.utils import FILL_FACTOR, MAP_LENGTH, DRONE_START, SENSORS
 
 
 class Map:
-    def __init__(self, n=20, m=20):
+    def __init__(self, sensors=SENSORS, n=20, m=20):
         self.__n = n
         self.__m = m
         self.__surface = np.zeros((self.__n, self.__m))
+        self.__sensors = sensors
 
     @property
     def rows(self):
@@ -21,6 +22,18 @@ class Map:
     def surface(self):
         return self.__surface
 
+    @property
+    def sensors(self):
+        return self.__sensors
+
+    @sensors.setter
+    def sensors(self, other):
+        self.__sensors = other
+
+        # the sensors positions should never be occupied
+        for sensor in self.__sensors:
+            self.__surface[sensor[0]][sensor[1]] = 0
+
     def setSurfaceCell(self, x, y, value):
         self.__surface[x][y] = value
 
@@ -32,8 +45,10 @@ class Map:
                 if random() <= fill:
                     self.__surface[i][j] = 1
 
-        # the start position is never occupied
-        self.__surface[START_POSITION[0]][START_POSITION[1]] = 0
+        # the start position and the sensor positions are never occupied
+        self.__surface[DRONE_START[0]][DRONE_START[1]] = 0
+        for sensor in self.__sensors:
+            self.__surface[sensor[0]][sensor[1]] = 0
 
     def isValidCell(self, x, y):
         return 0 <= x < MAP_LENGTH and 0 <= y < MAP_LENGTH and self.__surface[x][y] != 1
@@ -47,7 +62,7 @@ class Map:
         return string
 
     def __deepcopy__(self):
-        newMap = Map(self.__n, self.__m)
+        newMap = Map(self.__sensors, self.__n, self.__m)
         for i in range(self.__n):
             for j in range(self.__m):
                 newMap.setSurfaceCell(i, j, self.__surface[i][j])

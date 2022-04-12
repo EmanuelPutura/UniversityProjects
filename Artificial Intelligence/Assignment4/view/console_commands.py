@@ -1,4 +1,4 @@
-from utils.utils import START_POSITION, MAP_LENGTH
+from utils.utils import MAP_LENGTH, DRONE_START, DRONE_ENERGY, SENSORS
 from view.gui import movingDrone
 
 
@@ -7,9 +7,8 @@ class ConsoleCommands:
         self.__solutionPath = []
         self.__controller = controller
 
-        self.__droneStartPosition = (0, 0)
-        self.__droneEnergy = 10
-        self.__sensors = [(1, 2), (6, 7), (15, 11), (10, 10), (19, 19)]
+        self.__droneEnergy = DRONE_ENERGY
+        self.__sensors = SENSORS
 
     def randomMapCommand(self):
         self.__controller.generateRandomMap()
@@ -23,19 +22,7 @@ class ConsoleCommands:
         self.__controller.saveMap(filePath)
 
     def displayMapCommand(self):
-        movingDrone(self.__controller.getMap(), [START_POSITION], 0, False)
-
-    def setDroneStartPositionCommand(self):
-        startX = int(input("Please enter the X start coordinate of the drone ([0; : {}]): ".format(MAP_LENGTH - 1)))
-        startY = int(input("Please enter the Y start coordinate of the drone ([0; : {}]): ".format(MAP_LENGTH - 1)))
-
-        if not (0 <= startX < MAP_LENGTH and 0 <= startY < MAP_LENGTH):
-            print("({}, {}) is not a valid drone position!".format(startX, startY))
-
-        self.__droneStartPosition = (startX, startY)
-
-        # TODO
-        print(self.__droneStartPosition)
+        movingDrone(self.__controller.getMap(), [DRONE_START], 0, False)
 
     def setDroneEnergyCommand(self):
         self.__droneEnergy = int(input("Please enter the energy level of the drone: "))
@@ -54,19 +41,21 @@ class ConsoleCommands:
         for _ in range(sensorsNo):
             (x, y) = getCoordinates()
 
-            while not (0 <= x < MAP_LENGTH and 0 <= y < MAP_LENGTH):
-                print("({}, {}) is not a valid drone position!".format(x, y))
+            while not (0 <= x < MAP_LENGTH and 0 <= y < MAP_LENGTH and (x != DRONE_START[0] or y != DRONE_START[1])):
+                print("({}, {}) is not a valid sensor coordinate!".format(x, y))
                 (x, y) = getCoordinates()
 
             sensors.append((x, y))
 
         self.__sensors = sensors
+        self.__controller.setSensors(self.__sensors)
 
         # TODO
-        print(self.__sensors)
+        pass
 
     def runAlgorithmCommand(self):
         # TODO
+        self.__controller.solve()
         pass
 
     def showDronePathCommand(self):
