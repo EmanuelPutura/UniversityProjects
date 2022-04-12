@@ -20,6 +20,8 @@ DROP TABLE IF EXISTS Trophies;
 DROP TABLE IF EXISTS TeamFormations;
 DROP TABLE IF EXISTS FieldPositions;
 DROP TABLE IF EXISTS TeamMatches;
+DROP TABLE IF EXISTS Team;
+DROP TABLE IF EXISTS TeamOwner;
 
 CREATE TABLE FieldPositions (
 	position varchar(255) NOT NULL,
@@ -109,6 +111,19 @@ CREATE TABLE PlayerHasPosition (
 	PRIMARY KEY (player, position)
 );
 
+CREATE TABLE TeamOwner (
+	id INT NOT NULL IDENTITY PRIMARY KEY,
+	full_name varchar(255) NOT NULL
+);
+
+CREATE TABLE Team (
+	id INT NOT NULL IDENTITY PRIMARY KEY,
+	team_name varchar(255) NOT NULL,
+	owner INT NOT NULL REFERENCES TeamOwner (id)
+);
+
+INSERT INTO TeamOwner (full_name) VALUES ('Gigi Becali');
+INSERT INTO TeamOwner (full_name) VALUES ('Abramovic');
 
 /* FieldPositions */
 INSERT INTO FieldPositions (position, positionStyle) 
@@ -325,7 +340,8 @@ VALUES (1);
 
 /* Trophies */
 INSERT INTO Trophies (trophyType, winningDate, mostPlayedFormation) 
-VALUES ('European Cup', '1986-05-7', '4-3-3');
+VALUES ('European Cup', '
+', '4-3-3');
 
 INSERT INTO Trophies (trophyType, winningDate, mostPlayedFormation) 
 VALUES ('European Super Cup', '1987-02-24', '4-3-3');
