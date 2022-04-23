@@ -2,7 +2,7 @@ from random import random
 import numpy as np
 
 from domain.sensor import Sensor
-from utils.utils import FILL_FACTOR, MAP_LENGTH, DRONE_START, SENSORS, VARIATIONS
+from utils.utils import FILL_FACTOR, MAP_LENGTH, DRONE_START, SENSORS
 
 
 class Map:
@@ -50,26 +50,10 @@ class Map:
         # the start position and the sensor positions are never occupied
         self.__surface[DRONE_START[0]][DRONE_START[1]] = 0
         for sensor in self.__sensors:
-            self.__surface[sensor[0]][sensor[1]] = 0
+            self.__surface[sensor.x][sensor.y] = 0
 
     def isValidCell(self, x, y):
         return 0 <= x < MAP_LENGTH and 0 <= y < MAP_LENGTH and self.__surface[x][y] != 1
-
-    """
-        Determine for each sensor the number of squares that can be discovered for a certain energy value
-    """
-    def determineMaxDiscoveredCells(self, sensor, energyLevel):
-        discoveredCells = 0
-        for variation in VARIATIONS:
-            currentX = sensor.x
-            currentY = sensor.y
-            currentDiscoveredCells = 0
-
-            while currentDiscoveredCells <= energyLevel and self.isValidCell(currentX, currentY):
-                currentDiscoveredCells += 1
-            discoveredCells += currentDiscoveredCells
-
-        return discoveredCells
 
     def __str__(self):
         string = ""
