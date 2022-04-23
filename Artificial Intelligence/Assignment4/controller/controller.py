@@ -3,7 +3,7 @@ from random import randint
 
 from domain.ant import Ant
 from domain.cell_numeric_representation import CellNumericRepresentation
-from utils.utils import VARIATIONS, DRONE_START, MAP_LENGTH
+from utils.utils import VARIATIONS, DRONE_START
 
 
 class Controller:
@@ -92,6 +92,24 @@ class Controller:
 
         return result
 
+    def __updatePheromoneTrace(self, ants, pheromoneEvaporationConefficient, trace):
+        antAddedPheromone = [1.0 / ants[i].fitness for i in range(len(ants))]
+
+        # pheromone evaporation
+        for i in range(CellNumericRepresentation.NUMERIC_REPRESENTATION_SUPREMUM + 1):
+            for j in range(CellNumericRepresentation.NUMERIC_REPRESENTATION_SUPREMUM + 1):
+                trace[i][j] *= (1 - pheromoneEvaporationConefficient)
+
+        # update pheromone trace
+        for i in range(len(ants)):
+            for j in range(len(ants[i].sensorsPath) - 1):
+                sensor1 = ants[i].sensorsPath[j]
+                sensor1NumericRepresentation = CellNumericRepresentation.numericRepresentation(sensor1.x, sensor1.y)
+                sensor2 = ants[i].sensorsPath[j + 1]
+                sensor2NumericRepresentation = CellNumericRepresentation.numericRepresentation(sensor2.x, sensor2.y)
+
+                trace[sensor1NumericRepresentation][sensor2NumericRepresentation] += antAddedPheromone[i]
+
     def antNextSensor(self, ant, trace, bestChoiceProbability, alpha, beta):
         pass
 
@@ -109,20 +127,8 @@ class Controller:
             for ant in ants:
                 self.antNextSensor(ant, trace, bestChoiceProbability, alpha, beta)
 
-        antAddedPheromone = [1.0 / ants[i].fitness for i in range(len(ants))]
-        for i in range(CellNumericRepresentation.NUMERIC_REPRESENTATION_SUPREMUM + 1):
-            for j in range(CellNumericRepresentation.NUMERIC_REPRESENTATION_SUPREMUM + 1):
-                trace[i][j] *= (1 - pheromoneEvaporationConefficient)
-
-        for i in range(len(ants)):
-            for j in range(len(ants[i].sensorsPath) - 1):
-                sensor1 = ants[i].sensorsPath[j]
-                sensor1NumericRepresentation = CellNumericRepresentation.numericRepresentation(sensor1.x, sensor1.y)
-
-                sensor2 = ants[i].sensorsPath[j + 1]
-                sensor2NumericRepresentation = CellNumericRepresentation.numericRepresentation(sensor2.x, sensor2.y)
-
-                trace[sensor1NumericRepresentation][sensor2NumericRepresentation] += antAddedPheromone[i]
+        # update the pheromone trace
+        self.__updatePheromoneTrace(ants, pheromoneEvaporationConefficient, trace)
 
         # return the best ant sensors path
         solutions = [[ants[i].fitness(), i] for i in range(len(ants))]
