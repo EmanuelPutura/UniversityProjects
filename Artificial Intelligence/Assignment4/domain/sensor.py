@@ -13,3 +13,6 @@ class Sensor:
 
     def __eq__(self, other):
         return self.__x == other.x and self.__y == other.y
+
+    def __hash__(self):
+        return (self.__x, self.__y).__hash__()

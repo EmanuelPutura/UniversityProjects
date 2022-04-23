@@ -2,9 +2,11 @@ from queue import PriorityQueue
 
 from domain.ant import Ant
 from domain.cell_numeric_representation import CellNumericRepresentation
+from domain.sensor import Sensor
 from utils.utils import VARIATIONS, DRONE_START
 
 import random
+
 
 class Controller:
     def __init__(self, repository):
@@ -94,13 +96,13 @@ class Controller:
 
         return result
 
-    def __updatePheromoneTrace(self, ants, pheromoneEvaporationConefficient, trace):
+    def __updatePheromoneTrace(self, ants, pheromoneEvaporationCoefficient, trace):
         antAddedPheromone = [1.0 / ants[i].fitness for i in range(len(ants))]
 
         # pheromone evaporation
         for i in range(CellNumericRepresentation.NUMERIC_REPRESENTATION_SUPREMUM + 1):
             for j in range(CellNumericRepresentation.NUMERIC_REPRESENTATION_SUPREMUM + 1):
-                trace[i][j] *= (1 - pheromoneEvaporationConefficient)
+                trace[i][j] *= (1 - pheromoneEvaporationCoefficient)
 
         # update pheromone trace
         for i in range(len(ants)):
@@ -112,16 +114,22 @@ class Controller:
 
                 trace[sensor1NumericRepresentation][sensor2NumericRepresentation] += antAddedPheromone[i]
 
-    def antNextSensor(self, ant, trace, bestChoiceProbability, alpha, beta):
+    def __antNextSensor(self, ant, trace, bestChoiceProbability, alpha, beta):
         possibleNextSensors = list(set(self.__repository.map.sensors) - set(ant.sensorsPath))
         if not possibleNextSensors:
             return False
 
         lastSensor = ant.sensorsPath[-1]
+        toAddResult = self.__nextSensor(possibleNextSensors, lastSensor, trace, bestChoiceProbability, alpha, beta)
+        ant.addSensor(toAddResult[0], toAddResult[1])
+
+    def __nextSensor(self, possibleNextSensors, lastSensor, trace, bestChoiceProbability, alpha, beta):
         probabilities = [
-            (1.0 / self.minimumDistanceBetween(lastSensor.x, lastSensor.y, possibleNextSensors[i].x, possibleNextSensors[i].y)) ** beta *
-            trace[CellNumericRepresentation.numericRepresentation(lastSensor.x, lastSensor.y)][CellNumericRepresentation.numericRepresentation(
-                possibleNextSensors[i].x, possibleNextSensors[i].y)] ** alpha
+            (1.0 / len(self.minimumDistanceBetween(lastSensor.x, lastSensor.y, possibleNextSensors[i].x,
+                                                   possibleNextSensors[i].y))) ** beta *
+            trace[CellNumericRepresentation.numericRepresentation(lastSensor.x, lastSensor.y)][
+                CellNumericRepresentation.numericRepresentation(
+                    possibleNextSensors[i].x, possibleNextSensors[i].y)] ** alpha
             for i in range(len(possibleNextSensors))
         ]
 
@@ -129,7 +137,8 @@ class Controller:
             # add best possible move
             possibleMoves = [(i, probabilities[i]) for i in range(len(probabilities))]
             bestMove = max(possibleMoves, key=lambda e: e[1])
-            ant.sensorsPath.append(possibleNextSensors[bestMove[0]])
+            return possibleNextSensors[bestMove[0]], len(self.minimumDistanceBetween(lastSensor.x, lastSensor.y, possibleNextSensors[bestMove[0]].x,
+                    possibleNextSensors[bestMove[0]].y))
         else:
             # add with a certain probability one of the possible sensors
             probabilitiesSum = sum(probabilities)
@@ -137,31 +146,50 @@ class Controller:
                 return random.choice(possibleNextSensors)
 
             probabilities = [probabilities[i] / probabilitiesSum for i in range(len(probabilities))]
-            ant.sensorsPath.append(random.choices(possibleNextSensors, probabilities, k=1)[0])
+            chosenSensor = random.choices(possibleNextSensors, probabilities, k=1)[0]
+            return chosenSensor, len(self.minimumDistanceBetween(lastSensor.x, lastSensor.y, chosenSensor.x, chosenSensor.y))
 
-    def antsEpoch(self, trace, antsNumber, alpha, beta, bestChoiceProbability, pheromoneEvaporationConefficient):
+    def antsEpoch(self, trace, antsNumber, alpha, beta, bestChoiceProbability, pheromoneEvaporationCoefficient):
         sensors = self.__repository.map.sensors
         ants = []
 
         # build the ants with the first visited sensor randomly chosen
         for _ in range(antsNumber):
-            currentSensor = sensors[random.randint(0, len(sensors) - 1)]
-            ants.append(Ant(currentSensor, self.minimumDistanceBetween(DRONE_START[0], DRONE_START[1], currentSensor.x,
-                                                                       currentSensor.y)))
+            toAddResult = self.__nextSensor(sensors, Sensor(DRONE_START[0], DRONE_START[1]), trace, bestChoiceProbability, alpha, beta)
+            ants.append(Ant(toAddResult[0], toAddResult[1]))
 
         # the length of an ant solution is equal to the number of sensors
         for _ in range(len(sensors)):
             for ant in ants:
-                self.antNextSensor(ant, trace, bestChoiceProbability, alpha, beta)
+                self.__antNextSensor(ant, trace, bestChoiceProbability, alpha, beta)
 
         # update the pheromone trace
-        self.__updatePheromoneTrace(ants, pheromoneEvaporationConefficient, trace)
+        self.__updatePheromoneTrace(ants, pheromoneEvaporationCoefficient, trace)
 
         # return the best ant sensors path
-        solutions = [[ants[i].fitness(), i] for i in range(len(ants))]
+        solutions = [(ants[i].fitness, i) for i in range(len(ants))]
         bestSolution = max(solutions)
-        return ants[bestSolution[1]].sensorsPath
+        return ants[bestSolution[1]]
 
-    def solve(self):
+    def __buildSolutionPath(self, solutionSensors):
+        if not solutionSensors:
+            return []
+
+        solution = self.minimumDistanceBetween(DRONE_START[0], DRONE_START[1], solutionSensors[0].x, solutionSensors[0].y)
+        for i in range(1, len(solutionSensors)):
+            solution += self.minimumDistanceBetween(solutionSensors[i - 1].x, solutionSensors[i - 1].y, solutionSensors[i].x, solutionSensors[i].y)
+
+        solution.append((solutionSensors[-1].x, solutionSensors[-1].y))
+        return solution
+
+    def solve(self, epochsNumber, antsNumber, alpha, beta, bestChoiceProbability, pheromoneEvaporationCoefficient):
         trace = [[1 for _ in range(CellNumericRepresentation.NUMERIC_REPRESENTATION_SUPREMUM + 1)] for _ in range(CellNumericRepresentation.NUMERIC_REPRESENTATION_SUPREMUM + 1)]
-        pass
+        bestSolution = None
+
+        for _ in range(epochsNumber):
+            solution = self.antsEpoch(trace, antsNumber, alpha, beta, bestChoiceProbability, pheromoneEvaporationCoefficient)
+
+            if not bestSolution or bestSolution.fitness > solution.fitness:
+                bestSolution = solution
+
+        return self.__buildSolutionPath(bestSolution.sensorsPath)

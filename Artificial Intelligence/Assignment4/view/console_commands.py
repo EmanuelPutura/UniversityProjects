@@ -1,4 +1,5 @@
-from utils.utils import MAP_LENGTH, DRONE_START, DRONE_ENERGY, SENSORS
+from utils.utils import MAP_LENGTH, DRONE_START, DRONE_ENERGY, SENSORS, EPOCHS_NUMBER, ANTS_NUMBER, \
+    EVAPORATION_COEFFICIENT, BEST_CHOICE_PROBABILITY, BETA, ALPHA
 from view.gui import movingDrone
 
 
@@ -9,6 +10,7 @@ class ConsoleCommands:
 
         self.__droneEnergy = DRONE_ENERGY
         self.__sensors = SENSORS
+        self.__solutionPath = None
 
     def randomMapCommand(self):
         self.__controller.generateRandomMap()
@@ -52,9 +54,13 @@ class ConsoleCommands:
 
     def runAlgorithmCommand(self):
         # TODO
-        self.__controller.solve()
-        pass
+        print("The algorithm started, it might take a while to finish running...")
+        self.__solutionPath = self.__controller.solve(EPOCHS_NUMBER, ANTS_NUMBER, ALPHA, BETA, BEST_CHOICE_PROBABILITY, EVAPORATION_COEFFICIENT)
 
     def showDronePathCommand(self):
         # TODO
-        pass
+        if not self.__solutionPath:
+            print("You must first run the ACO algorithm!")
+            return
+
+        movingDrone(self.__controller.getMap(), self.__solutionPath, 0.3, False)
