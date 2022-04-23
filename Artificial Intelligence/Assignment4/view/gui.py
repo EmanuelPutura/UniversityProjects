@@ -54,8 +54,8 @@ def movingDrone(currentMap, path, speed=1, markSeen=True):
         sensor = pygame.Surface((20, 20))
         sensor.fill(YELLOW)
 
-        for sensorCoordinates in currentMap.sensors:
-            screen.blit(sensor, (sensorCoordinates[0] * 20, sensorCoordinates[1] * 20))
+        for currentSensor in currentMap.sensors:
+            screen.blit(sensor, (currentSensor.x * 20, currentSensor.y * 20))
 
         screen.blit(drona, (path[i][1] * 20, path[i][0] * 20))
         pygame.display.flip()

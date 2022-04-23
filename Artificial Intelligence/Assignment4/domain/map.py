@@ -1,6 +1,8 @@
 from random import random
 import numpy as np
-from utils.utils import FILL_FACTOR, MAP_LENGTH, DRONE_START, SENSORS
+
+from domain.sensor import Sensor
+from utils.utils import FILL_FACTOR, MAP_LENGTH, DRONE_START, SENSORS, VARIATIONS
 
 
 class Map:
@@ -8,7 +10,7 @@ class Map:
         self.__n = n
         self.__m = m
         self.__surface = np.zeros((self.__n, self.__m))
-        self.__sensors = sensors
+        self.__sensors = [Sensor(sensor[0], sensor[1]) for sensor in sensors]
 
     @property
     def rows(self):
@@ -28,10 +30,10 @@ class Map:
 
     @sensors.setter
     def sensors(self, other):
-        self.__sensors = other
+        self.__sensors = [Sensor(sensor[0], sensor[1]) for sensor in other]
 
         # the sensors positions should never be occupied
-        for sensor in self.__sensors:
+        for sensor in other:
             self.__surface[sensor[0]][sensor[1]] = 0
 
     def setSurfaceCell(self, x, y, value):
@@ -52,6 +54,22 @@ class Map:
 
     def isValidCell(self, x, y):
         return 0 <= x < MAP_LENGTH and 0 <= y < MAP_LENGTH and self.__surface[x][y] != 1
+
+    """
+        Determine for each sensor the number of squares that can be discovered for a certain energy value
+    """
+    def determineMaxDiscoveredCells(self, sensor, energyLevel):
+        discoveredCells = 0
+        for variation in VARIATIONS:
+            currentX = sensor.x
+            currentY = sensor.y
+            currentDiscoveredCells = 0
+
+            while currentDiscoveredCells <= energyLevel and self.isValidCell(currentX, currentY):
+                currentDiscoveredCells += 1
+            discoveredCells += currentDiscoveredCells
+
+        return discoveredCells
 
     def __str__(self):
         string = ""

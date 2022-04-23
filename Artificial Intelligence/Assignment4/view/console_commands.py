@@ -50,9 +50,6 @@ class ConsoleCommands:
         self.__sensors = sensors
         self.__controller.setSensors(self.__sensors)
 
-        # TODO
-        pass
-
     def runAlgorithmCommand(self):
         # TODO
         self.__controller.solve()
