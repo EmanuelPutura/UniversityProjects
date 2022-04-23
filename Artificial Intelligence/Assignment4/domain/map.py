@@ -36,6 +36,10 @@ class Map:
         for sensor in other:
             self.__surface[sensor[0]][sensor[1]] = 0
 
+    @property
+    def sensorsNumber(self):
+        return len(self.__sensors)
+
     def setSurfaceCell(self, x, y, value):
         self.__surface[x][y] = value
 

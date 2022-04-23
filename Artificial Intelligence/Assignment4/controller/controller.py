@@ -1,6 +1,9 @@
 from queue import PriorityQueue
+from random import randint
 
-from utils.utils import VARIATIONS
+from domain.ant import Ant
+from domain.cell_numeric_representation import CellNumericRepresentation
+from utils.utils import VARIATIONS, DRONE_START, MAP_LENGTH
 
 
 class Controller:
@@ -24,6 +27,9 @@ class Controller:
     def setSensors(self, sensors):
         self.__repository.map.sensors = sensors
 
+    def __manhattanDistance(self, x1, y1, x2, y2):
+        return abs(x2 - x1) + abs(y2 - y1)
+
     """
         Determine for each sensor position the number of squares that can be discovered for a certain energy value
     """
@@ -42,9 +48,6 @@ class Controller:
             discoveredCells += currentDiscoveredCells
 
         return discoveredCells
-
-    def __manhattanDistance(self, x1, y1, x2, y2):
-        return abs(x2 - x1) + abs(y2 - y1)
 
     """
         Returns the minimum distance path between two cells on the map, using the A Start Algorithm
@@ -88,6 +91,43 @@ class Controller:
             current -= 1
 
         return result
+
+    def antNextSensor(self, ant, trace, bestChoiceProbability, alpha, beta):
+        pass
+
+    def antsEpoch(self, trace, antsNumber, alpha, beta, bestChoiceProbability, pheromoneEvaporationConefficient):
+        sensors = self.__repository.map.sensors
+        ants = []
+
+        # build the ants with the first visited sensor randomly chosen
+        for _ in range(antsNumber):
+            currentSensor = sensors[randint(0, len(sensors) - 1)]
+            ants.append(Ant(currentSensor, self.minimumDistanceBetween(DRONE_START[0], DRONE_START[1], currentSensor.x, currentSensor.y)))
+
+        # the length of an ant solution is equal to the number of sensors
+        for _ in range(len(sensors)):
+            for ant in ants:
+                self.antNextSensor(ant, trace, bestChoiceProbability, alpha, beta)
+
+        antAddedPheromone = [1.0 / ants[i].fitness for i in range(len(ants))]
+        for i in range(CellNumericRepresentation.NUMERIC_REPRESENTATION_SUPREMUM + 1):
+            for j in range(CellNumericRepresentation.NUMERIC_REPRESENTATION_SUPREMUM + 1):
+                trace[i][j] *= (1 - pheromoneEvaporationConefficient)
+
+        for i in range(len(ants)):
+            for j in range(len(ants[i].sensorsPath) - 1):
+                sensor1 = ants[i].sensorsPath[j]
+                sensor1NumericRepresentation = CellNumericRepresentation.numericRepresentation(sensor1.x, sensor1.y)
+
+                sensor2 = ants[i].sensorsPath[j + 1]
+                sensor2NumericRepresentation = CellNumericRepresentation.numericRepresentation(sensor2.x, sensor2.y)
+
+                trace[sensor1NumericRepresentation][sensor2NumericRepresentation] += antAddedPheromone[i]
+
+        # return the best ant sensors path
+        solutions = [[ants[i].fitness(), i] for i in range(len(ants))]
+        bestSolution = max(solutions)
+        return ants[bestSolution[1]].sensorsPath
 
     def solve(self):
         pass
