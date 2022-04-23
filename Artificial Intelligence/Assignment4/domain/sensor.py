@@ -10,3 +10,6 @@ class Sensor:
     @property
     def y(self):
         return self.__y
+
+    def __eq__(self, other):
+        return self.__x == other.x and self.__y == other.y

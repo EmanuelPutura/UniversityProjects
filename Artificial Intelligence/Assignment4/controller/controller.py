@@ -1,10 +1,10 @@
 from queue import PriorityQueue
-from random import randint
 
 from domain.ant import Ant
 from domain.cell_numeric_representation import CellNumericRepresentation
 from utils.utils import VARIATIONS, DRONE_START
 
+import random
 
 class Controller:
     def __init__(self, repository):
@@ -33,6 +33,7 @@ class Controller:
     """
         Determine for each sensor position the number of squares that can be discovered for a certain energy value
     """
+
     def determineMaxDiscoveredCells(self, sensorPosition, energyLevel):
         discoveredCells = 0
         for variation in VARIATIONS:
@@ -52,6 +53,7 @@ class Controller:
     """
         Returns the minimum distance path between two cells on the map, using the A Start Algorithm
     """
+
     def minimumDistanceBetween(self, initialX, initialY, finalX, finalY):
         distance = {}  # a map that associates, to each accessible vertex, the cost of the minimum cost walk from s to it
         previous = {}  # a map that maps each accessible vertex to its predecessor on a path from s to it
@@ -111,7 +113,31 @@ class Controller:
                 trace[sensor1NumericRepresentation][sensor2NumericRepresentation] += antAddedPheromone[i]
 
     def antNextSensor(self, ant, trace, bestChoiceProbability, alpha, beta):
-        pass
+        possibleNextSensors = list(set(self.__repository.map.sensors) - set(ant.sensorsPath))
+        if not possibleNextSensors:
+            return False
+
+        lastSensor = ant.sensorsPath[-1]
+        probabilities = [
+            (1.0 / self.minimumDistanceBetween(lastSensor.x, lastSensor.y, possibleNextSensors[i].x, possibleNextSensors[i].y)) ** beta *
+            trace[CellNumericRepresentation.numericRepresentation(lastSensor.x, lastSensor.y)][CellNumericRepresentation.numericRepresentation(
+                possibleNextSensors[i].x, possibleNextSensors[i].y)] ** alpha
+            for i in range(len(possibleNextSensors))
+        ]
+
+        if random.random() < bestChoiceProbability:
+            # add best possible move
+            possibleMoves = [(i, probabilities[i]) for i in range(len(probabilities))]
+            bestMove = max(possibleMoves, key=lambda e: e[1])
+            ant.sensorsPath.append(possibleNextSensors[bestMove[0]])
+        else:
+            # add with a certain probability one of the possible sensors
+            probabilitiesSum = sum(probabilities)
+            if probabilitiesSum == 0:
+                return random.choice(possibleNextSensors)
+
+            probabilities = [probabilities[i] / probabilitiesSum for i in range(len(probabilities))]
+            ant.sensorsPath.append(random.choices(possibleNextSensors, probabilities, k=1)[0])
 
     def antsEpoch(self, trace, antsNumber, alpha, beta, bestChoiceProbability, pheromoneEvaporationConefficient):
         sensors = self.__repository.map.sensors
@@ -119,8 +145,9 @@ class Controller:
 
         # build the ants with the first visited sensor randomly chosen
         for _ in range(antsNumber):
-            currentSensor = sensors[randint(0, len(sensors) - 1)]
-            ants.append(Ant(currentSensor, self.minimumDistanceBetween(DRONE_START[0], DRONE_START[1], currentSensor.x, currentSensor.y)))
+            currentSensor = sensors[random.randint(0, len(sensors) - 1)]
+            ants.append(Ant(currentSensor, self.minimumDistanceBetween(DRONE_START[0], DRONE_START[1], currentSensor.x,
+                                                                       currentSensor.y)))
 
         # the length of an ant solution is equal to the number of sensors
         for _ in range(len(sensors)):
@@ -136,4 +163,5 @@ class Controller:
         return ants[bestSolution[1]].sensorsPath
 
     def solve(self):
+        trace = [[1 for _ in range(CellNumericRepresentation.NUMERIC_REPRESENTATION_SUPREMUM + 1)] for _ in range(CellNumericRepresentation.NUMERIC_REPRESENTATION_SUPREMUM + 1)]
         pass
