@@ -1,0 +1,7 @@
+cool idea,accepted,Emmanuel,2
+meh,proposed,Obama,1
+great!,accepted,Donald,1
+interesting idea,proposed,Donald,2
+nice,accepted,Emmanuel,3
+probably great,accepted,Donald,1
+heyo,proposed,Michell,1

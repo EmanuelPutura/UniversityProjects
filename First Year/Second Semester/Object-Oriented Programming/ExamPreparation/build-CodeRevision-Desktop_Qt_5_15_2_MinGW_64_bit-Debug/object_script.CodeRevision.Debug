@@ -1,0 +1,14 @@
+debug/controller.o
+debug/observerpattern.o
+debug/programmer.o
+debug/sourcefile.o
+debug/programmerrepo.o
+debug/sourcefilerepo.o
+debug/main.o
+debug/drawwindow.o
+debug/programmerwindow.o
+debug/sourcestablemodel.o
+debug/statisticswindow.o
+debug/moc_drawwindow.o
+debug/moc_programmerwindow.o
+debug/moc_statisticswindow.o

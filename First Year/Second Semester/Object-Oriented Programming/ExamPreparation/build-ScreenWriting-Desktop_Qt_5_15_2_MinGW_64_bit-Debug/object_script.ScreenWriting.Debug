@@ -1,0 +1,11 @@
+debug/controller.o
+debug/idea.o
+debug/observerpattern.o
+debug/writer.o
+debug/exception.o
+debug/idearepo.o
+debug/writerrepo.o
+debug/main.o
+debug/tablemodel.o
+debug/writerwindow.o
+debug/moc_writerwindow.o

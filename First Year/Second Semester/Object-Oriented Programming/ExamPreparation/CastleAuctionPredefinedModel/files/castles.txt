@@ -1,0 +1,7 @@
+Castelul Peles|Sinaia|500|500
+Castelul Arcalia_2|Arcalia|100|100
+Castelul Corvinilor|Hunedoara|400|400
+Castelul Bran|Bran|600|600
+Castelul Arcalia_3|Arcalia|100|100
+Castelul Dracula|Tihuta|250|250
+Castelul Arcalia|Arcalia|100|100

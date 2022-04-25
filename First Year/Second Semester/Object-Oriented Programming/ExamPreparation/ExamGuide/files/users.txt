@@ -1,0 +1,5 @@
+Emanuel,programmer
+Miguell,tester
+Obama,tester
+Michael,programmer
+Daniel,programmer

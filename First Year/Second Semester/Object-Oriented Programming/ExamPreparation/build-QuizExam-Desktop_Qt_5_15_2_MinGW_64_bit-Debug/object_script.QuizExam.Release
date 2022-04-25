@@ -1,0 +1,14 @@
+release/observerpattern.o
+release/participant.o
+release/question.o
+release/exception.o
+release/participant_repo.o
+release/questions_repo.o
+release/main.o
+release/customproxymodel.o
+release/participanttablemodel.o
+release/participantwindow.o
+release/presentertablemodel.o
+release/presenterwindow.o
+release/moc_participantwindow.o
+release/moc_presenterwindow.o

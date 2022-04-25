@@ -1,0 +1,14 @@
+release/controller.o
+release/issue.o
+release/observerpattern.o
+release/user.o
+release/issuerepository.o
+release/userrepository.o
+release/main.o
+release/drawwindow.o
+release/statisticswindow.o
+release/tablemodel.o
+release/userwindow.o
+release/moc_drawwindow.o
+release/moc_statisticswindow.o
+release/moc_userwindow.o

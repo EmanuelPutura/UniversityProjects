@@ -1,0 +1,14 @@
+debug/controller.o
+debug/issue.o
+debug/observerpattern.o
+debug/user.o
+debug/issuerepository.o
+debug/userrepository.o
+debug/main.o
+debug/drawwindow.o
+debug/statisticswindow.o
+debug/tablemodel.o
+debug/userwindow.o
+debug/moc_drawwindow.o
+debug/moc_statisticswindow.o
+debug/moc_userwindow.o

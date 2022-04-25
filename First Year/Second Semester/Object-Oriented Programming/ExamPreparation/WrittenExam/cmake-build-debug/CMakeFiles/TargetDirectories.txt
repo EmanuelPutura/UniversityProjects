@@ -1,0 +1,3 @@
+D:/Informatica/UBB Sem. 2/OOP/ExamPreparation/WrittenExam/cmake-build-debug/CMakeFiles/WrittenExam.dir
+D:/Informatica/UBB Sem. 2/OOP/ExamPreparation/WrittenExam/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Informatica/UBB Sem. 2/OOP/ExamPreparation/WrittenExam/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,10 @@
+release/subjectcontroller.o
+release/castle.o
+release/observerpattern.o
+release/castlesrepository.o
+release/castlestablemodel.o
+release/main.o
+release/mainwindow.o
+release/observerwindow.o
+release/moc_mainwindow.o
+release/moc_observerwindow.o

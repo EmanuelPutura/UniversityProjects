@@ -1,0 +1,14 @@
+release/controller.o
+release/observerpattern.o
+release/programmer.o
+release/sourcefile.o
+release/programmerrepo.o
+release/sourcefilerepo.o
+release/main.o
+release/drawwindow.o
+release/programmerwindow.o
+release/sourcestablemodel.o
+release/statisticswindow.o
+release/moc_drawwindow.o
+release/moc_programmerwindow.o
+release/moc_statisticswindow.o

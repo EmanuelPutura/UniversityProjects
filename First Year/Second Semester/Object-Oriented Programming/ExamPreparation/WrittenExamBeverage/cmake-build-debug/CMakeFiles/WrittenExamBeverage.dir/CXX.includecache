@@ -1,0 +1,52 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Informatica/UBB Sem. 2/OOP/ExamPreparation/WrittenExamBeverage/Beverage.h
+string
+-
+iostream
+-
+
+D:/Informatica/UBB Sem. 2/OOP/ExamPreparation/WrittenExamBeverage/BeverageMachine.cpp
+BeverageMachine.h
+D:/Informatica/UBB Sem. 2/OOP/ExamPreparation/WrittenExamBeverage/BeverageMachine.h
+Beverage.h
+D:/Informatica/UBB Sem. 2/OOP/ExamPreparation/WrittenExamBeverage/Beverage.h
+BeverageWithMilk.h
+D:/Informatica/UBB Sem. 2/OOP/ExamPreparation/WrittenExamBeverage/BeverageWithMilk.h
+Tea.h
+D:/Informatica/UBB Sem. 2/OOP/ExamPreparation/WrittenExamBeverage/Tea.h
+Coffee.h
+D:/Informatica/UBB Sem. 2/OOP/ExamPreparation/WrittenExamBeverage/Coffee.h
+memory
+-
+
+D:/Informatica/UBB Sem. 2/OOP/ExamPreparation/WrittenExamBeverage/BeverageMachine.h
+string
+-
+
+D:/Informatica/UBB Sem. 2/OOP/ExamPreparation/WrittenExamBeverage/BeverageWithMilk.h
+Beverage.h
+D:/Informatica/UBB Sem. 2/OOP/ExamPreparation/WrittenExamBeverage/Beverage.h
+memory
+-
+
+D:/Informatica/UBB Sem. 2/OOP/ExamPreparation/WrittenExamBeverage/Coffee.h
+Beverage.h
+D:/Informatica/UBB Sem. 2/OOP/ExamPreparation/WrittenExamBeverage/Beverage.h
+
+D:/Informatica/UBB Sem. 2/OOP/ExamPreparation/WrittenExamBeverage/Tea.h
+Beverage.h
+D:/Informatica/UBB Sem. 2/OOP/ExamPreparation/WrittenExamBeverage/Beverage.h
+
+D:/Informatica/UBB Sem. 2/OOP/ExamPreparation/WrittenExamBeverage/main.cpp
+iostream
+-
+BeverageMachine.h
+D:/Informatica/UBB Sem. 2/OOP/ExamPreparation/WrittenExamBeverage/BeverageMachine.h
+

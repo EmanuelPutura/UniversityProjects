@@ -1,0 +1,11 @@
+﻿  text_table.c
+D:\Informatica\UBB Sem. 2\OOP\TextTableModule\text_table.c(89,44): warning C4098: 'setAllColsSizeTextTable': 'void' function returning a value
+D:\Informatica\UBB Sem. 2\OOP\TextTableModule\text_table.c(101,100): warning C4047: 'return': 'int' differs in levels of indirection from 'void *'
+D:\Informatica\UBB Sem. 2\OOP\TextTableModule\text_table.c(102,1): warning C4133: 'initializing': incompatible types - from 'void **' to 'char **'
+D:\Informatica\UBB Sem. 2\OOP\TextTableModule\text_table.c(122,1): warning C4133: 'initializing': incompatible types - from 'void **' to 'char **'
+D:\Informatica\UBB Sem. 2\OOP\TextTableModule\text_table.c(169,30): warning C4047: 'return': 'int' differs in levels of indirection from 'void *'
+D:\Informatica\UBB Sem. 2\OOP\TextTableModule\text_table.c(180,34): warning C4018: '<': signed/unsigned mismatch
+D:\Informatica\UBB Sem. 2\OOP\TextTableModule\text_table.c(183,21): warning C4018: '<': signed/unsigned mismatch
+D:\Informatica\UBB Sem. 2\OOP\TextTableModule\text_table.c(230,1): warning C4133: 'initializing': incompatible types - from 'void **' to 'char **'
+D:\Informatica\UBB Sem. 2\OOP\TextTableModule\text_table.c(119): warning C4715: 'setCellDataTextTable': not all control paths return a value
+  TextTableModule.vcxproj -> D:\Informatica\UBB Sem. 2\OOP\TextTableModule\Debug\TextTableModule.exe

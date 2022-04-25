@@ -1,0 +1,11 @@
+release/controller.o
+release/idea.o
+release/observerpattern.o
+release/writer.o
+release/exception.o
+release/idearepo.o
+release/writerrepo.o
+release/main.o
+release/tablemodel.o
+release/writerwindow.o
+release/moc_writerwindow.o

@@ -1,0 +1,37 @@
+        -:    0:Source:D:/Informatica/UBB Sem. 2/OOP/AppTemplates/infrastructure/Repository/Repository.h
+        -:    0:Graph:D:\Informatica\UBB Sem. 2\OOP\AppTemplates\cmake-build-debug-coverage\CMakeFiles\AppTemplates.dir\testing\TestAll.cpp.gcno
+        -:    0:Data:D:\Informatica\UBB Sem. 2\OOP\AppTemplates\cmake-build-debug-coverage\CMakeFiles\AppTemplates.dir\testing\TestAll.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Emanuel on 04.04.2021.
+        -:    3://
+        -:    4:
+        -:    5:#ifndef REPOSITORY_H
+        -:    6:#define REPOSITORY_H
+        -:    7:
+        -:    8:#include "../DynamicVector/DynamicVector.h"
+        -:    9:
+        -:   10:template <class T>
+        -:   11:class Repository {
+        -:   12:private:
+        -:   13:    DynamicVector<T> vector;
+        -:   14:public:
+        -:   15:    void add(const T& element);
+        -:   16:
+        -:   17:    void remove(const T& element);
+        -:   18:
+        -:   19:    void update(const T& element, const T& other);
+        -:   20:
+        -:   21:    int search(const T& element) const;
+        -:   22:
+        5:   23:    inline T& operator[] (const int& index) { return vector[index]; }
+        5:   23-block  0
+        -:   24:
+        4:   25:    inline int getLength() const { return vector.getLength(); }
+        4:   25-block  0
+        -:   26:    inline T* getData() const { return vector.getData(); }
+        -:   27:};
+        -:   28:
+        -:   29:#include "Repository.inl"
+        -:   30:#endif

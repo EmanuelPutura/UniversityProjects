@@ -1,0 +1,13 @@
+﻿  TextTable.cpp
+D:\Informatica\UBB Sem. 2\OOP\TextTableCPP\TextTable.cpp(18,26): warning C4018: '<': signed/unsigned mismatch
+D:\Informatica\UBB Sem. 2\OOP\TextTableCPP\TextTable.cpp(28,26): warning C4018: '<': signed/unsigned mismatch
+D:\Informatica\UBB Sem. 2\OOP\TextTableCPP\TextTable.cpp(45,30): warning C4018: '<': signed/unsigned mismatch
+D:\Informatica\UBB Sem. 2\OOP\TextTableCPP\TextTable.cpp(48,30): warning C4018: '<': signed/unsigned mismatch
+D:\Informatica\UBB Sem. 2\OOP\TextTableCPP\TextTable.cpp(81,30): warning C4018: '<': signed/unsigned mismatch
+D:\Informatica\UBB Sem. 2\OOP\TextTableCPP\TextTable.cpp(84,30): warning C4018: '<': signed/unsigned mismatch
+D:\Informatica\UBB Sem. 2\OOP\TextTableCPP\TextTable.cpp(101,26): warning C4018: '<': signed/unsigned mismatch
+D:\Informatica\UBB Sem. 2\OOP\TextTableCPP\TextTable.cpp(106,30): warning C4018: '<': signed/unsigned mismatch
+D:\Informatica\UBB Sem. 2\OOP\TextTableCPP\TextTable.cpp(109,30): warning C4018: '<': signed/unsigned mismatch
+D:\Informatica\UBB Sem. 2\OOP\TextTableCPP\TextTable.cpp(119,26): warning C4018: '<': signed/unsigned mismatch
+D:\Informatica\UBB Sem. 2\OOP\TextTableCPP\TextTable.cpp(152,26): warning C4018: '<': signed/unsigned mismatch
+  TextTableCPP.vcxproj -> D:\Informatica\UBB Sem. 2\OOP\PersonalExamples\Debug\TextTableCPP.exe

@@ -1,0 +1,9 @@
+not cool,open,Emanuel
+problem,closed,Miguell,Emanuel
+big big problem,open,Obama
+nothing special,closed,Miguell,Obama
+heyo,open,Obama
+welp,open,Miguell
+ciao,closed,Daniel,Daniel
+smth else,closed,Daniel,Miguell
+dunno,closed,Daniel,Miguell

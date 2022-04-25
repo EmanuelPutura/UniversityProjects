@@ -1,0 +1,39 @@
+        -:    0:Source:D:/Informatica/UBB Sem. 2/OOP/AppTemplates/infrastructure/Repository/Repository.inl
+        -:    0:Graph:D:\Informatica\UBB Sem. 2\OOP\AppTemplates\cmake-build-debug-coverage\CMakeFiles\AppTemplates.dir\testing\TestAll.cpp.gcno
+        -:    0:Data:D:\Informatica\UBB Sem. 2\OOP\AppTemplates\cmake-build-debug-coverage\CMakeFiles\AppTemplates.dir\testing\TestAll.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Emanuel on 04.04.2021.
+        -:    3://
+        -:    4:
+        -:    5:#include "Repository.h"
+        -:    6:
+        -:    7:template<class T>
+        4:    8:void Repository<T>::add(const T &element) {
+        4:    9:    vector.push(element);
+        4:    9-block  0
+        4:   10:}
+        -:   11:
+        -:   12:template<class T>
+        1:   13:void Repository<T>::remove(const T &element) {
+        1:   14:    vector.remove(element);
+        1:   14-block  0
+        1:   15:}
+        -:   16:
+        -:   17:template<class T>
+        2:   18:void Repository<T>::update(const T &element, const T &other) {
+        2:   19:    auto index = vector.getIndex(element);
+        2:   19-block  0
+        2:   20:    if (index == -1)
+        1:   21:        throw std::exception();
+        1:   21-block  0
+        1:   22:    vector[index] = other;
+        1:   22-block  0
+        1:   23:}
+        -:   24:
+        -:   25:template<class T>
+        3:   26:int Repository<T>::search(const T &element) const {
+        3:   27:    return vector.getIndex(element);
+        3:   27-block  0
+        -:   28:}

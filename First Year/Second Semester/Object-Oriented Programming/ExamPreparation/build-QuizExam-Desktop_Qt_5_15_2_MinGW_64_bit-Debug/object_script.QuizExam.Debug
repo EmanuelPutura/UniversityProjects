@@ -1,0 +1,14 @@
+debug/observerpattern.o
+debug/participant.o
+debug/question.o
+debug/exception.o
+debug/participant_repo.o
+debug/questions_repo.o
+debug/main.o
+debug/customproxymodel.o
+debug/participanttablemodel.o
+debug/participantwindow.o
+debug/presentertablemodel.o
+debug/presenterwindow.o
+debug/moc_participantwindow.o
+debug/moc_presenterwindow.o

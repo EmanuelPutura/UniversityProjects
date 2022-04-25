@@ -1,0 +1,25 @@
+        -:    0:Source:D:/Informatica/UBB Sem. 2/OOP/AppTemplates/main.cpp
+        -:    0:Graph:D:\Informatica\UBB Sem. 2\OOP\AppTemplates\cmake-build-debug-coverage\CMakeFiles\AppTemplates.dir\main.cpp.gcno
+        -:    0:Data:D:\Informatica\UBB Sem. 2\OOP\AppTemplates\cmake-build-debug-coverage\CMakeFiles\AppTemplates.dir\main.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include <iostream>
+        -:    2:#include "testing/TestAll.h"
+        -:    3:#include "presentation/consoleUI/ConsoleUI.h"
+        -:    4:#include "examples/stl_examples/StlExamples.h"
+        -:    5:
+        1:    6:int main() {
+        -:    7:    TestAll testAll;
+        1:    8:    testAll.testAll();
+        1:    8-block  0
+        -:    9:
+        -:   10:    TestSTL stlTest;
+        1:   11:    stlTest.testSTLAll();
+        1:   11-block  0
+        -:   12:
+        -:   13://    ConsoleUI consoleUI;
+        -:   14://    consoleUI.run();
+        -:   15:
+        1:   16:    return 0;
+        1:   16-block  0
+        -:   17:}

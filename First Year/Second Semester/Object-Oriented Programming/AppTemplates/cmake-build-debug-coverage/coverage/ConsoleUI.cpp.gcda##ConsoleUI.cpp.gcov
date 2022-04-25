@@ -1,0 +1,150 @@
+        -:    0:Source:D:/Informatica/UBB Sem. 2/OOP/AppTemplates/presentation/consoleUI/ConsoleUI.cpp
+        -:    0:Graph:D:\Informatica\UBB Sem. 2\OOP\AppTemplates\cmake-build-debug-coverage\CMakeFiles\AppTemplates.dir\presentation\consoleUI\ConsoleUI.cpp.gcno
+        -:    0:Data:D:\Informatica\UBB Sem. 2\OOP\AppTemplates\cmake-build-debug-coverage\CMakeFiles\AppTemplates.dir\presentation\consoleUI\ConsoleUI.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Emanuel on 04.04.2021.
+        -:    3://
+        -:    4:
+        -:    5:#include "ConsoleUI.h"
+        -:    6:
+        -:    7:#include <iostream>
+        -:    8:
+    #####:    9:std::string ConsoleUI::getCommand() const {
+    #####:   10:    std::string command;
+    %%%%%:   10-block  0
+    #####:   11:    std::cout << "command > ";
+    #####:   12:    std::getline(std::cin, command);
+    %%%%%:   12-block  0
+    #####:   13:    std::cout << '\n';
+    %%%%%:   13-block  0
+    #####:   14:    return command;
+    %%%%%:   14-block  0
+    %%%%%:   14-block  1
+        -:   15:}
+        -:   16:
+    #####:   17:bool ConsoleUI::isPositiveInteger(const std::string& string) const {
+    #####:   18:    for (size_t i = 0; i < string.length(); ++i)
+    %%%%%:   18-block  0
+    %%%%%:   18-block  1
+    %%%%%:   18-block  2
+    #####:   19:        if (!isdigit(string[i])) return false;
+    %%%%%:   19-block  0
+    %%%%%:   19-block  1
+    #####:   20:    return true;
+    %%%%%:   20-block  0
+        -:   21:}
+        -:   22:
+    #####:   23:std::string ConsoleUI::getUserData(const std::string& message) const {
+    #####:   24:    std::string user_data;
+    %%%%%:   24-block  0
+    #####:   25:    std::cout << message << "\n> ";
+    %%%%%:   25-block  0
+    #####:   26:    std::getline(std::cin, user_data);
+    %%%%%:   26-block  0
+    #####:   27:    std::cout << '\n';
+    %%%%%:   27-block  0
+    #####:   28:    return user_data;
+    %%%%%:   28-block  0
+    %%%%%:   28-block  1
+        -:   29:}
+        -:   30:
+    #####:   31:int ConsoleUI::mapCommand(const std::string &command) const {
+    #####:   32:    std::string commands[] = {"exit"};
+    %%%%%:   32-block  0
+    %%%%%:   32-block  1
+    %%%%%:   32-block  2
+    %%%%%:   32-block  3
+    %%%%%:   32-block  4
+    $$$$$:   32-block  5
+    $$$$$:   32-block  6
+    $$$$$:   32-block  7
+    $$$$$:   32-block  8
+    #####:   33:    int int_commands[] = {0};
+        -:   34:
+    #####:   35:    for (size_t i = 0; i < 1; ++i)
+    %%%%%:   35-block  0
+    %%%%%:   35-block  1
+    #####:   36:        if (command == commands[i]) return int_commands[i];
+    %%%%%:   36-block  0
+    %%%%%:   36-block  1
+    #####:   37:    return -1;
+    %%%%%:   37-block  0
+        -:   38:}
+        -:   39:
+    #####:   40:void ConsoleUI::menu() {
+        -:   41:    // title
+    #####:   42:    for (size_t i = 0; i < 20; ++i)
+    %%%%%:   42-block  0
+    %%%%%:   42-block  1
+    %%%%%:   42-block  2
+    #####:   43:        std::cout << '-';
+    %%%%%:   43-block  0
+    #####:   44:    std::string title = " Test Application ";
+    %%%%%:   44-block  0
+    %%%%%:   44-block  1
+    $$$$$:   44-block  2
+    $$$$$:   44-block  3
+    #####:   45:    std::cout << title;
+    #####:   46:    for (size_t i = 0; i < 20; ++i)
+    %%%%%:   46-block  0
+    %%%%%:   46-block  1
+    %%%%%:   46-block  2
+    #####:   47:        std::cout << '-';
+    %%%%%:   47-block  0
+    #####:   48:    std::cout << '\n';
+    %%%%%:   48-block  0
+        -:   49:
+        -:   50:    // commands
+    #####:   51:    std::cout << "exit - exit the application\n";
+    %%%%%:   51-block  0
+        -:   52:
+        -:   53:    // ending
+    #####:   54:    for (size_t i = 0; i < 40 + title.size(); ++i)
+    %%%%%:   54-block  0
+    %%%%%:   54-block  1
+    %%%%%:   54-block  2
+    #####:   55:        std::cout << '-';
+    %%%%%:   55-block  0
+    #####:   56:    std::cout << '\n';
+    %%%%%:   56-block  0
+    #####:   57:}
+        -:   58:
+    #####:   59:void ConsoleUI::run() {
+    #####:   60:    bool running = true;
+    %%%%%:   60-block  0
+    #####:   61:    while (running) {
+    %%%%%:   61-block  0
+    %%%%%:   61-block  1
+    #####:   62:        menu();
+    %%%%%:   62-block  0
+        -:   63:
+        -:   64:        try {
+    #####:   65:            int command = mapCommand(getCommand());
+    %%%%%:   65-block  0
+    %%%%%:   65-block  1
+    $$$$$:   65-block  2
+    $$$$$:   65-block  3
+    #####:   66:            switch (command) {
+    #####:   67:                case 0:
+        -:   68:                    // exit case
+    #####:   69:                    running = false;
+    #####:   70:                    break;
+    %%%%%:   70-block  0
+    #####:   71:                default:
+    #####:   72:                    std::cout << "Invalid command.\n";
+    %%%%%:   72-block  0
+    #####:   73:                    break;
+    %%%%%:   73-block  0
+        -:   74:            }
+        -:   75:        }
+    =====:   76:        catch (...) {
+    $$$$$:   76-block  0
+    $$$$$:   76-block  1
+    $$$$$:   76-block  2
+    =====:   77:            std::cout << "An exception occurred!\n";
+        -:   78:        }
+        -:   79:    }
+    #####:   80:}
+    %%%%%:   80-block  0

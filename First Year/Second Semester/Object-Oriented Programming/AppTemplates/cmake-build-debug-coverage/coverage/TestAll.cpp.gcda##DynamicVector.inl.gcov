@@ -1,0 +1,120 @@
+        -:    0:Source:D:/Informatica/UBB Sem. 2/OOP/AppTemplates/infrastructure/DynamicVector/DynamicVector.inl
+        -:    0:Graph:D:\Informatica\UBB Sem. 2\OOP\AppTemplates\cmake-build-debug-coverage\CMakeFiles\AppTemplates.dir\testing\TestAll.cpp.gcno
+        -:    0:Data:D:\Informatica\UBB Sem. 2\OOP\AppTemplates\cmake-build-debug-coverage\CMakeFiles\AppTemplates.dir\testing\TestAll.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Emanuel on 04.04.2021.
+        -:    3://
+        -:    4:
+        -:    5:#include "DynamicVector.h"
+        -:    6:
+        -:    7:#include <exception>
+        -:    8:
+        -:    9:template<class T>
+        1:   10:DynamicVector<T>::DynamicVector(size_t capacity) : capacity(capacity), length(0) {
+       1*:   11:    data = new T[capacity];
+        1:   11-block  0
+        1:   11-block  1
+    %%%%%:   11-block  2
+        1:   11-block  3
+        1:   12:}
+        -:   13:
+        -:   14:template<class T>
+        -:   15:DynamicVector<T>::DynamicVector(const DynamicVector<T> &other) {
+        -:   16:    length = other.length;
+        -:   17:    capacity = other.capacity;
+        -:   18:    delete[] data;
+        -:   19:    data = new T[capacity];
+        -:   20:
+        -:   21:    for (size_t i = 0; i < length; ++i)
+        -:   22:        data[i] = other.data[i];
+        -:   23:}
+        -:   24:
+        -:   25:template<class T>
+        -:   26:DynamicVector<T> &DynamicVector<T>::operator=(const DynamicVector<T> &other) {
+        -:   27:    length = other.length;
+        -:   28:    capacity = other.capacity;
+        -:   29:    delete[] data;
+        -:   30:    data = new T[capacity];
+        -:   31:
+        -:   32:    for (size_t i = 0; i < length; ++i)
+        -:   33:        data[i] = other.data[i];
+        -:   34:}
+        -:   35:
+        -:   36:template<class T>
+    #####:   37:void DynamicVector<T>::resize() {
+    #####:   38:    capacity *= 2;
+    #####:   39:    T* new_data = new T[capacity];
+    %%%%%:   39-block  0
+    %%%%%:   39-block  1
+    %%%%%:   39-block  2
+    %%%%%:   39-block  3
+        -:   40:
+    #####:   41:    for (size_t i = 0; i < length; ++i)
+    %%%%%:   41-block  0
+    #####:   42:        new_data[i] = data[i];
+    %%%%%:   42-block  0
+        -:   43:
+    #####:   44:    delete[] data;
+    %%%%%:   44-block  0
+    %%%%%:   44-block  1
+    #####:   45:    data = new_data;
+    #####:   46:}
+        -:   47:
+        -:   48:template <class T>
+        4:   49:void DynamicVector<T>::push(const T& value) {
+        4:   50:    if (length == capacity)
+        4:   50-block  0
+    #####:   51:        resize();
+    %%%%%:   51-block  0
+        4:   52:    data[length++] = value;
+        4:   53:}
+        -:   54:
+        -:   55:template<class T>
+        1:   56:int DynamicVector<T>::remove(const T& value) {
+        1:   57:    int index = getIndex(value);
+        1:   57-block  0
+       1*:   58:    if (index == -1) return -1;
+    %%%%%:   58-block  0
+        -:   59:
+        2:   60:    for (size_t i = index + 1; i < length; ++i)
+        1:   60-block  0
+        2:   60-block  1
+        1:   61:        data[i - 1] = data[i];
+        1:   61-block  0
+        1:   62:    length--;
+        1:   63:    return index;
+        1:   63-block  0
+        -:   64:}
+        -:   65:
+        -:   66:template<class T>
+        6:   67:int DynamicVector<T>::getIndex(const T& value) const{
+       17:   68:    for (size_t i = 0; i < length; ++i)
+        6:   68-block  0
+       17:   68-block  1
+       11:   68-block  2
+       15:   69:        if (data[i] == value) return i;
+       15:   69-block  0
+        4:   69-block  1
+        2:   70:    return -1;
+        2:   70-block  0
+        -:   71:}
+        -:   72:
+        -:   73:template<class T>
+        6:   74:T &DynamicVector<T>::operator[](int index) {
+        6:   75:    if (index < 0 || index >= length)
+        6:   75-block  0
+        6:   75-block  1
+        1:   76:        throw std::exception();
+        1:   76-block  0
+        5:   77:    return data[index];
+        5:   77-block  0
+        -:   78:}
+        -:   79:
+        -:   80:template<class T>
+        1:   81:DynamicVector<T>::~DynamicVector() {
+        1:   82:    delete[] data;
+        1:   82-block  0
+        1:   82-block  1
+        1:   83:}
