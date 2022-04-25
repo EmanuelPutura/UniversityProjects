@@ -1,0 +1,45 @@
+     1                                  %ifdef COMMENT
+     2                                      8. A natural number a (a: dword, defined in the data segment) is given. Read a natural number b from the keyboard and calculate: a + a/b. Display the result of this operation. The values will be displayed in dec
+     3                                  %endif
+     4                                  
+     5                                  bits 32
+     6                                  
+     7                                  global start
+     8                                  
+     9                                  extern exit, printf, scanf
+    10                                  import exit msvcrt.dll
+    11                                  import printf msvcrt.dll
+    12                                  import scanf msvcrt.dll
+    13                                  
+    14                                  segment data use32 class=data
+    15 00000000 4CFFFFFF                        a dd -180
+    16 00000004 <res 00000004>                  b resd 1
+    17 00000008 61202B20612F62203D-             message db "a + a/b = %d", 0
+    17 00000011 20256400           
+    18 00000015 256400                          format db "%d", 0
+    19                                  segment code use32 class=code
+    20                                      start:
+    21 00000000 A1[00000000]                    mov EAX, [a] 
+    22 00000005 60                              PUSHAD ; save the value of the general registers
+    23                                          
+    24                                          ; reading
+    25 00000006 68[04000000]                    push dword b ; the address of b
+    26 0000000B 68[15000000]                    push dword format
+    27 00000010 FF15[00000000]                  call [scanf]
+    28 00000016 83C408                          add ESP, 4 * 2
+    29                                          
+    30 00000019 61                              POPAD ; restore the value of the general registers
+    31                                          
+    32 0000001A 89C3                            mov EBX, EAX ; save a copy of EAX in EBX
+    33 0000001C 99                              cdq ; signed conversion from EAX to EDX:EAX
+    34 0000001D F73D[04000000]                  idiv dword [b] ; EAX = EDX:EAX / b, EDX = EDX:EAX % b
+    35 00000023 01C3                            add EBX, EAX ; EBX = EBX + EAX = a + a / b
+    36                                          
+    37                                          ; writting
+    38 00000025 53                              push EBX
+    39 00000026 68[08000000]                    push dword message
+    40 0000002B FF15[00000000]                  call [printf]
+    41 00000031 83C408                          add ESP, 4 * 2
+    42                                          
+    43 00000034 6A00                            push    dword 0
+    44 00000036 FF15[00000000]                  call    [exit]

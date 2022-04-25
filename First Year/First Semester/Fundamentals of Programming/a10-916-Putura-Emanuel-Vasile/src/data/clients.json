@@ -1,0 +1,44 @@
+{
+    "client_list": [
+        {
+            "id": 1, 
+            "name": "Tonald Drump"
+        }, 
+        {
+            "id": 2, 
+            "name": "Misu Pop"
+        }, 
+        {
+            "id": 3, 
+            "name": "Donald Trump"
+        }, 
+        {
+            "id": 4, 
+            "name": "Joe Andrew"
+        }, 
+        {
+            "id": 5, 
+            "name": "Cristi Tanase"
+        }, 
+        {
+            "id": 6, 
+            "name": "Mihai Marai"
+        }, 
+        {
+            "id": 7, 
+            "name": "Vladimir Putin"
+        }, 
+        {
+            "id": 8, 
+            "name": "Mihai Stoichita"
+        }, 
+        {
+            "id": 9, 
+            "name": "Victor Pop"
+        }, 
+        {
+            "id": 10, 
+            "name": "Gill Bates"
+        }
+    ]
+}

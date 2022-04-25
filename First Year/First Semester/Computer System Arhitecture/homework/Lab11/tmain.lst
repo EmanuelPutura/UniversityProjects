@@ -1,0 +1,16 @@
+     1                                  bits 32
+     2                                  
+     3                                  global start        
+     4                                  
+     5                                  extern exit, tprint
+     6                                  import exit msvcrt.dll
+     7                                  
+     8                                  segment data use32 class=data
+     9                                          
+    10                                  segment code use32 class=code
+    11                                      start:
+    12 00000000 B80A000000                      mov eax, 10
+    13 00000005 E8(00000000)                    call tprint
+    14                                          
+    15 0000000A 6A00                            push    dword 0
+    16 0000000C FF15[00000000]                  call    [exit]

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="839b1533-1b35-485e-8a74-c147db022416" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JupyterTrust" id="d14ac679-bfdc-4e1a-84c6-6cf5932981fb" />
+  <component name="ProjectId" id="1mHtNANEQprQxZB2LVF8Nde4CVt" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Informatica\FP\a11-916-Putura-Emanuel-Vasile\src\strategy" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Informatica\FP\a11-916-Putura-Emanuel-Vasile" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.main">
+    <configuration name="gui" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="a11-916-Putura-Emanuel-Vasile" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/presentation/GUI" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/presentation/GUI/gui.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="a11-916-Putura-Emanuel-Vasile" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for test_strategy.TestMinimaxStrategy.test_move" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="a11-916-Putura-Emanuel-Vasile" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_strategy.TestMinimaxStrategy.test_move&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests in tests" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="a11-916-Putura-Emanuel-Vasile" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/src/tests&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python tests.Unittests in tests" />
+        <item itemvalue="Python tests.Unittests for test_strategy.TestMinimaxStrategy.test_move" />
+        <item itemvalue="Python.gui" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="839b1533-1b35-485e-8a74-c147db022416" name="Default Changelist" comment="" />
+      <created>1609162301965</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1609162301965</updated>
+      <workItem from="1609162303020" duration="382000" />
+      <workItem from="1609188046704" duration="92000" />
+      <workItem from="1609229744384" duration="12000" />
+      <workItem from="1609230752326" duration="164000" />
+      <workItem from="1609257508824" duration="131000" />
+      <workItem from="1609257776314" duration="9000" />
+      <workItem from="1609257867018" duration="41000" />
+      <workItem from="1610435391860" duration="451000" />
+      <workItem from="1610438263608" duration="310000" />
+      <workItem from="1610453049873" duration="1000" />
+      <workItem from="1610469883706" duration="15589000" />
+      <workItem from="1610486506769" duration="446000" />
+      <workItem from="1610526821062" duration="1000" />
+      <workItem from="1610537401031" duration="1000" />
+      <workItem from="1610555807793" duration="47000" />
+      <workItem from="1610566366069" duration="2911000" />
+      <workItem from="1610569561816" duration="1000" />
+      <workItem from="1610572188547" duration="256000" />
+      <workItem from="1610578288675" duration="231000" />
+      <workItem from="1610584346626" duration="526000" />
+      <workItem from="1610585512451" duration="103000" />
+      <workItem from="1610613039052" duration="47000" />
+      <workItem from="1610613086929" duration="1357000" />
+      <workItem from="1610618348812" duration="724000" />
+      <workItem from="1610619418094" duration="614000" />
+      <workItem from="1610622426897" duration="4000" />
+      <workItem from="1611500563369" duration="225000" />
+      <workItem from="1611824702805" duration="38000" />
+      <workItem from="1611993953735" duration="1745000" />
+      <workItem from="1612085957497" duration="1394000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1609257522755">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1609257522755" />
+    <state x="529" y="319" key="#com.jetbrains.python.refactoring.move.PyMakeFunctionTopLevelDialog" timestamp="1610584844994">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="529" y="319" key="#com.jetbrains.python.refactoring.move.PyMakeFunctionTopLevelDialog/0.0.1536.824@0.0.1536.824" timestamp="1610584844994" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1611824740054">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1611824740054" />
+    <state width="1493" height="382" key="GridCell.Tab.0.bottom" timestamp="1612007409326">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="382" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1612007409326" />
+    <state width="1493" height="382" key="GridCell.Tab.0.center" timestamp="1612007409326">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="382" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1612007409326" />
+    <state width="1493" height="382" key="GridCell.Tab.0.left" timestamp="1612007409326">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="382" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1612007409326" />
+    <state width="1493" height="382" key="GridCell.Tab.0.right" timestamp="1612007409326">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="382" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1612007409326" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1610486462794">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1610486462794" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1610486462794">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1610486462794" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1610486462794">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1610486462794" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1610486462794">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1610486462794" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1610567727128">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1610567727128" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/a11_916_Putura_Emanuel_Vasile$Unittests_for_test_strategy_TestMinimaxStrategy_test_move.coverage" NAME="Unittests for test_strategy.TestMinimaxStrategy.test_move Coverage Results" MODIFIED="1610567695598" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/tests" />
+    <SUITE FILE_PATH="coverage/a11_916_Putura_Emanuel_Vasile$gui.coverage" NAME="gui Coverage Results" MODIFIED="1609188059857" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/presentation/GUI" />
+    <SUITE FILE_PATH="coverage/a11_916_Putura_Emanuel_Vasile$Unittests_in_tests.coverage" NAME="Unittests in tests Coverage Results" MODIFIED="1610618813943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/tests" />
+    <SUITE FILE_PATH="coverage/a11_916_Putura_Emanuel_Vasile$main.coverage" NAME="main Coverage Results" MODIFIED="1611994539974" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+  </component>
+</project>

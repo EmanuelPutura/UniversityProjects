@@ -1,0 +1,27 @@
+     1                                  bits 32
+     2                                  global start        
+     3                                  
+     4                                  extern exit
+     5                                  import exit msvcrt.dll
+     6                                  
+     7                                  segment data use32 class=data segment data segment data
+     8 00000000 0405                            c db 4, 5
+     9 00000002 01020304                        a db 1, 2, 3, 4
+    10 00000006 01020304                        b db 1, 2, 3, 4
+    11 0000000A [00000000]                      d dd $$
+    12                                  segment code use32 class=code
+    13                                      start:
+    14 00000000 6A0D                            push byte 13
+    15                                          pop eip
+    15          ******************       error: symbol `eip' undefined
+    16                                          ; mov ax, a + b
+    17 00000002 B408                            mov ah, a - $$ + b - $$
+    18 00000004 66BB(0200)                      mov bx, a - $$
+    19 00000008 B8[00000000]                    mov eax, $$
+    20 0000000D 8B15[0A000000]                  mov edx, [d]
+    21                                          ; mov bh, b - $$
+    22                                          ; mov ax, [a - b]
+    23                                          ; mov eax, [eax + ebx + a - 2]
+    24                                          
+    25 00000013 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    26 00000015 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

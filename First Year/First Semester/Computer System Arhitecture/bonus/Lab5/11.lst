@@ -1,0 +1,56 @@
+     1                                  %ifdef COMMENT
+     2                                      11. A byte string S is given. Obtain the string D1 which contains all the even numbers of S and the string D2 which contains all the odd numbers of S.
+     3                                  %endif
+     4                                  
+     5                                  bits 32 ; assembling for the 32 bits architecture
+     6                                  
+     7                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     8                                  global start        
+     9                                  
+    10                                  ; declare external functions needed by our program
+    11                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+    12                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+    13                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    14                                  
+    15                                  ; our data is declared here (the variables needed by our program)
+    16                                  segment data use32 class=data
+    17 00000000 010503080209                    S db 1, 5, 3, 8, 2, 9
+    18                                          L equ $ - S
+    19 00000006 <res 00000006>                  D1 resb L
+    20 0000000C <res 00000006>                  D2 resb L
+    21                                  segment code use32 class=code
+    22                                      start:
+    23 00000000 B906000000                      mov ECX, L
+    24 00000005 BE00000000                      mov ESI, 0
+    25 0000000A BF00000000                      mov EDI, 0
+    26 0000000F BB00000000                      mov EBX, 0
+    27                                          
+    28 00000014 E331                            jecxz final
+    29                                          S_loop:
+    30 00000016 8A86[00000000]                      mov AL, [S + ESI]
+    31 0000001C 88C6                                mov DH, AL
+    32 0000001E 6698                                cbw
+    33 00000020 B202                                mov DL, 2
+    34 00000022 F6FA                                idiv DL
+    35 00000024 80FC00                              cmp AH, 0
+    36 00000027 88F0                                mov AL, DH
+    37 00000029 740A                                jz D1_loop
+    38 0000002B 80FC01                              cmp AH, 1
+    39 0000002E 740E                                jz D2_loop
+    40                                              return:
+    41 00000030 46                                  inc ESI
+    42 00000031 E2E3                            loop S_loop
+    43 00000033 EB12                            jmp final
+    44                                          
+    45                                          D1_loop:
+    46 00000035 8887[06000000]                      mov [D1 + EDI], AL
+    47 0000003B 47                                  inc EDI
+    48 0000003C EBF2                                jmp return
+    49                                          D2_loop:
+    50 0000003E 8883[0C000000]                      mov [D2 + EBX], AL
+    51 00000044 43                                  inc EBX
+    52 00000045 EBE9                                jmp return
+    53                                          
+    54                                          final:
+    55 00000047 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    56 00000049 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

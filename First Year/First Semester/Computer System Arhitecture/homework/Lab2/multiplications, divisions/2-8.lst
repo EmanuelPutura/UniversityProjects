@@ -1,0 +1,40 @@
+     1                                  %ifdef COMMENT
+     2                                      ////////////////////////////////////
+     3                                      a, b, c, d - byte, e, f, g, h - word
+     4                                      2.8. 2 * (a + b) - e
+     5                                      a = 104, b = 59, e = 44 =>
+     6                                             => res = 2 * 163 - 44 =>
+     7                                             => res = 326 - 44 =>
+     8                                             => res = 282
+     9                                      /////////////////////////////////////
+    10                                  %endif
+    11                                  
+    12                                  bits 32 ; assembling for the 32 bits architecture
+    13                                  
+    14                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+    15                                  global start        
+    16                                  
+    17                                  ; declare external functions needed by our program
+    18                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+    19                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+    20                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    21                                  
+    22                                  ; our data is declared here (the variables needed by our program)
+    23                                  segment data use32 class=data
+    24 00000000 68                          a db 104
+    25 00000001 3B                          b db 59
+    26 00000002 2C00                        e dw 44
+    27                                  ; our code starts here
+    28                                  segment code use32 class=code
+    29                                      start:
+    30 00000000 B800000000                      mov EAX, 0
+    31                                          
+    32 00000005 A0[00000000]                    mov AL, byte [a]
+    33 0000000A 0205[01000000]                  add AL, byte [b]
+    34 00000010 B402                            mov AH, 2
+    35 00000012 F6E4                            mul AH ; AX <- AL * AH = 2 * (a + b)
+    36                                          
+    37 00000014 662B05[02000000]                sub AX, word [e]
+    38                                          
+    39 0000001B 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    40 0000001D FF15[00000000]                  call    [exit]       ; call exit to terminate the program

@@ -1,0 +1,23 @@
+     1                                  bits 32
+     2                                  
+     3                                  extern printf
+     4                                  import printf msvcrt.dll
+     5                                  
+     6                                  global printWithFormat
+     7                                  
+     8                                  segment code use32 class=code
+     9                                      ;global printWithFormat
+    10                                      
+    11                                      ; int printWithFormat(const char* format, int number)
+    12                                      printWithFormat:
+    13 00000000 8B442404                        mov EAX, dword [ESP + 4] ; EAX <- the offset of the format
+    14 00000004 8B5C2408                        mov EBX, dword [ESP + 8] ; EBX <- the value of the number
+    15                                          
+    16                                          ; print the data, according to the given format saved in EAX
+    17 00000008 53                              push dword EBX
+    18 00000009 53                              push dword EBX
+    19 0000000A 50                              push dword EAX
+    20 0000000B FF15[00000000]                  call [printf]
+    21 00000011 83C408                          add ESP, 4 * 2 ; restore the stack to its state before the printing
+    22                                          
+    23 00000014 C3                              ret ; return

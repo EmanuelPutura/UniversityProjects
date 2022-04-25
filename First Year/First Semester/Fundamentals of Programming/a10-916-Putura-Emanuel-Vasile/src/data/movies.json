@@ -1,0 +1,40 @@
+{
+    "movie_list": [
+        {
+            "id": 1, 
+            "title": "Peaceful Warrior", 
+            "description": "Instructive one.", 
+            "genre": "Drama"
+        }, 
+        {
+            "id": 2, 
+            "title": "Star Wars: The Phantom Menace", 
+            "description": "Best movie.", 
+            "genre": "Philosophical"
+        }, 
+        {
+            "id": 6, 
+            "title": "Before Sunrise", 
+            "description": "Worst movie I have seen so far!", 
+            "genre": "Fantasy"
+        }, 
+        {
+            "id": 7, 
+            "title": "Harry Potter and the Deathly Hallows \u2013 Part 1", 
+            "description": "Best one I have seen so far.", 
+            "genre": "Animation"
+        }, 
+        {
+            "id": 9, 
+            "title": "Titanic", 
+            "description": "Instructive one.", 
+            "genre": "Fantasy"
+        }, 
+        {
+            "id": 10, 
+            "title": "Iron Man", 
+            "description": "Educational one.", 
+            "genre": "Crime"
+        }
+    ]
+}

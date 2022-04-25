@@ -1,0 +1,23 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    10                                  
+    11                                  ; our data is declared here (the variables needed by our program)
+    12                                  segment data use32 class=data
+    13 00000000 0310                            a dw 1003h
+    14 00000002 0410                            b dw 1004h
+    15                                  ; our code starts here
+    16                                  segment code use32 class=code
+    17                                      start:
+    18                                          ; Let's check if a is odd or even. If ZF is 1, then a is even.
+    19 00000000 F605[00000000]01                test byte [a], 1 ; ZF = 0
+    20 00000007 F605[02000000]01                test byte [b], 1 ; ZF = 1
+    21                                          
+    22 0000000E 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    23 00000010 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

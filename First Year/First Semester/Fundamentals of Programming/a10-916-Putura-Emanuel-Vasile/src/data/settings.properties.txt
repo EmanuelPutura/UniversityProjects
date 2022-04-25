@@ -1,0 +1,6 @@
+repository = database
+movies = ""
+clients = ""
+rentals = ""
+ui = "gui"
+database = "data/mr_app"

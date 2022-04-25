@@ -1,0 +1,40 @@
+     1                                  %ifdef COMMENT
+     2                                      32. A byte string S of length l is given. Obtain the string D of length l-1, such that each element of D is the quotient of two consecutive elements of S, i.e. D(i) = S(i) / S(i+1).
+     3                                  %endif
+     4                                  
+     5                                  bits 32 ; assembling for the 32 bits architecture
+     6                                  
+     7                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     8                                  global start        
+     9                                  
+    10                                  ; declare external functions needed by our program
+    11                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+    12                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+    13                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    14                                  
+    15                                  ; our data is declared here (the variables needed by our program)
+    16                                  segment data use32 class=data
+    17 00000000 0C060301                        S db 12, 6, 3, 1
+    18                                          L equ $ - S
+    19 00000004 <res 00000003>                  D resb L - 1
+    20                                  ; our code starts here
+    21                                  segment code use32 class=code
+    22                                      start:
+    23 00000000 B903000000                      mov ECX, L - 1
+    24 00000005 BE00000000                      mov ESI, 0
+    25 0000000A BF00000000                      mov EDI, 0
+    26 0000000F E31A                            jecxz final
+    27                                          
+    28                                          S_loop:
+    29 00000011 8A86[00000000]                      mov AL, [S + ESI]
+    30 00000017 6698                                cbw
+    31 00000019 8A9E[01000000]                      mov BL, [S + ESI + 1]
+    32 0000001F F6FB                                idiv BL
+    33 00000021 8887[04000000]                      mov [D + EDI], AL
+    34 00000027 47                                  inc EDI
+    35 00000028 46                                  inc ESI
+    36 00000029 E2E6                            loop S_loop
+    37                                          
+    38                                          final:
+    39 0000002B 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    40 0000002D FF15[00000000]                  call    [exit]       ; call exit to terminate the program

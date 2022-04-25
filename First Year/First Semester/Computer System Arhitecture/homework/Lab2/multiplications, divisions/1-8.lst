@@ -1,0 +1,55 @@
+     1                                  %ifdef COMMENT
+     2                                      1.8. (100*a+d+5-75*b)/(c-5)
+     3                                          a,b,c - byte, d - word
+     4                                          a = 10, b = 5, c = 9, d = 7 
+     5                                          => res = (1000 + 7 + 5 - 375) / 4 =
+     6                                                 = (1012 - 375) / 4 =
+     7                                                 = 637 / 4 =
+     8                                                 = 159, r = 1
+     9                                  %endif
+    10                                  bits 32 ; assembling for the 32 bits architecture
+    11                                  
+    12                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+    13                                  global start        
+    14                                  
+    15                                  ; declare external functions needed by our program
+    16                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+    17                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+    18                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    19                                  
+    20                                  ; our data is declared here (the variables needed by our program)
+    21                                  segment data use32 class=data
+    22 00000000 0A                              a db 10
+    23 00000001 05                              b db 5
+    24 00000002 09                              c db 9
+    25 00000003 0700                            d dw 7
+    26                                  ; our code starts here
+    27                                  segment code use32 class=code
+    28                                      start:
+    29 00000000 B800000000                      mov EAX, 0
+    30 00000005 BB00000000                      mov EBX, 0
+    31                                          
+    32 0000000A A0[00000000]                    mov AL, byte [a]
+    33 0000000F B364                            mov BL, 100
+    34 00000011 F6E3                            mul BL ; AX <- AL * BL = a * 100
+    35                                          
+    36 00000013 668B1D[03000000]                mov BX, word [d]
+    37 0000001A 6601D8                          add AX, BX
+    38 0000001D 6683C005                        add AX, 5 ; AX = 100 * a + d + 5
+    39 00000021 6689C3                          mov BX, AX ; BX = 100 * a + d + 5
+    40                                          
+    41 00000024 B800000000                      mov EAX, 0
+    42 00000029 B04B                            mov AL, 75
+    43 0000002B F625[01000000]                  mul byte [b]
+    44 00000031 6629C3                          sub BX, AX
+    45 00000034 6689D8                          mov AX, BX ; AX <- 100 * a + d + 5 - 75 * b
+    46 00000037 BB00000000                      mov EBX, 0
+    47                                          
+    48 0000003C 8A1D[02000000]                  mov BL, byte [c]
+    49 00000042 80EB05                          sub BL, 5 ; BL <- c - 5
+    50                                          
+    51 00000045 F6F3                            div BL ; AL <- (100 * a + d + 5 - 75 * b) / (c - 5) = 159 = 9F(16)
+    52                                                 ; AH <- (100 * a + d + 5 - 75 * b) % (c - 5) = 1 = 1(16)
+    53                                          
+    54 00000047 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    55 00000049 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

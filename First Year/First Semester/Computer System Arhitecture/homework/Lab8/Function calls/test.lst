@@ -1,0 +1,63 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit, printf, scanf               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    10                                  import printf msvcrt.dll    ; tell the assembler that function printf is found in msvcrt.dll library
+    11                                  import scanf msvcrt.dll
+    12                                  
+    13                                  ;24. Two numbers a and b are given. Compute the expression value: (a/b)*k, where k is a constant value defined in data segment. Display the expression value (in base 2).
+    14                                                          
+    15                                  ; our data is declared here (the variables needed by our program)
+    16                                  segment data use32 class=data
+    17                                      ; ...
+    18 00000000 00000000                        a dd 0       ; defining the variables
+    19 00000004 00000000                        b dd 0
+    20                                          k equ 5
+    21 00000008 256400                  		format  db "%d", 0  ; definining the format of the numbers that are given
+    22 0000000B 54686520726573756C-             format2 db "The result of a/b*k is: %d", 0 ; defining the format of the result
+    22 00000014 74206F6620612F622A-
+    22 0000001D 6B2069733A20256400 
+    23 00000026 613D00                          message1 db "a=", 0
+    24 00000029 623D00                          message2 db "b=", 0
+    25                                  ; our code starts here
+    26                                  segment code use32 class=code
+    27                                      start:
+    28 00000000 68[26000000]                    push dword message1 ; ! on the stack is placed the address of the string, not its value
+    29 00000005 FF15[00000000]                  call [printf]      ; call function printf for printing
+    30 0000000B 83C404                          add esp, 4*1
+    31                                          
+    32 0000000E 68[00000000]                    push dword a       ; pushing the parameters on the stack from right to left
+    33 00000013 68[08000000]            		push dword format
+    34 00000018 FF15[00000000]          		call [scanf]       ; calling the scanf function for reading
+    35 0000001E 83C408                  		add esp, 4 * 2     ; cleaning the parameters from the stack
+    36                                          
+    37 00000021 68[29000000]                    push dword message2 ; ! on the stack is placed the address of the string, not its value
+    38 00000026 FF15[00000000]                  call [printf]      ; call function printf for printing
+    39 0000002C 83C404                          add esp, 4 * 1
+    40                                          
+    41 0000002F 68[04000000]                    push dword b       ; pushing the parameters on the stack from right to left
+    42 00000034 68[08000000]            		push dword format
+    43 00000039 FF15[00000000]          		call [scanf]       ; calling the scanf function for reading
+    45 0000003F 83C408                  		add esp, 4 * 2     ; cleaning the parameters from the stack        
+    46 00000042 A1[00000000]                    mov eax, dword [a]
+    47 00000047 BA00000000                      mov edx, 0
+    48 0000004C F735[04000000]                  div dword [b] ; EAX = a / b
+    49 00000052 BB05000000                      mov EBX, k
+    50 00000057 F7E3                            mul EBX ; EAX = (a / b) / k
+    51                                          
+    52 00000059 60                              PUSHAD
+    53                                          
+    54 0000005A 50                              push dword eax
+    55 0000005B 68[0B000000]            		push dword format2 
+    56 00000060 FF15[00000000]          		call [printf]      ; call function for printing
+    57 00000066 83C408                  		add esp, 4 * 2       ; free parameters on the stack; 4 = size of dword; 2 = number of parameters
+    58                                          
+    59 00000069 61                              POPAD
+    60                                          
+    61 0000006A 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    62 0000006C FF15[00000000]                  call    [exit]       ; call exit to terminate the program

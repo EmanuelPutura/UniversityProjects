@@ -1,0 +1,6 @@
+A text file is given. 
+Read the content of the file, determine the uppercAse
+letter with the highest frequency and displAy the 
+letter Along with its frequency on the screen.
+The name of text file is defined in the dAtA segment.
+The number of appearances for 'A' should be 7.

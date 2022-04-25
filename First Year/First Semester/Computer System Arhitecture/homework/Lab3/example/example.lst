@@ -1,0 +1,54 @@
+     1                                  ; Write a program in the assembly language that computes the following arithmetic expression, considering the following data types for the variables:
+     2                                  ; a - doubleword; b, d - byte; c - word; e - qword
+     3                                  ; a + b / c - d * 2 - e
+     4                                  bits 32 ;assembling for the 32 bits architecture
+     5                                  ; the start label will be the entry point in the program
+     6                                  global  start 
+     7                                  
+     8                                  extern  exit ; we inform the assembler that the exit symbol is foreign, i.e. it exists even if we won't be defining it
+     9                                  
+    10                                  import  exit msvcrt.dll; exit is a function that ends the process, it is defined in msvcrt.dll
+    11                                          ; msvcrt.dll contains exit, printf and all the other important C-runtime functions
+    12                                  segment  data use32 class=data ; the data segment where the variables are declared 
+    13 00000000 7D000000                	a dd 125
+    14 00000004 02                      	b db 2
+    15 00000005 0F00                    	c dw 15
+    16 00000007 C8                      	d db 200
+    17 00000008 5000000000000000        	e dq 80
+    18                                  segment  code use32 class=code ; code segment
+    19                                  start: 	
+    20                                  	;for computing b/c, we convert b from byte to doubleword, so that we can divide it by the word c
+    21 00000000 A0[04000000]            	mov al, [b]
+    22 00000005 6698                    	cbw ;signed conversion from al to ax
+    23 00000007 6699                    	cwd ;signed conversion from ax to dx:ax
+    24                                  	;dx:ax = b
+    25 00000009 66F73D[05000000]        	idiv word [c] ;signed division dx:ax by c
+    26                                  	;ax=b/c	
+    27                                  	;the quotient of the division is in ax (the remainder is in dx, but we only use the quotient in the further computations)
+    28                                  
+    29 00000010 6689C3                  	mov bx, ax ;we save b/c in bx so that we can use ax for multiplying d and 2	
+    30 00000013 B002                    	mov al, 2
+    31 00000015 F62D[07000000]          	imul byte [d] ;ax=d*2	
+    32                                  
+    33 0000001B 6629C3                  	sub bx, ax ;bx=b/c-d*2	
+    34                                  	; we convert the word bx to doubleword so that we can add it with the doubleword a	
+    35 0000001E 6689D8                  	mov ax, bx
+    36 00000021 6699                    	cwd ; signed conversion from ax to dx:ax	
+    37                                  	;dx:ax=b/c-d*2	
+    38                                  
+    39 00000023 668B1D[00000000]        	mov bx, word [a]	
+    40 0000002A 668B0D[02000000]        	mov cx, word [a+2] ;cx:bx=a	
+    41                                  
+    42 00000031 6601D8                  	add ax, bx	
+    43 00000034 6611CA                  	adc dx, cx ;the result of a + b / c - d * 2 is in dx:ax	
+    44                                  	
+    45 00000037 6652                    	push dx
+    46 00000039 6650                    	push ax
+    47 0000003B 58                      	pop eax ;eax = a + b / c - d * 2
+    48 0000003C 99                      	cdq ;edx:eax = a + b / c - d * 2	
+    49                                  	
+    50 0000003D 2B05[08000000]          	sub eax, dword [e]
+    51 00000043 1B15[0C000000]          	sbb edx, dword [e+4] ;edx:eax = a + b / c - d * 2 - e
+    52                                  	
+    53 00000049 6A00                    	push   dword 0 ;saves on stack the parameter of the function exit
+    54 0000004B FF15[00000000]          	call   [exit] ; function exit is called in order to end the execution of

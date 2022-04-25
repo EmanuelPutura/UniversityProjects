@@ -1,0 +1,37 @@
+     1                                  %ifdef COMMENT
+     2                                      8. Show for each number from 32 to 126 the value of the number (in base 8) and the character with that ASCII code.
+     3                                  %endif
+     4                                  
+     5                                  bits 32
+     6                                  
+     7                                  global start        
+     8                                  
+     9                                  extern exit, printf
+    10                                  import exit msvcrt.dll
+    11                                  import printf msvcrt.dll
+    12                                  
+    13                                  extern print_b8, print_ascii
+    14                                  
+    15                                  segment code use32 class=code
+    16                                      start:
+    17 00000000 B920000000                      mov ECX, 32
+    18                                          
+    19                                          loop_nos:
+    20 00000005 60                                  pushad ; store the general registers on the stack
+    21 00000006 51                                  push dword ECX   ; the value of the current number
+    22 00000007 E8(00000000)                        call print_b8    ; call the print_b8 procedure
+    23 0000000C 83C404                              add esp, 4 * 1   ; restore the initial value of ESP
+    24 0000000F 61                                  popad ; restore the general registers from the stack
+    25                                                  
+    26 00000010 60                                  pushad ; store the general registers on the stack
+    27 00000011 51                                  push dword ECX   ; the value of the current number
+    28 00000012 E8(00000000)                        call print_ascii ; call the print_ascii procedure
+    29 00000017 83C404                              add esp, 4 * 1   ; restore the initial value of ESP
+    30 0000001A 61                                  popad ; restore the general registers from the stack
+    31                                              
+    32 0000001B 41                                  inc ECX
+    33 0000001C 83F97E                              cmp ECX, 126     ; if ECX > 126, stop the loop
+    34 0000001F 76E4                            jbe loop_nos
+    35                                       
+    36 00000021 6A00                            push    dword 0
+    37 00000023 FF15[00000000]                  call    [exit]

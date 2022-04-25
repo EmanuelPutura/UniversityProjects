@@ -1,0 +1,19 @@
+     1                                  ; The code below will print message ”n=”, then will read from keyboard the value of perameter n.
+     2                                  bits 32
+     3                                  
+     4                                  global start        
+     5                                  
+     6                                  ; declare extern functions used by the programme
+     7                                  extern exit, printf, scanf ; add printf and scanf as extern functions            
+     8                                  import exit msvcrt.dll    
+     9                                  import printf msvcrt.dll    ; tell the assembler that function printf is found in msvcrt.dll library
+    10                                  import scanf msvcrt.dll     ; similar for scanf
+    11                                                            
+    12                                  segment data use32 class=data
+    13                                          
+    14                                  segment code use32 class=code
+    15                                      start:
+    16 00000000 B8F8FFFFFF                      mov eax, -24 // 3
+    17                                          
+    18 00000005 6A00                            push dword 0      ; place on stack parameter for exit
+    19 00000007 FF15[00000000]                  call [exit]       ; call exit to terminate the program

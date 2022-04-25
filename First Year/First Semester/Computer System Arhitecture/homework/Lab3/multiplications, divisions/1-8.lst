@@ -1,0 +1,85 @@
+     1                                  %ifdef COMMENT
+     2                                      a) unsigned
+     3                                      a, b - word / c, d - byte / e - dword / x - qword
+     4                                      1.8. 1 / a + 200 * b - c / (d + 1) + x / a - e
+     5                                          => res = 1 / 100 + 200 * 5 - 120 / (59 + 1) + 1000 / 100 - 100
+     6                                          => res = 1000 - 2 + 10 - 100
+     7                                          => res = 1008 - 100
+     8                                          => res = 908
+     9                                      
+    10                                  %endif
+    11                                  
+    12                                  bits 32 ; assembling for the 32 bits architecture
+    13                                  
+    14                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+    15                                  global start        
+    16                                  
+    17                                  ; declare external functions needed by our program
+    18                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+    19                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+    20                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    21                                  
+    22                                  ; our data is declared here (the variables needed by our program)
+    23                                  segment data use32 class=data
+    24 00000000 6300                            a dw 99
+    25 00000002 0500                            b dw 5 
+    26 00000004 78                              c db 120
+    27 00000005 3B                              d db 59
+    28 00000006 E803000000000000                x dq 1000
+    29 0000000E 64000000                        e dd 100
+    30                                  ; our code starts here
+    31                                  segment code use32 class=code
+    32                                      start:
+    33 00000000 66BA0000                        mov DX, 0
+    34 00000004 66B80100                        mov AX, 1 ; DX:AX = 1
+    35 00000008 66F735[00000000]                div word [a] ; AX = 1 / a
+    36 0000000F 6689C3                          mov BX, AX ; BX = 1 / a
+    37 00000012 66B90000                        mov CX, 0 ; unsigned conversion from BX to CX:BX
+    38                                          
+    39 00000016 6651                            push CX
+    40 00000018 6653                            push BX
+    41 0000001A 5B                              pop EBX ; EBX = CX:BX = 1 / a
+    42                                         
+    43 0000001B 66B8C800                        mov AX, 200 ; AX = 200
+    44 0000001F 66F725[02000000]                mul word [b] ; DX:AX = b * 200
+    45                                          
+    46 00000026 6652                            push DX
+    47 00000028 6650                            push AX
+    48 0000002A 58                              pop EAX ; EAX = DX:AX = b * 200
+    49                                          
+    50 0000002B 01C3                            add EBX, EAX ; EBX = 1 / a + b * 200
+    51                                          
+    52 0000002D A0[04000000]                    mov AL, byte [c] ; AL = c
+    53 00000032 B400                            mov AH, 0 ; unsigned conversion from AL to AX
+    54 00000034 8005[05000000]01                add byte [d], 1 ; d = d + 1
+    55 0000003B F635[05000000]                  div byte [d] ; AL = c / (d + 1)
+    56                                          
+    57 00000041 B400                            mov AH, 0 ; unsigned conversion from AL to AX
+    58 00000043 66BA0000                        mov DX, 0 ; unsigned conversion from AX to DX:AX
+    59                                          
+    60 00000047 6652                            push DX
+    61 00000049 6650                            push AX
+    62 0000004B 58                              pop EAX ; EAX = c / (d + 1)
+    63                                          
+    64 0000004C 29C3                            sub EBX, EAX ; EBX = 1 / a + b * 200 - c / (d + 1)
+    65                                          
+    66 0000004E 66A1[00000000]                  mov AX, word [a] ; AX = a
+    67 00000054 66BA0000                        mov DX, 0 ; unsigned conversion from AX to DX:AX
+    68                                          
+    69 00000058 6652                            push DX
+    70 0000005A 6650                            push AX
+    71 0000005C 58                              pop EAX ; EAX = a
+    72                                          
+    73 0000005D 89C1                            mov ECX, EAX ; ECX = a
+    74                                          
+    75 0000005F A1[06000000]                    mov EAX, dword [x]
+    76 00000064 8B15[0A000000]                  mov EDX, dword [x + 4] ; EDX:EAX = x
+    77                                          
+    78 0000006A F7F1                            div ECX ; EAX = x / a
+    79 0000006C 01C3                            add EBX, EAX ; EBX = 1 / a + b * 200 - c / (d + 1) + x / a
+    80 0000006E 2B1D[0E000000]                  sub EBX, dword [e] ; EBX = 1 / a + b * 200 - c / (d + 1) + x / a - e
+    81                                          
+    82 00000074 89D8                            mov EAX, EBX ; EAX = 1 / a + b * 200 - c / (d + 1) + x / a - e
+    83                                          
+    84 00000076 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    85 00000078 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

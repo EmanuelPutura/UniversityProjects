@@ -1,0 +1,54 @@
+     1                                  %ifdef COMMENT
+     2                                      8. A character string S is given. Obtain the string D that contains all capital letters of the string S.
+     3                                       Example:
+     4                                          S: 'a', 'A', 'b', 'B', '2', '%', 'x', 'M'
+     5                                          D: 'A', 'B', 'M'
+     6                                  %endif
+     7                                  
+     8                                  bits 32 ; assembling for the 32 bits architecture
+     9                                  
+    10                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+    11                                  global start        
+    12                                  
+    13                                  ; declare external functions needed by our program
+    14                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+    15                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+    16                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    17                                  
+    18                                  ; our data is declared here (the variables needed by our program)
+    19                                  segment data use32 class=data
+    20 00000000 614162423225784D                S db 'a', 'A', 'b', 'B', '2', '%', 'x', 'M' ; declaration of the character string S
+    21                                          L equ $ - S ; the length of s
+    22 00000008 00<rept>                        D times L db 0
+    23                                  ; our code starts here
+    24                                  segment code use32 class=code
+    25                                      start:
+    26 00000000 B908000000                      mov ECX, L ; we save the length of the string in the extended counter register (ECX) 
+    27 00000005 BE00000000                      mov ESI, 0 ; the value from the extended source index register will be the index in the string S
+    28 0000000A BF00000000                      mov EDI, 0 ; the value from the extended destination index register will be the index in the string D
+    29                                          
+    30 0000000F E322                            jecxz endFor ; in case that the value from ECX is 0
+    31                                          forLoop:
+    32 00000011 8A86[00000000]                      mov AL, [S + ESI] ; we move in AL the current character from the string
+    33                                              
+    34 00000017 B341                                mov BL, 'A'
+    35 00000019 28C3                                sub BL, AL
+    36 0000001B 80FB00                              cmp BL, 0
+    37 0000001E 7F10                                jg finalFor ; if 'A' - AL > 0 (<=> 'A' > AL), we jump over all the remaining instructions in the loop (excepting the increment of ESI)
+    38                                              
+    39 00000020 B35A                                mov BL, 'Z'
+    40 00000022 28C3                                sub BL, AL
+    41 00000024 80FB00                              cmp BL, 0
+    42 00000027 7C07                                jl finalFor ; if 'Z' - AL < 0 (<=> 'Z' < AL), we jump over all the remaining instructions in the loop (excepting the increment of ESI)
+    43                                              ; basically now we have checked if 'A' <= current character <= 'Z', so we have checked if the current character is a capital letter
+    44                                              
+    45 00000029 8887[08000000]                      mov [D + EDI], AL ; we move the current character, which is a capital letter, in the string D 
+    46 0000002F 47                                  inc EDI ; incrementing the index in the string D
+    47                                              
+    48                                              finalFor:
+    49 00000030 46                                  inc ESI
+    50 00000031 E2DE                            loop forLoop
+    51                                          endFor: ; the end of the program
+    52                                          
+    53 00000033 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    54 00000035 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

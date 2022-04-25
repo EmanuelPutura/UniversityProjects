@@ -1,0 +1,23 @@
+     1                                  bits 32
+     2                                  
+     3                                  extern printf
+     4                                  import printf msvcrt.dll
+     5                                  
+     6                                  global print_b8
+     7                                  
+     8                                  segment data use32 public data
+     9 00000000 5468652076616C7565-             format_b8 db "The value in base 8 for %d is %o", 10, 0
+     9 00000009 20696E206261736520-
+     9 00000012 3820666F7220256420-
+     9 0000001B 697320256F0A00     
+    10                                  segment code use32 public code
+    11                                      print_b8:
+    12 00000000 8B4C2404                        mov ECX, [ESP + 4]
+    13                                          
+    14 00000004 51                              push ECX
+    15 00000005 51                              push ECX
+    16 00000006 68[00000000]                    push format_b8
+    17 0000000B FF15[00000000]                  call [printf]
+    18 00000011 83C40C                          add esp, 4 * 3
+    19                                          
+    20 00000014 C3                              ret

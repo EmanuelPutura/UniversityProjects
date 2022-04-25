@@ -1,0 +1,44 @@
+     1                                  ; Write a program in the assembly language that computes the following arithmetic expression, considering the following data types for the variables:
+     2                                  ; a - doubleword; b, d - byte; c - word; e - qword
+     3                                  ; a + b / c - d * 2 - e
+     4                                  
+     5                                  bits 32 ; assembling for the 32 bits architecture
+     6                                  
+     7                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     8                                  global start        
+     9                                  
+    10                                  ; declare external functions needed by our program
+    11                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+    12                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+    13                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    14                                  
+    15                                  ; our data is declared here (the variables needed by our program)
+    16                                  segment data use32 class=data
+    17 00000000 7D000000                        a dd 125
+    18 00000004 02                              b db 2
+    19 00000005 0F00                            c dw 15
+    20 00000007 C8                              d db 200
+    21 00000008 5000000000000000                e dq 80
+    22                                  ; our code starts here
+    23                                  segment code use32 class=code
+    24                                      start:
+    25 00000000 A0[04000000]                    mov AL, byte [b] ; AL = b
+    26 00000005 6698                            cbw ; signed conversion from AL to AX
+    27 00000007 6699                            cwd ; signed conversion from AX to DX:AX
+    28 00000009 66F73D[05000000]                idiv word [c] ; AX = DX:AX / [c] = b / c
+    29                                          
+    30 00000010 6689C3                          mov BX, AX ; BX = b / c
+    31 00000013 B002                            mov AL, 2 ; AL = 2
+    32 00000015 F62D[07000000]                  imul byte [d] ; AX = d * 2
+    33 0000001B 6629C3                          sub BX, AX ; BX = b / c - d * 2
+    34 0000001E 6689D8                          mov AX, BX ; AX = b / c - d * 2
+    35                                    
+    36 00000021 98                              cwde ; signed conversion from AX to EAX
+    37 00000022 0305[00000000]                  add EAX, dword [a] ; EAX = a + b / c - d * 2
+    38 00000028 99                              cdq ; signed conversion from EAX to EDX:EAX
+    39                                          
+    40 00000029 2B05[08000000]                  sub EAX, dword [e]
+    41 0000002F 1B15[0C000000]                  sbb EDX, dword [e + 4]
+    42                                          
+    43 00000035 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    44 00000037 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

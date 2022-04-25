@@ -1,0 +1,56 @@
+     1                                  %ifdef COMMENT
+     2                                      25. Given the doublewords M and N, compute the doubleword P as follows.
+     3                                      the bits 0-6 of P are the same as the bits 10-16 of M
+     4                                      the bits 7-20 of P are the same as the bits 7-20 of (M AND N).
+     5                                      the bits 21-31 of P are the same as the bits 1-11 of N.
+     6                                      
+     7                                      ex: M dd 1101 1100 0011 1010 1000 1101 1011 1110b
+     8                                          N dd 1111 1000 1010 1110 1101 1100 0011 1010b
+     9                                      =>  M AND N = 1101 1000 0010 1010 1000 1100 0011 1010b
+    10                                          P =  1100 0011 1010 1010 1000 1100 0010 0011b
+    11                                  %endif
+    12                                  
+    13                                  bits 32 ; assembling for the 32 bits architecture
+    14                                  
+    15                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+    16                                  global start        
+    17                                  
+    18                                  ; declare external functions needed by our program
+    19                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+    20                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+    21                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    22                                  
+    23                                  ; our data is declared here (the variables needed by our program)
+    24                                  segment data use32 class=data
+    25 00000000 BE8D3ADC                        M dd 11011100001110101000110110111110b
+    26 00000004 3ADCAEF8                        N dd 11111000101011101101110000111010b
+    27 00000008 <res 00000004>                  P resw 2
+    28                                  ; our code starts here
+    29                                  segment code use32 class=code
+    30                                      start:
+    31 00000000 BB00000000                      mov EBX, 0
+    32                                          
+    33 00000005 66A1[01000000]                  mov AX, [M + 1]
+    34 0000000B B102                            mov CL, 2
+    35 0000000D 66D3E8                          shr AX, CL
+    36 00000010 6683E07F                        and AX, 01111111b
+    37 00000014 6609C3                          or BX, AX
+    38                                          
+    39 00000017 A1[00000000]                    mov EAX, [M]
+    40 0000001C 2305[04000000]                  and EAX, [N]
+    41 00000022 2580FF1F00                      and EAX, 00000000000111111111111110000000b
+    42 00000027 09C3                            or EBX, EAX
+    43                                          
+    44 00000029 B800000000                      mov EAX, 0
+    45 0000002E 66A1[04000000]                  mov AX, [N]
+    46 00000034 B101                            mov CL, 1
+    47 00000036 66D3E8                          shr AX, CL
+    48 00000039 6625FF07                        and AX, 0000011111111111b
+    49 0000003D B115                            mov CL, 21
+    50 0000003F D3E0                            shl EAX, CL
+    51 00000041 09C3                            or EBX, EAX
+    52                                                  
+    53 00000043 891D[08000000]                  mov [P], EBX        
+    54                                                  
+    55 00000049 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    56 0000004B FF15[00000000]                  call    [exit]       ; call exit to terminate the program

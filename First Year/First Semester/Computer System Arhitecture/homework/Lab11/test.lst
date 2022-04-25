@@ -1,0 +1,31 @@
+     1                                  %ifdef COMMENT
+     2                                      Read a decimal number from the keyboard and print it in hexadecimal format.
+     3                                  %endif
+     4                                  
+     5                                  bits 32
+     6                                  
+     7                                  global start        
+     8                                  
+     9                                  extern exit, scanf, printf
+    10                                  import exit msvcrt.dll
+    11                                  import scanf msvcrt.dll
+    12                                  import printf msvcrt.dll
+    13                                  
+    14                                  segment data use32 class=data
+    15 00000000 <res 00000004>                  number resd 1
+    16 00000004 256400                          format_scanf db "%d", 0
+    17 00000007 257800                          format_printf db "%x", 0
+    18                                  segment code use32 class=code
+    19                                      start:
+    20 00000000 68[00000000]                    push number
+    21 00000005 68[04000000]                    push dword format_scanf
+    22 0000000A FF15[00000000]                  call [scanf]
+    23 00000010 83C408                          add esp, 4 * 2
+    24                                          
+    25 00000013 FF35[00000000]                  push dword [number]
+    26 00000019 68[07000000]                    push dword format_printf
+    27 0000001E FF15[00000000]                  call [printf]
+    28 00000024 83C408                          add esp, 4 * 2
+    29                                          
+    30 00000027 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    31 00000029 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

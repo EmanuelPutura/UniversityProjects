@@ -1,0 +1,43 @@
+     1                                  %ifdef COMMENT
+     2                                      Se da un string S. Sa se copieze caracterele din S in D, fiecare caracter fiind dublat. Elementele din S sunt word-uri.
+     3                                      
+     4                                      ex: S dw '1', '2', 'c', '4', 'e'
+     5                                      =>  D = '1', '1', '2', '2', 'c', 'c', '4', '4', 'e', 'e'
+     6                                  %endif
+     7                                  
+     8                                  bits 32 ; assembling for the 32 bits architecture
+     9                                  
+    10                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+    11                                  global start        
+    12                                  
+    13                                  ; declare external functions needed by our program
+    14                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+    15                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+    16                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    17                                  
+    18                                  ; our data is declared here (the variables needed by our program)
+    19                                  segment data use32 class=data
+    20 00000000 310032006300340065-             S dw '1', '2', 'c', '4', 'e'
+    20 00000009 00                 
+    21                                          L equ ($ - S) / 2
+    22 0000000A <res 00000005>                  D resb L
+    23                                  ; our code starts here
+    24                                  segment code use32 class=code
+    25                                      start:
+    26 00000000 BF00000000                      mov EDI, 0
+    27 00000005 BE00000000                      mov ESI, 0
+    28 0000000A B905000000                      mov ECX, L
+    29 0000000F E320                            jecxz prog_final
+    30                                          
+    31                                          S_loop:
+    32 00000011 668B87[00000000]                    mov AX, [S + EDI]
+    33 00000018 668986[0A000000]                    mov [D + ESI], AX
+    34 0000001F 83C601                              add ESI, 1
+    35 00000022 668986[0A000000]                    mov [D + ESI], AX
+    36 00000029 83C601                              add ESI, 1
+    37 0000002C 83C702                              add EDI, 2
+    38 0000002F E2E0                            loop S_loop
+    39                                          prog_final:
+    40                                          
+    41 00000031 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    42 00000033 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

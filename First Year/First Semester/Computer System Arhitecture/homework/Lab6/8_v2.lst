@@ -1,0 +1,95 @@
+     1                                  %ifdef COMMENT
+     2                                      8. A list of doublewords is given. Obtain the list made out of the low bytes of the high words of each doubleword from the given list with the property that these bytes are palindromes in base 10.
+     3                                      Example:
+     4                                          Given the string of doublewords:
+     5                                              S DD 1A2C3C4Dh, 12345678h, 98FCDC76h
+     6                                          obtain the string of bytes:
+     7                                              D DB 2Ch, FCh
+     8                                  %endif
+     9                                  
+    10                                  bits 32 ; assembling for the 32 bits architecture
+    11                                  
+    12                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+    13                                  global start        
+    14                                  
+    15                                  ; declare external functions needed by our program
+    16                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+    17                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+    18                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    19                                  
+    20                                  ; our data is declared here (the variables needed by our program)
+    21                                  segment data use32 class=data
+    22 00000000 4D3C2C1A7856341276-             S DD 1A2C3C4Dh, 12345678h, 98FCDC76h
+    22 00000009 DCFC98             
+    23                                          L equ ($ - S) / 4 ; the length of the S array
+    24 0000000C <res 00000003>                  D resb L ; D array has at most L elements
+    25 0000000F 0A                              TEN db 10 ; a byte with the value = 10
+    26 00000010 00000000                        NR dd 0 ; we will need this for Subproblem 2
+    27                                          
+    28                                  ; our code starts here
+    29                                  segment code use32 class=code
+    30                                      start:
+    31                                          ; 1. Solution for the problem: we first isolate the byte we are interested in and save it.
+    32                                          ; 2. Then, we have to generate the number formed by using the same digits as the one already saved, but in reverse order.
+    33                                          ; 3. If the two numbers are equal, then the current number is a palindrome.
+    34                                          
+    35                                          ; ------------- Subproblem 1 -------------
+    36 00000000 B903000000                      mov ECX, L ; we will parse the elements of S in a loop with L iterators
+    37 00000005 BE[00000000]                    mov ESI, S ; the source string is Solution
+    38 0000000A BF[0C000000]                    mov EDI, D
+    39                                          
+    40                                          for_each_element_in_S:
+    41 0000000F B800000000                          mov EAX, 0
+    42 00000014 A3[10000000]                        mov [NR], EAX
+    43 00000019 FC                                  CLD ; DF = 0 (parse the string from left to right)
+    44 0000001A 66AD                                lodsw ; load in AX the word from the address <DS:ESI> (the low word of the current doubleword)
+    45                                              ; lodsb ; load in AL the byte from the address <DS:ESI> (the low byte of the high word of the current doubleword)
+    46                                              
+    47 0000001C 66AD                                lodsw
+    48 0000001E 6698                                cbw
+    49                                              
+    50                                              
+    51                                              ; ------------- Subproblem 2 -------------
+    52                                              ; the byte we are interested in is currently stored in AL
+    53                                              ; we know that the number we want to generate will be at most a doubleword: if a number has at most 3 digits, we
+    54                                              ; know that the number we generate from it has the same number of digits, so at most 3 digits. So the generated number
+    55                                              ; can always be stored in a doubleword.
+    56                                              
+    57                                              ; cbw ; signed conversion from AL to AX
+    58 00000020 88C3                                mov BL, AL ; we save the value of AL in BL
+    59                                              
+    60                                              for_each_digit_of_the_current_no:
+    61 00000022 A1[10000000]                            mov EAX, [NR]
+    62 00000027 BA0A000000                              mov EDX, 10
+    63 0000002C F7EA                                    imul EDX ; EDX:EAX <- EAX * EDX = NR * 10
+    64                                                  
+    65                                                  ; we are interested only in EAX
+    66 0000002E A3[10000000]                            mov [NR], EAX
+    67                                                  
+    68 00000033 88D8                                    mov AL, BL
+    69 00000035 6698                                    cbw
+    70 00000037 F63D[0F000000]                          idiv byte [TEN] ; AL <- AX / 10, AH <- AX % 10 (the last digit of the no)
+    71 0000003D 88C3                                    mov BL, AL 
+    72 0000003F 88E0                                    mov AL, AH
+    73 00000041 6698                                    cbw
+    74 00000043 98                                      cwde
+    75 00000044 0105[10000000]                          add dword [NR], EAX
+    76                                                  
+    77 0000004A 80FB00                                  cmp BL, 0
+    78 0000004D 75D3                                    jnz for_each_digit_of_the_current_no
+    79                                              
+    80 0000004F A1[10000000]                        mov EAX, [NR]
+    81 00000054 4E                                  dec ESI
+    82 00000055 4E                                  dec ESI
+    83 00000056 8A1E                                mov BL, [ESI]
+    84 00000058 3A06                                cmp AL, [ESI]
+    85 0000005A 7501                                jnz final
+    86 0000005C AA                                  STOSB
+    87                                          final:
+    88 0000005D 46                              inc ESI
+    89 0000005E 46                              inc ESI
+    90 0000005F E2AE                            loop for_each_element_in_S
+    91                                          
+    92                                          
+    93 00000061 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    94 00000063 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

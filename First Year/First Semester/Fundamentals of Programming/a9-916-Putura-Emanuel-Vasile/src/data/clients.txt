@@ -1,0 +1,10 @@
+1;Gill Bates;
+2;Donald Trump;
+3;Misu Pop;
+4;Cristi Tanase;
+5;Gigi Becali;
+6;Harry Potter;
+7;Victor Pop;
+8;Viktor Andrew;
+9;Florinel Coman;
+10;Joe Biden;

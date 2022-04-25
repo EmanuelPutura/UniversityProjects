@@ -1,0 +1,52 @@
+     1                                  %ifdef COMMENT
+     2                                      25. Two character strings S1 and S2 are given. Obtain the string D which contains all the elements of S1 that do not appear in S2.
+     3                                  %endif
+     4                                  
+     5                                  bits 32 ; assembling for the 32 bits architecture
+     6                                  
+     7                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     8                                  global start        
+     9                                  
+    10                                  ; declare external functions needed by our program
+    11                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+    12                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+    13                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    14                                  
+    15                                  ; our data is declared here (the variables needed by our program)
+    16                                  segment data use32 class=data
+    17 00000000 2B34326138345835                S1 db '+', '4', '2', 'a', '8', '4', 'X', '5'
+    18                                          L1 equ $ - S1
+    19 00000008 613435                          S2 db 'a', '4', '5'
+    20                                          L2 equ $ - S2
+    21 0000000B <res 00000008>                  D resb L1
+    22                                  ; our code starts here
+    23                                  segment code use32 class=code
+    24                                      start:
+    25 00000000 B908000000                      mov ECX, L1
+    26 00000005 BE00000000                      mov ESI, 0
+    27 0000000A BF00000000                      mov EDI, 0
+    28 0000000F E325                            jecxz final
+    29                                          
+    30                                          S1_loop:
+    31 00000011 8A86[00000000]                      mov AL, [S1 + ESI]
+    32                                              
+    33 00000017 BB00000000                          mov EBX, 0
+    34                                              S2_loop:
+    35 0000001C 8AA3[08000000]                          mov AH, [S2 + EBX]
+    36                                                  
+    37 00000022 38E0                                    cmp AL, AH
+    38 00000024 740D                                    je final_2
+    39                                                  
+    40 00000026 43                                      inc EBX
+    41 00000027 83FB03                                  cmp EBX, L2
+    42 0000002A 75F0                                jne S2_loop
+    43                                              
+    44 0000002C 8887[0B000000]                      mov [D + EDI], AL
+    45 00000032 47                                  inc EDI
+    46                                              final_2:
+    47 00000033 46                              inc ESI
+    48 00000034 E2DB                            loop S1_loop
+    49                                         
+    50                                          final:
+    51 00000036 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    52 00000038 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

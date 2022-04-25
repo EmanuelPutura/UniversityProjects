@@ -1,0 +1,49 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    10                                  
+    11                                  ; our data is declared here (the variables needed by our program)
+    12                                  segment data use32 class=data
+    13 00000000 0A                              a db 10
+    14                                  ; our code starts here
+    15                                  segment code use32 class=code
+    16                                      start:
+    17                                          test_label2:
+    18                                          
+    19                                          ;jmp [test_label2]
+    20                                          
+    21                                          ;mov edx, test_label2
+    22                                          ;mov eax, [cs:edx]
+    23                                          ;mov ebx, [ds:edx]
+    24                                          ;mov ecx, cs:edx
+    25                                      
+    26 00000000 B802000000                      mov eax, 2
+    27                                          test_label:
+    28 00000005 B800000000                      mov eax, 0
+    29                                          ;mov eax, test_label
+    30                                          ;mov ebx, [test_label]
+    31                                          
+    32                                          ;jmp cs:eax
+    33                                          ;mov eax, [cs:eax]
+    34                                          
+    35                                          ;jmp [ds:test_label]
+    36                                          
+    37                                          ;mov eax, [cs:eax]
+    38                                          ;mov eax, [ds:eax]
+    39                                          
+    40                                          ;jmp [cs:eax]
+    41 0000000A B8[05000000]                    mov eax, test_label
+    42 0000000F FF25[05000000]                  jmp [test_label]
+    43 00000015 EBEE                            jmp test_label
+    44 00000017 2E8B03                          mov eax, [cs:ebx]
+    45                                          
+    46 0000001A A3[00000000]                    mov [a], eax
+    47 0000001F 8B0428                          mov eax, [eax + ebp]
+    48 00000022 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    49 00000024 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

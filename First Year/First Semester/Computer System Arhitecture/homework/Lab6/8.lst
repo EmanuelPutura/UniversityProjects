@@ -1,0 +1,51 @@
+     1                                  %ifdef COMMENT
+     2                                      8. A list of doublewords is given. Obtain the list made out of the low bytes of the high words of each doubleword from the given list with the property that these bytes are palindromes in base 10.
+     3                                      Example:
+     4                                          Given the string of doublewords:
+     5                                              S DD 12345678h, 1A2C3C4Dh, 98FCDC76h
+     6                                          obtain the string of bytes:
+     7                                              D DB 2Ch, FCh
+     8                                  %endif
+     9                                  
+    10                                  bits 32 
+    11                                  
+    12                                  global start        
+    13                                  
+    14                                  extern exit
+    15                                  import exit msvcrt.dll
+    16                                  
+    17                                  segment data use32 class=data
+    18 00000000 785634124D3C2C1A76-             S dd 12345678h, 1A2C3C4Dh, 98FCDC76h ; the given string
+    18 00000009 DCFC98             
+    19                                          L equ ($ - S) / 4 ; the length of S
+    20 0000000C <res 00000003>                  D resb L; we save in memory enough space for the D string
+    21                                          
+    22                                  segment code use32 class=code
+    23                                      start:
+    24 00000000 BE[00000000]                    mov ESI, S ; the source string is S
+    25 00000005 BF[0C000000]                    mov EDI, D ; the destination string is DB
+    26 0000000A B903000000                      mov ECX, L ; we will parse the elements of S in a loop with L iterators
+    27                                          
+    28 0000000F FC                              CLD ; parse the string from left to right (DF = 0)
+    29                                          for_every_element_in_S:
+    30 00000010 66AD                                lodsw ; in AX we will have the low word of the of the current doubleword of the S string
+    31 00000012 AC                                  lodsb ; in AL we will have the low byte of the high word of the of the current doubleword of the S string
+    32                                              
+    33                                              ; first we have to find the number of digits of the current found number
+    34 00000013 88C3                                mov BL, AL ; we save a copy of the number in BL
+    35 00000015 6698                                cbw ; we convert the byte to word (signed)
+    36                                              
+    37                                              ten equ 10 ; a constant that we use in order to find the last digit of a number
+    38                                              for_every_digit_in_the_current_no:
+    39 00000017 F6350A000000                            div byte [ten]
+    40                                              
+    41                                              check_if_palindrome_loop:
+    42                                                  ; we need to divide the number by 10^(p) and then get the last digit of the result - that is in fact the no. p digit of the number.
+    43                                                  ; the last digit of the number is number % 10
+    44 0000001D 6698                                    cbw ; signed conversion from AL to AX
+    45                                                  
+    46                                              
+    47 0000001F E2EF                            loop for_every_element_in_S
+    48                                          
+    49 00000021 6A00                            push    dword 0
+    50 00000023 FF15[00000000]                  call    [exit]
