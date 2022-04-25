@@ -1,0 +1,26 @@
+        -:    0:Source:D:/Informatica/UBB Sem. 2/OOP/a45-916-Putura-Emanuel-Vasile/presentation/SwitcherConsoleUI/Switcher.cpp
+        -:    0:Graph:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\presentation\SwitcherConsoleUI\Switcher.cpp.gcno
+        -:    0:Data:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\presentation\SwitcherConsoleUI\Switcher.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Emanuel on 25.03.2021.
+        -:    3://
+        -:    4:
+        -:    5:#include "Switcher.h"
+        -:    6:
+    #####:    7:void Switcher::run() {
+    #####:    8:    int exit_code = 1;
+    %%%%%:    8-block  0
+        -:    9:
+    #####:   10:    while(exit_code == 1) {
+    %%%%%:   10-block  0
+    %%%%%:   10-block  1
+    #####:   11:        exit_code = mainConsole.run();
+    %%%%%:   11-block  0
+    #####:   12:        if (exit_code == 1)
+    #####:   13:            exit_code = childConsole.run();
+    %%%%%:   13-block  0
+        -:   14:    }
+    #####:   15:}
+        -:   16:

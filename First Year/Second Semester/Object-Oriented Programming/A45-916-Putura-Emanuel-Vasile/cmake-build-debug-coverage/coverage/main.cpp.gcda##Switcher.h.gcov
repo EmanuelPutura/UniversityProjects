@@ -1,0 +1,24 @@
+        -:    0:Source:D:/Informatica/UBB Sem. 2/OOP/a45-916-Putura-Emanuel-Vasile/presentation/SwitcherConsoleUI/Switcher.h
+        -:    0:Graph:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\main.cpp.gcno
+        -:    0:Data:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\main.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Emanuel on 25.03.2021.
+        -:    3://
+        -:    4:
+        -:    5:#ifndef SWITCHER_H
+        -:    6:#define SWITCHER_H
+        -:    7:
+        -:    8:#include "../GenericConsoleUI/ConsoleUI.h"
+        -:    9:
+        -:   10:class Switcher {
+        -:   11:private:
+        -:   12:    ConsoleUI& mainConsole;
+        -:   13:    ConsoleUI& childConsole;
+        -:   14:public:
+    #####:   15:    Switcher(ConsoleUI& mainConsole, ConsoleUI& childConsole) : mainConsole(mainConsole), childConsole(childConsole) {}
+        -:   16:    void run();
+        -:   17:};
+        -:   18:
+        -:   19:#endif

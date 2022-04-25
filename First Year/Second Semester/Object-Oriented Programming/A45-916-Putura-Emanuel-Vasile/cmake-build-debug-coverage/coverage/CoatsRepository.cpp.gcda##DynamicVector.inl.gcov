@@ -1,0 +1,78 @@
+        -:    0:Source:D:/Informatica/UBB Sem. 2/OOP/a45-916-Putura-Emanuel-Vasile/domain/DynamicVector/DynamicVector.inl
+        -:    0:Graph:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\infrastructure\CoatsRepository\CoatsRepository.cpp.gcno
+        -:    0:Data:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\infrastructure\CoatsRepository\CoatsRepository.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Emanuel on 20.03.2021.
+        -:    3://
+        -:    4:
+        -:    5:template<class T>
+        -:    6:DynamicVector<T>::DynamicVector(size_t capacity) : capacity(capacity), length(0) {
+        -:    7:    data = new T[capacity];
+        -:    8:}
+        -:    9:
+        -:   10:template<class T>
+        -:   11:DynamicVector<T>::DynamicVector(const DynamicVector<T> &other) {
+        -:   12:    length = other.length;
+        -:   13:    capacity = other.capacity;
+        -:   14:    delete[] data;
+        -:   15:    data = new T[capacity];
+        -:   16:
+        -:   17:    for (size_t i = 0; i < length; ++i)
+        -:   18:        data[i] = other.data[i];
+        -:   19:}
+        -:   20:
+        -:   21:template<class T>
+        -:   22:void DynamicVector<T>::resize() {
+        -:   23:    capacity *= 2;
+        -:   24:    T* new_data = new T[capacity];
+        -:   25:
+        -:   26:    for (size_t i = 0; i < length; ++i)
+        -:   27:        new_data[i] = data[i];
+        -:   28:
+        -:   29:    delete[] data;
+        -:   30:    data = new_data;
+        -:   31:}
+        -:   32:
+        -:   33:template <class T>
+        -:   34:void DynamicVector<T>::push(const T& value) {
+        -:   35:    if (length == capacity)
+        -:   36:        resize();
+        -:   37:    data[length++] = value;
+        -:   38:}
+        -:   39:
+        -:   40:template<class T>
+        -:   41:int DynamicVector<T>::remove(const T& value) {
+        -:   42:    int index = getIndex(value);
+        -:   43:    if (index == -1) return -1;
+        -:   44:
+        -:   45:    for (size_t i = index + 1; i < length; ++i)
+        -:   46:        data[i - 1] = data[i];
+        -:   47:    length--;
+        -:   48:    return index;
+        -:   49:}
+        -:   50:
+        -:   51:template<class T>
+    #####:   52:int DynamicVector<T>::getIndex(const T& value) const{
+    #####:   53:    for (size_t i = 0; i < length; ++i)
+    %%%%%:   53-block  0
+    %%%%%:   53-block  1
+    %%%%%:   53-block  2
+    #####:   54:        if (data[i] == value) return i;
+    %%%%%:   54-block  0
+    %%%%%:   54-block  1
+    #####:   55:    return -1;
+    %%%%%:   55-block  0
+        -:   56:}
+        -:   57:
+        -:   58:template<class T>
+    #####:   59:T &DynamicVector<T>::operator[](int index) {
+    #####:   60:    return data[index];
+    %%%%%:   60-block  0
+        -:   61:}
+        -:   62:
+        -:   63:template<class T>
+        -:   64:DynamicVector<T>::~DynamicVector() {
+        -:   65:    delete[] data;
+        -:   66:}

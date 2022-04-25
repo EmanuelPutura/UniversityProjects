@@ -1,0 +1,125 @@
+        -:    0:Source:D:/Informatica/UBB Sem. 2/OOP/a45-916-Putura-Emanuel-Vasile/business/CoatsService.h
+        -:    0:Graph:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\main.cpp.gcno
+        -:    0:Data:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\main.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Emanuel on 21.03.2021.
+        -:    3://
+        -:    4:
+        -:    5:#ifndef COATSSERVICE_H
+        -:    6:#define COATSSERVICE_H
+        -:    7:
+        -:    8:#include "../infrastructure/CoatsRepository/CoatsRepository.h"
+        -:    9:#include "../validation/CoatValidator.h"
+        -:   10:#include "../presentation/TextTable/TextTable.h"
+        -:   11:#include "../tools/BrowserLauncher.h"
+        -:   12:
+        -:   13:#include <string>
+        -:   14:#include <vector>
+        -:   15:
+        -:   16:/**
+        -:   17: * CoatsService Class
+        -:   18: */
+        -:   19:class CoatsService {
+        -:   20:private:
+        -:   21:    CoatsRepository& repository;
+        -:   22:    CoatsRepository& shopping_basket;
+        -:   23:    CoatValidator validator;
+        -:   24:    int payment = 0;
+        -:   25:public:
+        2:   26:    CoatsService(CoatsRepository& repository, CoatsRepository& shopping_basket) : repository(repository), shopping_basket(shopping_basket),
+        2:   27:                                                                                    validator(CoatValidator()){}
+        2:   27-block  0
+        -:   28:
+        -:   29:    /**
+        -:   30:     * Adds a new trench coat to the repository
+        -:   31:     * @param size: the size of the trench coat
+        -:   32:     * @param colour: the colour of the trench coat
+        -:   33:     * @param price: the price of the trench coat
+        -:   34:     * @param quantity: the quantity of the trench coat
+        -:   35:     * @param photograph: the photograph of the trench coat
+        -:   36:     */
+        -:   37:    void add(const std::string& size, const std::string& colour, int price, int quantity, const std::string& photograph);
+        -:   38:
+        -:   39:    /**
+        -:   40:     * Updates a TrenchCoat object from the repository
+        -:   41:     */
+        -:   42:    void update(const std::string& size, const std::string& colour, int price, const std::string& photograph, const std::string& new_size,
+        -:   43:                const std::string& new_colour, int new_price, int new_quantity, const std::string& new_photograph);
+        -:   44:
+        -:   45:    /**
+        -:   46:     * Removes a trench coat from the repository
+        -:   47:     * @param size: the size of the trench coat
+        -:   48:     * @param colour: the colour of the trench coat
+        -:   49:     * @param price: the price of the trench coat
+        -:   50:     * @param photograph: the photograph of the trench coat
+        -:   51:     */
+        -:   52:    void remove(const std::string& size, const std::string& colour, int price, const std::string& photograph);
+        -:   53:
+        -:   54:    /*
+        -:   55:     * Overloading the << (extraction) operator
+        -:   56:     */
+        -:   57:    friend std::ostream& operator<<(std::ostream& os, CoatsService service);
+        -:   58:
+        -:   59:    /**
+        -:   60:     * Adds ten default trench coats to the repository
+        -:   61:     */
+        -:   62:    void addDefault();
+        -:   63:
+        -:   64:    /*
+        -:   65:     * Filters data per size
+        -:   66:     * @param size: the size of the trench coat
+        -:   67:     * @returns: the filtered data
+        -:   68:     */
+        -:   69:    std::vector<TrenchCoat> filterDataPerSize(const std::string& size) const;
+        -:   70:
+        -:   71:    /*
+        -:   72:     * Gets the length of filtered coats per size
+        -:   73:     * @param size: the size of the trench coat
+        -:   74:     * @returns: the requested length
+        -:   75:     */
+        -:   76:    inline int getCoatsPerSizeLength(const std::string& size) const { return filterDataPerSize(size).size(); }
+        -:   77:
+        -:   78:    /*
+        -:   79:     * Gets single coat text table, being given an index and a size as filtering parameter
+        -:   80:     */
+        -:   81:    inline TextTable getSingleCoatPerSizeTextTable(int index, const std::string& size) const {
+        -:   82:        return getSingleCoatTextTable(index, static_cast<TrenchCoat*>(filterDataPerSize(size).data()));
+        -:   83:    }
+        -:   84:
+        -:   85:    /*
+        -:   86:     * Launches the browser to show a coat
+        -:   87:     */
+        -:   88:    void launchBrowserSizeCoatPhoto(int index, const std::string& size) const;
+        -:   89:
+        -:   90:    /*
+        -:   91:     * Adds a coat to the shopping basket
+        -:   92:     * @param index: index of the coat to be added
+        -:   93:     * @param size: the size of the trench coat
+        -:   94:     */
+        -:   95:    void addToShoppingBasket(const int& index, const std::string& size);
+        -:   96:
+        -:   97:    /*
+        -:   98:     * Gets the text table representation of more trench coats
+        -:   99:     */
+        -:  100:    TextTable getDataTextTable(const TrenchCoat* data = nullptr, int length = 0) const;
+        -:  101:
+        -:  102:    /*
+        -:  103:     * Gets the text table representation of a single trench coat
+        -:  104:     */
+        -:  105:    TextTable getSingleCoatTextTable(int index, const TrenchCoat* data = nullptr) const;
+        -:  106:
+        -:  107:    /*
+        -:  108:     * Gets the shopping basket
+        -:  109:     */
+        -:  110:    inline TextTable getShoppingBasket() const { return getDataTextTable(shopping_basket.getData(), shopping_basket.getLength()); }
+        -:  111:
+        -:  112:    /**
+        -:  113:     * Gets the length of the repository (the number of trench coats in the repository)
+        -:  114:     */
+        -:  115:    inline int getLength() const { return repository.getLength(); }
+        -:  116:    inline int getPayment() const { return payment; }
+        -:  117:};
+        -:  118:
+        -:  119:#endif

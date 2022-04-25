@@ -1,0 +1,29 @@
+        -:    0:Source:D:/Informatica/UBB Sem. 2/OOP/a45-916-Putura-Emanuel-Vasile/presentation/GenericConsoleUI/ConsoleUI.h
+        -:    0:Graph:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\main.cpp.gcno
+        -:    0:Data:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\main.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Emanuel on 21.03.2021.
+        -:    3://
+        -:    4:
+        -:    5:#ifndef GENERICCONSOLEUI_H
+        -:    6:#define GENERICCONSOLEUI_H
+        -:    7:
+        -:    8:#include "../../business/CoatsService.h"
+        -:    9:
+        -:   10:class ConsoleUI {
+        -:   11:protected:
+        -:   12:    CoatsService& service;
+        -:   13:
+        -:   14:    std::string getCommand() const;
+        -:   15:    std::string getUserData(const std::string& message) const;
+        -:   16:    bool isPositiveInteger(const std::string& string) const;
+        -:   17:public:
+        3:   18:    explicit ConsoleUI(CoatsService& service) : service(service) {}
+        -:   19:
+        -:   20:    virtual void menu() const = 0;
+        -:   21:    virtual int run() = 0;
+        -:   22:};
+        -:   23:
+        -:   24:#endif

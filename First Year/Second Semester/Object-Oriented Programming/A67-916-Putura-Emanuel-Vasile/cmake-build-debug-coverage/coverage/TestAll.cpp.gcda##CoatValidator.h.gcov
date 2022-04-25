@@ -1,0 +1,38 @@
+        -:    0:Source:D:/Informatica/UBB Sem. 2/OOP/a45-916-Putura-Emanuel-Vasile/validation/CoatValidator.h
+        -:    0:Graph:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\testing\TestAll.cpp.gcno
+        -:    0:Data:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\testing\TestAll.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Emanuel on 21.03.2021.
+        -:    3://
+        -:    4:
+        -:    5:#ifndef COATVALIDATOR_H
+        -:    6:#define COATVALIDATOR_H
+        -:    7:
+        -:    8:#include <string>
+        -:    9:#include "../domain/TrenchCoat/TrenchCoat.h"
+        -:   10:
+        -:   11:/**
+        -:   12: * CoatValidator Class
+        -:   13: * Validates a TrenchCoat object
+        -:   14: */
+        -:   15:class CoatValidator {
+        -:   16:private:
+        -:   17:    std::string errors = "";
+        -:   18:public:
+        -:   19:    /**
+        -:   20:     * Validates a TrenchCoat object
+        -:   21:     * @param coat: the TrenchCoat object to be validated
+        -:   22:     * @return: true if the TrenchCoat object is valid, false else
+        -:   23:     */
+        -:   24:    bool validate(const TrenchCoat& coat);
+        -:   25:
+        -:   26:    /**
+        -:   27:     * Errors Getter
+        -:   28:     */
+        2:   29:    inline std::string getErrors() const { return errors; }
+        2:   29-block  0
+        -:   30:};
+        -:   31:
+        -:   32:#endif

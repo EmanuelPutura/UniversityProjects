@@ -1,0 +1,74 @@
+        -:    0:Source:D:/Informatica/UBB Sem. 2/OOP/a45-916-Putura-Emanuel-Vasile/domain/DynamicVector/DynamicVector.h
+        -:    0:Graph:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\presentation\UserConsoleUI\UserConsoleUI.cpp.gcno
+        -:    0:Data:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\presentation\UserConsoleUI\UserConsoleUI.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Emanuel on 20.03.2021.
+        -:    3://
+        -:    4:
+        -:    5:#ifndef DYNAMIC_VECTOR_H
+        -:    6:#define DYNAMIC_VECTOR_H
+        -:    7:
+        -:    8:#ifndef CAPACITY
+        -:    9:#define CAPACITY 100
+        -:   10:#endif
+        -:   11:
+        -:   12:#include <cstddef>
+        -:   13:
+        -:   14:/**
+        -:   15: * Generic DynamicVector Class
+        -:   16: */
+        -:   17:template <class T>
+        -:   18:class DynamicVector {
+        -:   19:private:
+        -:   20:    T* data {nullptr};
+        -:   21:    size_t length {0}, capacity;
+        -:   22:public:
+        -:   23:    explicit DynamicVector(size_t capacity = CAPACITY);
+        -:   24:    DynamicVector(const DynamicVector<T>& other);
+        -:   25:
+        -:   26:    /**
+        -:   27:     * Resizes the vector. The capacity is doubled
+        -:   28:     */
+        -:   29:    void resize();
+        -:   30:
+        -:   31:    /**
+        -:   32:     * Adds a new element to the end of the vector
+        -:   33:     * @param value: the value to be added to the vector
+        -:   34:     */
+        -:   35:    void push(const T& value);
+        -:   36:
+        -:   37:    /**
+        -:   38:     * Removes an element from the vector
+        -:   39:     * @param value: the value to be removed from the vector
+        -:   40:     * @return: the index of the removed value or -1 if the value is not an element of the vector
+        -:   41:     */
+        -:   42:    int remove(const T& value);
+        -:   43:
+        -:   44:    /**
+        -:   45:     * Gets the index of an element of the vector
+        -:   46:     * @param value: an element of the vector
+        -:   47:     * @return: the index of the searched element or -1 if the element is not found
+        -:   48:     */
+        -:   49:    int getIndex(const T& value) const;
+        -:   50:
+        -:   51:    /**
+        -:   52:     * [] operator overloading
+        -:   53:     */
+        -:   54:    T& operator[](int index);
+        -:   55:
+        -:   56:    /**
+        -:   57:     * Getters
+        -:   58:     */
+    #####:   59:    inline size_t getLength() const { return this->length; }
+    %%%%%:   59-block  0
+        -:   60:    inline size_t getCapacity() const { return this->capacity; }
+    #####:   61:    inline T* getData() const { return data; }
+    %%%%%:   61-block  0
+        -:   62:
+        -:   63:    ~DynamicVector();
+        -:   64:};
+        -:   65:
+        -:   66:#include "DynamicVector.inl"
+        -:   67:#endif

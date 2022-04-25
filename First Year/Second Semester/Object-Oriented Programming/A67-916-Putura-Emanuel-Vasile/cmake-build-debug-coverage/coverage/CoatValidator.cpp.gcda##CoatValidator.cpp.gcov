@@ -1,0 +1,31 @@
+        -:    0:Source:D:/Informatica/UBB Sem. 2/OOP/a45-916-Putura-Emanuel-Vasile/validation/CoatValidator.cpp
+        -:    0:Graph:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\validation\CoatValidator.cpp.gcno
+        -:    0:Data:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\validation\CoatValidator.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Emanuel on 21.03.2021.
+        -:    3://
+        -:    4:
+        -:    5:#include "CoatValidator.h"
+        -:    6:
+       28:    7:bool CoatValidator::validate(const TrenchCoat& coat) {
+       28:    8:    errors = "";
+       28:    8-block  0
+       28:    9:    if (coat.getSize() == "") errors += "Invalid trench coat size.\n";
+        2:    9-block  0
+       28:   10:    if (coat.getColour() == "") errors += "Invalid trench coat colour.\n";
+       28:   10-block  0
+        1:   10-block  1
+       28:   11:    if (coat.getPrice() <= 0) errors += "Invalid trench coat price.\n";
+       28:   11-block  0
+        1:   11-block  1
+       28:   12:    if (coat.getQuantity() <= 0) errors += "Invalid trench coat quantity.\n";
+       28:   12-block  0
+        1:   12-block  1
+       28:   13:    if (coat.getPhotograph() == "") errors += "Invalid trench coat photograph.\n";
+       28:   13-block  0
+        2:   13-block  1
+       28:   14:    return errors == "";
+       28:   14-block  0
+        -:   15:}

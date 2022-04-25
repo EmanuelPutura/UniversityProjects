@@ -1,0 +1,5 @@
+#include "IGuiWindow"
+
+IGuiWindow::IGuiWindow(QWidget *parent) : QWidget(parent) {
+
+}

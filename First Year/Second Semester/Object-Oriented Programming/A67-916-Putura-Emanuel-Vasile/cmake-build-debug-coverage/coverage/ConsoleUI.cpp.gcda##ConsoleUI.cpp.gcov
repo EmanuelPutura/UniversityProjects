@@ -1,0 +1,51 @@
+        -:    0:Source:D:/Informatica/UBB Sem. 2/OOP/a45-916-Putura-Emanuel-Vasile/presentation/GenericConsoleUI/ConsoleUI.cpp
+        -:    0:Graph:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\presentation\GenericConsoleUI\ConsoleUI.cpp.gcno
+        -:    0:Data:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\presentation\GenericConsoleUI\ConsoleUI.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Emanuel on 21.03.2021.
+        -:    3://
+        -:    4:
+        -:    5:#include "ConsoleUI.h"
+        -:    6:
+        -:    7:#include <iostream>
+        -:    8:
+        1:    9:std::string ConsoleUI::getCommand() const {
+        1:   10:    std::string command;
+        1:   10-block  0
+        1:   11:    std::cout << "command > ";
+        1:   12:    std::getline(std::cin, command);
+        1:   12-block  0
+        1:   13:    std::cout << '\n';
+        1:   13-block  0
+        1:   14:    return command;
+        1:   14-block  0
+        1:   14-block  1
+        -:   15:}
+        -:   16:
+    #####:   17:bool ConsoleUI::isPositiveInteger(const std::string& string) const {
+    #####:   18:    for (size_t i = 0; i < string.length(); ++i)
+    %%%%%:   18-block  0
+    %%%%%:   18-block  1
+    %%%%%:   18-block  2
+    #####:   19:        if (!isdigit(string[i])) return false;
+    %%%%%:   19-block  0
+    %%%%%:   19-block  1
+    #####:   20:    return true;
+    %%%%%:   20-block  0
+        -:   21:}
+        -:   22:
+    #####:   23:std::string ConsoleUI::getUserData(const std::string& message) const {
+    #####:   24:    std::string user_data;
+    %%%%%:   24-block  0
+    #####:   25:    std::cout << message << "\n> ";
+    %%%%%:   25-block  0
+    #####:   26:    std::getline(std::cin, user_data);
+    %%%%%:   26-block  0
+    #####:   27:    std::cout << '\n';
+    %%%%%:   27-block  0
+    #####:   28:    return user_data;
+    %%%%%:   28-block  0
+    %%%%%:   28-block  1
+        -:   29:}

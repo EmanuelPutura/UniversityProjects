@@ -1,0 +1,3 @@
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug/CMakeFiles/a67_916_Putura_Emanuel_Vasile.dir
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug/CMakeFiles/rebuild_cache.dir

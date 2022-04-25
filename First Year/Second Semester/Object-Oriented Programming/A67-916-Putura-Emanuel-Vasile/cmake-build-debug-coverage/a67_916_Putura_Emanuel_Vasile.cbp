@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="a67_916_Putura_Emanuel_Vasile"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug-coverage"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="a67_916_Putura_Emanuel_Vasile">
+				<Option output="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug-coverage/a67_916_Putura_Emanuel_Vasile.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug-coverage"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/include"/>
+					<Add directory="C:/sqlite/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 a67_916_Putura_Emanuel_Vasile"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="a67_916_Putura_Emanuel_Vasile/fast">
+				<Option output="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug-coverage/a67_916_Putura_Emanuel_Vasile.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug-coverage"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/include"/>
+					<Add directory="C:/sqlite/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 a67_916_Putura_Emanuel_Vasile/fast"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug-coverage"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug-coverage"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/business/CoatsService.cpp">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/business/CoatsService.h">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/domain/TrenchCoat/TrenchCoat.cpp">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/domain/TrenchCoat/TrenchCoat.h">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/exceptions/ConsoleUIException/ConsoleUIException.cpp">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/exceptions/ConsoleUIException/ConsoleUIException.h">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/exceptions/Exception/Exception.cpp">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/exceptions/Exception/Exception.h">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/exceptions/RepositoryException/RepositoryException.cpp">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/exceptions/RepositoryException/RepositoryException.h">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/exceptions/ServiceException/ServiceException.cpp">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/exceptions/ServiceException/ServiceException.h">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/AbstractLaunchRepository/AbstractLaunchRepository.cpp">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/AbstractLaunchRepository/AbstractLaunchRepository.h">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/AbstractRepository/AbstractRepository.cpp">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/AbstractRepository/AbstractRepository.h">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/CSVRepository/CSVRepository.cpp">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/CSVRepository/CSVRepository.h">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/DatabaseCoatsRepository/DatabaseCoatsRepository.cpp">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/DatabaseCoatsRepository/DatabaseCoatsRepository.h">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/FileRepository/FileRepository.cpp">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/FileRepository/FileRepository.h">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/HTMLCoatsRepository/HTMLCoatsRepository.cpp">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/HTMLCoatsRepository/HTMLCoatsRepository.h">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/Repository/Repository.h">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/Repository/Repository.inl">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/main.cpp">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/presentation/AdminConsoleUI/AdminConsoleUI.cpp">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/presentation/AdminConsoleUI/AdminConsoleUI.h">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/presentation/GenericConsoleUI/ConsoleUI.cpp">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/presentation/GenericConsoleUI/ConsoleUI.h">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/presentation/OptionConsoleUI/OptionConsoleUI.cpp">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/presentation/OptionConsoleUI/OptionConsoleUI.h">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/presentation/SwitcherConsoleUI/Switcher.cpp">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/presentation/SwitcherConsoleUI/Switcher.h">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/presentation/TextTable/TextTable.cpp">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/presentation/TextTable/TextTable.h">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/presentation/UserConsoleUI/UserConsoleUI.cpp">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/presentation/UserConsoleUI/UserConsoleUI.h">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/testing/TestAll.cpp">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/testing/TestAll.h">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/tools/Launcher.cpp">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/tools/Launcher.h">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/validation/CoatValidator.cpp">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/validation/CoatValidator.h">
+			<Option target="a67_916_Putura_Emanuel_Vasile"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

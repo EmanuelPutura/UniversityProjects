@@ -1,0 +1,355 @@
+        -:    0:Source:D:/Informatica/UBB Sem. 2/OOP/a45-916-Putura-Emanuel-Vasile/presentation/TextTable/TextTable.cpp
+        -:    0:Graph:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\presentation\TextTable\TextTable.cpp.gcno
+        -:    0:Data:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\presentation\TextTable\TextTable.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Emanuel on 21.03.2021.
+        -:    3://
+        -:    4:
+        -:    5:#include "TextTable.h"
+        -:    6:
+        -:    7:#include <iostream>
+        -:    8:#include <string.h>
+        -:    9:
+        1:   10:std::ostream &operator<<(std::ostream &os, const TextTable &table) {
+       10:   11:    for (const auto& row : table.rows)
+        1:   11-block  0
+       10:   11-block  1
+        9:   11-block  2
+        9:   11-block  3
+        9:   12:        os << row << '\n';
+        9:   12-block  0
+        1:   13:    return os;
+        1:   13-block  0
+        1:   13-block  1
+        -:   14:}
+        -:   15:
+       72:   16:std::string TextTable::buildRowDelimitator(const std::string &delimitator) const {
+       72:   17:    std::string delim_row = "+";
+       72:   17-block  0
+    $$$$$:   17-block  1
+      256:   18:    for (size_t i = 0; i < columns_no; ++i) {
+      256:   18-block  0
+      184:   18-block  1
+     4463:   19:        for (size_t j = 0; j < columns_size[i]; ++j)
+      184:   19-block  0
+     4463:   19-block  1
+     4279:   19-block  2
+     4279:   20:            delim_row += delimitator;
+     4279:   20-block  0
+      184:   21:        delim_row += "+";
+      184:   21-block  0
+        -:   22:    }
+       72:   23:    return delim_row;
+       72:   23-block  0
+       72:   23-block  1
+        -:   24:}
+        -:   25:
+       99:   26:int TextTable::getPartialWidth(int columns) const {
+       99:   27:    int width = columns + 1;
+      195:   28:    for (size_t i = 0; i < columns; ++i)
+       99:   28-block  0
+      195:   28-block  1
+       96:   29:        width += columns_size[i];
+       96:   29-block  0
+       99:   30:    return width;
+       99:   30-block  0
+        -:   31:}
+        -:   32:
+        5:   33:int TextTable::addHeader(size_t argc, ...) {
+        5:   34:    if (rows_no || argc != columns_no)
+        5:   34-block  0
+        5:   34-block  1
+    #####:   35:        return -1;
+    %%%%%:   35-block  0
+        -:   36:
+        -:   37:    va_list args;
+        5:   38:    va_start(args, argc);
+        -:   39:
+       10:   40:    std::string data_row = "|";
+        5:   40-block  0
+    $$$$$:   40-block  1
+    $$$$$:   40-block  2
+       23:   41:    for (size_t i = 0; i < argc; ++i) {
+       23:   41-block  0
+       18:   41-block  1
+       18:   42:        char* data = va_arg(args, char*);
+       18:   42-block  0
+       18:   43:        columns_size.push_back(PADDING * 2 + strlen(data));
+    $$$$$:   43-block  0
+        -:   44:
+      108:   45:        for (size_t j = 0; j < PADDING; ++j)
+       18:   45-block  0
+      108:   45-block  1
+       90:   45-block  2
+       90:   46:            data_row += " ";
+       90:   46-block  0
+       18:   47:        data_row += std::string(data);
+       18:   47-block  0
+       18:   47-block  1
+       18:   47-block  2
+    $$$$$:   47-block  3
+    $$$$$:   47-block  4
+    $$$$$:   47-block  5
+    $$$$$:   47-block  6
+      108:   48:        for (size_t j = 0; j < PADDING; ++j)
+      108:   48-block  0
+       90:   48-block  1
+       90:   49:            data_row += " ";
+       90:   49-block  0
+       18:   50:        data_row += "|";
+       18:   50-block  0
+        -:   51:    }
+        -:   52:
+       10:   53:    std::string delim_now = buildRowDelimitator("-");
+        5:   53-block  0
+        5:   53-block  1
+    $$$$$:   53-block  2
+    $$$$$:   53-block  3
+    $$$$$:   53-block  4
+        5:   54:    rows.push_back(delim_now);
+        5:   55:    rows.push_back(data_row);
+        5:   55-block  0
+        -:   56:
+        5:   57:    delim_now = buildRowDelimitator("=");
+        5:   57-block  0
+        5:   57-block  1
+        5:   57-block  2
+    $$$$$:   57-block  3
+    $$$$$:   57-block  4
+    $$$$$:   57-block  5
+    $$$$$:   57-block  6
+        5:   58:    rows.push_back(delim_now);
+        5:   59:    rows_no++;
+        5:   60:    header = true;
+        -:   61:
+        5:   62:    va_end(args);
+        5:   63:    return 0;
+        5:   63-block  0
+        -:   64:}
+        -:   65:
+       16:   66:int TextTable::addRow(size_t argc, ...) {
+       16:   67:    if (argc != columns_no)
+       16:   67-block  0
+    #####:   68:        return -1;
+    %%%%%:   68-block  0
+        -:   69:
+        -:   70:    va_list args;
+       16:   71:    va_start(args, argc);
+        -:   72:
+       16:   73:    bool build_up = false;
+       16:   74:    std::string row_data = "|";
+       16:   74-block  0
+    $$$$$:   74-block  1
+    $$$$$:   74-block  2
+       60:   75:    for (size_t i = 0; i < argc; ++i) {
+       60:   75-block  0
+       44:   75-block  1
+       44:   76:        char* data = va_arg(args, char*);
+       44:   76-block  0
+       44:   77:        if (!rows_no) {
+    #####:   78:            columns_size.push_back(PADDING * 2 + strlen(data));
+    %%%%%:   78-block  0
+    $$$$$:   78-block  1
+    #####:   79:            build_up = true;
+    %%%%%:   79-block  0
+        -:   80:        }
+       44:   81:        if (((int)columns_size[i] - (int)strlen(data)) < MIN_PADDING * 2) resize(i, strlen(data) + MIN_PADDING * 2);
+       44:   81-block  0
+        8:   81-block  1
+       44:   82:        int padding = columns_size[i] - strlen(data);
+       44:   82-block  0
+        -:   83:
+      289:   84:        for (size_t j = 0; j < padding / 2; ++j)
+      289:   84-block  0
+      245:   84-block  1
+      245:   85:            row_data += " ";
+      245:   85-block  0
+       44:   86:        row_data += std::string(data);
+       44:   86-block  0
+       44:   86-block  1
+       44:   86-block  2
+    $$$$$:   86-block  3
+    $$$$$:   86-block  4
+    $$$$$:   86-block  5
+    $$$$$:   86-block  6
+      309:   87:        for (size_t j = 0; j < padding / 2 + padding % 2; ++j)
+      309:   87-block  0
+      265:   87-block  1
+      265:   88:            row_data += " ";
+      265:   88-block  0
+       44:   89:        row_data += "|";
+       44:   89-block  0
+        -:   90:    }
+        -:   91:
+      16*:   92:    if (build_up) rows.push_back(buildRowDelimitator("-"));
+       16:   92-block  0
+    %%%%%:   92-block  1
+    %%%%%:   92-block  2
+    %%%%%:   92-block  3
+    %%%%%:   92-block  4
+    $$$$$:   92-block  5
+    $$$$$:   92-block  6
+    $$$$$:   92-block  7
+    $$$$$:   92-block  8
+    $$$$$:   92-block  9
+    $$$$$:   92-block 10
+       16:   93:    rows.push_back(row_data);
+       16:   93-block  0
+       16:   94:    rows.push_back(buildRowDelimitator("-"));
+       16:   94-block  0
+       16:   94-block  1
+       16:   94-block  2
+       16:   94-block  3
+    $$$$$:   94-block  4
+    $$$$$:   94-block  5
+    $$$$$:   94-block  6
+    $$$$$:   94-block  7
+    $$$$$:   94-block  8
+    $$$$$:   94-block  9
+        -:   95:
+       16:   96:    rows_no++;
+       16:   97:    va_end(args);
+        -:   98:
+       16:   99:    return 0;
+        -:  100:}
+        -:  101:
+        8:  102:void TextTable::resize(size_t column, size_t size) {
+       38:  103:    for (size_t i = 0; i < rows_no; ++i) {
+        8:  103-block  0
+       38:  103-block  1
+       60:  104:        std::string row_data = rows[2 * i + 1].substr(0, getPartialWidth(column));
+       30:  104-block  0
+    $$$$$:  104-block  1
+       60:  105:        std::string cell_data = getCellData(i, column);
+       30:  105-block  0
+       30:  105-block  1
+    $$$$$:  105-block  2
+        -:  106:
+       30:  107:        int padding = size - cell_data.size();
+       30:  107-block  0
+      406:  108:        for (size_t j = 0; j < padding / 2; ++j)
+      406:  108-block  0
+      376:  108-block  1
+      376:  109:            row_data += " ";
+      376:  109-block  0
+       30:  110:        row_data += cell_data;
+       30:  110-block  0
+      421:  111:        for (size_t j = 0; j < padding / 2 + padding % 2; ++j)
+       30:  111-block  0
+      421:  111-block  1
+      391:  111-block  2
+      391:  112:            row_data += " ";
+      391:  112-block  0
+       30:  113:        row_data += "|";
+       30:  113-block  0
+        -:  114:
+       30:  115:        row_data += rows[2 * i + 1].substr(getPartialWidth(column + 1));
+       30:  115-block  0
+       30:  115-block  1
+       30:  115-block  2
+    $$$$$:  115-block  3
+    $$$$$:  115-block  4
+       30:  116:        rows[2 * i + 1] = row_data;
+        -:  117:    }
+        8:  118:    columns_size[column] = size;
+        8:  118-block  0
+        -:  119:
+        8:  120:    rows[0] = buildRowDelimitator("-");
+        8:  120-block  0
+        8:  120-block  1
+    $$$$$:  120-block  2
+    $$$$$:  120-block  3
+    $$$$$:  120-block  4
+    $$$$$:  120-block  5
+       38:  121:    for (size_t i = 0; i < rows_no; ++i)
+       38:  121-block  0
+       30:  122:        rows[2 * i + 2] = buildRowDelimitator("-");
+       30:  122-block  0
+       30:  122-block  1
+       30:  122-block  2
+    $$$$$:  122-block  3
+    $$$$$:  122-block  4
+    $$$$$:  122-block  5
+    $$$$$:  122-block  6
+        8:  123:    if (header) rows[2] = buildRowDelimitator("=");
+        8:  123-block  0
+        8:  123-block  1
+        8:  123-block  2
+        8:  123-block  3
+    $$$$$:  123-block  4
+    $$$$$:  123-block  5
+    $$$$$:  123-block  6
+        8:  124:}
+        8:  124-block  0
+        -:  125:
+       39:  126:std::string TextTable::getCellData(int row, int column) {
+       39:  127:    int found_nonspace = 0;
+       39:  128:    bool found = false;
+        -:  129:
+       39:  130:    size_t partial_width = getPartialWidth(column);
+       39:  130-block  0
+       39:  131:    std::string data = "";
+    $$$$$:  131-block  0
+        -:  132:
+      779:  133:    for (size_t i = partial_width; i < partial_width + columns_size[column]; ++i) {
+      779:  133-block  0
+      740:  133-block  1
+      740:  134:        data += rows[2 * row + 1][i];
+      740:  134-block  0
+      740:  134-block  1
+      740:  135:        if (data[i - partial_width] != ' ' && !found) {
+      740:  135-block  0
+      740:  135-block  1
+      189:  135-block  2
+       35:  135-block  3
+      705:  135-block  4
+      740:  135-block  5
+       35:  136:            found_nonspace = i - partial_width;
+       35:  137:            found = true;
+       35:  137-block  0
+        -:  138:        }
+        -:  139:    }
+       39:  140:    data.erase(data.begin(), data.begin() + found_nonspace);
+       39:  140-block  0
+    $$$$$:  140-block  1
+    $$$$$:  140-block  2
+    $$$$$:  140-block  3
+    $$$$$:  140-block  4
+    $$$$$:  140-block  5
+        -:  141:
+       39:  142:    for (size_t i = data.size() - 1; i >= 0; --i)
+       39:  142-block  0
+      340:  143:        if (data[i] != ' ') {
+      340:  143-block  0
+      340:  143-block  1
+      301:  143-block  2
+       39:  144:            found_nonspace = i;
+       39:  145:            break;
+       39:  145-block  0
+        -:  146:        }
+        -:  147:
+       39:  148:    data.erase(data.begin() + found_nonspace + 1, data.end());
+       39:  148-block  0
+    $$$$$:  148-block  1
+    $$$$$:  148-block  2
+    $$$$$:  148-block  3
+    $$$$$:  148-block  4
+    $$$$$:  148-block  5
+    $$$$$:  148-block  6
+       39:  149:    return data;
+       39:  149-block  0
+       39:  149-block  1
+        -:  150:}
+        -:  151:
+    #####:  152:size_t TextTable::getWidth() const {
+    #####:  153:    size_t width = columns_no + 1;
+    #####:  154:    for (size_t i = 0; i < columns_no; ++i)
+    %%%%%:  154-block  0
+    %%%%%:  154-block  1
+    #####:  155:        width += columns_size[i];
+    %%%%%:  155-block  0
+    #####:  156:    return width;
+    %%%%%:  156-block  0
+        -:  157:}

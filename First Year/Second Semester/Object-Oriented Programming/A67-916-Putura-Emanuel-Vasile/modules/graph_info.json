@@ -1,0 +1,94 @@
+{
+ "options": [
+  [
+   "sqlite3:build_executable",
+   "True"
+  ],
+  [
+   "sqlite3:disable_gethostuuid",
+   "False"
+  ],
+  [
+   "sqlite3:enable_column_metadata",
+   "True"
+  ],
+  [
+   "sqlite3:enable_dbstat_vtab",
+   "False"
+  ],
+  [
+   "sqlite3:enable_default_secure_delete",
+   "False"
+  ],
+  [
+   "sqlite3:enable_explain_comments",
+   "False"
+  ],
+  [
+   "sqlite3:enable_fts3",
+   "False"
+  ],
+  [
+   "sqlite3:enable_fts3_parenthesis",
+   "False"
+  ],
+  [
+   "sqlite3:enable_fts4",
+   "False"
+  ],
+  [
+   "sqlite3:enable_fts5",
+   "False"
+  ],
+  [
+   "sqlite3:enable_json1",
+   "False"
+  ],
+  [
+   "sqlite3:enable_math_functions",
+   "True"
+  ],
+  [
+   "sqlite3:enable_preupdate_hook",
+   "False"
+  ],
+  [
+   "sqlite3:enable_rtree",
+   "True"
+  ],
+  [
+   "sqlite3:enable_soundex",
+   "False"
+  ],
+  [
+   "sqlite3:enable_unlock_notify",
+   "True"
+  ],
+  [
+   "sqlite3:max_blob_size",
+   "1000000000"
+  ],
+  [
+   "sqlite3:omit_load_extension",
+   "False"
+  ],
+  [
+   "sqlite3:shared",
+   "False"
+  ],
+  [
+   "sqlite3:threadsafe",
+   "1"
+  ],
+  [
+   "sqlite3:use_alloca",
+   "False"
+  ]
+ ],
+ "root": {
+  "name": null,
+  "version": null,
+  "user": null,
+  "channel": null
+ }
+}

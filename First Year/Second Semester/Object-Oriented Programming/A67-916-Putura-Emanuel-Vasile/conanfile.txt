@@ -1,0 +1,9 @@
+[requires]
+sqlite3/3.35.4
+
+[generators]
+cmake_find_package
+
+[imports]
+bin, *.dll -> ./bin # Copies all dll files from the package "bin" folder to my project "bin" folder
+lib, *.dylib* -> ./bin # Copies all dylib files from the package "lib" folder to my project "bin" folder

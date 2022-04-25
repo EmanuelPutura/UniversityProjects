@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir/objects.a
+C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\ar.exe cr CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir/objects.a @CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\objects1.rsp
+C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE --coverage -g   -Wl,--whole-archive CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir/objects.a -Wl,--no-whole-archive  -o a45_916_Putura_Emanuel_Vasile.exe -Wl,--out-implib,liba45_916_Putura_Emanuel_Vasile.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\linklibs.rsp

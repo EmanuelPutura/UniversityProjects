@@ -1,0 +1,4 @@
+ToolSet: w64 6.0 (local)@C:\Program Files (x86)\mingw-w64\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32
+Options: 
+
+Options:-DCMAKE_MODULE_PATH:FILEPATH=D:\Informatica\UBB Sem. 2\OOP\a67-916-Putura-Emanuel-Vasile\modules

@@ -1,0 +1,1484 @@
+        -:    0:Source:D:/Informatica/UBB Sem. 2/OOP/a45-916-Putura-Emanuel-Vasile/testing/TestAll.cpp
+        -:    0:Graph:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\testing\TestAll.cpp.gcno
+        -:    0:Data:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\testing\TestAll.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Emanuel on 20.03.2021.
+        -:    3://
+        -:    4:
+        -:    5:#include "TestAll.h"
+        -:    6:#include "../domain/DynamicVector/DynamicVector.h"
+        -:    7:#include "../domain/TrenchCoat/TrenchCoat.h"
+        -:    8:#include "../infrastructure/CoatsRepository/CoatsRepository.h"
+        -:    9:#include "../validation/CoatValidator.h"
+        -:   10:#include "../business/CoatsService.h"
+        -:   11:
+        -:   12:#include <iostream>
+        -:   13:#include <cassert>
+        -:   14:#include <string>
+        -:   15:#include <sstream>
+        -:   16:
+        1:   17:void Testing::TestAll::testAll() const {
+        1:   18:    testDomain();
+        1:   18-block  0
+        1:   19:    testInfrastucture();
+        1:   20:    testValidation();
+        1:   21:    testBusiness();
+        1:   22:}
+        -:   23:
+        1:   24:void Testing::TestAll::testDomain() const {
+        1:   25:    testDynamicVector();
+        1:   25-block  0
+        1:   26:    testTrenchCoat();
+        1:   27:}
+        -:   28:
+        1:   29:void Testing::TestAll::testDynamicVector() const {
+        2:   30:    DynamicVector<int> v1;
+        1:   30-block  0
+    $$$$$:   30-block  1
+        -:   31:
+        -:   32:    // test getters
+       1*:   33:    assert(v1.getCapacity() == 100);
+        1:   33-block  0
+    %%%%%:   33-block  1
+        1:   33-block  2
+    %%%%%:   33-block  3
+       1*:   34:    assert(v1.getLength() == 0);
+        1:   34-block  0
+    %%%%%:   34-block  1
+        1:   34-block  2
+    %%%%%:   34-block  3
+        -:   35:
+        -:   36:    // test push operation
+       11:   37:    for (size_t i = 0; i < 10; ++i) {
+        1:   37-block  0
+       11:   37-block  1
+       10:   37-block  2
+       10:   38:        (i % 2) ? v1.push(i * 10) : v1.push(i * 5);
+       10:   38-block  0
+        5:   38-block  1
+        5:   38-block  2
+    $$$$$:   38-block  3
+    $$$$$:   38-block  4
+      10*:   39:        (i % 2) ? assert(v1[i] == i * 10) : assert(v1[i] == i * 5);
+       10:   39-block  0
+        5:   39-block  1
+    %%%%%:   39-block  2
+        5:   39-block  3
+    %%%%%:   39-block  4
+        5:   39-block  5
+    %%%%%:   39-block  6
+        5:   39-block  7
+    %%%%%:   39-block  8
+        -:   40:    }
+       1*:   41:    assert(v1.getLength() == 10);
+        1:   41-block  0
+    %%%%%:   41-block  1
+        1:   41-block  2
+    %%%%%:   41-block  3
+        -:   42:
+        -:   43:    // test data after a resize operation
+        1:   44:    v1.resize();
+        1:   44-block  0
+       11:   45:    for (size_t i = 0; i < 10; ++i)
+        1:   45-block  0
+       11:   45-block  1
+       10:   45-block  2
+      10*:   46:        (i % 2) ? assert(v1[i] == i * 10) : assert(v1[i] == i * 5);
+       10:   46-block  0
+        5:   46-block  1
+    %%%%%:   46-block  2
+        5:   46-block  3
+    %%%%%:   46-block  4
+        5:   46-block  5
+    %%%%%:   46-block  6
+        5:   46-block  7
+    %%%%%:   46-block  8
+       1*:   47:    assert(v1.getCapacity() == 200); // capacity should have doubled
+        1:   47-block  0
+    %%%%%:   47-block  1
+        1:   47-block  2
+    %%%%%:   47-block  3
+        -:   48:
+        -:   49:    // test [] operator
+       11:   50:    for (size_t i = 0; i < 10; ++i) {
+        1:   50-block  0
+       11:   50-block  1
+       10:   50-block  2
+       10:   51:        v1[i] = i * 10;
+       10:   51-block  0
+      10*:   52:        assert(v1[i] == i * 10);
+    %%%%%:   52-block  0
+       10:   52-block  1
+    %%%%%:   52-block  2
+        -:   53:    }
+        -:   54:
+        -:   55:    // test getData operation
+       11:   56:    for (size_t i = 0; i < 10; ++i)
+        1:   56-block  0
+       11:   56-block  1
+       10:   56-block  2
+      10*:   57:        assert(v1.getData()[i] == i * 10);
+       10:   57-block  0
+    %%%%%:   57-block  1
+       10:   57-block  2
+    %%%%%:   57-block  3
+        -:   58:
+        -:   59:    // test remove operation
+        1:   60:    v1.remove(20);
+        1:   60-block  0
+    $$$$$:   60-block  1
+       1*:   61:    assert(v1.getLength() == 9);
+        1:   61-block  0
+    %%%%%:   61-block  1
+        1:   61-block  2
+    %%%%%:   61-block  3
+        1:   62:    v1.remove(90);
+        1:   62-block  0
+    $$$$$:   62-block  1
+       1*:   63:    assert(v1.getLength() == 8);
+        1:   63-block  0
+    %%%%%:   63-block  1
+        1:   63-block  2
+    %%%%%:   63-block  3
+        1:   64:    v1.remove(0);
+        1:   64-block  0
+    $$$$$:   64-block  1
+       1*:   65:    assert(v1.getLength() == 7);
+        1:   65-block  0
+    %%%%%:   65-block  1
+        1:   65-block  2
+    %%%%%:   65-block  3
+        -:   66:
+        8:   67:    for (size_t i = 0; i < v1.getLength(); ++i)
+        1:   67-block  0
+        8:   67-block  1
+        7:   67-block  2
+       7*:   68:        assert((v1[i] != 20) && (v1[i] != 0) && (v1[i] != 90));
+        7:   68-block  0
+        7:   68-block  1
+        7:   68-block  2
+    %%%%%:   68-block  3
+        7:   68-block  4
+    %%%%%:   68-block  5
+        -:   69:
+        -:   70:    // test get index operation
+       1*:   71:    assert(v1.getIndex(10) == 0);
+        1:   71-block  0
+    %%%%%:   71-block  1
+        1:   71-block  2
+    %%%%%:   71-block  3
+    $$$$$:   71-block  4
+       1*:   72:    assert(v1.getIndex(0) == -1);
+        1:   72-block  0
+    %%%%%:   72-block  1
+        1:   72-block  2
+    %%%%%:   72-block  3
+    $$$$$:   72-block  4
+        -:   73:
+        -:   74:    // assert resize operation done automatically
+        2:   75:    DynamicVector<std::string> v2{2};
+        1:   75-block  0
+    $$$$$:   75-block  1
+       1*:   76:    assert(v2.getCapacity() == 2);
+        1:   76-block  0
+    %%%%%:   76-block  1
+        1:   76-block  2
+    %%%%%:   76-block  3
+        -:   77:
+        1:   78:    v2.push("Emmanuel");
+        1:   78-block  0
+        1:   78-block  1
+        1:   78-block  2
+    $$$$$:   78-block  3
+    $$$$$:   78-block  4
+    $$$$$:   78-block  5
+    $$$$$:   78-block  6
+        1:   79:    v2.push("Nicole");
+        1:   79-block  0
+        1:   79-block  1
+    $$$$$:   79-block  2
+    $$$$$:   79-block  3
+    $$$$$:   79-block  4
+    $$$$$:   79-block  5
+        -:   80:
+       1*:   81:    assert(v2[0] == "Emmanuel");
+    %%%%%:   81-block  0
+        1:   81-block  1
+    %%%%%:   81-block  2
+       1*:   82:    assert(v2[1] == "Nicole");
+        1:   82-block  0
+    %%%%%:   82-block  1
+        1:   82-block  2
+    %%%%%:   82-block  3
+        -:   83:
+        1:   84:    v2.push("Monique"); // resize will happen now
+        1:   84-block  0
+        1:   84-block  1
+        1:   84-block  2
+    $$$$$:   84-block  3
+    $$$$$:   84-block  4
+    $$$$$:   84-block  5
+    $$$$$:   84-block  6
+       1*:   85:    assert(v2[2] == "Monique");
+    %%%%%:   85-block  0
+        1:   85-block  1
+    %%%%%:   85-block  2
+       1*:   86:    assert(v2.getLength() == 3);
+        1:   86-block  0
+    %%%%%:   86-block  1
+        1:   86-block  2
+    %%%%%:   86-block  3
+       1*:   87:    assert(v2.getCapacity() == 4); // the capacity should have doubled
+        1:   87-block  0
+    %%%%%:   87-block  1
+        1:   87-block  2
+    %%%%%:   87-block  3
+        -:   88:
+        -:   89:    // test the copy constructor
+        2:   90:    DynamicVector<int> v3;
+        1:   90-block  0
+    $$$$$:   90-block  1
+       11:   91:    for (size_t i = 0; i < 10; ++i)
+        1:   91-block  0
+       11:   91-block  1
+       10:   92:        v3.push(i * 10);
+       10:   92-block  0
+       10:   92-block  1
+    $$$$$:   92-block  2
+        -:   93:
+        2:   94:    DynamicVector<int> v4 = v3; // copy constructor call
+        1:   94-block  0
+        1:   94-block  1
+    $$$$$:   94-block  2
+       1*:   95:    assert(10 == v4.getLength());
+        1:   95-block  0
+    %%%%%:   95-block  1
+        1:   95-block  2
+    %%%%%:   95-block  3
+       1*:   96:    assert(100 == v4.getCapacity());
+        1:   96-block  0
+    %%%%%:   96-block  1
+        1:   96-block  2
+    %%%%%:   96-block  3
+        -:   97:
+       11:   98:    for (size_t i = 0; i < 10; ++i)
+        1:   98-block  0
+       11:   98-block  1
+       10:   98-block  2
+      10*:   99:        assert(v3[i] == v4[i]);
+       10:   99-block  0
+    %%%%%:   99-block  1
+       10:   99-block  2
+    %%%%%:   99-block  3
+        1:  100:}
+        -:  101:
+        1:  102:void Testing::TestAll::testTrenchCoat() const {
+        3:  103:    TrenchCoat t1;
+        1:  103-block  0
+        1:  103-block  1
+        1:  103-block  2
+        1:  103-block  3
+    $$$$$:  103-block  4
+    $$$$$:  103-block  5
+    $$$$$:  103-block  6
+    $$$$$:  103-block  7
+    $$$$$:  103-block  8
+    $$$$$:  103-block  9
+    $$$$$:  103-block 10
+        -:  104:
+        -:  105:    // test default constructor and getters
+       1*:  106:    assert(t1.getSize() == "");
+    %%%%%:  106-block  0
+        1:  106-block  1
+    %%%%%:  106-block  2
+       1*:  107:    assert(t1.getColour() == "");
+        1:  107-block  0
+    %%%%%:  107-block  1
+        1:  107-block  2
+    %%%%%:  107-block  3
+       1*:  108:    assert(t1.getPrice() == 0);
+        1:  108-block  0
+    %%%%%:  108-block  1
+        1:  108-block  2
+    %%%%%:  108-block  3
+       1*:  109:    assert(t1.getQuantity() == 0);
+        1:  109-block  0
+    %%%%%:  109-block  1
+        1:  109-block  2
+    %%%%%:  109-block  3
+       1*:  110:    assert(t1.getPhotograph() == "");
+        1:  110-block  0
+    %%%%%:  110-block  1
+        1:  110-block  2
+    %%%%%:  110-block  3
+        -:  111:
+        -:  112:    // test getters
+        3:  113:    TrenchCoat t2 {"XS", "black", 400, 10, "photograph ..."};
+        1:  113-block  0
+        1:  113-block  1
+        1:  113-block  2
+        1:  113-block  3
+    $$$$$:  113-block  4
+    $$$$$:  113-block  5
+    $$$$$:  113-block  6
+    $$$$$:  113-block  7
+    $$$$$:  113-block  8
+    $$$$$:  113-block  9
+    $$$$$:  113-block 10
+       1*:  114:    assert(t2.getSize() == "XS");
+    %%%%%:  114-block  0
+        1:  114-block  1
+    %%%%%:  114-block  2
+       1*:  115:    assert(t2.getColour() == "black");
+        1:  115-block  0
+    %%%%%:  115-block  1
+        1:  115-block  2
+    %%%%%:  115-block  3
+       1*:  116:    assert(t2.getPrice() == 400);
+        1:  116-block  0
+    %%%%%:  116-block  1
+        1:  116-block  2
+    %%%%%:  116-block  3
+       1*:  117:    assert(t2.getQuantity() == 10);
+        1:  117-block  0
+    %%%%%:  117-block  1
+        1:  117-block  2
+    %%%%%:  117-block  3
+       1*:  118:    assert(t2.getPhotograph() == "photograph ...");
+        1:  118-block  0
+    %%%%%:  118-block  1
+        1:  118-block  2
+    %%%%%:  118-block  3
+        -:  119:
+        -:  120:    // test << operator
+        2:  121:    std::stringbuf buffer; // use a buffer to store the output
+        1:  121-block  0
+    $$$$$:  121-block  1
+        2:  122:    std::ostream os (&buffer);
+        1:  122-block  0
+    $$$$$:  122-block  1
+        1:  123:    os << t2; // store the output in the buffer
+        1:  123-block  0
+       1*:  124:    assert(buffer.str() == "XS/black/400/10/photograph ...");
+        1:  124-block  0
+        1:  124-block  1
+    %%%%%:  124-block  2
+        1:  124-block  3
+    %%%%%:  124-block  4
+        1:  124-block  5
+        1:  124-block  6
+    $$$$$:  124-block  7
+    $$$$$:  124-block  8
+    $$$$$:  124-block  9
+        -:  125:
+        -:  126:    // test == operator
+        3:  127:    TrenchCoat t3 {"XS", "black", 400, 10, "photograph ..."};
+        1:  127-block  0
+        1:  127-block  1
+        1:  127-block  2
+        1:  127-block  3
+        1:  127-block  4
+    $$$$$:  127-block  5
+    $$$$$:  127-block  6
+    $$$$$:  127-block  7
+    $$$$$:  127-block  8
+    $$$$$:  127-block  9
+    $$$$$:  127-block 10
+    $$$$$:  127-block 11
+       1*:  128:    assert(t2 == t3);
+        1:  128-block  0
+    %%%%%:  128-block  1
+        1:  128-block  2
+    %%%%%:  128-block  3
+        1:  129:}
+        -:  130:
+        1:  131:void Testing::TestAll::testInfrastucture() const {
+        1:  132:    testCoatsRepository();
+        1:  132-block  0
+        1:  133:}
+        -:  134:
+        1:  135:void Testing::TestAll::testCoatsRepository() const {
+        2:  136:    CoatsRepository r;
+        1:  136-block  0
+        1:  136-block  1
+    $$$$$:  136-block  2
+       12:  137:    std::string colours[] = {"black", "red", "yellow", "blue", "white", "green", "blue", "gray", "white", "white"};
+        1:  137-block  0
+        1:  137-block  1
+        1:  137-block  2
+        1:  137-block  3
+        1:  137-block  4
+        1:  137-block  5
+        1:  137-block  6
+        1:  137-block  7
+        1:  137-block  8
+        1:  137-block  9
+        1:  137-block 10
+        1:  137-block 11
+       11:  137-block 12
+       10:  137-block 13
+    $$$$$:  137-block 14
+    $$$$$:  137-block 15
+    $$$$$:  137-block 16
+    $$$$$:  137-block 17
+    $$$$$:  137-block 18
+    $$$$$:  137-block 19
+    $$$$$:  137-block 20
+    $$$$$:  137-block 21
+    $$$$$:  137-block 22
+    $$$$$:  137-block 23
+    $$$$$:  137-block 24
+    $$$$$:  137-block 25
+    $$$$$:  137-block 26
+    $$$$$:  137-block 27
+    $$$$$:  137-block 28
+    $$$$$:  137-block 29
+    $$$$$:  137-block 30
+    $$$$$:  137-block 31
+    $$$$$:  137-block 32
+    $$$$$:  137-block 33
+    $$$$$:  137-block 34
+    $$$$$:  137-block 35
+    $$$$$:  137-block 36
+    $$$$$:  137-block 37
+    $$$$$:  137-block 38
+       12:  138:    std::string photographs[] = {"p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9", "p10"};
+        1:  138-block  0
+        1:  138-block  1
+        1:  138-block  2
+        1:  138-block  3
+        1:  138-block  4
+        1:  138-block  5
+        1:  138-block  6
+        1:  138-block  7
+        1:  138-block  8
+        1:  138-block  9
+       11:  138-block 10
+       10:  138-block 11
+    $$$$$:  138-block 12
+    $$$$$:  138-block 13
+    $$$$$:  138-block 14
+    $$$$$:  138-block 15
+    $$$$$:  138-block 16
+    $$$$$:  138-block 17
+    $$$$$:  138-block 18
+    $$$$$:  138-block 19
+    $$$$$:  138-block 20
+    $$$$$:  138-block 21
+    $$$$$:  138-block 22
+    $$$$$:  138-block 23
+    $$$$$:  138-block 24
+    $$$$$:  138-block 25
+    $$$$$:  138-block 26
+    $$$$$:  138-block 27
+    $$$$$:  138-block 28
+    $$$$$:  138-block 29
+    $$$$$:  138-block 30
+    $$$$$:  138-block 31
+    $$$$$:  138-block 32
+    $$$$$:  138-block 33
+    $$$$$:  138-block 34
+    $$$$$:  138-block 35
+    $$$$$:  138-block 36
+        -:  139:
+        -:  140:    // add some elements to the repository and test the add operation
+       11:  141:    for (size_t i = 0; i < 10; ++i) {
+       11:  141-block  0
+       10:  142:        r.add(TrenchCoat("M", colours[i], i * 7, i * 10, photographs[i]));
+       10:  142-block  0
+       10:  142-block  1
+       10:  142-block  2
+       10:  142-block  3
+    $$$$$:  142-block  4
+    $$$$$:  142-block  5
+    $$$$$:  142-block  6
+    $$$$$:  142-block  7
+    $$$$$:  142-block  8
+    $$$$$:  142-block  9
+      10*:  143:        assert(r[i] == TrenchCoat("M", colours[i], i * 7, i * 10, photographs[i]));
+       10:  143-block  0
+       10:  143-block  1
+       10:  143-block  2
+       10:  143-block  3
+    %%%%%:  143-block  4
+       10:  143-block  5
+    %%%%%:  143-block  6
+       10:  143-block  7
+       10:  143-block  8
+       10:  143-block  9
+       10:  143-block 10
+       10:  143-block 11
+       10:  143-block 12
+       10:  143-block 13
+    $$$$$:  143-block 14
+    $$$$$:  143-block 15
+    $$$$$:  143-block 16
+    $$$$$:  143-block 17
+    $$$$$:  143-block 18
+    $$$$$:  143-block 19
+    $$$$$:  143-block 20
+    $$$$$:  143-block 21
+    $$$$$:  143-block 22
+        -:  144:    }
+        -:  145:
+        -:  146:    // test update function
+       1*:  147:    assert(r.update(r.getData()[1], TrenchCoat("M", "purple")) == 1); // updated the element with index 1
+        1:  147-block  0
+        1:  147-block  1
+        1:  147-block  2
+        1:  147-block  3
+        1:  147-block  4
+        1:  147-block  5
+        1:  147-block  6
+    %%%%%:  147-block  7
+        1:  147-block  8
+    %%%%%:  147-block  9
+        1:  147-block 10
+        1:  147-block 11
+        1:  147-block 12
+        1:  147-block 13
+        1:  147-block 14
+        1:  147-block 15
+        1:  147-block 16
+        1:  147-block 17
+        1:  147-block 18
+        1:  147-block 19
+        1:  147-block 20
+        1:  147-block 21
+        1:  147-block 22
+        1:  147-block 23
+    $$$$$:  147-block 24
+    $$$$$:  147-block 25
+    $$$$$:  147-block 26
+    $$$$$:  147-block 27
+    $$$$$:  147-block 28
+    $$$$$:  147-block 29
+    $$$$$:  147-block 30
+    $$$$$:  147-block 31
+    $$$$$:  147-block 32
+    $$$$$:  147-block 33
+    $$$$$:  147-block 34
+    $$$$$:  147-block 35
+    $$$$$:  147-block 36
+    $$$$$:  147-block 37
+    $$$$$:  147-block 38
+    $$$$$:  147-block 39
+    $$$$$:  147-block 40
+    $$$$$:  147-block 41
+    $$$$$:  147-block 42
+    $$$$$:  147-block 43
+    $$$$$:  147-block 44
+       1*:  148:    assert(r.update(TrenchCoat(), TrenchCoat("M")) == -1); // no such element found
+        1:  148-block  0
+        1:  148-block  1
+        1:  148-block  2
+        1:  148-block  3
+        1:  148-block  4
+        1:  148-block  5
+        1:  148-block  6
+        1:  148-block  7
+        1:  148-block  8
+        1:  148-block  9
+    %%%%%:  148-block 10
+        1:  148-block 11
+    %%%%%:  148-block 12
+        1:  148-block 13
+        1:  148-block 14
+        1:  148-block 15
+        1:  148-block 16
+        1:  148-block 17
+        1:  148-block 18
+        1:  148-block 19
+        1:  148-block 20
+        1:  148-block 21
+        1:  148-block 22
+        1:  148-block 23
+        1:  148-block 24
+        1:  148-block 25
+        1:  148-block 26
+        1:  148-block 27
+        1:  148-block 28
+        1:  148-block 29
+        1:  148-block 30
+        1:  148-block 31
+        1:  148-block 32
+        1:  148-block 33
+        1:  148-block 34
+        1:  148-block 35
+        1:  148-block 36
+        1:  148-block 37
+        1:  148-block 38
+        1:  148-block 39
+        1:  148-block 40
+    $$$$$:  148-block 41
+    $$$$$:  148-block 42
+    $$$$$:  148-block 43
+    $$$$$:  148-block 44
+    $$$$$:  148-block 45
+    $$$$$:  148-block 46
+    $$$$$:  148-block 47
+    $$$$$:  148-block 48
+    $$$$$:  148-block 49
+    $$$$$:  148-block 50
+    $$$$$:  148-block 51
+    $$$$$:  148-block 52
+    $$$$$:  148-block 53
+    $$$$$:  148-block 54
+    $$$$$:  148-block 55
+    $$$$$:  148-block 56
+    $$$$$:  148-block 57
+    $$$$$:  148-block 58
+    $$$$$:  148-block 59
+    $$$$$:  148-block 60
+    $$$$$:  148-block 61
+    $$$$$:  148-block 62
+    $$$$$:  148-block 63
+    $$$$$:  148-block 64
+    $$$$$:  148-block 65
+    $$$$$:  148-block 66
+    $$$$$:  148-block 67
+    $$$$$:  148-block 68
+    $$$$$:  148-block 69
+    $$$$$:  148-block 70
+    $$$$$:  148-block 71
+    $$$$$:  148-block 72
+    $$$$$:  148-block 73
+    $$$$$:  148-block 74
+    $$$$$:  148-block 75
+    $$$$$:  148-block 76
+    $$$$$:  148-block 77
+    $$$$$:  148-block 78
+    $$$$$:  148-block 79
+    $$$$$:  148-block 80
+    $$$$$:  148-block 81
+    $$$$$:  148-block 82
+       1*:  149:    assert(r.getData()[1] == TrenchCoat("M", "purple"));
+        1:  149-block  0
+        1:  149-block  1
+        1:  149-block  2
+        1:  149-block  3
+        1:  149-block  4
+        1:  149-block  5
+        1:  149-block  6
+    %%%%%:  149-block  7
+        1:  149-block  8
+    %%%%%:  149-block  9
+        1:  149-block 10
+        1:  149-block 11
+        1:  149-block 12
+        1:  149-block 13
+        1:  149-block 14
+        1:  149-block 15
+        1:  149-block 16
+        1:  149-block 17
+        1:  149-block 18
+        1:  149-block 19
+        1:  149-block 20
+        1:  149-block 21
+        1:  149-block 22
+        1:  149-block 23
+    $$$$$:  149-block 24
+    $$$$$:  149-block 25
+    $$$$$:  149-block 26
+    $$$$$:  149-block 27
+    $$$$$:  149-block 28
+    $$$$$:  149-block 29
+    $$$$$:  149-block 30
+    $$$$$:  149-block 31
+    $$$$$:  149-block 32
+    $$$$$:  149-block 33
+    $$$$$:  149-block 34
+    $$$$$:  149-block 35
+    $$$$$:  149-block 36
+    $$$$$:  149-block 37
+    $$$$$:  149-block 38
+    $$$$$:  149-block 39
+    $$$$$:  149-block 40
+    $$$$$:  149-block 41
+    $$$$$:  149-block 42
+    $$$$$:  149-block 43
+    $$$$$:  149-block 44
+        -:  150:
+        -:  151:    // test getIndex from CoatsRepository
+        -:  152:
+       1*:  153:    assert(r.getIndex("M", "yellow", 14, "p3") == 2);
+        1:  153-block  0
+        1:  153-block  1
+        1:  153-block  2
+        1:  153-block  3
+        1:  153-block  4
+    %%%%%:  153-block  5
+        1:  153-block  6
+    %%%%%:  153-block  7
+        1:  153-block  8
+        1:  153-block  9
+        1:  153-block 10
+        1:  153-block 11
+        1:  153-block 12
+        1:  153-block 13
+        1:  153-block 14
+        1:  153-block 15
+        1:  153-block 16
+        1:  153-block 17
+        1:  153-block 18
+        1:  153-block 19
+    $$$$$:  153-block 20
+    $$$$$:  153-block 21
+    $$$$$:  153-block 22
+    $$$$$:  153-block 23
+    $$$$$:  153-block 24
+    $$$$$:  153-block 25
+    $$$$$:  153-block 26
+    $$$$$:  153-block 27
+    $$$$$:  153-block 28
+    $$$$$:  153-block 29
+    $$$$$:  153-block 30
+    $$$$$:  153-block 31
+    $$$$$:  153-block 32
+    $$$$$:  153-block 33
+    $$$$$:  153-block 34
+    $$$$$:  153-block 35
+    $$$$$:  153-block 36
+    $$$$$:  153-block 37
+       1*:  154:    assert(r.getIndex("M", "yellow", 10, "p2") == -1);
+        1:  154-block  0
+        1:  154-block  1
+        1:  154-block  2
+        1:  154-block  3
+        1:  154-block  4
+    %%%%%:  154-block  5
+        1:  154-block  6
+    %%%%%:  154-block  7
+        1:  154-block  8
+        1:  154-block  9
+        1:  154-block 10
+        1:  154-block 11
+        1:  154-block 12
+        1:  154-block 13
+        1:  154-block 14
+        1:  154-block 15
+        1:  154-block 16
+        1:  154-block 17
+        1:  154-block 18
+        1:  154-block 19
+        1:  154-block 20
+    $$$$$:  154-block 21
+    $$$$$:  154-block 22
+    $$$$$:  154-block 23
+    $$$$$:  154-block 24
+    $$$$$:  154-block 25
+    $$$$$:  154-block 26
+    $$$$$:  154-block 27
+    $$$$$:  154-block 28
+    $$$$$:  154-block 29
+    $$$$$:  154-block 30
+    $$$$$:  154-block 31
+    $$$$$:  154-block 32
+    $$$$$:  154-block 33
+    $$$$$:  154-block 34
+    $$$$$:  154-block 35
+    $$$$$:  154-block 36
+    $$$$$:  154-block 37
+    $$$$$:  154-block 38
+        1:  155:}
+        -:  156:
+        1:  157:void Testing::TestAll::testValidation() const {
+        1:  158:    testCoatValidator();
+        1:  158-block  0
+        1:  159:}
+        -:  160:
+        1:  161:void Testing::TestAll::testCoatValidator() const {
+        -:  162:    // test default cases for the coat validator
+        3:  163:    TrenchCoat t1 = TrenchCoat();
+        1:  163-block  0
+        1:  163-block  1
+        1:  163-block  2
+        1:  163-block  3
+    $$$$$:  163-block  4
+    $$$$$:  163-block  5
+    $$$$$:  163-block  6
+    $$$$$:  163-block  7
+    $$$$$:  163-block  8
+    $$$$$:  163-block  9
+    $$$$$:  163-block 10
+        1:  164:    CoatValidator v;
+    $$$$$:  164-block  0
+       1*:  165:    assert(!v.validate(t1));
+        1:  165-block  0
+    %%%%%:  165-block  1
+        1:  165-block  2
+    %%%%%:  165-block  3
+        1:  166:    t1 = TrenchCoat("M", "black", 2, 3, "photo");
+        1:  166-block  0
+        1:  166-block  1
+        1:  166-block  2
+        1:  166-block  3
+        1:  166-block  4
+    $$$$$:  166-block  5
+    $$$$$:  166-block  6
+    $$$$$:  166-block  7
+    $$$$$:  166-block  8
+    $$$$$:  166-block  9
+    $$$$$:  166-block 10
+    $$$$$:  166-block 11
+    $$$$$:  166-block 12
+    $$$$$:  166-block 13
+    $$$$$:  166-block 14
+    $$$$$:  166-block 15
+    $$$$$:  166-block 16
+       1*:  167:    assert(v.validate(t1));
+        1:  167-block  0
+    %%%%%:  167-block  1
+        1:  167-block  2
+    %%%%%:  167-block  3
+        -:  168:
+        -:  169:    // test errors message for the coat validator
+        1:  170:    t1 = TrenchCoat("XS", "black", 2, 3);
+        1:  170-block  0
+        1:  170-block  1
+        1:  170-block  2
+        1:  170-block  3
+        1:  170-block  4
+    $$$$$:  170-block  5
+    $$$$$:  170-block  6
+    $$$$$:  170-block  7
+    $$$$$:  170-block  8
+    $$$$$:  170-block  9
+    $$$$$:  170-block 10
+    $$$$$:  170-block 11
+    $$$$$:  170-block 12
+    $$$$$:  170-block 13
+    $$$$$:  170-block 14
+    $$$$$:  170-block 15
+    $$$$$:  170-block 16
+       1*:  171:    assert(!v.validate(t1));
+        1:  171-block  0
+    %%%%%:  171-block  1
+        1:  171-block  2
+    %%%%%:  171-block  3
+       1*:  172:    assert(v.getErrors() == "Invalid trench coat photograph.\n");
+        1:  172-block  0
+        1:  172-block  1
+    %%%%%:  172-block  2
+        1:  172-block  3
+    %%%%%:  172-block  4
+        1:  172-block  5
+        1:  172-block  6
+        1:  172-block  7
+    $$$$$:  172-block  8
+    $$$$$:  172-block  9
+    $$$$$:  172-block 10
+        1:  173:}
+        -:  174:
+        1:  175:void Testing::TestAll::testBusiness() const {
+        1:  176:    testCoatsService();
+        1:  176-block  0
+        1:  177:}
+        -:  178:
+        1:  179:void Testing::TestAll::testCoatsService() const {
+        2:  180:    CoatsRepository r, b;
+        1:  180-block  0
+        1:  180-block  1
+    $$$$$:  180-block  2
+    $$$$$:  180-block  3
+        2:  181:    CoatsService s {r, b};
+        1:  181-block  0
+    $$$$$:  181-block  1
+        -:  182:
+        -:  183:    // test service creation and getLength function
+       1*:  184:    assert(s.getLength() == 0);
+        1:  184-block  0
+    %%%%%:  184-block  1
+        1:  184-block  2
+    %%%%%:  184-block  3
+        -:  185:
+        -:  186:    // test add function
+        1:  187:    s.add("M", "black", 100, 20, "photo1");
+        1:  187-block  0
+        1:  187-block  1
+        1:  187-block  2
+        1:  187-block  3
+        1:  187-block  4
+    $$$$$:  187-block  5
+    $$$$$:  187-block  6
+    $$$$$:  187-block  7
+    $$$$$:  187-block  8
+    $$$$$:  187-block  9
+    $$$$$:  187-block 10
+    $$$$$:  187-block 11
+    $$$$$:  187-block 12
+    $$$$$:  187-block 13
+    $$$$$:  187-block 14
+    $$$$$:  187-block 15
+    $$$$$:  187-block 16
+       1*:  188:    assert(s.getLength() == 1);
+        1:  188-block  0
+    %%%%%:  188-block  1
+        1:  188-block  2
+    %%%%%:  188-block  3
+        -:  189:
+        -:  190:    // test << operator
+        2:  191:    std::stringbuf buffer;
+        1:  191-block  0
+    $$$$$:  191-block  1
+        2:  192:    std::ostream os (&buffer);
+        1:  192-block  0
+    $$$$$:  192-block  1
+        1:  193:    os << s;
+        1:  193-block  0
+        1:  193-block  1
+        1:  193-block  2
+    $$$$$:  193-block  3
+    $$$$$:  193-block  4
+       1*:  194:    assert (buffer.str() == std::string("M/black/100/20/photo1\n"));
+        1:  194-block  0
+        1:  194-block  1
+    %%%%%:  194-block  2
+        1:  194-block  3
+    %%%%%:  194-block  4
+        1:  194-block  5
+        1:  194-block  6
+        1:  194-block  7
+        1:  194-block  8
+        1:  194-block  9
+        1:  194-block 10
+    $$$$$:  194-block 11
+    $$$$$:  194-block 12
+    $$$$$:  194-block 13
+    $$$$$:  194-block 14
+    $$$$$:  194-block 15
+    $$$$$:  194-block 16
+    $$$$$:  194-block 17
+    $$$$$:  194-block 18
+    $$$$$:  194-block 19
+        -:  195:
+        -:  196:    // test getDataTextTable operation
+        2:  197:    TextTable table = s.getDataTextTable();
+        1:  197-block  0
+    $$$$$:  197-block  1
+       1*:  198:    assert(table.getCellData(1, 0) == "1");
+        1:  198-block  0
+        1:  198-block  1
+    %%%%%:  198-block  2
+        1:  198-block  3
+    %%%%%:  198-block  4
+        1:  198-block  5
+        1:  198-block  6
+    $$$$$:  198-block  7
+    $$$$$:  198-block  8
+    $$$$$:  198-block  9
+       1*:  199:    assert(table.getCellData(1, 1) == "M");
+        1:  199-block  0
+        1:  199-block  1
+    %%%%%:  199-block  2
+        1:  199-block  3
+    %%%%%:  199-block  4
+        1:  199-block  5
+        1:  199-block  6
+    $$$$$:  199-block  7
+    $$$$$:  199-block  8
+    $$$$$:  199-block  9
+       1*:  200:    assert(table.getCellData(1, 2) == "black");
+        1:  200-block  0
+        1:  200-block  1
+    %%%%%:  200-block  2
+        1:  200-block  3
+    %%%%%:  200-block  4
+        1:  200-block  5
+        1:  200-block  6
+    $$$$$:  200-block  7
+    $$$$$:  200-block  8
+    $$$$$:  200-block  9
+       1*:  201:    assert(table.getCellData(1, 3) == "$100");
+        1:  201-block  0
+        1:  201-block  1
+    %%%%%:  201-block  2
+        1:  201-block  3
+    %%%%%:  201-block  4
+        1:  201-block  5
+        1:  201-block  6
+    $$$$$:  201-block  7
+    $$$$$:  201-block  8
+    $$$$$:  201-block  9
+       1*:  202:    assert(table.getCellData(1, 4) == "20");
+        1:  202-block  0
+        1:  202-block  1
+    %%%%%:  202-block  2
+        1:  202-block  3
+    %%%%%:  202-block  4
+        1:  202-block  5
+        1:  202-block  6
+    $$$$$:  202-block  7
+    $$$$$:  202-block  8
+    $$$$$:  202-block  9
+       1*:  203:    assert(table.getCellData(1, 5) == "photo1");
+        1:  203-block  0
+        1:  203-block  1
+    %%%%%:  203-block  2
+        1:  203-block  3
+    %%%%%:  203-block  4
+        1:  203-block  5
+        1:  203-block  6
+    $$$$$:  203-block  7
+    $$$$$:  203-block  8
+    $$$$$:  203-block  9
+        -:  204:
+        -:  205:    // assert add exception
+        -:  206:    try {
+       7*:  207:        s.add("M", "black", 100, 200, "photo1");
+        1:  207-block  0
+        1:  207-block  1
+        1:  207-block  2
+        1:  207-block  3
+    %%%%%:  207-block  4
+        1:  207-block  5
+        1:  207-block  6
+        1:  207-block  7
+        1:  207-block  8
+        1:  207-block  9
+        1:  207-block 10
+        1:  207-block 11
+        1:  207-block 12
+        1:  207-block 13
+        1:  207-block 14
+        1:  207-block 15
+        1:  207-block 16
+    #####:  208:        assert(false);
+        -:  209:    }
+        2:  210:    catch (std::string error) {
+        1:  210-block  0
+        1:  210-block  1
+    $$$$$:  210-block  2
+    $$$$$:  210-block  3
+        1:  211:        assert(error == "The trench coat was already added.\n");
+    $$$$$:  211-block  0
+        1:  211-block  1
+    $$$$$:  211-block  2
+        -:  212:    }
+        -:  213:    // test exception throw for add function
+        -:  214:    try {
+       7*:  215:        s.add("", "black", 100, 20, "photo");
+        1:  215-block  0
+        1:  215-block  1
+        1:  215-block  2
+        1:  215-block  3
+    %%%%%:  215-block  4
+        1:  215-block  5
+        1:  215-block  6
+        1:  215-block  7
+        1:  215-block  8
+        1:  215-block  9
+        1:  215-block 10
+        1:  215-block 11
+        1:  215-block 12
+        1:  215-block 13
+        1:  215-block 14
+        1:  215-block 15
+        1:  215-block 16
+    #####:  216:        assert(false);
+        -:  217:    }
+        2:  218:    catch (std::string error) {
+        1:  218-block  0
+        1:  218-block  1
+    $$$$$:  218-block  2
+    $$$$$:  218-block  3
+        1:  219:        assert(error == "Invalid trench coat size.\n");
+    $$$$$:  219-block  0
+        1:  219-block  1
+    $$$$$:  219-block  2
+        -:  220:    }
+        -:  221:
+        1:  222:    s.add("XS", "gray", 500, 5, "photo2");
+        1:  222-block  0
+        1:  222-block  1
+        1:  222-block  2
+        1:  222-block  3
+        1:  222-block  4
+    $$$$$:  222-block  5
+    $$$$$:  222-block  6
+    $$$$$:  222-block  7
+    $$$$$:  222-block  8
+    $$$$$:  222-block  9
+    $$$$$:  222-block 10
+    $$$$$:  222-block 11
+    $$$$$:  222-block 12
+    $$$$$:  222-block 13
+    $$$$$:  222-block 14
+    $$$$$:  222-block 15
+    $$$$$:  222-block 16
+       1*:  223:    assert(s.getLength() == 2);
+        1:  223-block  0
+    %%%%%:  223-block  1
+        1:  223-block  2
+    %%%%%:  223-block  3
+        -:  224:
+        -:  225:    // test update function
+        1:  226:    s.update("M", "black", 100, "photo1", "L", "black", 200, 20, "photo1");
+        1:  226-block  0
+        1:  226-block  1
+        1:  226-block  2
+        1:  226-block  3
+        1:  226-block  4
+        1:  226-block  5
+        1:  226-block  6
+        1:  226-block  7
+    $$$$$:  226-block  8
+    $$$$$:  226-block  9
+    $$$$$:  226-block 10
+    $$$$$:  226-block 11
+    $$$$$:  226-block 12
+    $$$$$:  226-block 13
+    $$$$$:  226-block 14
+    $$$$$:  226-block 15
+    $$$$$:  226-block 16
+    $$$$$:  226-block 17
+    $$$$$:  226-block 18
+    $$$$$:  226-block 19
+    $$$$$:  226-block 20
+    $$$$$:  226-block 21
+    $$$$$:  226-block 22
+    $$$$$:  226-block 23
+    $$$$$:  226-block 24
+    $$$$$:  226-block 25
+    $$$$$:  226-block 26
+    $$$$$:  226-block 27
+    $$$$$:  226-block 28
+    $$$$$:  226-block 29
+    $$$$$:  226-block 30
+    $$$$$:  226-block 31
+       1*:  227:    assert(s.getLength() == 2);
+        1:  227-block  0
+    %%%%%:  227-block  1
+        1:  227-block  2
+    %%%%%:  227-block  3
+        1:  228:    s.update("L", "black", 200, "photo1", "L", "black", 300, 20, "photo1"); // should work fine
+        1:  228-block  0
+        1:  228-block  1
+        1:  228-block  2
+        1:  228-block  3
+        1:  228-block  4
+        1:  228-block  5
+        1:  228-block  6
+        1:  228-block  7
+    $$$$$:  228-block  8
+    $$$$$:  228-block  9
+    $$$$$:  228-block 10
+    $$$$$:  228-block 11
+    $$$$$:  228-block 12
+    $$$$$:  228-block 13
+    $$$$$:  228-block 14
+    $$$$$:  228-block 15
+    $$$$$:  228-block 16
+    $$$$$:  228-block 17
+    $$$$$:  228-block 18
+    $$$$$:  228-block 19
+    $$$$$:  228-block 20
+    $$$$$:  228-block 21
+    $$$$$:  228-block 22
+    $$$$$:  228-block 23
+    $$$$$:  228-block 24
+    $$$$$:  228-block 25
+    $$$$$:  228-block 26
+    $$$$$:  228-block 27
+    $$$$$:  228-block 28
+    $$$$$:  228-block 29
+    $$$$$:  228-block 30
+    $$$$$:  228-block 31
+        -:  229:
+        -:  230:    // test exception throw for update function
+        -:  231:    try {
+      13*:  232:        s.update("M", "black", 100, "photo1", "L", "black", 200, 20, "photo1");
+        1:  232-block  0
+        1:  232-block  1
+        1:  232-block  2
+        1:  232-block  3
+        1:  232-block  4
+        1:  232-block  5
+    %%%%%:  232-block  6
+        1:  232-block  7
+        1:  232-block  8
+        1:  232-block  9
+        1:  232-block 10
+        1:  232-block 11
+        1:  232-block 12
+        1:  232-block 13
+        1:  232-block 14
+        1:  232-block 15
+        1:  232-block 16
+        1:  232-block 17
+        1:  232-block 18
+        1:  232-block 19
+        1:  232-block 20
+        1:  232-block 21
+        1:  232-block 22
+        1:  232-block 23
+        1:  232-block 24
+        1:  232-block 25
+        1:  232-block 26
+        1:  232-block 27
+        1:  232-block 28
+        1:  232-block 29
+        1:  232-block 30
+    #####:  233:        assert(false);
+        -:  234:    }
+        2:  235:    catch (std::string error) {
+        1:  235-block  0
+        1:  235-block  1
+    $$$$$:  235-block  2
+    $$$$$:  235-block  3
+        1:  236:        assert(error == "No trench coats were found.\n");
+    $$$$$:  236-block  0
+        1:  236-block  1
+    $$$$$:  236-block  2
+        -:  237:    }
+        -:  238:
+        -:  239:    // test remove function
+        1:  240:    s.remove("L", "black", 300, "photo1");
+        1:  240-block  0
+        1:  240-block  1
+        1:  240-block  2
+        1:  240-block  3
+        1:  240-block  4
+    $$$$$:  240-block  5
+    $$$$$:  240-block  6
+    $$$$$:  240-block  7
+    $$$$$:  240-block  8
+    $$$$$:  240-block  9
+    $$$$$:  240-block 10
+    $$$$$:  240-block 11
+    $$$$$:  240-block 12
+    $$$$$:  240-block 13
+    $$$$$:  240-block 14
+    $$$$$:  240-block 15
+    $$$$$:  240-block 16
+       1*:  241:    assert(s.getLength() == 1);
+        1:  241-block  0
+    %%%%%:  241-block  1
+        1:  241-block  2
+    %%%%%:  241-block  3
+        -:  242:
+        -:  243:    // test exception throw for remove function
+        -:  244:    try {
+       7*:  245:        s.remove("L", "black", 300, "photo1");
+        1:  245-block  0
+        1:  245-block  1
+        1:  245-block  2
+        1:  245-block  3
+    %%%%%:  245-block  4
+        1:  245-block  5
+        1:  245-block  6
+        1:  245-block  7
+        1:  245-block  8
+        1:  245-block  9
+        1:  245-block 10
+        1:  245-block 11
+        1:  245-block 12
+        1:  245-block 13
+        1:  245-block 14
+        1:  245-block 15
+        1:  245-block 16
+    #####:  246:        assert(false);
+        -:  247:    }
+        2:  248:    catch (std::string error) {
+        1:  248-block  0
+        1:  248-block  1
+    $$$$$:  248-block  2
+    $$$$$:  248-block  3
+        1:  249:        assert(error == "No trench coats were found.\n");
+    $$$$$:  249-block  0
+        1:  249-block  1
+    $$$$$:  249-block  2
+        -:  250:    }
+        -:  251:
+        1:  252:    s.remove("XS", "gray", 500, "photo2");
+        1:  252-block  0
+        1:  252-block  1
+        1:  252-block  2
+        1:  252-block  3
+        1:  252-block  4
+    $$$$$:  252-block  5
+    $$$$$:  252-block  6
+    $$$$$:  252-block  7
+    $$$$$:  252-block  8
+    $$$$$:  252-block  9
+    $$$$$:  252-block 10
+    $$$$$:  252-block 11
+    $$$$$:  252-block 12
+    $$$$$:  252-block 13
+    $$$$$:  252-block 14
+    $$$$$:  252-block 15
+    $$$$$:  252-block 16
+       1*:  253:    assert(s.getLength() == 0);
+        1:  253-block  0
+    %%%%%:  253-block  1
+        1:  253-block  2
+    %%%%%:  253-block  3
+        -:  254:
+        1:  255:    s.addDefault();
+        1:  255-block  0
+       1*:  256:    assert(s.getLength() == 10);
+        1:  256-block  0
+        1:  256-block  1
+    %%%%%:  256-block  2
+        1:  256-block  3
+    %%%%%:  256-block  4
+        -:  257:
+       1*:  258:    assert(s.filterDataPerSize("M").size() == 1);
+        1:  258-block  0
+        1:  258-block  1
+        1:  258-block  2
+    %%%%%:  258-block  3
+        1:  258-block  4
+    %%%%%:  258-block  5
+        1:  258-block  6
+        1:  258-block  7
+        1:  258-block  8
+        1:  258-block  9
+        1:  258-block 10
+        1:  258-block 11
+    $$$$$:  258-block 12
+    $$$$$:  258-block 13
+    $$$$$:  258-block 14
+    $$$$$:  258-block 15
+    $$$$$:  258-block 16
+    $$$$$:  258-block 17
+    $$$$$:  258-block 18
+    $$$$$:  258-block 19
+    $$$$$:  258-block 20
+       1*:  259:    assert(s.getCoatsPerSizeLength("M") == 1);
+        1:  259-block  0
+        1:  259-block  1
+        1:  259-block  2
+    %%%%%:  259-block  3
+        1:  259-block  4
+    %%%%%:  259-block  5
+        1:  259-block  6
+        1:  259-block  7
+        1:  259-block  8
+        1:  259-block  9
+    $$$$$:  259-block 10
+    $$$$$:  259-block 11
+    $$$$$:  259-block 12
+    $$$$$:  259-block 13
+    $$$$$:  259-block 14
+    $$$$$:  259-block 15
+        1:  260:    s.addToShoppingBasket(2, "");
+        1:  260-block  0
+        1:  260-block  1
+        1:  260-block  2
+    $$$$$:  260-block  3
+    $$$$$:  260-block  4
+    $$$$$:  260-block  5
+    $$$$$:  260-block  6
+    $$$$$:  260-block  7
+       1*:  261:    assert(s.getPayment() == 1000);
+    %%%%%:  261-block  0
+        1:  261-block  1
+    %%%%%:  261-block  2
+        1:  262:    s.addToShoppingBasket(2, "");
+        1:  262-block  0
+        1:  262-block  1
+        1:  262-block  2
+    $$$$$:  262-block  3
+    $$$$$:  262-block  4
+    $$$$$:  262-block  5
+    $$$$$:  262-block  6
+    $$$$$:  262-block  7
+       1*:  263:    assert(s.getPayment() == 2000);
+    %%%%%:  263-block  0
+        1:  263-block  1
+    %%%%%:  263-block  2
+        1:  264:    s.addToShoppingBasket(8, "");
+        1:  264-block  0
+        1:  264-block  1
+        1:  264-block  2
+    $$$$$:  264-block  3
+    $$$$$:  264-block  4
+    $$$$$:  264-block  5
+    $$$$$:  264-block  6
+    $$$$$:  264-block  7
+       1*:  265:    assert(s.getPayment() == 2200);
+    %%%%%:  265-block  0
+        1:  265-block  1
+    %%%%%:  265-block  2
+        -:  266:
+        3:  267:    auto tb = s.getSingleCoatPerSizeTextTable(2, "");
+        1:  267-block  0
+        1:  267-block  1
+    $$$$$:  267-block  2
+    $$$$$:  267-block  3
+    $$$$$:  267-block  4
+       1*:  268:    assert(tb.getCellData(1, 1) == "XS");
+        1:  268-block  0
+    %%%%%:  268-block  1
+        1:  268-block  2
+    %%%%%:  268-block  3
+        1:  268-block  4
+        1:  268-block  5
+    $$$$$:  268-block  6
+    $$$$$:  268-block  7
+    $$$$$:  268-block  8
+        -:  269:
+        2:  270:    auto tbl = s.getShoppingBasket();
+        1:  270-block  0
+    $$$$$:  270-block  1
+       1*:  271:    assert(tbl.getRowsNo() == 3);
+        1:  271-block  0
+    %%%%%:  271-block  1
+        1:  271-block  2
+    %%%%%:  271-block  3
+       1*:  272:    assert(tbl.getCellData(1, 1) == "XS");
+        1:  272-block  0
+        1:  272-block  1
+    %%%%%:  272-block  2
+        1:  272-block  3
+    %%%%%:  272-block  4
+        1:  272-block  5
+        1:  272-block  6
+    $$$$$:  272-block  7
+    $$$$$:  272-block  8
+    $$$$$:  272-block  9
+        -:  273:
+        1:  274:    auto tbl2 = s.getSingleCoatTextTable(0);
+        1:  274-block  0
+    $$$$$:  274-block  1
+       1*:  275:    assert(tbl2.getCellData(1, 1) == "3XS");
+        1:  275-block  0
+        1:  275-block  1
+    %%%%%:  275-block  2
+        1:  275-block  3
+    %%%%%:  275-block  4
+        1:  275-block  5
+        1:  275-block  6
+    $$$$$:  275-block  7
+    $$$$$:  275-block  8
+    $$$$$:  275-block  9
+        -:  276:
+        1:  277:    s.add("M", "black", 100, 200, "a");
+        1:  277-block  0
+        1:  277-block  1
+        1:  277-block  2
+        1:  277-block  3
+        1:  277-block  4
+    $$$$$:  277-block  5
+    $$$$$:  277-block  6
+    $$$$$:  277-block  7
+    $$$$$:  277-block  8
+    $$$$$:  277-block  9
+    $$$$$:  277-block 10
+    $$$$$:  277-block 11
+    $$$$$:  277-block 12
+    $$$$$:  277-block 13
+    $$$$$:  277-block 14
+    $$$$$:  277-block 15
+    $$$$$:  277-block 16
+        1:  278:    s.launchBrowserSizeCoatPhoto(9, "");
+        1:  278-block  0
+        1:  278-block  1
+    $$$$$:  278-block  2
+    $$$$$:  278-block  3
+    $$$$$:  278-block  4
+    $$$$$:  278-block  5
+        1:  279:}

@@ -1,0 +1,66 @@
+        -:    0:Source:D:/Informatica/UBB Sem. 2/OOP/a45-916-Putura-Emanuel-Vasile/infrastructure/GenericRepository/Repository.h
+        -:    0:Graph:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\presentation\UserConsoleUI\UserConsoleUI.cpp.gcno
+        -:    0:Data:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\presentation\UserConsoleUI\UserConsoleUI.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Emanuel on 21.03.2021.
+        -:    3://
+        -:    4:
+        -:    5:#ifndef REPOSITORY_H
+        -:    6:#define REPOSITORY_H
+        -:    7:
+        -:    8:#include "../../domain/DynamicVector/DynamicVector.h"
+        -:    9:
+        -:   10:/**
+        -:   11: * Generic Repository Class
+        -:   12: */
+        -:   13:template <class T>
+        -:   14:class Repository {
+        -:   15:protected:
+        -:   16:    DynamicVector<T> data;
+        -:   17:public:
+        -:   18:    /**
+        -:   19:     * Adds an element to the repository
+        -:   20:     * @param element: the element to be added
+        -:   21:     */
+        -:   22:    void add(const T& element);
+        -:   23:
+        -:   24:    /**
+        -:   25:     * Removes an element from the repository
+        -:   26:     * @param element: the element to be removed
+        -:   27:     * @return: the index of the removed element or -1 if the element was not found
+        -:   28:     */
+        -:   29:    int remove(const T& element);
+        -:   30:
+        -:   31:    /**
+        -:   32:     * Gets the index of an element of the repository
+        -:   33:     * @param element: the element to be searched for
+        -:   34:     * @return: the index of the element or -1 if the element was not found
+        -:   35:     */
+        -:   36:    virtual int getIndex(const T& element) const;
+        -:   37:
+        -:   38:    /**
+        -:   39:     * Pure virtual update function. Updates an element of the repository
+        -:   40:     * @param element: the element to be updated
+        -:   41:     * @param new_element: the new value for the updated element
+        -:   42:     * @return: the index of the element or -1 if the element was not found
+        -:   43:     */
+        -:   44:    virtual int update(const T& element, const T& new_element) = 0;
+        -:   45:
+        -:   46:    /**
+        -:   47:     * [] operator overloading
+        -:   48:     */
+        -:   49:    T& operator[](int index);
+        -:   50:
+        -:   51:    /**
+        -:   52:     * Getters
+        -:   53:     */
+    #####:   54:    inline int getLength() const { return data.getLength(); }
+    %%%%%:   54-block  0
+    #####:   55:    inline T* getData() const { return data.getData(); }
+    %%%%%:   55-block  0
+        -:   56:};
+        -:   57:
+        -:   58:#include "Repository.inl"
+        -:   59:#endif

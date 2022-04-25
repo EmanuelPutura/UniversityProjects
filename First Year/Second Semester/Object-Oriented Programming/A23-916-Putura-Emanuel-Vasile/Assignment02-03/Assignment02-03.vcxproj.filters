@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\presentation">
+      <UniqueIdentifier>{40abf64c-61d4-4527-bc9e-ffa78ca4eebe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\business">
+      <UniqueIdentifier>{c3414316-59a9-46b4-8429-34bcd0b38e7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\infrastructure">
+      <UniqueIdentifier>{11a805c3-c414-44fc-8a31-0cd01eed0f40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\domain">
+      <UniqueIdentifier>{ed487619-1758-4eb9-b018-b44fe58366da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\validation">
+      <UniqueIdentifier>{e9ea33cb-7df3-42e6-8866-9afe79c28d87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\testing">
+      <UniqueIdentifier>{d5bbc0d1-42f3-4d50-b3fe-03880d2d885b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\tools">
+      <UniqueIdentifier>{e1dbbd61-7b32-4864-bf4e-16d249448b02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\business">
+      <UniqueIdentifier>{e7c5b176-e229-452c-bd8b-0ad81e8fdcf9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\domain">
+      <UniqueIdentifier>{badde03d-e351-4d1d-b075-dbd0912834d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\infrastructure">
+      <UniqueIdentifier>{079c5065-50c7-4254-87d4-1526c7a39576}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\presentation">
+      <UniqueIdentifier>{3e3c456d-ad4d-4977-b462-2f685bfaea58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\testing">
+      <UniqueIdentifier>{76ed15e9-0761-4119-9a88-b9d481719c15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\tools">
+      <UniqueIdentifier>{fe3464ef-4f7f-4940-8f68-864e11eea4e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\validation">
+      <UniqueIdentifier>{3b7bd097-c4b2-4f73-9516-a846b449355f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="consoleUI.c">
+      <Filter>Source Files\presentation</Filter>
+    </ClCompile>
+    <ClCompile Include="materials_service.c">
+      <Filter>Source Files\business</Filter>
+    </ClCompile>
+    <ClCompile Include="materials_repository.c">
+      <Filter>Source Files\infrastructure</Filter>
+    </ClCompile>
+    <ClCompile Include="material.c">
+      <Filter>Source Files\domain</Filter>
+    </ClCompile>
+    <ClCompile Include="date.c">
+      <Filter>Source Files\domain</Filter>
+    </ClCompile>
+    <ClCompile Include="validators.c">
+      <Filter>Source Files\validation</Filter>
+    </ClCompile>
+    <ClCompile Include="dynamic_array.c">
+      <Filter>Source Files\domain</Filter>
+    </ClCompile>
+    <ClCompile Include="test_domain.c">
+      <Filter>Source Files\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="test_all.c">
+      <Filter>Source Files\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="quick_sort.c">
+      <Filter>Source Files\tools</Filter>
+    </ClCompile>
+    <ClCompile Include="test_tools.c">
+      <Filter>Source Files\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="test_service.c">
+      <Filter>Source Files\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="comparison_functionc.c">
+      <Filter>Source Files\tools</Filter>
+    </ClCompile>
+    <ClCompile Include="conversions.c">
+      <Filter>Source Files\tools</Filter>
+    </ClCompile>
+    <ClCompile Include="text_table.c">
+      <Filter>Source Files\tools</Filter>
+    </ClCompile>
+    <ClCompile Include="mementoDP_undoredo_repo.c">
+      <Filter>Source Files\infrastructure</Filter>
+    </ClCompile>
+    <ClCompile Include="mementoDP_undoredo_service.c">
+      <Filter>Source Files\business</Filter>
+    </ClCompile>
+    <ClCompile Include="cmdDP_undoredo_repo.c">
+      <Filter>Source Files\infrastructure</Filter>
+    </ClCompile>
+    <ClCompile Include="cmdDP_undoredo_service.c">
+      <Filter>Source Files\business</Filter>
+    </ClCompile>
+    <ClCompile Include="cru_function.c">
+      <Filter>Source Files\domain</Filter>
+    </ClCompile>
+    <ClCompile Include="undoredo_function.c">
+      <Filter>Source Files\domain</Filter>
+    </ClCompile>
+    <ClCompile Include="test_repository.c">
+      <Filter>Source Files\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="test_validators.c">
+      <Filter>Source Files\testing</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="consoleUI.h">
+      <Filter>Header Files\presentation</Filter>
+    </ClInclude>
+    <ClInclude Include="date.h">
+      <Filter>Header Files\domain</Filter>
+    </ClInclude>
+    <ClInclude Include="dynamic_array.h">
+      <Filter>Header Files\domain</Filter>
+    </ClInclude>
+    <ClInclude Include="material.h">
+      <Filter>Header Files\domain</Filter>
+    </ClInclude>
+    <ClInclude Include="materials_service.h">
+      <Filter>Header Files\business</Filter>
+    </ClInclude>
+    <ClInclude Include="validators.h">
+      <Filter>Header Files\validation</Filter>
+    </ClInclude>
+    <ClInclude Include="test_tools.h">
+      <Filter>Header Files\testing</Filter>
+    </ClInclude>
+    <ClInclude Include="comparison_functionc.h">
+      <Filter>Header Files\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="test_service.h">
+      <Filter>Header Files\testing</Filter>
+    </ClInclude>
+    <ClInclude Include="quick_sort.h">
+      <Filter>Header Files\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="test_domain.h">
+      <Filter>Header Files\testing</Filter>
+    </ClInclude>
+    <ClInclude Include="test_all.h">
+      <Filter>Header Files\testing</Filter>
+    </ClInclude>
+    <ClInclude Include="conversions.h">
+      <Filter>Header Files\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="text_table.h">
+      <Filter>Header Files\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="materials_repository.h">
+      <Filter>Header Files\infrastructure</Filter>
+    </ClInclude>
+    <ClInclude Include="mementoDP_undoredo_repo.h">
+      <Filter>Header Files\infrastructure</Filter>
+    </ClInclude>
+    <ClInclude Include="mementoDP_undoredo_service.h">
+      <Filter>Header Files\business</Filter>
+    </ClInclude>
+    <ClInclude Include="cmdDP_undoredo_repo.h">
+      <Filter>Header Files\infrastructure</Filter>
+    </ClInclude>
+    <ClInclude Include="cmdDP_undoredo_service.h">
+      <Filter>Header Files\business</Filter>
+    </ClInclude>
+    <ClInclude Include="cru_function.h">
+      <Filter>Header Files\domain</Filter>
+    </ClInclude>
+    <ClInclude Include="undoredo_function.h">
+      <Filter>Header Files\domain</Filter>
+    </ClInclude>
+    <ClInclude Include="test_repository.h">
+      <Filter>Header Files\testing</Filter>
+    </ClInclude>
+    <ClInclude Include="test_validators.h">
+      <Filter>Header Files\testing</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,30 @@
+        -:    0:Source:D:/Informatica/UBB Sem. 2/OOP/a45-916-Putura-Emanuel-Vasile/presentation/UserConsoleUI/UserConsoleUI.h
+        -:    0:Graph:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\main.cpp.gcno
+        -:    0:Data:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\main.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Emanuel on 23.03.2021.
+        -:    3://
+        -:    4:
+        -:    5:#ifndef USERCONSOLEUI_H
+        -:    6:#define USERCONSOLEUI_H
+        -:    7:
+        -:    8:#include "../GenericConsoleUI/ConsoleUI.h"
+        -:    9:
+        -:   10:class UserConsoleUI : public ConsoleUI {
+        -:   11:private:
+        -:   12:    int mapCommand(const std::string& command) const;
+        -:   13:    void trenchCoatMenu() const;
+        -:   14:    void display();
+        -:   15:    void add(const int& index, const std::string& size);
+        -:   16:    void showShoppingBasket() const;
+        -:   17:public:
+        1:   18:    UserConsoleUI(CoatsService service) : ConsoleUI(service) {}
+        1:   18-block  0
+        -:   19:
+        -:   20:    void menu() const override;
+        -:   21:    int run() override;
+        -:   22:};
+        -:   23:
+        -:   24:#endif

@@ -1,0 +1,36 @@
+        -:    0:Source:D:/Informatica/UBB Sem. 2/OOP/a45-916-Putura-Emanuel-Vasile/presentation/AdminConsoleUI/AdminConsoleUI.h
+        -:    0:Graph:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\main.cpp.gcno
+        -:    0:Data:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\main.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Emanuel on 21.03.2021.
+        -:    3://
+        -:    4:
+        -:    5:#ifndef ADMINCONSOLEUI_H
+        -:    6:#define ADMINCONSOLEUI_H
+        -:    7:
+        -:    8:#include "../GenericConsoleUI/ConsoleUI.h"
+        -:    9:
+        -:   10:#include <map>
+        -:   11:#include <string>
+        -:   12:
+        -:   13:class AdminConsoleUI : public ConsoleUI {
+        -:   14:private:
+        -:   15:    void add();
+        -:   16:    void update();
+        -:   17:    void remove();
+        -:   18:    void display() const;
+        -:   19:
+        -:   20:    int mapCommand(const std::string& command) const;
+        -:   21:public:
+        1:   22:    AdminConsoleUI(CoatsService service) : ConsoleUI(service) {
+        1:   22-block  0
+        1:   23:        service.addDefault();
+        1:   24:    }
+        -:   25:
+        -:   26:    void menu() const override;
+        -:   27:    int run() override;
+        -:   28:};
+        -:   29:
+        -:   30:#endif

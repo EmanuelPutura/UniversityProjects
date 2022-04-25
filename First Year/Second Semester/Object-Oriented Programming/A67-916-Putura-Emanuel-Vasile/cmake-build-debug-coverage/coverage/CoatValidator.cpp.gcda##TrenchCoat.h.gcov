@@ -1,0 +1,55 @@
+        -:    0:Source:D:/Informatica/UBB Sem. 2/OOP/a45-916-Putura-Emanuel-Vasile/domain/TrenchCoat/TrenchCoat.h
+        -:    0:Graph:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\validation\CoatValidator.cpp.gcno
+        -:    0:Data:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\validation\CoatValidator.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Emanuel on 21.03.2021.
+        -:    3://
+        -:    4:
+        -:    5:#ifndef TRENCHCOAT_H
+        -:    6:#define TRENCHCOAT_H
+        -:    7:
+        -:    8:#include <string>
+        -:    9:
+        -:   10:/**
+        -:   11: * TrenchCoat Class
+        -:   12: */
+        -:   13:class TrenchCoat {
+        -:   14:private:
+        -:   15:    std::string colour, photograph, size;
+        -:   16:    int price, quantity;
+        -:   17:public:
+        -:   18:    explicit TrenchCoat(const std::string& size = "", const std::string& colour = "", int price = 0, int quantity = 0, const std::string& photograph = "") :
+        -:   19:        size(size), colour(colour), price(price), quantity(quantity), photograph(photograph) {}
+        -:   20:
+        -:   21:    /**
+        -:   22:     * Friend function overloading the << operator
+        -:   23:     */
+        -:   24:    friend std::ostream& operator<<(std::ostream& os, const TrenchCoat& coat);
+        -:   25:
+        -:   26:    /*
+        -:   27:     * Friend function overloading the == operator
+        -:   28:     * Equality between two TrenchCoat objects occurs if and only if they have the same size, colour, price and photograph
+        -:   29:     * @return: true if the two TrenchCoat objects are equal, false else
+        -:   30:     */
+        -:   31:    friend bool operator== (const TrenchCoat& t1, const TrenchCoat& t2);
+        -:   32:
+        -:   33:    /**
+        -:   34:     * Getters and setters
+        -:   35:     */
+    #####:   36:    inline int getPrice() const { return price; }
+    %%%%%:   36-block  0
+    #####:   37:    inline int getQuantity() const { return quantity; }
+    %%%%%:   37-block  0
+    #####:   38:    inline const std::string& getSize() const { return size; }
+    %%%%%:   38-block  0
+    #####:   39:    inline const std::string& getColour() const { return colour; }
+    %%%%%:   39-block  0
+    #####:   40:    inline const std::string& getPhotograph() const { return photograph; }
+    %%%%%:   40-block  0
+        -:   41:
+        -:   42:    inline void setQuantity(const int& other) { quantity = other; }
+        -:   43:};
+        -:   44:
+        -:   45:#endif

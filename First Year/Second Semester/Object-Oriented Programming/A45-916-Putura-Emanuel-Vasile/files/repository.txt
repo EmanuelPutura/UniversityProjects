@@ -1,0 +1,10 @@
+3XS red 200 20 https://www2.hm.com/en_asia3/productpage.0716384002.html
+XXS orange 300 30 https://ro.pinterest.com/pin/288863763575915988/
+XS yellow 1000 50 https://ro.pinterest.com/pin/192528952790123664/
+S green 500 100 https://www.fjackets.com/buy/Mission-Impossible-5-Rebecca-Ferguson-Coat.html
+M blue 700 37 https://lookastic.com/men/blue-trenchcoat/shop/brand-trench-coat-329153
+L black 100 50 https://mt.burberry.com/mens-trench-coats/black/
+XL purple 300 20 https://www.julienslive.com/m/lot-details/index/catalog/279/lot/108413
+XXL black 400 5 https://www.coachoutlet.com/products/trench-coat/F33778.html
+3XL white 200 1 https://www.aliexpress.com/item/32395372904.html
+4XL gray 1000 100 https://www.hockerty.com/en/men/grey-trench-coat/

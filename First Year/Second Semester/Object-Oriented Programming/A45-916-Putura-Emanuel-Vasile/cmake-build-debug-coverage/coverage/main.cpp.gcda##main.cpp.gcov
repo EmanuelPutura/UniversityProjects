@@ -1,0 +1,68 @@
+        -:    0:Source:D:/Informatica/UBB Sem. 2/OOP/a45-916-Putura-Emanuel-Vasile/main.cpp
+        -:    0:Graph:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\main.cpp.gcno
+        -:    0:Data:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\main.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Emanuel on 20.03.2021.
+        -:    3://
+        -:    4:
+        -:    5:#include "testing/TestAll.h"
+        -:    6:#include "presentation/AdminConsoleUI/AdminConsoleUI.h"
+        -:    7:#include "presentation/OptionConsoleUI/OptionConsoleUI.h"
+        -:    8:#include "presentation/UserConsoleUI/UserConsoleUI.h"
+        -:    9:#include "presentation/SwitcherConsoleUI/Switcher.h"
+        -:   10:
+        1:   11:int main() {
+        -:   12:    Testing::TestAll testAll;
+        1:   13:    testAll.testAll();
+        1:   13-block  0
+        -:   14:
+        2:   15:    CoatsRepository repository;
+        1:   15-block  0
+    $$$$$:   15-block  1
+        2:   16:    CoatsRepository shopping_basket;
+        1:   16-block  0
+    $$$$$:   16-block  1
+        1:   17:    CoatsService service {repository, shopping_basket};
+        1:   17-block  0
+    $$$$$:   17-block  1
+        -:   18:
+        1:   19:    AdminConsoleUI adminConsoleUI {service};
+        1:   19-block  0
+        1:   19-block  1
+    $$$$$:   19-block  2
+    $$$$$:   19-block  3
+        1:   20:    UserConsoleUI userConsoleUI {service};
+        1:   20-block  0
+        1:   21:    OptionConsoleUI optionConsoleUI {service};
+        1:   21-block  0
+        1:   22:    optionConsoleUI.run();
+        1:   23:    size_t option = optionConsoleUI.getExitCode();
+        1:   23-block  0
+        -:   24:
+        1:   25:    switch (option) {
+    #####:   26:        case 1:
+        -:   27:        {
+    #####:   28:            Switcher switcher {adminConsoleUI, userConsoleUI};
+    %%%%%:   28-block  0
+    #####:   29:            switcher.run();
+    #####:   30:            break;
+    %%%%%:   30-block  0
+        -:   31:        }
+    #####:   32:        case 2:
+        -:   33:        {
+    #####:   34:            Switcher switcher {userConsoleUI, adminConsoleUI};
+    %%%%%:   34-block  0
+    #####:   35:            switcher.run();
+    #####:   36:            break;
+    %%%%%:   36-block  0
+        -:   37:        }
+        1:   38:        default:
+        1:   39:            break;
+        1:   39-block  0
+        -:   40:    }
+        -:   41:
+        1:   42:    return 0;
+        1:   42-block  0
+        -:   43:}

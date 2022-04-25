@@ -1,0 +1,49 @@
+        -:    0:Source:D:/Informatica/UBB Sem. 2/OOP/a45-916-Putura-Emanuel-Vasile/infrastructure/CoatsRepository/CoatsRepository.h
+        -:    0:Graph:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\infrastructure\CoatsRepository\CoatsRepository.cpp.gcno
+        -:    0:Data:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\infrastructure\CoatsRepository\CoatsRepository.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Emanuel on 21.03.2021.
+        -:    3://
+        -:    4:
+        -:    5:#ifndef COATSREPOSITORY_H
+        -:    6:#define COATSREPOSITORY_H
+        -:    7:
+        -:    8:#include "../GenericRepository/Repository.h"
+        -:    9:#include "../../domain/TrenchCoat/TrenchCoat.h"
+        -:   10:
+        -:   11:/**
+        -:   12: * CoatsRepository Class
+        -:   13: * Inherits from the Repository class, implementing the pure virtual update function
+        -:   14: */
+        -:   15:class CoatsRepository : public Repository<TrenchCoat> {
+        -:   16:public:
+        -:   17:    /**
+        -:   18:     * Updates an element of the repository
+        -:   19:     * @param element: the element to be updated
+        -:   20:     * @param new_element: the new value for the updated element
+        -:   21:     * @return: the index of the element or -1 if the element was not found
+        -:   22:     */
+        -:   23:    int update(const TrenchCoat& element, const TrenchCoat& new_element) override;
+        -:   24:
+        -:   25:    /**
+        -:   26:     * Gets the index of a TrenchCoat object, being given the data that uniquely identifies it
+        -:   27:     * @param size: the size of the TrenchCoat object
+        -:   28:     * @param colour: the colour of the TrenchCoat object
+        -:   29:     * @param price: the price of the TrenchCoat object
+        -:   30:     * @param photograph: the photograph of the TrenchCoat object
+        -:   31:     * @return: the index of the found object or -1 if the object was not found
+        -:   32:     */
+        -:   33:    int getIndex(const std::string& size, const std::string& colour, int price, const std::string& photograph);
+        -:   34:
+        -:   35:    /**
+        -:   36:     * Gets the index of an element of the repository
+        -:   37:     * @param coat: the TrenchCoat object to be searched for
+        -:   38:     * @return: the index of the element or -1 if the element was not found
+        -:   39:     */
+       34:   40:    inline int getIndex(const TrenchCoat& coat) const override { return Repository<TrenchCoat>::getIndex(coat); }
+       34:   40-block  0
+        -:   41:};
+        -:   42:
+        -:   43:#endif

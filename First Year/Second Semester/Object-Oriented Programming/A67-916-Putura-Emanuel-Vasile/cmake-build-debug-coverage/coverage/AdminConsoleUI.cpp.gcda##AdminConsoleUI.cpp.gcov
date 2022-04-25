@@ -1,0 +1,333 @@
+        -:    0:Source:D:/Informatica/UBB Sem. 2/OOP/a45-916-Putura-Emanuel-Vasile/presentation/AdminConsoleUI/AdminConsoleUI.cpp
+        -:    0:Graph:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\presentation\AdminConsoleUI\AdminConsoleUI.cpp.gcno
+        -:    0:Data:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\presentation\AdminConsoleUI\AdminConsoleUI.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Emanuel on 21.03.2021.
+        -:    3://
+        -:    4:
+        -:    5:#include "AdminConsoleUI.h"
+        -:    6:
+        -:    7:#include <iostream>
+        -:    8:
+    #####:    9:void AdminConsoleUI::menu() const {
+    #####:   10:    TextTable table {2};
+    %%%%%:   10-block  0
+    %%%%%:   10-block  1
+    $$$$$:   10-block  2
+    #####:   11:    table.addHeader(2, "COMMAND", "COMMAND DESCRIPTION");
+    #####:   12:    table.addRow(2, "add", "add a new trench coat");
+    %%%%%:   12-block  0
+    #####:   13:    table.addRow(2, "update", "update a trench coat");
+    %%%%%:   13-block  0
+    #####:   14:    table.addRow(2, "remove", "remove a trench coat");
+    %%%%%:   14-block  0
+    #####:   15:    table.addRow(2, "display", "display all trench coats in the repository");
+    %%%%%:   15-block  0
+    #####:   16:    table.addRow(2, "switch", "switch to user mode");
+    %%%%%:   16-block  0
+    #####:   17:    table.addRow(2, "exit", "exit the application");
+    %%%%%:   17-block  0
+    #####:   18:    std::cout << "Admin Mode On\nApplication menu:\n" << table;
+    %%%%%:   18-block  0
+    %%%%%:   18-block  1
+    #####:   19:}
+        -:   20:
+    #####:   21:int AdminConsoleUI::run() {
+    #####:   22:    bool running = true;
+    %%%%%:   22-block  0
+    #####:   23:    while (running) {
+    %%%%%:   23-block  0
+    %%%%%:   23-block  1
+    #####:   24:        menu();
+    %%%%%:   24-block  0
+        -:   25:
+    #####:   26:        int command = mapCommand(getCommand());
+    %%%%%:   26-block  0
+    $$$$$:   26-block  1
+    #####:   27:        switch (command) {
+    #####:   28:            case 0:
+        -:   29:                // add case
+    #####:   30:                add();
+    %%%%%:   30-block  0
+    #####:   31:                break;
+    #####:   32:            case 1:
+        -:   33:                // update case
+    #####:   34:                update();
+    %%%%%:   34-block  0
+    #####:   35:                break;
+    #####:   36:            case 2:
+        -:   37:                // remove case
+    #####:   38:                remove();
+    %%%%%:   38-block  0
+    #####:   39:                break;
+    #####:   40:            case 3:
+        -:   41:                // display case
+    #####:   42:                display();
+    %%%%%:   42-block  0
+    #####:   43:                break;
+    #####:   44:            case 4:
+    #####:   45:                return 1;
+    %%%%%:   45-block  0
+    #####:   46:            case 5:
+        -:   47:                // exit case
+    #####:   48:                running = false;
+    #####:   49:                break;
+    %%%%%:   49-block  0
+    #####:   50:            default:
+    #####:   51:                std::cout << "Invalid command.\n";
+    %%%%%:   51-block  0
+    #####:   52:                break;
+        -:   53:        }
+        -:   54:    }
+    #####:   55:    return 0;
+    %%%%%:   55-block  0
+        -:   56:}
+        -:   57:
+    #####:   58:void AdminConsoleUI::add() {
+    #####:   59:    std::string size = getUserData("Please input the size of the trench coat:");
+    %%%%%:   59-block  0
+    %%%%%:   59-block  1
+    $$$$$:   59-block  2
+    $$$$$:   59-block  3
+    $$$$$:   59-block  4
+    #####:   60:    std::string colour = getUserData("Please input the colour of the trench coat:");
+    %%%%%:   60-block  0
+    $$$$$:   60-block  1
+    $$$$$:   60-block  2
+    $$$$$:   60-block  3
+    #####:   61:    std::string price = getUserData("Please input the price of the trench coat:");
+    %%%%%:   61-block  0
+    $$$$$:   61-block  1
+    $$$$$:   61-block  2
+    $$$$$:   61-block  3
+    #####:   62:    std::string quantity = getUserData("Please input the trench coat's quantity:");
+    %%%%%:   62-block  0
+    $$$$$:   62-block  1
+    $$$$$:   62-block  2
+    $$$$$:   62-block  3
+    #####:   63:    std::string photograph = getUserData("Please input the link of a photograph of the trench coat:");
+    %%%%%:   63-block  0
+    $$$$$:   63-block  1
+    $$$$$:   63-block  2
+    $$$$$:   63-block  3
+        -:   64:
+    #####:   65:    if (!isPositiveInteger(price)) {
+    %%%%%:   65-block  0
+    #####:   66:        std::cout << "The price of the trench coat must be a positive integer.\n";
+    %%%%%:   66-block  0
+    #####:   67:        return;
+    %%%%%:   67-block  0
+        -:   68:    }
+    #####:   69:    if (!isPositiveInteger(quantity)) {
+    %%%%%:   69-block  0
+    %%%%%:   69-block  1
+    #####:   70:        std::cout << "The trench coat's quantity must be a positive integer.\n";
+    %%%%%:   70-block  0
+    #####:   71:        return;
+    %%%%%:   71-block  0
+        -:   72:    }
+        -:   73:
+        -:   74:    try {
+    #####:   75:        service.add(size, colour, stoi(price), stoi(quantity), photograph);
+    %%%%%:   75-block  0
+    %%%%%:   75-block  1
+    %%%%%:   75-block  2
+        -:   76:    }
+    =====:   77:    catch (std::string error) {
+    $$$$$:   77-block  0
+    $$$$$:   77-block  1
+    $$$$$:   77-block  2
+    $$$$$:   77-block  3
+    =====:   78:        std::cout << "Operation add failed: " << error << '\n';
+    $$$$$:   78-block  0
+    $$$$$:   78-block  1
+        -:   79:    }
+        -:   80:}
+        -:   81:
+    #####:   82:void AdminConsoleUI::update() {
+    #####:   83:    std::string size = getUserData("Please input the size of the trench coat:");
+    %%%%%:   83-block  0
+    %%%%%:   83-block  1
+    $$$$$:   83-block  2
+    $$$$$:   83-block  3
+    $$$$$:   83-block  4
+    #####:   84:    std::string colour = getUserData("Please input the colour of the trench coat:");
+    %%%%%:   84-block  0
+    $$$$$:   84-block  1
+    $$$$$:   84-block  2
+    $$$$$:   84-block  3
+    #####:   85:    std::string price = getUserData("Please input the price of the trench coat:");
+    %%%%%:   85-block  0
+    $$$$$:   85-block  1
+    $$$$$:   85-block  2
+    $$$$$:   85-block  3
+    #####:   86:    std::string photograph = getUserData("Please input the link of a photograph of the trench coat:");
+    %%%%%:   86-block  0
+    $$$$$:   86-block  1
+    $$$$$:   86-block  2
+    $$$$$:   86-block  3
+    #####:   87:    std::string new_size = getUserData("Please input the new size of the trench coat:");
+    %%%%%:   87-block  0
+    $$$$$:   87-block  1
+    $$$$$:   87-block  2
+    $$$$$:   87-block  3
+    #####:   88:    std::string new_colour = getUserData("Please input the new colour of the trench coat:");
+    %%%%%:   88-block  0
+    $$$$$:   88-block  1
+    $$$$$:   88-block  2
+    $$$$$:   88-block  3
+    #####:   89:    std::string new_price = getUserData("Please input the new price of the trench coat:");
+    %%%%%:   89-block  0
+    $$$$$:   89-block  1
+    $$$$$:   89-block  2
+    $$$$$:   89-block  3
+    #####:   90:    std::string new_quantity = getUserData("Please input the trench coat's new quantity:");
+    %%%%%:   90-block  0
+    $$$$$:   90-block  1
+    $$$$$:   90-block  2
+    $$$$$:   90-block  3
+    #####:   91:    std::string new_photograph = getUserData("Please input the link of a new photograph for the trench coat:");
+    %%%%%:   91-block  0
+    $$$$$:   91-block  1
+    $$$$$:   91-block  2
+    $$$$$:   91-block  3
+        -:   92:
+    #####:   93:    if (!isPositiveInteger(price) || !isPositiveInteger(new_price)) {
+    %%%%%:   93-block  0
+    %%%%%:   93-block  1
+    %%%%%:   93-block  2
+    %%%%%:   93-block  3
+    %%%%%:   93-block  4
+    %%%%%:   93-block  5
+    #####:   94:        std::cout << "The price of the trench coat must be a positive integer.\n";
+    %%%%%:   94-block  0
+    #####:   95:        return;
+    %%%%%:   95-block  0
+        -:   96:    }
+    #####:   97:    if (!isPositiveInteger(new_quantity)) {
+    %%%%%:   97-block  0
+    %%%%%:   97-block  1
+    #####:   98:        std::cout << "The trench coat's quantity must be a positive integer.\n";
+    %%%%%:   98-block  0
+    #####:   99:        return;
+    %%%%%:   99-block  0
+        -:  100:    }
+        -:  101:
+        -:  102:    try {
+    #####:  103:        service.update(size, colour, stoi(price), photograph, new_size, new_colour, stoi(new_price), stoi(new_quantity), new_photograph);
+    %%%%%:  103-block  0
+    %%%%%:  103-block  1
+    %%%%%:  103-block  2
+    %%%%%:  103-block  3
+        -:  104:    }
+    =====:  105:    catch (std::string error) {
+    $$$$$:  105-block  0
+    $$$$$:  105-block  1
+    $$$$$:  105-block  2
+    $$$$$:  105-block  3
+    =====:  106:        std::cout << "Operation update failed: " << error << '\n';
+    $$$$$:  106-block  0
+    $$$$$:  106-block  1
+        -:  107:    }
+        -:  108:}
+        -:  109:
+    #####:  110:void AdminConsoleUI::remove() {
+    #####:  111:    std::string size = getUserData("Please input the size of the trench coat:");
+    %%%%%:  111-block  0
+    %%%%%:  111-block  1
+    $$$$$:  111-block  2
+    $$$$$:  111-block  3
+    $$$$$:  111-block  4
+    #####:  112:    std::string colour = getUserData("Please input the colour of the trench coat:");
+    %%%%%:  112-block  0
+    $$$$$:  112-block  1
+    $$$$$:  112-block  2
+    $$$$$:  112-block  3
+    #####:  113:    std::string price = getUserData("Please input the price of the trench coat:");
+    %%%%%:  113-block  0
+    $$$$$:  113-block  1
+    $$$$$:  113-block  2
+    $$$$$:  113-block  3
+    #####:  114:    std::string photograph = getUserData("Please input the link of a photograph of the trench coat:");
+    %%%%%:  114-block  0
+    $$$$$:  114-block  1
+    $$$$$:  114-block  2
+    $$$$$:  114-block  3
+        -:  115:
+    #####:  116:    if (!isPositiveInteger(price)) {
+    %%%%%:  116-block  0
+    #####:  117:        std::cout << "The price of the trench coat must be a positive integer.\n";
+    %%%%%:  117-block  0
+    #####:  118:        return;
+    %%%%%:  118-block  0
+        -:  119:    }
+        -:  120:
+        -:  121:    try {
+    #####:  122:        service.remove(size, colour, stoi(price), photograph);
+    %%%%%:  122-block  0
+    %%%%%:  122-block  1
+        -:  123:    }
+    =====:  124:    catch (std::string error) {
+    $$$$$:  124-block  0
+    $$$$$:  124-block  1
+    $$$$$:  124-block  2
+    $$$$$:  124-block  3
+    =====:  125:        std::cout << "Operation remove failed: " << error << '\n';
+    $$$$$:  125-block  0
+    $$$$$:  125-block  1
+        -:  126:    }
+        -:  127:}
+        -:  128:
+    #####:  129:void AdminConsoleUI::display() const {
+    #####:  130:    service.getLength() ? std::cout << service.getDataTextTable() << '\n' : std::cout << "No trench coats were found.\n";
+    %%%%%:  130-block  0
+    %%%%%:  130-block  1
+    %%%%%:  130-block  2
+    %%%%%:  130-block  3
+    %%%%%:  130-block  4
+    %%%%%:  130-block  5
+    %%%%%:  130-block  6
+    $$$$$:  130-block  7
+    $$$$$:  130-block  8
+    #####:  131:}
+    %%%%%:  131-block  0
+        -:  132:
+    #####:  133:int AdminConsoleUI::mapCommand(const std::string& command) const {
+    #####:  134:    std::string commands[] = {"add", "update", "remove", "display", "switch", "exit"};
+    %%%%%:  134-block  0
+    %%%%%:  134-block  1
+    %%%%%:  134-block  2
+    %%%%%:  134-block  3
+    %%%%%:  134-block  4
+    %%%%%:  134-block  5
+    %%%%%:  134-block  6
+    %%%%%:  134-block  7
+    %%%%%:  134-block  8
+    %%%%%:  134-block  9
+    $$$$$:  134-block 10
+    $$$$$:  134-block 11
+    $$$$$:  134-block 12
+    $$$$$:  134-block 13
+    $$$$$:  134-block 14
+    $$$$$:  134-block 15
+    $$$$$:  134-block 16
+    $$$$$:  134-block 17
+    $$$$$:  134-block 18
+    $$$$$:  134-block 19
+    $$$$$:  134-block 20
+    $$$$$:  134-block 21
+    $$$$$:  134-block 22
+    $$$$$:  134-block 23
+    #####:  135:    int int_commands[] = {0, 1, 2, 3, 4, 5};
+        -:  136:
+    #####:  137:    for (size_t i = 0; i < 6; ++i)
+    %%%%%:  137-block  0
+    %%%%%:  137-block  1
+    #####:  138:        if (command == commands[i]) return int_commands[i];
+    %%%%%:  138-block  0
+    %%%%%:  138-block  1
+    #####:  139:    return -1;
+    %%%%%:  139-block  0
+        -:  140:}

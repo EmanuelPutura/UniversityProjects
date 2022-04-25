@@ -1,0 +1,388 @@
+        -:    0:Source:D:/Informatica/UBB Sem. 2/OOP/a45-916-Putura-Emanuel-Vasile/business/CoatsService.cpp
+        -:    0:Graph:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\business\CoatsService.cpp.gcno
+        -:    0:Data:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\business\CoatsService.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Emanuel on 21.03.2021.
+        -:    3://
+        -:    4:
+        -:    5:#include "CoatsService.h"
+        -:    6:
+        -:    7:#include <iostream>
+        -:    8:
+       25:    9:void CoatsService::add(const std::string& size, const std::string& colour, int price, int quantity, const std::string& photograph) {
+       50:   10:    TrenchCoat coat(size, colour, price, quantity, photograph);
+       25:   10-block  0
+       23:   10-block  1
+        2:   10-block  2
+       25:   11:    if (!validator.validate(coat))
+       25:   11-block  0
+       25:   11-block  1
+        1:   12:        throw validator.getErrors();
+        1:   12-block  0
+        1:   12-block  1
+    $$$$$:   12-block  2
+       24:   13:    if (repository.getIndex(coat) != -1)
+       24:   13-block  0
+       24:   13-block  1
+        1:   14:        throw std::string("The trench coat was already added.\n");
+        1:   14-block  0
+        1:   14-block  1
+    $$$$$:   14-block  2
+    $$$$$:   14-block  3
+    $$$$$:   14-block  4
+       23:   15:    repository.add(coat);
+       23:   15-block  0
+       23:   16:}
+        -:   17:
+        3:   18:void CoatsService::update(const std::string& size, const std::string& colour, int price, const std::string& photograph, const std::string& new_size,
+        -:   19:                         const std::string& new_colour, int new_price, int new_quantity, const std::string& new_photograph) {
+        3:   20:    int index = repository.getIndex(size, colour, price, photograph);
+        3:   20-block  0
+        3:   21:    if (index == -1) {
+        3:   21-block  0
+        2:   22:        std::string error = "No trench coats were found.\n";
+        1:   22-block  0
+    $$$$$:   22-block  1
+        1:   22-block  2
+        1:   23:        throw error;
+        -:   24:    }
+        4:   25:    TrenchCoat new_element = TrenchCoat(new_size, new_colour, new_price, new_quantity, new_photograph);
+        2:   25-block  0
+        2:   25-block  1
+    $$$$$:   25-block  2
+        2:   26:    repository.update(repository[index], new_element);
+        2:   26-block  0
+        2:   26-block  1
+        2:   27:}
+        -:   28:
+        3:   29:void CoatsService::remove(const std::string& size, const std::string& colour, int price, const std::string& photograph) {
+        3:   30:    int index = repository.getIndex(size, colour, price, photograph);
+        3:   30-block  0
+        3:   31:    if (index == -1) {
+        2:   32:        std::string error = "No trench coats were found.\n";
+        1:   32-block  0
+    $$$$$:   32-block  1
+        1:   32-block  2
+        1:   33:       throw error;
+        -:   34:    }
+        2:   35:    repository.remove(repository[index]);
+        2:   35-block  0
+        2:   36:}
+        -:   37:
+        1:   38:std::ostream &operator<<(std::ostream& os, CoatsService service) {
+        2:   39:    for (size_t i = 0; i < service.getLength(); ++i)
+        1:   39-block  0
+        2:   39-block  1
+        1:   40:        os << service.repository[i] << '\n';
+        1:   40-block  0
+        1:   41:    return os;
+        1:   41-block  0
+        -:   42:}
+        -:   43:
+        2:   44:void CoatsService::addDefault() {
+       24:   45:    std::string sizes[] = {"3XS", "XXS", "XS", "S", "M", "L", "XL", "XXL", "3XL", "4XL"};
+        2:   45-block  0
+        2:   45-block  1
+        2:   45-block  2
+        2:   45-block  3
+        2:   45-block  4
+        2:   45-block  5
+        2:   45-block  6
+        2:   45-block  7
+        2:   45-block  8
+        2:   45-block  9
+        2:   45-block 10
+        2:   45-block 11
+       22:   45-block 12
+       20:   45-block 13
+    $$$$$:   45-block 14
+    $$$$$:   45-block 15
+    $$$$$:   45-block 16
+    $$$$$:   45-block 17
+    $$$$$:   45-block 18
+    $$$$$:   45-block 19
+    $$$$$:   45-block 20
+    $$$$$:   45-block 21
+    $$$$$:   45-block 22
+    $$$$$:   45-block 23
+    $$$$$:   45-block 24
+    $$$$$:   45-block 25
+    $$$$$:   45-block 26
+    $$$$$:   45-block 27
+    $$$$$:   45-block 28
+    $$$$$:   45-block 29
+    $$$$$:   45-block 30
+    $$$$$:   45-block 31
+    $$$$$:   45-block 32
+    $$$$$:   45-block 33
+    $$$$$:   45-block 34
+    $$$$$:   45-block 35
+    $$$$$:   45-block 36
+    $$$$$:   45-block 37
+    $$$$$:   45-block 38
+       24:   46:    std::string colours[] = {"red", "orange", "yellow", "green", "blue", "black", "purple", "black", "white", "gray"};
+        2:   46-block  0
+        2:   46-block  1
+        2:   46-block  2
+        2:   46-block  3
+        2:   46-block  4
+        2:   46-block  5
+        2:   46-block  6
+        2:   46-block  7
+        2:   46-block  8
+        2:   46-block  9
+        2:   46-block 10
+       22:   46-block 11
+       20:   46-block 12
+    $$$$$:   46-block 13
+    $$$$$:   46-block 14
+    $$$$$:   46-block 15
+    $$$$$:   46-block 16
+    $$$$$:   46-block 17
+    $$$$$:   46-block 18
+    $$$$$:   46-block 19
+    $$$$$:   46-block 20
+    $$$$$:   46-block 21
+    $$$$$:   46-block 22
+    $$$$$:   46-block 23
+    $$$$$:   46-block 24
+    $$$$$:   46-block 25
+    $$$$$:   46-block 26
+    $$$$$:   46-block 27
+    $$$$$:   46-block 28
+    $$$$$:   46-block 29
+    $$$$$:   46-block 30
+    $$$$$:   46-block 31
+    $$$$$:   46-block 32
+    $$$$$:   46-block 33
+    $$$$$:   46-block 34
+    $$$$$:   46-block 35
+    $$$$$:   46-block 36
+    $$$$$:   46-block 37
+        -:   47:    std::string photographs[] = {"https://www2.hm.com/en_asia3/productpage.0716384002.html",
+        -:   48:                                 "https://ro.pinterest.com/pin/288863763575915988/",
+        -:   49:                                 "https://ro.pinterest.com/pin/192528952790123664/",
+        -:   50:                                 "https://www.fjackets.com/buy/Mission-Impossible-5-Rebecca-Ferguson-Coat.html",
+        -:   51:                                 "https://lookastic.com/men/blue-trenchcoat/shop/brand-trench-coat-329153",
+        -:   52:                                 "https://mt.burberry.com/mens-trench-coats/black/",
+        -:   53:                                 "https://www.julienslive.com/m/lot-details/index/catalog/279/lot/108413",
+        -:   54:                                 "https://www.coachoutlet.com/products/trench-coat/F33778.html",
+        -:   55:                                 "https://www.aliexpress.com/item/32395372904.html",
+       24:   56:                                 "https://www.hockerty.com/en/men/grey-trench-coat/"};
+        2:   56-block  0
+        2:   56-block  1
+        2:   56-block  2
+        2:   56-block  3
+        2:   56-block  4
+        2:   56-block  5
+        2:   56-block  6
+        2:   56-block  7
+        2:   56-block  8
+        2:   56-block  9
+        2:   56-block 10
+       22:   56-block 11
+       20:   56-block 12
+    $$$$$:   56-block 13
+    $$$$$:   56-block 14
+    $$$$$:   56-block 15
+    $$$$$:   56-block 16
+    $$$$$:   56-block 17
+    $$$$$:   56-block 18
+    $$$$$:   56-block 19
+    $$$$$:   56-block 20
+    $$$$$:   56-block 21
+    $$$$$:   56-block 22
+    $$$$$:   56-block 23
+    $$$$$:   56-block 24
+    $$$$$:   56-block 25
+    $$$$$:   56-block 26
+    $$$$$:   56-block 27
+    $$$$$:   56-block 28
+    $$$$$:   56-block 29
+    $$$$$:   56-block 30
+    $$$$$:   56-block 31
+    $$$$$:   56-block 32
+    $$$$$:   56-block 33
+    $$$$$:   56-block 34
+    $$$$$:   56-block 35
+    $$$$$:   56-block 36
+    $$$$$:   56-block 37
+        2:   57:    int prices[] = {200, 300, 1000, 500, 700, 100, 300, 400, 200, 1000};
+        2:   58:    int quantites[] = {20, 30, 50, 100, 40, 50, 20, 5, 1, 100};
+        -:   59:
+       22:   60:    for (size_t i = 0; i < 10; ++i)
+       22:   60-block  0
+       20:   60-block  1
+       20:   61:        add(sizes[i], colours[i], prices[i], quantites[i], photographs[i]);
+       20:   61-block  0
+        2:   62:}
+        2:   62-block  0
+        -:   63:
+        7:   64:std::vector<TrenchCoat> CoatsService::filterDataPerSize(const std::string& size) const {
+        7:   65:    std::vector<TrenchCoat> coats;
+        7:   65-block  0
+       76:   66:    for (size_t i = 0; i < getLength(); ++i)
+       76:   66-block  0
+       76:   66-block  1
+       69:   66-block  2
+       69:   67:        if (repository[i].getSize() == size || size == "")
+       69:   67-block  0
+       69:   67-block  1
+       67:   67-block  2
+       51:   67-block  3
+       18:   67-block  4
+       69:   67-block  5
+       51:   68:            coats.push_back(repository[i]);
+       51:   68-block  0
+       51:   68-block  1
+        7:   69:    return coats;
+        7:   69-block  0
+        7:   69-block  1
+        -:   70:}
+        -:   71:
+        1:   72:void CoatsService::launchBrowserSizeCoatPhoto(int index, const std::string &size) const {
+        1:   73:    auto data = filterDataPerSize(size);
+        1:   73-block  0
+    $$$$$:   73-block  1
+        1:   74:    BrowserLauncher().launch(data[index].getPhotograph());
+        1:   74-block  0
+        1:   74-block  1
+    $$$$$:   74-block  2
+        1:   75:}
+        -:   76:
+        3:   77:void CoatsService::addToShoppingBasket(const int& index, const std::string& size) {
+        6:   78:    auto data = filterDataPerSize(size);
+        3:   78-block  0
+        3:   78-block  1
+    $$$$$:   78-block  2
+        -:   79:
+        3:   80:    if (data[index].getQuantity() == 1)
+        3:   80-block  0
+        1:   81:        repository.remove(data[index]);
+        1:   81-block  0
+        3:   82:    payment += data[index].getPrice();
+        3:   82-block  0
+        -:   83:
+        3:   84:    int position = repository.getIndex(data[index]);
+        3:   85:    if (position != -1)
+        3:   85-block  0
+        2:   86:        repository[position].setQuantity(repository[position].getQuantity() - 1);
+        2:   86-block  0
+        2:   86-block  1
+        2:   86-block  2
+        -:   87:
+        3:   88:    position = shopping_basket.getIndex(data[index]);
+        3:   88-block  0
+        3:   89:    if (position == -1) {
+        3:   89-block  0
+        2:   90:        data[index].setQuantity(1);
+        2:   90-block  0
+        2:   91:        shopping_basket.add(data[index]);
+        -:   92:    }
+        -:   93:    else
+        1:   94:        shopping_basket[position].setQuantity(shopping_basket[position].getQuantity() + 1);
+        1:   94-block  0
+        1:   94-block  1
+        1:   94-block  2
+        3:   95:}
+        -:   96:
+        2:   97:TextTable CoatsService::getDataTextTable(const TrenchCoat* data, int length) const {
+        2:   98:    if (data == nullptr) {
+        2:   98-block  0
+        1:   99:        data = repository.getData();
+        1:   99-block  0
+        1:  100:        length = repository.getLength();
+        -:  101:    }
+        -:  102:
+        2:  103:    TextTable table {6};
+        2:  103-block  0
+        2:  104:    table.addHeader(6, "NO", "SIZE", "COLOUR", "PRICE", "QUANTITY", "PHOTOGRAPH LINK");
+        5:  105:    for (size_t i = 0; i < length; ++i)
+        2:  105-block  0
+        5:  105-block  1
+        6:  106:        table.addRow(6, std::to_string(i + 1).c_str(), data[i].getSize().c_str(), data[i].getColour().c_str(), ("$" + std::to_string(data[i].getPrice())).c_str(),
+        3:  106-block  0
+        3:  106-block  1
+        3:  106-block  2
+        3:  106-block  3
+        3:  106-block  4
+    $$$$$:  106-block  5
+    $$$$$:  106-block  6
+    $$$$$:  106-block  7
+    $$$$$:  106-block  8
+    $$$$$:  106-block  9
+    $$$$$:  106-block 10
+        9:  107:                     std::to_string(data[i].getQuantity()).c_str(), data[i].getPhotograph().c_str());
+        3:  107-block  0
+    $$$$$:  107-block  1
+    $$$$$:  107-block  2
+        2:  108:    return table;
+        2:  108-block  0
+        2:  108-block  1
+        -:  109:}
+        -:  110:
+        2:  111:TextTable CoatsService::getSingleCoatTextTable(int index, const TrenchCoat* data) const {
+        2:  112:    if (data == nullptr)
+        2:  112-block  0
+        1:  113:        data = repository.getData();
+        1:  113-block  0
+        1:  113-block  1
+        -:  114:
+        2:  115:    TextTable table {2};
+        2:  115-block  0
+        2:  116:    table.addHeader(2, "", "TRENCH COAT DATA");
+       14:  117:    std::string row_descr[] = { "SIZE", "COLOUR", "PRICE", "QUANTITY", "PHOTOGRAPH LINK" };
+        2:  117-block  0
+        2:  117-block  1
+        2:  117-block  2
+        2:  117-block  3
+        2:  117-block  4
+        2:  117-block  5
+        2:  117-block  6
+       12:  117-block  7
+       10:  117-block  8
+    $$$$$:  117-block  9
+    $$$$$:  117-block 10
+    $$$$$:  117-block 11
+    $$$$$:  117-block 12
+    $$$$$:  117-block 13
+    $$$$$:  117-block 14
+    $$$$$:  117-block 15
+    $$$$$:  117-block 16
+    $$$$$:  117-block 17
+    $$$$$:  117-block 18
+    $$$$$:  117-block 19
+    $$$$$:  117-block 20
+    $$$$$:  117-block 21
+    $$$$$:  117-block 22
+    $$$$$:  117-block 23
+        4:  118:    std::string row_data[] = {data[index].getSize(), data[index].getColour(), "$" + std::to_string(data[index].getPrice()),
+        2:  118-block  0
+    $$$$$:  118-block  1
+    $$$$$:  118-block  2
+       18:  119:                              std::to_string(data[index].getQuantity()), data[index].getPhotograph()};
+        2:  119-block  0
+        2:  119-block  1
+        2:  119-block  2
+        2:  119-block  3
+        2:  119-block  4
+       12:  119-block  5
+       10:  119-block  6
+    $$$$$:  119-block  7
+    $$$$$:  119-block  8
+    $$$$$:  119-block  9
+    $$$$$:  119-block 10
+    $$$$$:  119-block 11
+        -:  120:
+       12:  121:    for (size_t i = 0; i < 5; ++i)
+        2:  121-block  0
+       12:  121-block  1
+       10:  121-block  2
+       10:  122:        table.addRow(2, row_descr[i].c_str(), row_data[i].c_str());
+       10:  122-block  0
+        4:  123:    return table;
+        2:  123-block  0
+        2:  123-block  1
+        -:  124:}

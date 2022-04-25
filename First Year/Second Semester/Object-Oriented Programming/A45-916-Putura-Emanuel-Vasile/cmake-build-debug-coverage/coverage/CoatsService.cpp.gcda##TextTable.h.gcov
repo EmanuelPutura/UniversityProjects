@@ -1,0 +1,77 @@
+        -:    0:Source:D:/Informatica/UBB Sem. 2/OOP/a45-916-Putura-Emanuel-Vasile/presentation/TextTable/TextTable.h
+        -:    0:Graph:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\business\CoatsService.cpp.gcno
+        -:    0:Data:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\business\CoatsService.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Emanuel on 22.03.2021.
+        -:    3://
+        -:    4:
+        -:    5:#ifndef TEXTTABLE_H
+        -:    6:#define TEXTTABLE_H
+        -:    7:
+        -:    8:#include <vector>
+        -:    9:#include <string>
+        -:   10:#include <cstdarg>
+        -:   11:
+        -:   12:/**
+        -:   13: * TextTable Class - provides functionalities for creating simple ASCII tables
+        -:   14: */
+        -:   15:class TextTable {
+        -:   16:private:
+        -:   17:    const int PADDING = 5, MIN_PADDING = 2;
+        -:   18:
+        -:   19:    std::vector<std::string> rows;
+        -:   20:    std::vector<size_t> columns_size;
+        -:   21:    int rows_no, columns_no;
+        -:   22:    bool header;
+        -:   23:
+        -:   24:    std::string buildRowDelimitator(const std::string& delimitator) const;
+        -:   25:    int getPartialWidth(int columns) const;
+        -:   26:public:
+        5:   27:    explicit TextTable(size_t columns) : columns_no(columns), rows_no(0), header(false) {}
+        5:   27-block  0
+        -:   28:
+        -:   29:    /**
+        -:   30:     * Adds a header to the table. A header can be added only once, as the first row in the table
+        -:   31:     * @param argc: the number of table columns
+        -:   32:     * @param ...: the function takes a variable number of parameters. Argc parameters must be passed, each of them representing data in a table cell
+        -:   33:     * @return: 0 on success, -1 on failure
+        -:   34:     */
+        -:   35:    int addHeader(size_t argc, ...);
+        -:   36:
+        -:   37:    /**
+        -:   38:     * Adds a row to the table
+        -:   39:     * @param argc: the number of table columns
+        -:   40:     * @param ...: the function takes a variable number of parameters. Argc parameters must be passed, each of them representing data in a table cell
+        -:   41:     * @return: 0 on success, -1 on failure
+        -:   42:     */
+        -:   43:    int addRow(size_t argc, ...);
+        -:   44:
+        -:   45:    /**
+        -:   46:     * Resizes a whole column of the table
+        -:   47:     * @param column: the column index
+        -:   48:     * @param size: the new size of the column
+        -:   49:     */
+        -:   50:    void resize(size_t column, size_t size);
+        -:   51:
+        -:   52:    /**
+        -:   53:     * Gets the data in a table cell
+        -:   54:     * @param row: a row of the table
+        -:   55:     * @param column: a column of the table
+        -:   56:     * @return: a string representing the table cell data
+        -:   57:     */
+        -:   58:    std::string getCellData(int row, int column);
+        -:   59:
+        -:   60:    /**
+        -:   61:     * Gets the table width in characters
+        -:   62:     * @return: the table width in characters
+        -:   63:     */
+        -:   64:    size_t getWidth() const;
+        -:   65:
+        -:   66:    inline size_t getRowsNo() const { return rows_no; }
+        -:   67:
+        -:   68:    friend std::ostream& operator<< (std::ostream& os, const TextTable& table);
+        -:   69:};
+        -:   70:
+        -:   71:#endif

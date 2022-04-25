@@ -1,0 +1,29 @@
+        -:    0:Source:D:/Informatica/UBB Sem. 2/OOP/a45-916-Putura-Emanuel-Vasile/domain/TrenchCoat/TrenchCoat.cpp
+        -:    0:Graph:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\domain\TrenchCoat\TrenchCoat.cpp.gcno
+        -:    0:Data:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\domain\TrenchCoat\TrenchCoat.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Emanuel on 21.03.2021.
+        -:    3://
+        -:    4:
+        -:    5:#include "TrenchCoat.h"
+        -:    6:
+        -:    7:#include <iostream>
+        -:    8:
+        2:    9:std::ostream &operator<<(std::ostream &os, const TrenchCoat& coat) {
+        2:   10:    os << coat.size << '/' << coat.colour << '/' << coat.price << '/' << coat.quantity << '/' << coat.photograph;
+        2:   10-block  0
+        2:   11:    return os;
+        -:   12:}
+        -:   13:
+      155:   14:bool operator==(const TrenchCoat &t1, const TrenchCoat &t2) {
+      155:   15:    return t1.size == t2.size && t1.colour == t2.colour && t1.price == t2.price && t1.photograph == t2.photograph;
+      155:   15-block  0
+       24:   15-block  1
+       22:   15-block  2
+       22:   15-block  3
+       22:   15-block  4
+      133:   15-block  5
+      155:   15-block  6
+        -:   16:}

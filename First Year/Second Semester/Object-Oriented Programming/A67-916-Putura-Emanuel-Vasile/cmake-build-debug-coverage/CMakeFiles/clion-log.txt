@@ -1,0 +1,11 @@
+"C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS=--coverage -DCMAKE_C_FLAGS=--coverage -G "CodeBlocks - MinGW Makefiles" "D:\Informatica\UBB Sem. 2\OOP\a67-916-Putura-Emanuel-Vasile"
+-- Could NOT find SQLite3 (missing: SQLite3_LIBRARY) (found version "3.35.4")
+-- Configuring done
+CMake Error at CMakeLists.txt:8 (add_executable):
+  Target "a67_916_Putura_Emanuel_Vasile" links to target "SQLite::SQLite" but
+  the target was not found.  Perhaps a find_package() call is missing for an
+  IMPORTED target, or an ALIAS target is missing?
+
+
+-- Generating done
+CMake Generate step failed.  Build files cannot be regenerated correctly.

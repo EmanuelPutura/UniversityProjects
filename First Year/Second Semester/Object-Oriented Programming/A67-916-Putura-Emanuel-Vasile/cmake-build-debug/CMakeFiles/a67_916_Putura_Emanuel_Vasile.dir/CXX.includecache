@@ -1,0 +1,176 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/28082020/.conan/data/sqlite3/3.35.4/_/_/package/08d1c8783034c5e5dbd5bce9600ab4bf34cd886f/include/sqlite3.h
+stdarg.h
+-
+
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/business/CoatsService.h
+../infrastructure/Repository/Repository.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/Repository/Repository.h
+../validation/CoatValidator.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/validation/CoatValidator.h
+../presentation/TextTable/TextTable.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/presentation/TextTable/TextTable.h
+../tools/Launcher.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/tools/Launcher.h
+../infrastructure/AbstractLaunchRepository/AbstractLaunchRepository.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/AbstractLaunchRepository/AbstractLaunchRepository.h
+string
+-
+vector
+-
+
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/domain/TrenchCoat/TrenchCoat.h
+string
+-
+
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/exceptions/Exception/Exception.h
+exception
+-
+string
+-
+
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/exceptions/RepositoryException/RepositoryException.h
+../Exception/Exception.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/exceptions/Exception/Exception.h
+
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/exceptions/ServiceException/ServiceException.h
+../Exception/Exception.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/exceptions/Exception/Exception.h
+
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/AbstractLaunchRepository/AbstractLaunchRepository.h
+../Repository/Repository.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/Repository/Repository.h
+
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/AbstractRepository/AbstractRepository.h
+vector
+-
+
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/CSVRepository/CSVRepository.h
+../Repository/Repository.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/Repository/Repository.h
+../AbstractLaunchRepository/AbstractLaunchRepository.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/AbstractLaunchRepository/AbstractLaunchRepository.h
+iostream
+-
+fstream
+-
+sstream
+-
+
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/DatabaseCoatsRepository/DatabaseCoatsRepository.h
+../Repository/Repository.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/Repository/Repository.h
+../../domain/TrenchCoat/TrenchCoat.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/domain/TrenchCoat/TrenchCoat.h
+sqlite3.h
+-
+
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/FileRepository/FileRepository.h
+../Repository/Repository.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/Repository/Repository.h
+iostream
+-
+fstream
+-
+
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/HTMLCoatsRepository/HTMLCoatsRepository.h
+../../domain/TrenchCoat/TrenchCoat.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/domain/TrenchCoat/TrenchCoat.h
+../AbstractLaunchRepository/AbstractLaunchRepository.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/AbstractLaunchRepository/AbstractLaunchRepository.h
+fstream
+-
+sstream
+-
+
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/Repository/Repository.h
+../AbstractRepository/AbstractRepository.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/AbstractRepository/AbstractRepository.h
+Repository.inl
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/Repository/Repository.inl
+
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/Repository/Repository.inl
+../../exceptions/RepositoryException/RepositoryException.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/exceptions/RepositoryException/RepositoryException.h
+algorithm
+-
+iostream
+-
+
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/main.cpp
+testing/TestAll.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/testing/TestAll.h
+presentation/AdminConsoleUI/AdminConsoleUI.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/presentation/AdminConsoleUI/AdminConsoleUI.h
+presentation/OptionConsoleUI/OptionConsoleUI.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/presentation/OptionConsoleUI/OptionConsoleUI.h
+presentation/UserConsoleUI/UserConsoleUI.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/presentation/UserConsoleUI/UserConsoleUI.h
+presentation/SwitcherConsoleUI/Switcher.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/presentation/SwitcherConsoleUI/Switcher.h
+infrastructure/FileRepository/FileRepository.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/FileRepository/FileRepository.h
+infrastructure/CSVRepository/CSVRepository.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/CSVRepository/CSVRepository.h
+infrastructure/HTMLCoatsRepository/HTMLCoatsRepository.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/HTMLCoatsRepository/HTMLCoatsRepository.h
+infrastructure/DatabaseCoatsRepository/DatabaseCoatsRepository.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/infrastructure/DatabaseCoatsRepository/DatabaseCoatsRepository.h
+
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/presentation/AdminConsoleUI/AdminConsoleUI.h
+../GenericConsoleUI/ConsoleUI.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/presentation/GenericConsoleUI/ConsoleUI.h
+../../exceptions/ServiceException/ServiceException.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/exceptions/ServiceException/ServiceException.h
+iostream
+-
+map
+-
+string
+-
+
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/presentation/GenericConsoleUI/ConsoleUI.h
+../../business/CoatsService.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/business/CoatsService.h
+
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/presentation/OptionConsoleUI/OptionConsoleUI.h
+../GenericConsoleUI/ConsoleUI.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/presentation/GenericConsoleUI/ConsoleUI.h
+string
+-
+
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/presentation/SwitcherConsoleUI/Switcher.h
+../GenericConsoleUI/ConsoleUI.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/presentation/GenericConsoleUI/ConsoleUI.h
+
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/presentation/TextTable/TextTable.h
+vector
+-
+string
+-
+cstdarg
+-
+
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/presentation/UserConsoleUI/UserConsoleUI.h
+../GenericConsoleUI/ConsoleUI.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/presentation/GenericConsoleUI/ConsoleUI.h
+
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/testing/TestAll.h
+
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/tools/Launcher.h
+string
+-
+
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/validation/CoatValidator.h
+string
+-
+../domain/TrenchCoat/TrenchCoat.h
+D:/Informatica/UBB Sem. 2/OOP/a67-916-Putura-Emanuel-Vasile/domain/TrenchCoat/TrenchCoat.h
+

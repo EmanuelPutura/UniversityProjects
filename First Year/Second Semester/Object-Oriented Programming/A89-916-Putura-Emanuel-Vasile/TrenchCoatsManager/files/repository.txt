@@ -1,0 +1,13 @@
+XS yellow 1000 19 https://ro.pinterest.com/pin/192528952790123664/
+S green 500 95 https://www.fjackets.com/buy/Mission-Impossible-5-Rebecca-Ferguson-Coat.html
+L black 100 41 https://mt.burberry.com/mens-trench-coats/black/
+XL purple 300 16 https://www.julienslive.com/m/lot-details/index/catalog/279/lot/108413
+4XL gray 1000 97 https://www.hockerty.com/en/men/grey-trench-coat/
+M green 100 147 photo
+M green 200 684 link
+3XS red 200 17 https://www2.hm.com/en_asia3/productpage.0716384002.html
+L white 100 99 link1
+XL black 200 200 link2
+XXL green 2500 265 link3
+M red 20000 2 https://www.luisaviaroma.com/en-ro/p/mat%C3%A9riel/women/73I-X6R010?ColorId=UkVE0&lvrid=_p_dX6R_gw&SizeTypeId=14&SizeId=4&from=gshop&gclid=CjwKCAjwqIiFBhAHEiwANg9szngcBEuSX87t0zeCnqdRPCeL2Xa3uNDscVw9MbcUdeYMeDWpUUkxtRoC8jYQAvD_BwE&gclsrc=aw.ds&aka_re=1
+XXL black 500 1 link2

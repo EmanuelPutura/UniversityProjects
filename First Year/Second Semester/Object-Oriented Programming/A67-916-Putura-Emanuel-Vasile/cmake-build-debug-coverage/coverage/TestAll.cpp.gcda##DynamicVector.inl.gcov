@@ -1,0 +1,340 @@
+        -:    0:Source:D:/Informatica/UBB Sem. 2/OOP/a45-916-Putura-Emanuel-Vasile/domain/DynamicVector/DynamicVector.inl
+        -:    0:Graph:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\testing\TestAll.cpp.gcno
+        -:    0:Data:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\testing\TestAll.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Emanuel on 20.03.2021.
+        -:    3://
+        -:    4:
+        -:    5:template<class T>
+       3*:    6:DynamicVector<T>::DynamicVector(size_t capacity) : capacity(capacity), length(0) {
+       5*:    7:    data = new T[capacity];
+       3*:    8:}
+------------------
+_ZN13DynamicVectorI10TrenchCoatEC1Ej:
+    #####:    6:DynamicVector<T>::DynamicVector(size_t capacity) : capacity(capacity), length(0) {
+    #####:    7:    data = new T[capacity];
+    %%%%%:    7-block  0
+    %%%%%:    7-block  1
+    %%%%%:    7-block  2
+    %%%%%:    7-block  3
+    %%%%%:    7-block  4
+    %%%%%:    7-block  5
+    %%%%%:    7-block  6
+    %%%%%:    7-block  7
+    %%%%%:    7-block  8
+    %%%%%:    7-block  9
+    $$$$$:    7-block 10
+    $$$$$:    7-block 11
+    $$$$$:    7-block 12
+    $$$$$:    7-block 13
+    $$$$$:    7-block 14
+    $$$$$:    7-block 15
+    $$$$$:    7-block 16
+    $$$$$:    7-block 17
+    $$$$$:    7-block 18
+    $$$$$:    7-block 19
+    $$$$$:    7-block 20
+    $$$$$:    7-block 21
+    $$$$$:    7-block 22
+    $$$$$:    7-block 23
+    $$$$$:    7-block 24
+    $$$$$:    7-block 25
+    $$$$$:    7-block 26
+    $$$$$:    7-block 27
+    #####:    8:}
+    %%%%%:    8-block  0
+------------------
+_ZN13DynamicVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1Ej:
+        1:    6:DynamicVector<T>::DynamicVector(size_t capacity) : capacity(capacity), length(0) {
+       3*:    7:    data = new T[capacity];
+        1:    7-block  0
+        1:    7-block  1
+    %%%%%:    7-block  2
+        1:    7-block  3
+        3:    7-block  4
+        2:    7-block  5
+        1:    8:}
+------------------
+_ZN13DynamicVectorIiEC1Ej:
+        2:    6:DynamicVector<T>::DynamicVector(size_t capacity) : capacity(capacity), length(0) {
+       2*:    7:    data = new T[capacity];
+        2:    7-block  0
+        2:    7-block  1
+    %%%%%:    7-block  2
+        2:    7-block  3
+        2:    8:}
+------------------
+        -:    9:
+        -:   10:template<class T>
+        1:   11:DynamicVector<T>::DynamicVector(const DynamicVector<T> &other) {
+        1:   12:    length = other.length;
+        1:   13:    capacity = other.capacity;
+       1*:   14:    delete[] data;
+        1:   14-block  0
+    %%%%%:   14-block  1
+       1*:   15:    data = new T[capacity];
+        1:   15-block  0
+        1:   15-block  1
+    %%%%%:   15-block  2
+        1:   15-block  3
+        -:   16:
+       11:   17:    for (size_t i = 0; i < length; ++i)
+       11:   17-block  0
+       10:   18:        data[i] = other.data[i];
+       10:   18-block  0
+        1:   19:}
+        -:   20:
+        -:   21:template<class T>
+       2*:   22:void DynamicVector<T>::resize() {
+       2*:   23:    capacity *= 2;
+       6*:   24:    T* new_data = new T[capacity];
+        -:   25:
+      14*:   26:    for (size_t i = 0; i < length; ++i)
+      12*:   27:        new_data[i] = data[i];
+        -:   28:
+       4*:   29:    delete[] data;
+       2*:   30:    data = new_data;
+       2*:   31:}
+------------------
+_ZN13DynamicVectorI10TrenchCoatE6resizeEv:
+    #####:   22:void DynamicVector<T>::resize() {
+    #####:   23:    capacity *= 2;
+    #####:   24:    T* new_data = new T[capacity];
+    %%%%%:   24-block  0
+    %%%%%:   24-block  1
+    %%%%%:   24-block  2
+    %%%%%:   24-block  3
+    %%%%%:   24-block  4
+    %%%%%:   24-block  5
+    %%%%%:   24-block  6
+    %%%%%:   24-block  7
+    %%%%%:   24-block  8
+    %%%%%:   24-block  9
+    $$$$$:   24-block 10
+    $$$$$:   24-block 11
+    $$$$$:   24-block 12
+    $$$$$:   24-block 13
+    $$$$$:   24-block 14
+    $$$$$:   24-block 15
+    $$$$$:   24-block 16
+    $$$$$:   24-block 17
+    $$$$$:   24-block 18
+    $$$$$:   24-block 19
+    $$$$$:   24-block 20
+    $$$$$:   24-block 21
+    $$$$$:   24-block 22
+    $$$$$:   24-block 23
+    $$$$$:   24-block 24
+    $$$$$:   24-block 25
+    $$$$$:   24-block 26
+    $$$$$:   24-block 27
+        -:   25:
+    #####:   26:    for (size_t i = 0; i < length; ++i)
+    %%%%%:   26-block  0
+    %%%%%:   26-block  1
+    #####:   27:        new_data[i] = data[i];
+    %%%%%:   27-block  0
+        -:   28:
+    #####:   29:    delete[] data;
+    %%%%%:   29-block  0
+    %%%%%:   29-block  1
+    %%%%%:   29-block  2
+    %%%%%:   29-block  3
+    %%%%%:   29-block  4
+    #####:   30:    data = new_data;
+    #####:   31:}
+    %%%%%:   31-block  0
+------------------
+_ZN13DynamicVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6resizeEv:
+        1:   22:void DynamicVector<T>::resize() {
+        1:   23:    capacity *= 2;
+       5*:   24:    T* new_data = new T[capacity];
+        1:   24-block  0
+        1:   24-block  1
+    %%%%%:   24-block  2
+        1:   24-block  3
+        5:   24-block  4
+        4:   24-block  5
+        -:   25:
+        3:   26:    for (size_t i = 0; i < length; ++i)
+        1:   26-block  0
+        3:   26-block  1
+        2:   27:        new_data[i] = data[i];
+        2:   27-block  0
+        -:   28:
+        3:   29:    delete[] data;
+        1:   29-block  0
+        1:   29-block  1
+        3:   29-block  2
+        2:   29-block  3
+        1:   29-block  4
+        1:   30:    data = new_data;
+        1:   31:}
+------------------
+_ZN13DynamicVectorIiE6resizeEv:
+        1:   22:void DynamicVector<T>::resize() {
+        1:   23:    capacity *= 2;
+       1*:   24:    T* new_data = new T[capacity];
+        1:   24-block  0
+        1:   24-block  1
+    %%%%%:   24-block  2
+        1:   24-block  3
+        -:   25:
+       11:   26:    for (size_t i = 0; i < length; ++i)
+       11:   26-block  0
+       10:   27:        new_data[i] = data[i];
+       10:   27-block  0
+        -:   28:
+        1:   29:    delete[] data;
+        1:   29-block  0
+        1:   29-block  1
+        1:   30:    data = new_data;
+        1:   31:}
+------------------
+        -:   32:
+        -:   33:template <class T>
+       58:   34:void DynamicVector<T>::push(const T& value) {
+       58:   35:    if (length == capacity)
+       1*:   36:        resize();
+       58:   37:    data[length++] = value;
+       58:   38:}
+------------------
+_ZN13DynamicVectorI10TrenchCoatE4pushERKS0_:
+       35:   34:void DynamicVector<T>::push(const T& value) {
+       35:   35:    if (length == capacity)
+       35:   35-block  0
+    #####:   36:        resize();
+    %%%%%:   36-block  0
+       35:   37:    data[length++] = value;
+       35:   37-block  0
+       35:   38:}
+------------------
+_ZN13DynamicVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4pushERKS5_:
+        3:   34:void DynamicVector<T>::push(const T& value) {
+        3:   35:    if (length == capacity)
+        3:   35-block  0
+        1:   36:        resize();
+        1:   36-block  0
+        3:   37:    data[length++] = value;
+        3:   37-block  0
+        3:   38:}
+------------------
+_ZN13DynamicVectorIiE4pushERKi:
+       20:   34:void DynamicVector<T>::push(const T& value) {
+       20:   35:    if (length == capacity)
+       20:   35-block  0
+    #####:   36:        resize();
+    %%%%%:   36-block  0
+       20:   37:    data[length++] = value;
+       20:   38:}
+------------------
+        -:   39:
+        -:   40:template<class T>
+        3:   41:int DynamicVector<T>::remove(const T& value) {
+        3:   42:    int index = getIndex(value);
+        3:   42-block  0
+       3*:   43:    if (index == -1) return -1;
+    %%%%%:   43-block  0
+        -:   44:
+       17:   45:    for (size_t i = index + 1; i < length; ++i)
+        3:   45-block  0
+       17:   45-block  1
+       14:   46:        data[i - 1] = data[i];
+       14:   46-block  0
+        3:   47:    length--;
+        3:   48:    return index;
+        3:   48-block  0
+        -:   49:}
+        -:   50:
+        -:   51:template<class T>
+       5*:   52:int DynamicVector<T>::getIndex(const T& value) const{
+      22*:   53:    for (size_t i = 0; i < length; ++i)
+      21*:   54:        if (data[i] == value) return i;
+       1*:   55:    return -1;
+        -:   56:}
+------------------
+_ZNK13DynamicVectorI10TrenchCoatE8getIndexERKS0_:
+    #####:   52:int DynamicVector<T>::getIndex(const T& value) const{
+    #####:   53:    for (size_t i = 0; i < length; ++i)
+    %%%%%:   53-block  0
+    %%%%%:   53-block  1
+    %%%%%:   53-block  2
+    #####:   54:        if (data[i] == value) return i;
+    %%%%%:   54-block  0
+    %%%%%:   54-block  1
+    #####:   55:    return -1;
+    %%%%%:   55-block  0
+        -:   56:}
+------------------
+_ZNK13DynamicVectorIiE8getIndexERKi:
+        5:   52:int DynamicVector<T>::getIndex(const T& value) const{
+       22:   53:    for (size_t i = 0; i < length; ++i)
+        5:   53-block  0
+       22:   53-block  1
+       17:   53-block  2
+       21:   54:        if (data[i] == value) return i;
+       21:   54-block  0
+        4:   54-block  1
+        1:   55:    return -1;
+        1:   55-block  0
+        -:   56:}
+------------------
+        -:   57:
+        -:   58:template<class T>
+      276:   59:T &DynamicVector<T>::operator[](int index) {
+      276:   60:    return data[index];
+        -:   61:}
+------------------
+_ZN13DynamicVectorI10TrenchCoatEixEi:
+      192:   59:T &DynamicVector<T>::operator[](int index) {
+      192:   60:    return data[index];
+      192:   60-block  0
+        -:   61:}
+------------------
+_ZN13DynamicVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEixEi:
+        3:   59:T &DynamicVector<T>::operator[](int index) {
+        3:   60:    return data[index];
+        3:   60-block  0
+        -:   61:}
+------------------
+_ZN13DynamicVectorIiEixEi:
+       81:   59:T &DynamicVector<T>::operator[](int index) {
+       81:   60:    return data[index];
+       81:   60-block  0
+        -:   61:}
+------------------
+        -:   62:
+        -:   63:template<class T>
+       4*:   64:DynamicVector<T>::~DynamicVector() {
+       8*:   65:    delete[] data;
+       4*:   66:}
+------------------
+_ZN13DynamicVectorI10TrenchCoatED1Ev:
+    #####:   64:DynamicVector<T>::~DynamicVector() {
+    #####:   65:    delete[] data;
+    %%%%%:   65-block  0
+    %%%%%:   65-block  1
+    %%%%%:   65-block  2
+    %%%%%:   65-block  3
+    %%%%%:   65-block  4
+    #####:   66:}
+------------------
+_ZN13DynamicVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev:
+        1:   64:DynamicVector<T>::~DynamicVector() {
+        5:   65:    delete[] data;
+        1:   65-block  0
+        1:   65-block  1
+        5:   65-block  2
+        4:   65-block  3
+        1:   65-block  4
+        1:   66:}
+------------------
+_ZN13DynamicVectorIiED1Ev:
+        3:   64:DynamicVector<T>::~DynamicVector() {
+        3:   65:    delete[] data;
+        3:   65-block  0
+        3:   65-block  1
+        3:   66:}
+------------------

@@ -1,0 +1,33 @@
+        -:    0:Source:D:/Informatica/UBB Sem. 2/OOP/a45-916-Putura-Emanuel-Vasile/tools/BrowserLauncher.cpp
+        -:    0:Graph:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\tools\BrowserLauncher.cpp.gcno
+        -:    0:Data:D:\Informatica\UBB Sem. 2\OOP\a45-916-Putura-Emanuel-Vasile\cmake-build-debug-coverage\CMakeFiles\a45_916_Putura_Emanuel_Vasile.dir\tools\BrowserLauncher.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Emanuel on 25.03.2021.
+        -:    3://
+        -:    4:
+        -:    5:#include "BrowserLauncher.h"
+        -:    6:
+        -:    7:#include <windows.h>
+        -:    8:#include <shellapi.h>
+        -:    9:#include <string>
+        -:   10:#include <string.h>
+        -:   11:
+        1:   12:wchar_t* BrowserLauncher::getWideCharString(const char *c_string) const {
+        1:   13:    const size_t cSize = strlen(c_string) + 1;
+       1*:   14:    wchar_t* wc = new wchar_t[cSize];
+        1:   14-block  0
+        1:   14-block  1
+    %%%%%:   14-block  2
+        1:   14-block  3
+        1:   15:    mbstowcs(wc, c_string, cSize);
+        -:   16:
+        1:   17:    return wc;
+        -:   18:}
+        -:   19:
+        1:   20:void BrowserLauncher::launch(const std::string& link) const {
+        1:   21:    wchar_t* widec_link = getWideCharString(link.c_str());
+        1:   21-block  0
+        1:   22:    ShellExecuteW(NULL, L"open", widec_link, NULL, NULL, SW_SHOWNORMAL);
+        1:   23:}
