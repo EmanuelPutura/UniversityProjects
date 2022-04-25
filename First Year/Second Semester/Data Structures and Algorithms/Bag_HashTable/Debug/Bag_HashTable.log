@@ -1,0 +1,5 @@
+﻿  Bag.cpp
+D:\Informatica\UBB Sem. 2\DSA\Bag_HashTable\Bag.cpp(73,23): warning C4018: '<': signed/unsigned mismatch
+D:\Informatica\UBB Sem. 2\DSA\Bag_HashTable\Bag.cpp(76,23): warning C4018: '<': signed/unsigned mismatch
+D:\Informatica\UBB Sem. 2\DSA\Bag_HashTable\Bag.cpp(103,23): warning C4018: '<': signed/unsigned mismatch
+  Bag_HashTable.vcxproj -> D:\Informatica\UBB Sem. 2\DSA\Bag_HashTable\Debug\Bag_HashTable.exe

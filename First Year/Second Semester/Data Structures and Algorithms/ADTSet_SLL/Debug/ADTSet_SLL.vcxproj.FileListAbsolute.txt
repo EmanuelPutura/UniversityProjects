@@ -1,0 +1,2 @@
+D:\Informatica\UBB Sem. 2\DSA\ADTSet_SLL\Debug\ADTSet_SLL.exe
+D:\Informatica\UBB Sem. 2\DSA\ADTSet_SLL\Debug\ADTSet_SLL.pdb

@@ -1,0 +1,14 @@
+﻿  App.cpp
+  ExtendedTest.cpp
+D:\Informatica\UBB Sem. 2\DSA\ADTSet_SLL\ExtendedTest.cpp(165,20): warning C4101: 'e': unreferenced local variable
+D:\Informatica\UBB Sem. 2\DSA\ADTSet_SLL\ExtendedTest.cpp(172,20): warning C4101: 'ex': unreferenced local variable
+D:\Informatica\UBB Sem. 2\DSA\ADTSet_SLL\ExtendedTest.cpp(226,20): warning C4101: 'ex': unreferenced local variable
+D:\Informatica\UBB Sem. 2\DSA\ADTSet_SLL\ExtendedTest.cpp(233,20): warning C4101: 'ex': unreferenced local variable
+  Set.cpp
+  SetIterator.cpp
+  ShortTest.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 41 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  ADTSet_SLL.vcxproj -> D:\Informatica\UBB Sem. 2\DSA\ADTSet_SLL\Release\ADTSet_SLL.exe

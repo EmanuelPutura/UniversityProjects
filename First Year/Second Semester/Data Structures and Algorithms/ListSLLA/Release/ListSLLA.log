@@ -1,0 +1,10 @@
+﻿  IteratedList.cpp
+D:\Informatica\UBB Sem. 2\DSA\ListSLLA\IteratedList.cpp(21,23): warning C4018: '<': signed/unsigned mismatch
+D:\Informatica\UBB Sem. 2\DSA\ListSLLA\IteratedList.cpp(26,30): warning C4018: '<': signed/unsigned mismatch
+D:\Informatica\UBB Sem. 2\DSA\ListSLLA\IteratedList.cpp(51,23): warning C4018: '<': signed/unsigned mismatch
+  Generating code
+  0 of 46 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  ListSLLA.vcxproj -> D:\Informatica\UBB Sem. 2\DSA\ListSLLA\Release\ListSLLA.exe

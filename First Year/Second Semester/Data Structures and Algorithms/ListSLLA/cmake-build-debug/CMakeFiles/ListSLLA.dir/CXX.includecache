@@ -1,0 +1,72 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Informatica/UBB Sem. 2/DSA/ListSLLA/App.cpp
+iostream
+-
+ShortTest.h
+D:/Informatica/UBB Sem. 2/DSA/ListSLLA/ShortTest.h
+ExtendedTest.h
+D:/Informatica/UBB Sem. 2/DSA/ListSLLA/ExtendedTest.h
+
+D:/Informatica/UBB Sem. 2/DSA/ListSLLA/ExtendedTest.cpp
+assert.h
+-
+exception
+-
+iostream
+-
+ExtendedTest.h
+D:/Informatica/UBB Sem. 2/DSA/ListSLLA/ExtendedTest.h
+ListIterator.h
+D:/Informatica/UBB Sem. 2/DSA/ListSLLA/ListIterator.h
+IteratedList.h
+D:/Informatica/UBB Sem. 2/DSA/ListSLLA/IteratedList.h
+iostream
+-
+
+D:/Informatica/UBB Sem. 2/DSA/ListSLLA/ExtendedTest.h
+
+D:/Informatica/UBB Sem. 2/DSA/ListSLLA/IteratedList.cpp
+exception
+-
+ListIterator.h
+D:/Informatica/UBB Sem. 2/DSA/ListSLLA/ListIterator.h
+IteratedList.h
+D:/Informatica/UBB Sem. 2/DSA/ListSLLA/IteratedList.h
+
+D:/Informatica/UBB Sem. 2/DSA/ListSLLA/IteratedList.h
+
+D:/Informatica/UBB Sem. 2/DSA/ListSLLA/ListIterator.cpp
+ListIterator.h
+D:/Informatica/UBB Sem. 2/DSA/ListSLLA/ListIterator.h
+IteratedList.h
+D:/Informatica/UBB Sem. 2/DSA/ListSLLA/IteratedList.h
+exception
+-
+
+D:/Informatica/UBB Sem. 2/DSA/ListSLLA/ListIterator.h
+IteratedList.h
+D:/Informatica/UBB Sem. 2/DSA/ListSLLA/IteratedList.h
+
+D:/Informatica/UBB Sem. 2/DSA/ListSLLA/ShortTest.cpp
+ShortTest.h
+D:/Informatica/UBB Sem. 2/DSA/ListSLLA/ShortTest.h
+assert.h
+-
+exception
+-
+IteratedList.h
+D:/Informatica/UBB Sem. 2/DSA/ListSLLA/IteratedList.h
+ListIterator.h
+D:/Informatica/UBB Sem. 2/DSA/ListSLLA/ListIterator.h
+iostream
+-
+
+D:/Informatica/UBB Sem. 2/DSA/ListSLLA/ShortTest.h
+

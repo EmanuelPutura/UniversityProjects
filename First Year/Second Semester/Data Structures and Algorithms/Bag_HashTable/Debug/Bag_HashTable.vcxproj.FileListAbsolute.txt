@@ -1,0 +1,2 @@
+D:\Informatica\UBB Sem. 2\DSA\Bag_HashTable\Debug\Bag_HashTable.exe
+D:\Informatica\UBB Sem. 2\DSA\Bag_HashTable\Debug\Bag_HashTable.pdb

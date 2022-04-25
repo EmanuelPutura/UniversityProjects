@@ -1,0 +1,3 @@
+D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug/CMakeFiles/ListSLLA.dir
+D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug/CMakeFiles/edit_cache.dir

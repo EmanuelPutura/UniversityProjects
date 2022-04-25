@@ -1,0 +1,2 @@
+D:\Informatica\UBB Sem. 2\DSA\ListSLLA\Debug\ListSLLA.exe
+D:\Informatica\UBB Sem. 2\DSA\ListSLLA\Debug\ListSLLA.pdb

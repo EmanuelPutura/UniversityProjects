@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="ListSLLA"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ListSLLA">
+				<Option output="D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug/ListSLLA.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/Informatica/UBB Sem. 2/DSA/ListSLLA/."/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug/Makefile&quot;  VERBOSE=1 ListSLLA"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ListSLLA/fast">
+				<Option output="D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug/ListSLLA.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/Informatica/UBB Sem. 2/DSA/ListSLLA/."/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug/Makefile&quot;  VERBOSE=1 ListSLLA/fast"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;D:/Informatica/UBB Sem. 2/DSA/ListSLLA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="D:/Informatica/UBB Sem. 2/DSA/ListSLLA/App.cpp">
+			<Option target="ListSLLA"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/DSA/ListSLLA/ExtendedTest.cpp">
+			<Option target="ListSLLA"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/DSA/ListSLLA/ExtendedTest.h">
+			<Option target="ListSLLA"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/DSA/ListSLLA/IteratedList.cpp">
+			<Option target="ListSLLA"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/DSA/ListSLLA/IteratedList.h">
+			<Option target="ListSLLA"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/DSA/ListSLLA/ListIterator.cpp">
+			<Option target="ListSLLA"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/DSA/ListSLLA/ListIterator.h">
+			<Option target="ListSLLA"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/DSA/ListSLLA/ShortTest.cpp">
+			<Option target="ListSLLA"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/DSA/ListSLLA/ShortTest.h">
+			<Option target="ListSLLA"/>
+		</Unit>
+		<Unit filename="D:/Informatica/UBB Sem. 2/DSA/ListSLLA/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
