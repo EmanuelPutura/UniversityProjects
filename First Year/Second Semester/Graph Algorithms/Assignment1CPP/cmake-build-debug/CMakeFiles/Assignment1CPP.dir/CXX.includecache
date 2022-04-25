@@ -1,0 +1,50 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Informatica/UBB Sem. 2/GA/Assignment1CPP/ConsoleUI/ConsoleUI.cpp
+ConsoleUI.h
+D:/Informatica/UBB Sem. 2/GA/Assignment1CPP/ConsoleUI/ConsoleUI.h
+../GraphGenerator/GraphRandomGenerator.h
+D:/Informatica/UBB Sem. 2/GA/Assignment1CPP/GraphGenerator/GraphRandomGenerator.h
+../FileManager/FileManager.h
+D:/Informatica/UBB Sem. 2/GA/Assignment1CPP/FileManager/FileManager.h
+../TextTable/TextTable.h
+D:/Informatica/UBB Sem. 2/GA/Assignment1CPP/TextTable/TextTable.h
+iostream
+-
+
+D:/Informatica/UBB Sem. 2/GA/Assignment1CPP/ConsoleUI/ConsoleUI.h
+string
+-
+../DirectedGraph/DirectedGraph.h
+D:/Informatica/UBB Sem. 2/GA/Assignment1CPP/DirectedGraph/DirectedGraph.h
+
+D:/Informatica/UBB Sem. 2/GA/Assignment1CPP/DirectedGraph/DirectedGraph.h
+vector
+-
+string
+-
+map
+-
+
+D:/Informatica/UBB Sem. 2/GA/Assignment1CPP/FileManager/FileManager.h
+../DirectedGraph/DirectedGraph.h
+D:/Informatica/UBB Sem. 2/GA/Assignment1CPP/DirectedGraph/DirectedGraph.h
+
+D:/Informatica/UBB Sem. 2/GA/Assignment1CPP/GraphGenerator/GraphRandomGenerator.h
+../DirectedGraph/DirectedGraph.h
+D:/Informatica/UBB Sem. 2/GA/Assignment1CPP/DirectedGraph/DirectedGraph.h
+
+D:/Informatica/UBB Sem. 2/GA/Assignment1CPP/TextTable/TextTable.h
+vector
+-
+string
+-
+cstdarg
+-
+
