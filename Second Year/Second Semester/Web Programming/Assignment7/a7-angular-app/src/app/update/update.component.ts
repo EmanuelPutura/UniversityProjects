@@ -34,6 +34,6 @@ export class UpdateComponent implements OnInit {
     }
 
     onUpdateButton(): void {
-
+        this.productsService.updateProduct(this.id, this.productName, this.productCategory, this.productPrice);
     }
 }
