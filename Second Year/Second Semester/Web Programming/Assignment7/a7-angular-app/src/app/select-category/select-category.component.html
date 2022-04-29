@@ -1,5 +1,10 @@
+<div id="buttons-products-div">
+    <button id="prev-products-btn" type="button" (click)="onPrevButton()">Previous Page</button>
+    <button id="next-products-btn" type="button" (click)="onNextButton()">Next Page</button>
+</div>
+
 <div id="select-txtbox-div">
     <label for="select-category">Category:</label>
-    <input type="text" id="select-category" name="select-category"><br>
-    <button type="button">Select Category</button>
+    <input [(ngModel)]="category" type="text" id="select-category" name="select-category"><br>
+    <button type="button" (click)="onSubmitCategoryButton()">Select Category</button>
 </div>

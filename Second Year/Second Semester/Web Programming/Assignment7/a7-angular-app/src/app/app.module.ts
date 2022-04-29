@@ -11,6 +11,8 @@ import { SelectCategoryComponent } from './select-category/select-category.compo
 import { ShoppingBasketComponent } from './shopping-basket/shopping-basket.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductsTableComponent } from './products-table/products-table.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ProductsTableComponent } from './products-table/products-table.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

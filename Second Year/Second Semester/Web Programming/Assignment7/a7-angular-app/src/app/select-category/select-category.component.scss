@@ -28,3 +28,22 @@
     margin-bottom: 0;
     padding-bottom: 0;
 }
+
+#buttons-products-div {
+    width: 75%;
+    height: 5vh;
+    text-align: center;
+    margin: auto;
+    margin-top: 1%;
+}
+
+#buttons-products-div * {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+#prev-products-btn,
+#next-products-btn {
+    width: 49%;
+    height: 100%;
+}
