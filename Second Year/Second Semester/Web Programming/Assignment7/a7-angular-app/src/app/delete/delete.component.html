@@ -1,5 +1,5 @@
 <form class="form" action="">
     <label for="product-id">Product ID:</label>
-    <input type="text" id="product-id" name="product-id"><br>
-    <button type="button" id="submit-delete-btn">Delete Product</button>
+    <input [(ngModel)]="productId" type="text" id="product-id" name="product-id"><br>
+    <button type="button" id="submit-delete-btn" (click)="onDeleteButton()">Delete Product</button>
 </form>

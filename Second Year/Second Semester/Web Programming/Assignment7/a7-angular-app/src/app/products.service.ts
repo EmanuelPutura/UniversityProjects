@@ -11,6 +11,11 @@ import { Product } from './domain/product';
 })
 export class ProductsService {
     private backendUrl = 'http://localhost/my-websites/websites/ubb-web-assignment7/server/controller/controller.php';  // url to web api 
+    private httpOptions = {
+        headers: new HttpHeaders({
+            'Content-Type': 'application/x-www-form-urlencoded'
+        })
+    };
 
     constructor(private httpClient: HttpClient) {
     }
@@ -23,6 +28,19 @@ export class ProductsService {
     checkProductId(id: number): Observable<string[]> {
         const requestUrl: string = this.backendUrl + "?func=check&id=" + id;
         return this.httpClient.get<string[]>(requestUrl).pipe(catchError(this.handleError<string[]>('checkProductId', [])));
+    }
+
+    addProduct(name: string, category: string, price: number): void {
+        const requestBody: string = 'func=insert&productName=' + name + '&productCategory=' + category + '&productPrice=' + price;
+        this.httpClient.post<undefined>(this.backendUrl, requestBody, this.httpOptions).pipe(catchError(this.handleError<undefined>('addProduct', undefined))).subscribe();
+    }
+
+    deleteProduct(id: number): void {
+        this.httpClient.delete(this.backendUrl, {body: {"func": "delete", "productID": id}}).subscribe();
+    }
+
+    updateProduct(id: number, name: string, category: string, price: number): void {
+        this.httpClient.put(this.backendUrl, {body: {"func": "update", "productID": id, "productName": name, "productCategory": category, "productPrice": price}}).subscribe();
     }
 
     /**
