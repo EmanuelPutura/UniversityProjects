@@ -1,5 +1,10 @@
 <?php
 
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Headers: *');
+header('Access-Control-Allow-Methods: *');
+header('Content-type: application/json');
+
 require_once "../view/view.php";
 
 class Controller {
@@ -19,10 +24,10 @@ class Controller {
             while($data = fread($putRequestFile, 1024))
                 $requestData .= $data;
             fclose($putRequestFile);
-            
+
             $sentData = json_decode($requestData, true);
-            if (isset($sentData["func"]) && $sentData["func"] === "update")
-                $this->serveUpdate($sentData);
+            if (isset($sentData["body"]["func"]) && $sentData["body"]["func"] === "update")
+                $this->serveUpdate($sentData["body"]);
         }
         else if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === "DELETE") {
             $putRequestFile = fopen('php://input', 'r');
@@ -58,7 +63,7 @@ class Controller {
         $this->view->insertProduct($_POST["productName"], $_POST["productCategory"], (int) $_POST["productPrice"]);
     }
 
-    private function serveUpdate(Array $requestData) {
+    private function serveUpdate(Array $requestData) {    
         if (!isset($requestData["productID"]) || !isset($requestData["productName"]) || !isset($requestData["productCategory"]) || !isset($requestData["productPrice"]))
             return;
 

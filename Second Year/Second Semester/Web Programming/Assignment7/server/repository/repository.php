@@ -2,7 +2,7 @@
 require_once "../model/product.php";
 
 class Repository {
-    private $hostname = "localhost";
+    private $hostname = "localhost:3307";  // TODO: change port if necessary
     private $username = "root";
     private $password = "";
     private $database = "ecommerecestore";
@@ -77,7 +77,7 @@ class Repository {
                 array_push($answerArray, json_encode($product));
             }
         }
-        else {
+        else if ($currentPage != 0) {
             return $this->selectProductsFromCategory($category, $pageSize, 0);
         }
         
@@ -129,8 +129,8 @@ class Repository {
         $result = $this->connection->query($sqlQuery);
 
         if ($result->num_rows > 0)
-            return "valid";
-        return "invalid";
+            return json_encode(["valid"]);
+        return json_encode(["invalid"]);
     }
 }
 ?>

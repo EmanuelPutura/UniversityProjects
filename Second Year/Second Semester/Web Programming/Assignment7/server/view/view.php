@@ -14,14 +14,17 @@ class View {
 
     public function insertProduct(string $name, string $category, int $price) {
         $this->service->insertProduct($name, $category, $price);
+        echo json_encode(["success"]);
     }
 
     public function updateProduct(int $id, string $name, string $category, int $price) {
         $this->service->updateProduct($id, $name, $category, $price);
+        echo json_encode(["success"]);
     }
 
     public function deleteProduct(int $id) {
         $this->service->deleteProduct($id);
+        echo json_encode(["success"]);
     }
 
     public function checkProductID(int $id) {
