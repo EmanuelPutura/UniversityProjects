@@ -1,8 +1,8 @@
 <div id="cart-div">
     <label for="select-cart-id">Product ID:</label>
-    <input type="text" id="select-cart-id" name="select-cart-id"><br>
-    <button type="button" id="cart-add-btn">Add To Shopping Basket</button>
-    <button type="button" id="cart-remove-btn">Remove From Shopping Basket</button>
+    <input [(ngModel)]="inputAddId" type="text" id="select-cart-id" name="select-cart-id"><br>
+    <button type="button" id="cart-add-btn" (click)="onAddToCartButton()">Add To Shopping Basket</button>
+    <button type="button" id="cart-remove-btn" (click)="onRemoveFromCartButton()">Remove From Shopping Basket</button>
 </div>
 
 <label id="basket-label">Shopping basket Product IDs:</label>

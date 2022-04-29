@@ -10,12 +10,7 @@ import { Product } from './domain/product';
     providedIn: 'root'
 })
 export class ProductsService {
-    private backendUrl = 'http://localhost/my-websites/websites/ubb-web-assignment6/server/controller/controller.php';  // url to web api 
-    httpOptions = {
-        headers: new HttpHeaders({
-            'Content-Type': 'application/json'
-        })
-    };
+    private backendUrl = 'http://localhost/my-websites/websites/ubb-web-assignment7/server/controller/controller.php';  // url to web api 
 
     constructor(private httpClient: HttpClient) {
     }
@@ -23,6 +18,11 @@ export class ProductsService {
     fetchProducts(category: string, pageSize: number, pageNumber: number): Observable<Product[]> {
         const requestUrl: string = this.backendUrl + '?func=select&category=' + category + '&pageSize=' + pageSize + '&currentPage=' + pageNumber;
         return this.httpClient.get<Product[]>(requestUrl).pipe(catchError(this.handleError<Product[]>('fetchProducts', [])));
+    }
+
+    checkProductId(id: number): Observable<string[]> {
+        const requestUrl: string = this.backendUrl + "?func=check&id=" + id;
+        return this.httpClient.get<string[]>(requestUrl).pipe(catchError(this.handleError<string[]>('checkProductId', [])));
     }
 
     /**
