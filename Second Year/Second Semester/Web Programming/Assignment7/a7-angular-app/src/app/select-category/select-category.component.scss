@@ -1,0 +1,30 @@
+#select-txtbox-div {
+    text-align: center;
+    width: 75%;
+    height: 15vh;
+    margin: auto;
+    padding: 0;
+    padding-top: 1%;
+    margin-bottom: 0;
+    // border: 2px solid black;
+}
+
+#select-txtbox-div label {
+    display: inline-block;
+    width: 17%;
+    height: 33%;
+    text-align: left;
+}
+
+#select-txtbox-div input {
+    width: 80%;
+    height: 33%;
+}
+
+#select-txtbox-div button {
+    width: 99%;
+    margin: auto;
+    height: 33%;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}

@@ -7,6 +7,10 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { InsertComponent } from './insert/insert.component';
 import { UpdateComponent } from './update/update.component';
 import { DeleteComponent } from './delete/delete.component';
+import { SelectCategoryComponent } from './select-category/select-category.component';
+import { ShoppingBasketComponent } from './shopping-basket/shopping-basket.component';
+import { ProductsComponent } from './products/products.component';
+import { ProductsTableComponent } from './products-table/products-table.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +18,11 @@ import { DeleteComponent } from './delete/delete.component';
     NavigationBarComponent,
     InsertComponent,
     UpdateComponent,
-    DeleteComponent
+    DeleteComponent,
+    SelectCategoryComponent,
+    ShoppingBasketComponent,
+    ProductsComponent,
+    ProductsTableComponent
   ],
   imports: [
     BrowserModule,
