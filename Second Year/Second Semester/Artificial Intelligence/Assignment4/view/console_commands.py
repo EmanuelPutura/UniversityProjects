@@ -47,7 +47,6 @@ class ConsoleCommands:
         self.__controller.setSensors(self.__sensors)
 
     def runAlgorithmCommand(self):
-        # TODO
         print("The algorithm started, it might take a while to finish running...")
         self.__solutionPath, consumedEnergy = self.__controller.solve(EPOCHS_NUMBER, ANTS_NUMBER, ALPHA, BETA, BEST_CHOICE_PROBABILITY, EVAPORATION_COEFFICIENT)
 

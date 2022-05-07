@@ -18,3 +18,24 @@ class Ant:
     def addSensor(self, sensor, sensorFitness):
         self.__sensorsPath.append(sensor)
         self.__fitness += sensorFitness
+
+
+class AntWithAvailableEnergy(Ant):
+    def __init__(self, startSensor, sensorFitness, availableEnergy):
+        super().__init__(startSensor, sensorFitness)
+        self.__availableEnergy = availableEnergy
+
+    @property
+    def availableEnergy(self):
+        return self.availableEnergy
+
+    def computeConsumedEnergy(self):
+        totalEnergy = 0
+        for sensor in self.sensorsPath:
+            totalEnergy += sensor.energy
+
+        return totalEnergy
+
+    def addSensor(self, sensor, sensorFitness):
+        super().addSensor(sensor, sensorFitness)
+        self.__availableEnergy -= sensor.energy

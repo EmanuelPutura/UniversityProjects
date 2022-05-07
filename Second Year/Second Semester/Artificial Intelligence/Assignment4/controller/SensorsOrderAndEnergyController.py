@@ -1,14 +1,14 @@
 from queue import PriorityQueue
 
-from domain.ant import Ant
+from domain.ant import Ant, AntWithAvailableEnergy
 from domain.cell_numeric_representation import CellNumericRepresentation
 from domain.sensor import Sensor
-from utils.utils import VARIATIONS, DRONE_START
+from utils.utils import VARIATIONS, DRONE_START, MAX_ENERGY_LEVEL
 
 import random
 
 
-class Controller:
+class SensorsOrderAndEnergyController:
     def __init__(self, repository):
         self.__repository = repository
         self.__populationSize = None
@@ -106,6 +106,10 @@ class Controller:
     def __updatePheromoneTrace(self, ants, pheromoneEvaporationCoefficient, trace):
         antAddedPheromone = [1.0 / ants[i].fitness for i in range(len(ants))]
 
+        antConsumedEnergy = [ants[i].computeConsumedEnergy() for i in range(len(ants))]
+        totalConsumedEnergy = sum(antConsumedEnergy)
+        antConsumedEnergy = [antConsumedEnergy[i] / totalConsumedEnergy for i in range(len(antConsumedEnergy))]
+
         # pheromone evaporation
         for i in range(CellNumericRepresentation.NUMERIC_REPRESENTATION_SUPREMUM + 1):
             for j in range(CellNumericRepresentation.NUMERIC_REPRESENTATION_SUPREMUM + 1):
@@ -119,10 +123,17 @@ class Controller:
                 sensor2 = ants[i].sensorsPath[j + 1]
                 sensor2NumericRepresentation = CellNumericRepresentation.numericRepresentation(sensor2.x, sensor2.y)
 
-                trace[sensor1NumericRepresentation][sensor2NumericRepresentation] += antAddedPheromone[i]
+                trace[sensor1NumericRepresentation][sensor2NumericRepresentation] += (antAddedPheromone[i] + antConsumedEnergy[i])
 
     def __antNextSensor(self, ant, trace, bestChoiceProbability, alpha, beta):
-        possibleNextSensors = list(set(self.__repository.map.sensors) - set(ant.sensorsPath))
+        possibleNextSensors = []
+        sensors = list(set(self.__repository.map.sensors) - set(ant.sensorsPath))
+
+        for sensor in sensors:
+            for energy in range(1, MAX_ENERGY_LEVEL):
+                if energy <= ant.availableEnergy:
+                    sensors.append(sensor)
+
         if not possibleNextSensors:
             return False
 
@@ -156,14 +167,20 @@ class Controller:
             chosenSensor = random.choices(possibleNextSensors, probabilities, k=1)[0]
             return chosenSensor, len(self.minimumDistanceBetween(lastSensor.x, lastSensor.y, chosenSensor.x, chosenSensor.y))
 
-    def antsEpoch(self, trace, antsNumber, alpha, beta, bestChoiceProbability, pheromoneEvaporationCoefficient):
-        sensors = self.__repository.map.sensors
+    def antsEpoch(self, trace, antsNumber, alpha, beta, bestChoiceProbability, pheromoneEvaporationCoefficient, availableEnergyForSensors):
+        # instead of having each sensor only once, we maintain in the list the sensor with each possible energy level
+        sensors = []
+        for sensor in self.__repository.map.sensors:
+            for energy in range(1, MAX_ENERGY_LEVEL + 1):
+                if energy <= availableEnergyForSensors:
+                    sensors.append(Sensor(sensor.x, sensor.y, energy))
+
         ants = []
 
         # build the ants with the first visited sensor randomly chosen
         for _ in range(antsNumber):
             toAddResult = self.__nextSensor(sensors, Sensor(DRONE_START[0], DRONE_START[1]), trace, bestChoiceProbability, alpha, beta)
-            ants.append(Ant(toAddResult[0], toAddResult[1]))
+            ants.append(AntWithAvailableEnergy(toAddResult[0], toAddResult[1], availableEnergyForSensors - toAddResult[0].energy))
 
         # the length of an ant solution is equal to the number of sensors
         for _ in range(len(sensors)):
@@ -222,12 +239,12 @@ class Controller:
 
         return discoveredCells
 
-    def solve(self, epochsNumber, antsNumber, alpha, beta, bestChoiceProbability, pheromoneEvaporationCoefficient):
+    def solve(self, epochsNumber, antsNumber, alpha, beta, bestChoiceProbability, pheromoneEvaporationCoefficient, availableEnergyForSensors):
         trace = [[1 for _ in range(CellNumericRepresentation.NUMERIC_REPRESENTATION_SUPREMUM + 1)] for _ in range(CellNumericRepresentation.NUMERIC_REPRESENTATION_SUPREMUM + 1)]
         bestSolution = None
 
         for _ in range(epochsNumber):
-            solution = self.antsEpoch(trace, antsNumber, alpha, beta, bestChoiceProbability, pheromoneEvaporationCoefficient)
+            solution = self.antsEpoch(trace, antsNumber, alpha, beta, bestChoiceProbability, pheromoneEvaporationCoefficient, availableEnergyForSensors)
 
             if not bestSolution or bestSolution.fitness > solution.fitness:
                 bestSolution = solution

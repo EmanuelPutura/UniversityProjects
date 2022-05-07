@@ -1,7 +1,8 @@
 class Sensor:
-    def __init__(self, x, y):
+    def __init__(self, x, y, energy=0):
         self.__x = x
         self.__y = y
+        self.__energy = energy
 
     @property
     def x(self):
@@ -10,6 +11,14 @@ class Sensor:
     @property
     def y(self):
         return self.__y
+
+    @property
+    def energy(self):
+        return self.energy
+
+    @energy.setter
+    def energy(self, other):
+        self.energy = other
 
     def __eq__(self, other):
         return self.__x == other.x and self.__y == other.y
