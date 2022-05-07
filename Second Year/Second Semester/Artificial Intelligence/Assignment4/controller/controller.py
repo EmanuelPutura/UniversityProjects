@@ -222,7 +222,7 @@ class Controller:
 
         return discoveredCells
 
-    def solve(self, epochsNumber, antsNumber, alpha, beta, bestChoiceProbability, pheromoneEvaporationCoefficient, availableDroneEnergy):
+    def solve(self, epochsNumber, antsNumber, alpha, beta, bestChoiceProbability, pheromoneEvaporationCoefficient):
         trace = [[1 for _ in range(CellNumericRepresentation.NUMERIC_REPRESENTATION_SUPREMUM + 1)] for _ in range(CellNumericRepresentation.NUMERIC_REPRESENTATION_SUPREMUM + 1)]
         bestSolution = None
 
