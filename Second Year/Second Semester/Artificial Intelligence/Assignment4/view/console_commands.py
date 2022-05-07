@@ -24,7 +24,7 @@ class ConsoleCommands:
         self.__controller.saveMap(filePath)
 
     def displayMapCommand(self):
-        movingDrone(self.__controller.getMap(), [DRONE_START], 0, False)
+        movingDrone(self.__controller.getMap(), [DRONE_START], [], 0, False)
 
     def setSensorsPositionCommand(self):
         sensors = []

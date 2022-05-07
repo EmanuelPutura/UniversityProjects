@@ -175,7 +175,7 @@ class SensorsOrderController:
 
         # return the best ant sensors path
         solutions = [(ants[i].fitness, i) for i in range(len(ants))]
-        bestSolution = max(solutions)
+        bestSolution = min(solutions)
         return ants[bestSolution[1]]
 
     def __buildSolutionPath(self, solutionSensors):
@@ -229,7 +229,7 @@ class SensorsOrderController:
         for _ in range(epochsNumber):
             solution = self.antsEpoch(trace, antsNumber, alpha, beta, bestChoiceProbability, pheromoneEvaporationCoefficient)
 
-            if not bestSolution or bestSolution.fitness > solution.fitness:
+            if not bestSolution or bestSolution.fitness < solution.fitness:
                 bestSolution = solution
 
         solutionPath = self.__buildSolutionPath(bestSolution.sensorsPath)
