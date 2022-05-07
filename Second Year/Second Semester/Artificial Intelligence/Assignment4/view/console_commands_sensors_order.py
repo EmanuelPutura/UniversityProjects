@@ -3,7 +3,7 @@ from utils.utils import MAP_LENGTH, DRONE_START, DRONE_ENERGY, SENSORS, EPOCHS_N
 from view.gui import movingDrone
 
 
-class ConsoleCommands:
+class ConsoleCommandsSensorsOrder:
     def __init__(self, controller):
         self.__solutionPath = []
         self.__controller = controller

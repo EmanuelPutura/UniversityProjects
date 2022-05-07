@@ -27,7 +27,10 @@ class AntWithAvailableEnergy(Ant):
 
     @property
     def availableEnergy(self):
-        return self.availableEnergy
+        return self.__availableEnergy
+
+    def evaluateAnt(self):
+        return (1 / self.fitness) * self.computeConsumedEnergy()
 
     def computeConsumedEnergy(self):
         totalEnergy = 0
@@ -38,4 +41,8 @@ class AntWithAvailableEnergy(Ant):
 
     def addSensor(self, sensor, sensorFitness):
         super().addSensor(sensor, sensorFitness)
-        self.__availableEnergy -= sensor.energy
+        if self.__availableEnergy - sensor.energy < 0:
+            sensor.energy = self.__availableEnergy
+            self.__availableEnergy = 0
+        else:
+            self.__availableEnergy -= sensor.energy

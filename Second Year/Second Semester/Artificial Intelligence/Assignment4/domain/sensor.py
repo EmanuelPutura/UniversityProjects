@@ -14,7 +14,7 @@ class Sensor:
 
     @property
     def energy(self):
-        return self.energy
+        return self.__energy
 
     @energy.setter
     def energy(self, other):

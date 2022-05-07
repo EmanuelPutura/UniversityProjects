@@ -13,7 +13,8 @@ create a menu
              function gui.movingDrone(currentMap, path, speed, markseen)
              ATENTION! the function doesn't check if the path passes trough walls
 """
-from view.console_commands import ConsoleCommands
+from view.console_commands_sensors_order import ConsoleCommandsSensorsOrder
+from view.console_commands_sensors_order_energy import ConsoleCommandsSensorsOrderEnergy
 
 
 class Console:
@@ -21,7 +22,9 @@ class Console:
         self.__running = False
         self.__controller = controller
 
-        self.__consoleCommands = ConsoleCommands(controller)
+        # self.__consoleCommands = ConsoleCommandsSensorsOrder(controller)
+        self.__consoleCommands = ConsoleCommandsSensorsOrderEnergy(controller)
+
         self.__commands = {
             "map.random": self.__consoleCommands.randomMapCommand,
             "map.load": self.__consoleCommands.loadMapCommand,
@@ -59,7 +62,9 @@ class Console:
                 print("'{}' is not a valid command!".format(command))
                 continue
 
-            try:
-                self.__commands[command]()
-            except Exception as error:
-                print("Error: {}".format(str(error)))
+            self.__commands[command]()
+
+            # try:
+            #     self.__commands[command]()
+            # except Exception as error:
+            #     print("Error: {}".format(str(error)))
