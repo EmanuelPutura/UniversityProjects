@@ -26,12 +26,6 @@ class ConsoleCommands:
     def displayMapCommand(self):
         movingDrone(self.__controller.getMap(), [DRONE_START], 0, False)
 
-    def setDroneEnergyCommand(self):
-        self.__droneEnergy = int(input("Please enter the energy level of the drone: "))
-
-        # TODO
-        print(self.__droneEnergy)
-
     def setSensorsPositionCommand(self):
         sensors = []
         sensorsNo = int(input("Please enter the number of sensors on the map: "))
@@ -55,12 +49,15 @@ class ConsoleCommands:
     def runAlgorithmCommand(self):
         # TODO
         print("The algorithm started, it might take a while to finish running...")
-        self.__solutionPath = self.__controller.solve(EPOCHS_NUMBER, ANTS_NUMBER, ALPHA, BETA, BEST_CHOICE_PROBABILITY, EVAPORATION_COEFFICIENT)
+        self.__solutionPath, consumedEnergy = self.__controller.solve(EPOCHS_NUMBER, ANTS_NUMBER, ALPHA, BETA, BEST_CHOICE_PROBABILITY, EVAPORATION_COEFFICIENT, self.__droneEnergy)
+
+        print("The road between the sensors takes {} energy. How much more energy do you want to give to the drone?".format(consumedEnergy))
+        self.__droneEnergy = int(input(">> "))
 
     def showDronePathCommand(self):
-        # TODO
         if not self.__solutionPath:
             print("You must first run the ACO algorithm!")
             return
 
-        movingDrone(self.__controller.getMap(), self.__solutionPath, 0.3, False)
+        discoveredCells = self.__controller.getDisocveredCellsPositions(self.__droneEnergy)
+        movingDrone(self.__controller.getMap(), self.__solutionPath, discoveredCells, 0.3, False)

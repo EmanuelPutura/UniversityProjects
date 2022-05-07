@@ -13,6 +13,7 @@ class Controller:
         self.__repository = repository
         self.__populationSize = None
         self.__individualSize = None
+        self.__sensorsPath = None
 
     def generateRandomMap(self):
         self.__repository.map.randomMap()
@@ -35,27 +36,33 @@ class Controller:
     """
         Determine for each sensor position the number of squares that can be discovered for a certain energy value
     """
+    def determineMaxDiscoveredCells(self, sensor, energyLevel, returnPositions=False):
+        discoveredCellsInDirection = [0] * len(VARIATIONS)
+        index = 0
+        positions = []
 
-    def determineMaxDiscoveredCells(self, sensorPosition, energyLevel):
-        discoveredCells = 0
         for variation in VARIATIONS:
-            currentX = sensorPosition[0] + variation[0]
-            currentY = sensorPosition[1] + variation[1]
+            currentX = sensor.x + variation[0]
+            currentY = sensor.y + variation[1]
             currentDiscoveredCells = 0
 
-            while currentDiscoveredCells <= energyLevel and self.__repository.map.isValidCell(currentX, currentY):
+            while currentDiscoveredCells < energyLevel and self.__repository.map.isValidCell(currentX, currentY):
+                positions.append((currentX, currentY))
+
                 currentDiscoveredCells += 1
                 currentX += variation[0]
                 currentY += variation[1]
 
-            discoveredCells += currentDiscoveredCells
+            discoveredCellsInDirection[index] = currentDiscoveredCells
+            index += 1
 
-        return discoveredCells
+        if returnPositions:
+            return sum(discoveredCellsInDirection), positions
+        return sum(discoveredCellsInDirection)
 
     """
         Returns the minimum distance path between two cells on the map, using the A Start Algorithm
     """
-
     def minimumDistanceBetween(self, initialX, initialY, finalX, finalY):
         distance = {}  # a map that associates, to each accessible vertex, the cost of the minimum cost walk from s to it
         previous = {}  # a map that maps each accessible vertex to its predecessor on a path from s to it
@@ -182,7 +189,40 @@ class Controller:
         solution.append((solutionSensors[-1].x, solutionSensors[-1].y))
         return solution
 
-    def solve(self, epochsNumber, antsNumber, alpha, beta, bestChoiceProbability, pheromoneEvaporationCoefficient):
+    def __getEnergyConsumedByEachSensor(self, sensorsPath, availableDroneEnergy):
+        # sensorsEnergyAndDiscoveredCells[i] = (a, b), where a - energy given to ith sensor, b - discovered cells by ith sensor, being given a energy points
+        sensorsEnergyAndDiscoveredCells = [[0, 0] for _ in range(len(sensorsPath))]
+
+        for energyPoint in range(1, availableDroneEnergy + 1):
+            newDiscoveredCells = []  # newDiscoveredCells[i] = (sensor index, number of new cells discovered by sensor i by adding one energy point to it)
+            for i in range(len(sensorsEnergyAndDiscoveredCells)):
+                energySoFar = sensorsEnergyAndDiscoveredCells[i][0]
+                if energySoFar >= 5:
+                    newDiscoveredCells.append((i, -1))
+                    continue
+
+                discoveredSoFar = sensorsEnergyAndDiscoveredCells[i][1]
+                newDiscoveredCells.append((i, self.determineMaxDiscoveredCells(sensorsPath[i], 1 + energySoFar) - discoveredSoFar))
+
+            (winningSensorIndex, sensorNewDiscoveredCells) = max(newDiscoveredCells, key=lambda el: el[1])
+            if sensorNewDiscoveredCells == -1:
+                break
+
+            sensorsEnergyAndDiscoveredCells[winningSensorIndex][0] += 1
+            sensorsEnergyAndDiscoveredCells[winningSensorIndex][1] += sensorNewDiscoveredCells
+
+        return [(sensorsPath[i], sensorsEnergyAndDiscoveredCells[i][0]) for i in range(len(sensorsPath))]
+
+    def getDisocveredCellsPositions(self, availableEnergy):
+        energyConsumedBySensor = self.__getEnergyConsumedByEachSensor(self.__sensorsPath, availableEnergy)
+
+        discoveredCells = []
+        for (sensor, energy) in energyConsumedBySensor:
+            discoveredCells += self.determineMaxDiscoveredCells(sensor, energy, True)[1]
+
+        return discoveredCells
+
+    def solve(self, epochsNumber, antsNumber, alpha, beta, bestChoiceProbability, pheromoneEvaporationCoefficient, availableDroneEnergy):
         trace = [[1 for _ in range(CellNumericRepresentation.NUMERIC_REPRESENTATION_SUPREMUM + 1)] for _ in range(CellNumericRepresentation.NUMERIC_REPRESENTATION_SUPREMUM + 1)]
         bestSolution = None
 
@@ -192,4 +232,7 @@ class Controller:
             if not bestSolution or bestSolution.fitness > solution.fitness:
                 bestSolution = solution
 
-        return self.__buildSolutionPath(bestSolution.sensorsPath)
+        solutionPath = self.__buildSolutionPath(bestSolution.sensorsPath)
+        self.__sensorsPath = bestSolution.sensorsPath
+
+        return solutionPath, len(solutionPath)

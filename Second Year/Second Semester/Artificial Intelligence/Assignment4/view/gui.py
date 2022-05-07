@@ -1,7 +1,7 @@
 import pygame
 import time
 
-from utils.utils import WHITE, GREEN, VARIATIONS, BLUE, YELLOW
+from utils.utils import WHITE, GREEN, VARIATIONS, BLUE, YELLOW, GRAYBLUE
 
 
 def initPyGame(dimension):
@@ -31,7 +31,7 @@ def closePyGame():
     pygame.quit()
 
 
-def movingDrone(currentMap, path, speed=1, markSeen=True):
+def movingDrone(currentMap, path, discoveredCells, speed=1, markSeen=True):
     # animation of a drone on a path
     screen = initPyGame((currentMap.rows * 20, currentMap.columns * 20))
     drona = pygame.image.load("resources/drona.png")
@@ -60,6 +60,14 @@ def movingDrone(currentMap, path, speed=1, markSeen=True):
         screen.blit(drona, (path[i][1] * 20, path[i][0] * 20))
         pygame.display.flip()
         time.sleep(0.5 * speed)
+
+    for i in range(len(discoveredCells)):
+        discoveredCell = pygame.Surface((20, 20))
+        discoveredCell.fill(GRAYBLUE)
+
+        screen.blit(discoveredCell, (discoveredCells[i][1] * 20, discoveredCells[i][0] * 20))
+        pygame.display.flip()
+
     closePyGame()
 
 
