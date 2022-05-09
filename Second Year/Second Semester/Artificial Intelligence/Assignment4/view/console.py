@@ -22,8 +22,8 @@ class Console:
         self.__running = False
         self.__controller = controller
 
-        # self.__consoleCommands = ConsoleCommandsSensorsOrder(controller)
-        self.__consoleCommands = ConsoleCommandsSensorsOrderEnergy(controller)
+        self.__consoleCommands = ConsoleCommandsSensorsOrder(controller)
+        # self.__consoleCommands = ConsoleCommandsSensorsOrderEnergy(controller)
 
         self.__commands = {
             "map.random": self.__consoleCommands.randomMapCommand,

@@ -8,7 +8,7 @@ from view.console import Console
 if __name__ == "__main__":
     map = Map()
     repository = Repository(map)
-    # controller = SensorsOrderController(repository)
-    controller = SensorsOrderAndEnergyController(repository)
+    controller = SensorsOrderController(repository)
+    # controller = SensorsOrderAndEnergyController(repository)
     console = Console(controller)
     console.run()
