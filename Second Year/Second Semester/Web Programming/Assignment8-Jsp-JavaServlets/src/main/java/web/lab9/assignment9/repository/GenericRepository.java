@@ -1,6 +1,6 @@
 package web.lab9.assignment9.repository;
 
-import web.lab9.assignment9.exceptions.RepositoryException;
+import web.lab9.assignment9.exceptions.AppException;
 import web.lab9.assignment9.utils.DatabasePropertiesRetriever;
 
 import java.sql.DriverManager;
@@ -33,7 +33,7 @@ public abstract class GenericRepository<PK, T> implements Repository<PK, T> {
     protected abstract Optional<T> getEntityFromResultSet(ResultSet resultSet);
 
     @Override
-    public Iterable<T> findAll() throws RepositoryException {
+    public Iterable<T> findAll() throws AppException {
         String selectAllQuery = String.format("SELECT * FROM %s", relationName);
         List<T> entities = new ArrayList<>();
 
@@ -48,13 +48,13 @@ public abstract class GenericRepository<PK, T> implements Repository<PK, T> {
                 optional = getEntityFromResultSet(resultSet);
             }
         } catch (SQLException e) {
-            throw new RepositoryException(e.getMessage());
+            throw new AppException(e.getMessage());
         }
         return entities;
     }
 
     @Override
-    public Optional<T> findOneByPrimaryKey(PK id) throws RepositoryException {
+    public Optional<T> findOneByPrimaryKey(PK id) throws AppException {
         String selectOneQuery = String.format("SELECT * FROM %s WHERE %s = ?", relationName, primaryKeyName);
 
         try (
@@ -69,7 +69,7 @@ public abstract class GenericRepository<PK, T> implements Repository<PK, T> {
                 return getEntityFromResultSet(resultSet);
             }
         } catch (SQLException e) {
-            throw new RepositoryException(e.getMessage());
+            throw new AppException(e.getMessage());
         }
     }
 }
