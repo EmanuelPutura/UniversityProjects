@@ -1,0 +1,66 @@
+#puzzle-table {
+    border: 1px solid black;
+    margin: 10vh auto auto;
+    text-align: center;
+    width: 75vh;
+    height: 75vh;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#puzzle-table div {
+    background-size: cover;
+    align-content: center;
+    border: 1px solid #333;
+    display: flex;
+    justify-content: center;
+    width: 33%;
+    height: 33%;
+}
+
+/*#piece00 {*/
+/*    background-image: url("../resources/images/image00.jpg");*/
+/*    background-size: cover;*/
+/*}*/
+
+/*#piece01 {*/
+/*    background-image: url("../resources/images/image01.jpg");*/
+/*    background-size: cover;*/
+/*}*/
+
+/*#piece02 {*/
+/*    background-image: url("../resources/images/image02.jpg");*/
+/*    background-size: cover;*/
+/*}*/
+
+/*#piece10 {*/
+/*    background-image: url("../resources/images/image10.jpg");*/
+/*    background-size: cover;*/
+/*}*/
+
+/*#piece11 {*/
+/*    background-image: url("../resources/images/image11.jpg");*/
+/*    background-size: cover;*/
+/*}*/
+
+/*#piece12 {*/
+/*    background-image: url("../resources/images/image12.jpg");*/
+/*    background-size: cover;*/
+/*}*/
+
+/*#piece20 {*/
+/*    background-image: url("../resources/images/image20.jpg");*/
+/*    background-size: cover;*/
+/*}*/
+
+/*#piece21 {*/
+/*    background-image: url("../resources/images/image21.jpg");*/
+/*    background-size: cover;*/
+/*}*/
+
+/*#piece22 {*/
+/*    background-image: url("../resources/images/image22.jpg");*/
+/*    background-size: cover;*/
+/*}*/
