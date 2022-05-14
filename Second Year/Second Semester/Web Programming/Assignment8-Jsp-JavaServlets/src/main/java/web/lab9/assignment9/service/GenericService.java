@@ -5,8 +5,8 @@ import web.lab9.assignment9.repository.Repository;
 
 import java.util.Optional;
 
-public class GenericService<PK, T> implements Service<PK, T> {
-    private final Repository<PK, T> repository;
+public abstract class GenericService<PK, T> implements Service<PK, T> {
+    protected final Repository<PK, T> repository;
 
     public GenericService(Repository<PK, T> repository) {
         this.repository = repository;

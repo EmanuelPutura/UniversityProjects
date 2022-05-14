@@ -18,11 +18,17 @@ public abstract class GenericRepository<PK, T> implements Repository<PK, T> {
     private final String relationName;
     private final String primaryKeyName;
 
-    protected GenericRepository(String relationName, String primaryKeyName) {
+    protected GenericRepository(String configFilePath, String relationName, String primaryKeyName) throws AppException {
+        try {
+            Class.forName("org.postgresql.Driver");  // load driver
+        } catch (ClassNotFoundException e) {
+            throw new AppException(e.getMessage());
+        }
+
         this.primaryKeyName = primaryKeyName;
         this.relationName = relationName;
 
-        var databaseProperties = DatabasePropertiesRetriever.getProperties(PROPERTIES_FILE_PATH);
+        var databaseProperties = DatabasePropertiesRetriever.getProperties(configFilePath);
         databaseProperties.ifPresent(properties -> {
             this.databaseUrl = properties.getDbUrl();
             this.databaseUsername = properties.getDbUsername();
