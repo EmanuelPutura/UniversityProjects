@@ -1,0 +1,5 @@
+rootProject.name = 'lab10x-EmanuelPutura'
+include 'client'
+include 'server'
+include 'common'
+
