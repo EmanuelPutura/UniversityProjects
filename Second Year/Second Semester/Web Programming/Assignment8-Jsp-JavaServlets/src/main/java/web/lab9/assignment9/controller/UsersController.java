@@ -1,6 +1,7 @@
 package web.lab9.assignment9.controller;
 
 import web.lab9.assignment9.repository.users.UsersRepositoryFactory;
+import web.lab9.assignment9.service.PiecesService;
 import web.lab9.assignment9.service.UsersService;
 
 import javax.servlet.RequestDispatcher;
@@ -33,7 +34,7 @@ public class UsersController extends HttpServlet {
         RequestDispatcher requestDispatcher = null;
         if (usersService.checkPassword(username, password)) {
              HttpSession session = request.getSession();
-             session.setAttribute("user", username);
+            session.setAttribute("user", username);
 
             requestDispatcher = request.getRequestDispatcher("/puzzle.jsp");
         }

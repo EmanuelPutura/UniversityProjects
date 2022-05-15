@@ -20,6 +20,12 @@ public class PiecesService extends GenericService<String, PuzzlePiece> {
         running = true;
     }
 
+    public void restartPuzzle() {
+        running = true;
+        movesPerformed = 0;
+        setDefaultPieces();
+    }
+
     private void setDefaultPieces() {
         try {
             for (int i = 0; i < 3; ++i) {

@@ -21,6 +21,7 @@ import org.json.JSONObject;
 @WebServlet(name = "PuzzleServlet", value = "/puzzle-controller")
 public class PuzzleController extends HttpServlet {
     private PiecesService piecesService;
+    private String lastUsername;
 
     @Override
     public void init() throws ServletException {
@@ -29,17 +30,24 @@ public class PuzzleController extends HttpServlet {
         ServletContext context = getServletContext();
         String realPath = context.getRealPath("\\resources");
         piecesService = new PiecesService(PiecesRepositoryFactory.getInstance(realPath + "\\database.properties"));
+        lastUsername = "";
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession();
         var obj = session.getAttribute("user");
-        if (!(obj instanceof String) || ((String) obj).equals("")) {
+        if (!(obj instanceof String username) || obj.equals("")) {
             return;
         }
 
         var action = request.getParameter("action");
         response.setContentType("application/json");
+
+        if (!lastUsername.equals(username) && !lastUsername.equals("")) {
+            piecesService.restartPuzzle();
+        }
+
+        lastUsername = username;
 
         switch (action) {
             case "fetch":
@@ -79,6 +87,7 @@ public class PuzzleController extends HttpServlet {
                     }
                 }
 
+                piecesService.restartPuzzle();
                 break;
         }
     }

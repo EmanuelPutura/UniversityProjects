@@ -4,6 +4,12 @@ function onLogoutButtonClicked() {
 
     getRequest.open("GET", url, true);
     getRequest.send();
+
+    getRequest.onload = function() {
+        document.open();
+        document.write(this.responseText);
+        document.close();
+    }
 }
 
 function onPieceDivClicked(divId) {
