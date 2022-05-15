@@ -3,6 +3,7 @@ package web.lab9.assignment9.service;
 import web.lab9.assignment9.exceptions.AppException;
 import web.lab9.assignment9.repository.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 public abstract class GenericService<PK, T> implements Service<PK, T> {
@@ -13,7 +14,7 @@ public abstract class GenericService<PK, T> implements Service<PK, T> {
     }
 
     @Override
-    public Iterable<T> findAll() throws AppException {
+    public List<T> findAll() throws AppException {
         return repository.findAll();
     }
 

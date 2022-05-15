@@ -1,3 +1,18 @@
+#title {
+    margin: auto;
+    text-align: center;
+    width: 50%;
+    height: 5vh;
+}
+
+#disconnect-button {
+    display: block;
+    margin: 2vh auto auto;
+    text-align: center;
+    width: 25%;
+    height: 5vh;
+}
+
 #puzzle-table {
     border: 1px solid black;
     margin: 10vh auto auto;
@@ -13,7 +28,7 @@
 #puzzle-table div {
     background-size: cover;
     align-content: center;
-    border: 1px solid #333;
+    border: 1px solid black;
     display: flex;
     justify-content: center;
     width: 33%;

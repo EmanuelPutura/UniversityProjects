@@ -11,12 +11,12 @@ import java.util.List;
 import java.util.Optional;
 
 public abstract class GenericRepository<PK, T> implements Repository<PK, T> {
-    private String databaseUrl = "";
-    private String databaseUsername = "";
-    private String databasePassword = "";
+    protected String databaseUrl = "";
+    protected String databaseUsername = "";
+    protected String databasePassword = "";
 
-    private final String relationName;
-    private final String primaryKeyName;
+    protected final String relationName;
+    protected final String primaryKeyName;
 
     protected GenericRepository(String configFilePath, String relationName, String primaryKeyName) throws AppException {
         try {
@@ -39,7 +39,7 @@ public abstract class GenericRepository<PK, T> implements Repository<PK, T> {
     protected abstract Optional<T> getEntityFromResultSet(ResultSet resultSet);
 
     @Override
-    public Iterable<T> findAll() throws AppException {
+    public List<T> findAll() throws AppException {
         String selectAllQuery = String.format("SELECT * FROM %s", relationName);
         List<T> entities = new ArrayList<>();
 
