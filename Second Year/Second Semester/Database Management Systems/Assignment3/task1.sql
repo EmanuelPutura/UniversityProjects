@@ -38,11 +38,17 @@ BEGIN
 END
 GO
 
-DELETE FROM TeamOwner;
-DELETE FROM Team;
+SET NOCOUNT ON;
+
 DELETE FROM TeamOwnedBy;
+DELETE FROM Team;
+DELETE FROM TeamOwner;
+
 
 EXEC insertTeamOwnerAndTeamRollback 'Gigi Becali', 63, 'FCSB', 'Liga 1';  -- should work
+
+PRINT '-------------------------------------------------------------------';
+
 EXEC insertTeamOwnerAndTeamRollback 'Gigi Becali', 63, 'FCSB', 'Liga 11'; -- should fail because of the league name
 
 SELECT * FROM TeamOwner;
