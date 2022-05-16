@@ -1,16 +1,18 @@
 USE Football;
+GO
 
 DROP TABLE IF EXISTS TeamOwnedBy;
 DROP TABLE IF EXISTS TeamOwner;
 DROP TABLE IF EXISTS Team;
 
 CREATE TABLE TeamOwner (
-	id INT NOT NULL PRIMARY KEY,
-	fullName varchar(50) NOT NULL
+	id INT NOT NULL PRIMARY KEY IDENTITY,
+	fullName varchar(50) NOT NULL,
+	age INT NOT NULL
 );
 
 CREATE TABLE Team (
-	id INT NOT NULL PRIMARY KEY,
+	id INT NOT NULL PRIMARY KEY IDENTITY,
 	teamName varchar(50) NOT NULL,
 	teamLeague varchar(50) NOT NULL
 );
