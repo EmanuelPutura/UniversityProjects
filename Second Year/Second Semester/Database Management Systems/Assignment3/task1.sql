@@ -8,10 +8,10 @@ BEGIN
 	BEGIN TRAN
 	BEGIN TRY
 		IF (dbo.validateTeamOwnerRecord(@fullName, @age) <> 1)
-			RAISERROR('Invalid TeamOwner!', 14, 1);
+			RAISERROR('Invalid TeamOwner name or age!', 14, 1);
 
 		IF dbo.validateTeamRecord(@teamName, @teamLeague) <> 1
-			RAISERROR('Invalid Team!', 14, 1);
+			RAISERROR('Invalid Team name or league!', 14, 1);
 
 		INSERT INTO TeamOwner VALUES(@fullName, @age);
 		DECLARE @teamOwnerId INT = (SELECT IDENT_CURRENT('TeamOwner'));
