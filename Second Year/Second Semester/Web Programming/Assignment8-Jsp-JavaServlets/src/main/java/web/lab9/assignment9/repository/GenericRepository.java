@@ -18,26 +18,6 @@ public abstract class GenericRepository<PK, T> implements Repository<PK, T> {
     protected final String relationName;
     protected final String primaryKeyName;
 
-    protected GenericRepository(String configFilePath, String relationName, String primaryKeyName) throws AppException {
-        try {
-            Class.forName("org.postgresql.Driver");  // load driver
-        } catch (ClassNotFoundException e) {
-            throw new AppException(e.getMessage());
-        }
-
-        this.primaryKeyName = primaryKeyName;
-        this.relationName = relationName;
-
-        var databaseProperties = DatabasePropertiesRetriever.getProperties(configFilePath);
-        databaseProperties.ifPresent(properties -> {
-            this.databaseUrl = properties.getDbUrl();
-            this.databaseUsername = properties.getDbUsername();
-            this.databasePassword = properties.getDbPassword();
-        });
-    }
-
-    protected abstract Optional<T> getEntityFromResultSet(ResultSet resultSet);
-
     @Override
     public List<T> findAll() throws AppException {
         String selectAllQuery = String.format("SELECT * FROM %s", relationName);
@@ -78,4 +58,24 @@ public abstract class GenericRepository<PK, T> implements Repository<PK, T> {
             throw new AppException(e.getMessage());
         }
     }
+
+    protected GenericRepository(String configFilePath, String relationName, String primaryKeyName) throws AppException {
+        try {
+            Class.forName("org.postgresql.Driver");  // load driver
+        } catch (ClassNotFoundException e) {
+            throw new AppException(e.getMessage());
+        }
+
+        this.primaryKeyName = primaryKeyName;
+        this.relationName = relationName;
+
+        var databaseProperties = DatabasePropertiesRetriever.getProperties(configFilePath);
+        databaseProperties.ifPresent(properties -> {
+            this.databaseUrl = properties.getDbUrl();
+            this.databaseUsername = properties.getDbUsername();
+            this.databasePassword = properties.getDbPassword();
+        });
+    }
+
+    protected abstract Optional<T> getEntityFromResultSet(ResultSet resultSet);
 }

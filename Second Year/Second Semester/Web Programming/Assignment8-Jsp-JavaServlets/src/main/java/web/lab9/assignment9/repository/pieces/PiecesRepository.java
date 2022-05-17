@@ -15,21 +15,6 @@ public class PiecesRepository extends GenericRepository<String, PuzzlePiece> {
     }
 
     @Override
-    protected Optional<PuzzlePiece> getEntityFromResultSet(ResultSet resultSet) {
-        try {
-            if (resultSet.next()){
-                String htmlId = resultSet.getString("html_id");
-                String cssBackgroundImg = resultSet.getString("css_background_img");
-
-                return Optional.of(new PuzzlePiece(htmlId, cssBackgroundImg));
-            }
-        } catch (SQLException e) {
-            return Optional.empty();
-        }
-        return Optional.empty();
-    }
-
-    @Override
     public void save(PuzzlePiece entity) throws AppException {
         if (entity == null) {
             throw new AppException("Entity must not be null!");
@@ -47,5 +32,20 @@ public class PiecesRepository extends GenericRepository<String, PuzzlePiece> {
         } catch (SQLException e) {
             throw new AppException(e.getMessage());
         }
+    }
+
+    @Override
+    protected Optional<PuzzlePiece> getEntityFromResultSet(ResultSet resultSet) {
+        try {
+            if (resultSet.next()){
+                String htmlId = resultSet.getString("html_id");
+                String cssBackgroundImg = resultSet.getString("css_background_img");
+
+                return Optional.of(new PuzzlePiece(htmlId, cssBackgroundImg));
+            }
+        } catch (SQLException e) {
+            return Optional.empty();
+        }
+        return Optional.empty();
     }
 }

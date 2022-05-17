@@ -3,9 +3,10 @@
 <html>
     <head>
         <title>Web - Assignment 9</title>
+        <link rel="stylesheet" href="styles/login.css">
     </head>
     <body>
-        <form action="${pageContext.request.contextPath}/login-controller" method="post">
+        <form id="login-form" action="${pageContext.request.contextPath}/login-controller" method="post">
             Enter username : <input type="text" name="username"> <BR>
             Enter password : <input type="password" name="password"> <BR>
             <input type="submit" value="Login"/>
@@ -16,6 +17,8 @@
             if (error == null) {
                 error = "";
             }
+
+//            out.println("<div> Hello </div>");
         %>
 
         <div><%=error%></div>

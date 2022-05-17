@@ -48,47 +48,52 @@ public class PuzzleController extends HttpServlet {
         }
 
         lastUsername = username;
-
         switch (action) {
-            case "fetch":
-                try {
-                    var pieces = piecesService.findAll();
-
-                    JSONArray jsonPieces = new JSONArray();
-                    for (var piece : pieces) {
-                        JSONObject jsonPiece = new JSONObject();
-
-                        jsonPiece.put("htmlId", piece.getHtmlId());
-                        jsonPiece.put("cssBackgroundImg", piece.getCssBackgroundImgUrl());
-
-                        jsonPieces.put(jsonPiece);
-                    }
-
-                    var responseOut = new PrintWriter(response.getOutputStream());
-                    responseOut.println(jsonPieces);
-                    responseOut.flush();
-                } catch (AppException ignored) {
-                }
-                break;
-            case "click":
-                var responseOut = new PrintWriter(response.getOutputStream());
-                responseOut.println(piecesService.onPuzzleCellClicked(request.getParameter("htmlId")));
-                responseOut.flush();
-                break;
-            case "disconnect":
-                request.getSession().invalidate();
-
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("/index.jsp");
-                if (requestDispatcher != null) {
-                    try {
-                        requestDispatcher.forward(request, response);
-                    } catch (ServletException e) {
-                        e.printStackTrace();
-                    }
-                }
-
-                piecesService.restartPuzzle();
-                break;
+            case "fetch" -> handleFetch(response);
+            case "click" -> handleClick(request, response);
+            case "disconnect" -> handleDisconnect(request, response);
         }
+    }
+
+    private void handleFetch(HttpServletResponse response) throws IOException {
+        try {
+            var pieces = piecesService.findAll();
+
+            JSONArray jsonPieces = new JSONArray();
+            for (var piece : pieces) {
+                JSONObject jsonPiece = new JSONObject();
+
+                jsonPiece.put("htmlId", piece.getHtmlId());
+                jsonPiece.put("cssBackgroundImg", piece.getCssBackgroundImgUrl());
+
+                jsonPieces.put(jsonPiece);
+            }
+
+            var responseOut = new PrintWriter(response.getOutputStream());
+            responseOut.println(jsonPieces);
+            responseOut.flush();
+        } catch (AppException ignored) {
+        }
+    }
+
+    private void handleClick(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        var responseOut = new PrintWriter(response.getOutputStream());
+        responseOut.println(piecesService.onPuzzleCellClicked(request.getParameter("htmlId")));
+        responseOut.flush();
+    }
+
+    private void handleDisconnect(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        request.getSession().invalidate();
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/index.jsp");
+        if (requestDispatcher != null) {
+            try {
+                requestDispatcher.forward(request, response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            }
+        }
+
+        piecesService.restartPuzzle();
     }
 }

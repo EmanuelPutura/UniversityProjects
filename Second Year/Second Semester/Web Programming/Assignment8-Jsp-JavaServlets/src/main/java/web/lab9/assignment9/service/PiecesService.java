@@ -26,52 +26,6 @@ public class PiecesService extends GenericService<String, PuzzlePiece> {
         setDefaultPieces();
     }
 
-    private void setDefaultPieces() {
-        try {
-            for (int i = 0; i < 3; ++i) {
-                for (int j = 0; j < 3; ++j) {
-                    var divHtmlId = getHtmlDivIdFromCoordinates(new Pair<>(i, j));
-                    var cssBackgroundImgUrl = String.format("url(../resources/images/image%d%d.jpg)", i, j);
-
-                    repository.save(new PuzzlePiece(divHtmlId, cssBackgroundImgUrl));
-                }
-            }
-
-            // empty cell
-            repository.save(new PuzzlePiece("piece10", ""));
-
-            // wrong cells
-            repository.save(new PuzzlePiece("piece20", "url(../resources/images/image10.jpg)"));
-            repository.save(new PuzzlePiece("piece21", "url(../resources/images/image20.jpg)"));
-            repository.save(new PuzzlePiece("piece22", "url(../resources/images/image21.jpg)"));
-        }
-        catch (Exception ignored) {}
-    }
-
-    private Pair<Integer, Integer> getCoordinatesFromHtmlId(String htmlDivId) {
-        if (htmlDivId.length() < 2) {
-            return null;
-        }
-
-        String lastTwoChars = htmlDivId.substring(htmlDivId.length() - 2);
-        return new Pair<>(Integer.parseInt("" + lastTwoChars.charAt(0)), Integer.parseInt("" + lastTwoChars.charAt(1)));
-    }
-
-    private String getHtmlDivIdFromCoordinates(Pair<Integer, Integer> coordinates) {
-        return "piece" + coordinates.getValue0().toString() + coordinates.getValue1().toString();
-    }
-
-    private boolean checkIfNeighbourCells(Pair<Integer, Integer> firstCell, Pair<Integer, Integer> secondCell) {
-        int[][] variations = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-        for (int[] variation : variations) {
-            if ((firstCell.getValue0() + variation[0]) == secondCell.getValue0() && (firstCell.getValue1() + variation[1]) == secondCell.getValue1()) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
     private Boolean checkWinner() {
         List<PuzzlePiece> piecesList = null;
 
@@ -182,5 +136,51 @@ public class PiecesService extends GenericService<String, PuzzlePiece> {
         }
 
         return jsonResponse.toString();
+    }
+
+    private void setDefaultPieces() {
+        try {
+            for (int i = 0; i < 3; ++i) {
+                for (int j = 0; j < 3; ++j) {
+                    var divHtmlId = getHtmlDivIdFromCoordinates(new Pair<>(i, j));
+                    var cssBackgroundImgUrl = String.format("url(../resources/images/image%d%d.jpg)", i, j);
+
+                    repository.save(new PuzzlePiece(divHtmlId, cssBackgroundImgUrl));
+                }
+            }
+
+            // empty cell
+            repository.save(new PuzzlePiece("piece10", ""));
+
+            // wrong cells
+            repository.save(new PuzzlePiece("piece20", "url(../resources/images/image10.jpg)"));
+            repository.save(new PuzzlePiece("piece21", "url(../resources/images/image20.jpg)"));
+            repository.save(new PuzzlePiece("piece22", "url(../resources/images/image21.jpg)"));
+        }
+        catch (Exception ignored) {}
+    }
+
+    private Pair<Integer, Integer> getCoordinatesFromHtmlId(String htmlDivId) {
+        if (htmlDivId.length() < 2) {
+            return null;
+        }
+
+        String lastTwoChars = htmlDivId.substring(htmlDivId.length() - 2);
+        return new Pair<>(Integer.parseInt("" + lastTwoChars.charAt(0)), Integer.parseInt("" + lastTwoChars.charAt(1)));
+    }
+
+    private String getHtmlDivIdFromCoordinates(Pair<Integer, Integer> coordinates) {
+        return "piece" + coordinates.getValue0().toString() + coordinates.getValue1().toString();
+    }
+
+    private boolean checkIfNeighbourCells(Pair<Integer, Integer> firstCell, Pair<Integer, Integer> secondCell) {
+        int[][] variations = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        for (int[] variation : variations) {
+            if ((firstCell.getValue0() + variation[0]) == secondCell.getValue0() && (firstCell.getValue1() + variation[1]) == secondCell.getValue1()) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

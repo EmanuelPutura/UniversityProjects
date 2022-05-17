@@ -16,21 +16,6 @@ public class UsersRepository extends GenericRepository<String, User> {
     }
 
     @Override
-    protected Optional<User> getEntityFromResultSet(ResultSet resultSet) {
-        try {
-            if (resultSet.next()){
-                String username = resultSet.getString("username");
-                String password = resultSet.getString("password");
-
-                return Optional.of(new User(username, password));
-            }
-        } catch (SQLException e) {
-            return Optional.empty();
-        }
-        return Optional.empty();
-    }
-
-    @Override
     public void save(User entity) throws AppException {
         if (entity == null) {
             throw new AppException("Entity must not be null!");
@@ -48,5 +33,20 @@ public class UsersRepository extends GenericRepository<String, User> {
         } catch (SQLException e) {
             throw new AppException(e.getMessage());
         }
+    }
+
+    @Override
+    protected Optional<User> getEntityFromResultSet(ResultSet resultSet) {
+        try {
+            if (resultSet.next()){
+                String username = resultSet.getString("username");
+                String password = resultSet.getString("password");
+
+                return Optional.of(new User(username, password));
+            }
+        } catch (SQLException e) {
+            return Optional.empty();
+        }
+        return Optional.empty();
     }
 }
