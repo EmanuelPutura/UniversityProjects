@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.24/13a394eed5c4f9efb2a6d956e2086f1d81e857d9/lombok-1.18.24.jar" />
+        </processorPath>
+        <module name="lab12-server.main" />
+        <module name="lab12-server.web.main" />
+        <module name="lab12-server.core.main" />
+        <module name="lab12-server.client.main" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="lab11x-EmanuelPutura" target="16" />
+      <module name="lab11x-EmanuelPutura.client" target="16" />
+      <module name="lab11x-EmanuelPutura.client.main" target="16" />
+      <module name="lab11x-EmanuelPutura.client.test" target="16" />
+      <module name="lab11x-EmanuelPutura.core" target="16" />
+      <module name="lab11x-EmanuelPutura.core.main" target="16" />
+      <module name="lab11x-EmanuelPutura.core.test" target="16" />
+      <module name="lab11x-EmanuelPutura.main" target="16" />
+      <module name="lab11x-EmanuelPutura.test" target="16" />
+      <module name="lab11x-EmanuelPutura.web" target="16" />
+      <module name="lab11x-EmanuelPutura.web.main" target="16" />
+      <module name="lab11x-EmanuelPutura.web.test" target="16" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/lab12-server" />
+        <option name="gradleHome" value="C:/Gradle/gradle-7.4" />
+        <option name="gradleJvm" value="corretto-16" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/lab12-server" />
+            <option value="$PROJECT_DIR$/lab12-server/client" />
+            <option value="$PROJECT_DIR$/lab12-server/core" />
+            <option value="$PROJECT_DIR$/lab12-server/web" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,5 @@
+rootProject.name = 'lab12-server'
+include 'core'
+include 'web'
+include 'client'
+
