@@ -1,0 +1,16 @@
+<ol class="technicians">
+  <li *ngFor="let technician of technicians "
+      [class.selected]="technician === selectedTechnician"
+      (click)="onSelect(technician)">
+    {{technician.firstName}} {{technician.lastName}} {{technician.salary}}
+  </li>
+</ol>
+
+<hr>
+
+<div *ngIf="selectedTechnician">
+  <h2>
+    {{selectedTechnician.firstName}} was selected!
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>

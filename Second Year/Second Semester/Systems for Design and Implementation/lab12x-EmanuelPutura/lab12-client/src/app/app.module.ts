@@ -13,6 +13,9 @@ import { ClientsListComponent } from './clients-menu/clients-list/clients-list.c
 import { ClientsInsertComponent } from './clients-menu/clients-insert/clients-insert.component';
 import { ClientsDetailComponent } from './clients-menu/clients-detail/clients-detail.component';
 import {FormsModule} from "@angular/forms";
+import { TechniciansDetailComponent } from './technicians-menu/technicians-detail/technicians-detail.component';
+import { TechniciansInsertComponent } from './technicians-menu/technicians-insert/technicians-insert.component';
+import { TechniciansListComponent } from './technicians-menu/technicians-list/technicians-list.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import {FormsModule} from "@angular/forms";
     RepairOrdersMenuComponent,
     ClientsListComponent,
     ClientsInsertComponent,
-    ClientsDetailComponent
+    ClientsDetailComponent,
+    TechniciansDetailComponent,
+    TechniciansInsertComponent,
+    TechniciansListComponent
   ],
   imports: [
     BrowserModule,

@@ -6,13 +6,19 @@ import {DevicesMenuComponent} from "./devices-menu/devices-menu.component";
 import {RepairOrdersMenuComponent} from "./repair-orders-menu/repair-orders-menu.component";
 import {ClientsDetailComponent} from "./clients-menu/clients-detail/clients-detail.component";
 import {ClientsInsertComponent} from "./clients-menu/clients-insert/clients-insert.component";
+import {TechniciansInsertComponent} from "./technicians-menu/technicians-insert/technicians-insert.component";
+import {TechniciansDetailComponent} from "./technicians-menu/technicians-detail/technicians-detail.component";
 
 const routes: Routes = [
   // { path: '', component: ProductsComponent },
   { path: 'clients', component: ClientsMenuComponent },
-  {path: 'clients/details/:id', component: ClientsDetailComponent},
+  { path: 'clients/details/:id', component: ClientsDetailComponent},
   { path: 'clients/save', component: ClientsInsertComponent},
+
   { path: 'technicians', component: TechniciansMenuComponent },
+  { path: 'technicians/details/:id', component: TechniciansDetailComponent},
+  { path: 'technicians/save', component: TechniciansInsertComponent},
+
   { path: 'devices', component: DevicesMenuComponent },
   { path: 'orders', component: RepairOrdersMenuComponent }
 ];

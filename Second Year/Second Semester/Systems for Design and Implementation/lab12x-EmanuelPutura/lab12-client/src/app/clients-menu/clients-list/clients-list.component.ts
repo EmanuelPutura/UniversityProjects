@@ -13,8 +13,7 @@ export class ClientsListComponent implements OnInit {
   clients: Array<Client>;
   selectedClient: Client;
 
-  constructor(private clientsService: ClientsService,
-              private router: Router) {
+  constructor(private clientsService: ClientsService, private router: Router) {
   }
 
   ngOnInit(): void {
