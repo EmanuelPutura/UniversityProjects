@@ -10,6 +10,8 @@ import {TechniciansInsertComponent} from "./technicians-menu/technicians-insert/
 import {TechniciansDetailComponent} from "./technicians-menu/technicians-detail/technicians-detail.component";
 import {DevicesInsertComponent} from "./devices-menu/devices-insert/devices-insert.component";
 import {DevicesDetailComponent} from "./devices-menu/devices-detail/devices-detail.component";
+import {OrdersDetailComponent} from "./repair-orders-menu/orders-detail/orders-detail.component";
+import {OrdersInsertComponent} from "./repair-orders-menu/orders-insert/orders-insert.component";
 
 const routes: Routes = [
   { path: 'clients', component: ClientsMenuComponent },
@@ -24,7 +26,9 @@ const routes: Routes = [
   { path: 'devices/details/:id', component: DevicesDetailComponent},
   { path: 'devices/save', component: DevicesInsertComponent},
 
-  { path: 'orders', component: RepairOrdersMenuComponent }
+  { path: 'orders', component: RepairOrdersMenuComponent },
+  { path: 'orders/details/:technicianId/:deviceId', component: OrdersDetailComponent},
+  { path: 'orders/save', component: OrdersInsertComponent}
 ];
 
 @NgModule({

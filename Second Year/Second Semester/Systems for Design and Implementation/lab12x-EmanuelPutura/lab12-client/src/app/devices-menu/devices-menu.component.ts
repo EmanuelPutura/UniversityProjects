@@ -7,6 +7,8 @@ import {Router} from "@angular/router";
   styleUrls: ['./devices-menu.component.css']
 })
 export class DevicesMenuComponent implements OnInit {
+  displayFlag: boolean = true; // true when all devices are displayed, false when all devices associated with a client are displayed
+
   constructor(private router: Router) {
   }
 
@@ -15,5 +17,13 @@ export class DevicesMenuComponent implements OnInit {
 
   addDevice(): void {
     this.router.navigate(['/devices/save']);
+  }
+
+  displayAll(): void {
+    this.displayFlag = true;
+  }
+
+  displayAllHavingClient(): void {
+    this.displayFlag = false;
   }
 }

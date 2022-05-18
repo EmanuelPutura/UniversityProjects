@@ -7,6 +7,8 @@ import {Router} from "@angular/router";
   styleUrls: ['./clients-menu.component.css']
 })
 export class ClientsMenuComponent implements OnInit {
+  displayFlag: boolean = true;
+
   constructor(private router: Router) {
   }
 
@@ -15,5 +17,13 @@ export class ClientsMenuComponent implements OnInit {
 
   addClient(): void {
     this.router.navigate(['/clients/save']);
+  }
+
+  displayAll(): void {
+    this.displayFlag = true;
+  }
+
+  displayAllHavingClient(): void {
+    this.displayFlag = false;
   }
 }

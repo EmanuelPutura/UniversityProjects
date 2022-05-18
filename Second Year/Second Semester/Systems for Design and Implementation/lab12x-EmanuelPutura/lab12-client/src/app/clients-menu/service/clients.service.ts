@@ -18,6 +18,11 @@ export class ClientsService {
       .get<any>(this.clientsUrl).pipe(map(result => result.clients));
   }
 
+  getClientsSortedAndFiltered(filterField: string, sortingField: string): Observable<Client[]> {
+    const requestUrl = this.clientsUrl + "/sortedAndFiltered?lastName=" + filterField + "&sortingCriteria=" + sortingField;
+    return this.httpClient.get<any>(requestUrl).pipe(map(result => result.clients));
+  }
+
   getClient(id: number): Observable<Client | undefined> {
     return this.getClients().pipe(
       map(clients => clients.find(client => client.id === id))

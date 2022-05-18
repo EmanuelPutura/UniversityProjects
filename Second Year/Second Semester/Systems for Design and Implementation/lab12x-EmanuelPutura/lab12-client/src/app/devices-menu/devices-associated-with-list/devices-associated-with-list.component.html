@@ -1,0 +1,10 @@
+<ol class="devices">
+  <li *ngFor="let device of devices ">
+    {{device.type}} {{device.brand}} {{device.model}} {{device.clientId}}
+  </li>
+</ol>
+
+<div>
+  <label>Client ID:</label> <input #clientId><br/>
+  <button (click)="getDevicesAssociatedWithClient(clientId.value)">Display all matches</button>
+</div>

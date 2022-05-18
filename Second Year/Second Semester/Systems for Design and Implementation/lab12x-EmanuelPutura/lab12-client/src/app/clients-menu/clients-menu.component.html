@@ -1,8 +1,11 @@
 <h1>Clients</h1>
 
 <button (click)="addClient()">Add client</button>
+<button (click)="displayAll()">Display all clients</button>
+<button (click)="displayAllHavingClient()">Display clients filtered by last name and sorted</button>
 
 <hr>
 
 <h2>Clients List</h2>
-<app-clients-list></app-clients-list>
+<app-clients-list *ngIf="displayFlag"></app-clients-list>
+<app-clients-sorted-filtered-list *ngIf="!displayFlag"></app-clients-sorted-filtered-list>

@@ -1,0 +1,16 @@
+<ol class="orders">
+  <li *ngFor="let order of orders "
+      [class.selected]="order === selectedOrder"
+      (click)="onSelect(order)">
+      TechnicianID({{order.technicianId}}) DeviceID({{order.deviceId}})
+  </li>
+</ol>
+
+<hr>
+
+<div *ngIf="selectedOrder">
+  <h2>
+    Repair Order having TechnicianID({{selectedOrder.technicianId}}), DeviceID({{selectedOrder.deviceId}}) was selected!
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>

@@ -9,12 +9,17 @@ import {Technician} from "../model/technician";
 })
 export class TechniciansService {
   private techniciansUrl = 'http://localhost:8080/api/technicians';
+  private ordersUrl = 'http://localhost:8080/api/orders';
 
   constructor(private httpClient: HttpClient) {
   }
 
   getTechnicians(): Observable<Technician[]> {
     return this.httpClient.get<any>(this.techniciansUrl).pipe(map(result => result.technicians));
+  }
+
+  getTechniciansAssociatedWithDevice(deviceId: number): Observable<Technician[]> {
+    return this.httpClient.get<any>(this.ordersUrl + "/forDevice?deviceId=" + deviceId.toString()).pipe(map(result => result.technicians));
   }
 
   getTechnician(id: number): Observable<Technician | undefined> {

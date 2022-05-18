@@ -7,6 +7,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./technicians-menu.component.css']
 })
 export class TechniciansMenuComponent implements OnInit {
+  displayFlag: boolean = true;
 
   constructor(private router: Router) { }
 
@@ -15,5 +16,13 @@ export class TechniciansMenuComponent implements OnInit {
 
   addTechnician(): void {
     this.router.navigate(['/technicians/save']);
+  }
+
+  displayAll(): void {
+    this.displayFlag = true;
+  }
+
+  displayAllHavingClient(): void {
+    this.displayFlag = false;
   }
 }

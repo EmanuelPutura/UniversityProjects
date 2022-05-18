@@ -31,11 +31,12 @@ public class ClientController {
         return "Assignment 11";
     }
 
-    @RequestMapping(value = "clients/sortedAndByLastName")
-    ClientsListDto getAllClientsSortedByLastName() {
+    @RequestMapping(value = "clients/sortedAndFiltered")
+    ClientsListDto getAllClientsSortedByLastName(@RequestParam String lastName, @RequestParam String sortingCriteria) {
 //        clientService.findClientsByLastName("LastName", Sort.by("firstName")).forEach(System.out::println);
         var clientsListDto = new ClientsListDto();
-        var clients = clientService.findClientsByLastName("LastName", Sort.by("firstName"));
+
+        var clients = clientService.findClientsByLastName(lastName, Sort.by(sortingCriteria));
         clients.forEach((client) -> {
             clientsListDto.getClients().add(clientConverter.convertModelToDto(client));
         });

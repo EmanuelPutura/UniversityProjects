@@ -17,6 +17,10 @@ export class DevicesService {
     return this.httpClient.get<any>(this.devicesUrl).pipe(map(result => result.devices));
   }
 
+  getDevicesAssociatedWithClient(clientId: number): Observable<Device[]> {
+    return this.httpClient.get<any>(this.devicesUrl + "/forClient?deviceId=" + clientId.toString()).pipe(map(result => result.devices));
+  }
+
   getDevice(id: number): Observable<Device | undefined> {
     return this.getDevices().pipe(map(devices => devices.find(device => device.id === id)));
   }

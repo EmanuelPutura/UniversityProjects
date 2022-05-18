@@ -1,8 +1,12 @@
 <h1>Devices</h1>
 
 <button (click)="addDevice()">Add device</button>
+<button (click)="displayAll()">Display all devices</button>
+<button (click)="displayAllHavingClient()">Display devices associated with a client</button>
 
 <hr>
 
 <h2>Devices List</h2>
-<app-devices-list></app-devices-list>
+
+<app-devices-list *ngIf="displayFlag"></app-devices-list>
+<app-devices-associated-with-list *ngIf="!displayFlag"></app-devices-associated-with-list>

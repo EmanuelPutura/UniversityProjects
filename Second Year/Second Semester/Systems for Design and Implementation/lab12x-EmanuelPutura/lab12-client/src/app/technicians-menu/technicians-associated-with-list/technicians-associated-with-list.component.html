@@ -1,0 +1,10 @@
+<ol class="technicians">
+  <li *ngFor="let technician of technicians ">
+    {{technician.firstName}} {{technician.lastName}} {{technician.salary}}
+  </li>
+</ol>
+
+<div>
+  <label>Device ID:</label> <input #deviceId><br/>
+  <button (click)="getTechniciansAssociatedWithDevice(deviceId.value)">Display all matches</button>
+</div>
