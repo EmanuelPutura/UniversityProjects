@@ -60,6 +60,7 @@ public class DeviceServiceImpl implements DeviceService {
         updatedDevice.setType(entity.getType());
         updatedDevice.setBrand(entity.getBrand());
         updatedDevice.setModel(entity.getModel());
+        updatedDevice.setClient(entity.getClient());
 
         return updatedDevice;
     }
