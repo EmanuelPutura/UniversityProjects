@@ -8,7 +8,6 @@ import {Router} from "@angular/router";
   styleUrls: ['./clients-insert.component.css']
 })
 export class ClientsInsertComponent implements OnInit {
-
   constructor(private clientsService: ClientsService, private router: Router) {
   }
 

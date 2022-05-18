@@ -14,9 +14,7 @@ import {Location} from '@angular/common';
 export class ClientsDetailComponent implements OnInit {
   @Input() client: Client | undefined;
 
-  constructor(private clientsService: ClientsService,
-              private route: ActivatedRoute,
-              private location: Location) {
+  constructor(private clientsService: ClientsService, private route: ActivatedRoute, private location: Location) {
   }
 
   ngOnInit(): void {
