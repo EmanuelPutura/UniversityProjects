@@ -8,9 +8,10 @@ import {ClientsDetailComponent} from "./clients-menu/clients-detail/clients-deta
 import {ClientsInsertComponent} from "./clients-menu/clients-insert/clients-insert.component";
 import {TechniciansInsertComponent} from "./technicians-menu/technicians-insert/technicians-insert.component";
 import {TechniciansDetailComponent} from "./technicians-menu/technicians-detail/technicians-detail.component";
+import {DevicesInsertComponent} from "./devices-menu/devices-insert/devices-insert.component";
+import {DevicesDetailComponent} from "./devices-menu/devices-detail/devices-detail.component";
 
 const routes: Routes = [
-  // { path: '', component: ProductsComponent },
   { path: 'clients', component: ClientsMenuComponent },
   { path: 'clients/details/:id', component: ClientsDetailComponent},
   { path: 'clients/save', component: ClientsInsertComponent},
@@ -20,6 +21,9 @@ const routes: Routes = [
   { path: 'technicians/save', component: TechniciansInsertComponent},
 
   { path: 'devices', component: DevicesMenuComponent },
+  { path: 'devices/details/:id', component: DevicesDetailComponent},
+  { path: 'devices/save', component: DevicesInsertComponent},
+
   { path: 'orders', component: RepairOrdersMenuComponent }
 ];
 

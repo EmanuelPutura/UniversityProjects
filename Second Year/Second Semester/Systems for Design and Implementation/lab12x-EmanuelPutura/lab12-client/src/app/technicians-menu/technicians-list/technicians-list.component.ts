@@ -30,8 +30,8 @@ export class TechniciansListComponent implements OnInit {
       );
   }
 
-  onSelect(student: Technician): void {
-    this.selectedTechnician = student;
+  onSelect(technician: Technician): void {
+    this.selectedTechnician = technician;
   }
 
   gotoDetail(): void {

@@ -30,8 +30,8 @@ export class ClientsListComponent implements OnInit {
       );
   }
 
-  onSelect(student: Client): void {
-    this.selectedClient = student;
+  onSelect(client: Client): void {
+    this.selectedClient = client;
   }
 
   gotoDetail(): void {

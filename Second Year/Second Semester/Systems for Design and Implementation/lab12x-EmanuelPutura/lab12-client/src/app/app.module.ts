@@ -16,6 +16,9 @@ import {FormsModule} from "@angular/forms";
 import { TechniciansDetailComponent } from './technicians-menu/technicians-detail/technicians-detail.component';
 import { TechniciansInsertComponent } from './technicians-menu/technicians-insert/technicians-insert.component';
 import { TechniciansListComponent } from './technicians-menu/technicians-list/technicians-list.component';
+import { DevicesListComponent } from './devices-menu/devices-list/devices-list.component';
+import { DevicesInsertComponent } from './devices-menu/devices-insert/devices-insert.component';
+import { DevicesDetailComponent } from './devices-menu/devices-detail/devices-detail.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { TechniciansListComponent } from './technicians-menu/technicians-list/te
     ClientsDetailComponent,
     TechniciansDetailComponent,
     TechniciansInsertComponent,
-    TechniciansListComponent
+    TechniciansListComponent,
+    DevicesListComponent,
+    DevicesInsertComponent,
+    DevicesDetailComponent
   ],
   imports: [
     BrowserModule,

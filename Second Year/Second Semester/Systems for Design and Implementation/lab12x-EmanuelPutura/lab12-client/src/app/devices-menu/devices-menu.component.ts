@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-devices-menu',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./devices-menu.component.css']
 })
 export class DevicesMenuComponent implements OnInit {
-
-  constructor() { }
+  constructor(private router: Router) {
+  }
 
   ngOnInit(): void {
   }
 
+  addDevice(): void {
+    this.router.navigate(['/devices/save']);
+  }
 }
