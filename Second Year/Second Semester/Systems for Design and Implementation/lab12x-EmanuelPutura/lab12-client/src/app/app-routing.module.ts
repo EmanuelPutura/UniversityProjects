@@ -5,11 +5,13 @@ import {TechniciansMenuComponent} from "./technicians-menu/technicians-menu.comp
 import {DevicesMenuComponent} from "./devices-menu/devices-menu.component";
 import {RepairOrdersMenuComponent} from "./repair-orders-menu/repair-orders-menu.component";
 import {ClientsDetailComponent} from "./clients-menu/clients-detail/clients-detail.component";
+import {ClientsInsertComponent} from "./clients-menu/clients-insert/clients-insert.component";
 
 const routes: Routes = [
   // { path: '', component: ProductsComponent },
   { path: 'clients', component: ClientsMenuComponent },
   {path: 'clients/details/:id', component: ClientsDetailComponent},
+  { path: 'clients/save', component: ClientsInsertComponent},
   { path: 'technicians', component: TechniciansMenuComponent },
   { path: 'devices', component: DevicesMenuComponent },
   { path: 'orders', component: RepairOrdersMenuComponent }

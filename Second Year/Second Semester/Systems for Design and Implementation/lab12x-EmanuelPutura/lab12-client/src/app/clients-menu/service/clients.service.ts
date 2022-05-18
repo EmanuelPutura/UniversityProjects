@@ -24,9 +24,17 @@ export class ClientsService {
     );
   }
 
+  save(client: Client): Observable<Client> {
+    return this.httpClient.post<Client>(this.clientsUrl, client);
+  }
+
   update(client: Client): Observable<Client> {
     const url = `${this.clientsUrl}/${client.id}`;
-    return this.httpClient
-      .put<Client>(url, client);
+    return this.httpClient.put<Client>(url, client);
+  }
+
+  delete(client: Client): Observable<Object> {
+    const url = `${this.clientsUrl}/${client.id}`;
+    return this.httpClient.delete(url);
   }
 }

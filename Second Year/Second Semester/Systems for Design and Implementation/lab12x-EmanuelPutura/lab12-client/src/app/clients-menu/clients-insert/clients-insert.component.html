@@ -1,1 +1,9 @@
-<p>clients-insert works!</p>
+<h2>Add Client</h2>
+
+<div>
+  <label>First name:</label> <input #firstName><br/>
+  <label>Last name:</label> <input #lastName><br/>
+  <label>Email address:</label> <input #emailAddress><br/><br/>
+
+  <button (click)="saveClient(firstName.value, lastName.value, emailAddress.value)">Save</button>
+</div>
