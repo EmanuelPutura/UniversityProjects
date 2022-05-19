@@ -1,9 +1,18 @@
-<h1>Clients</h1>
+<!--<h1>Clients</h1>-->
 
-<button (click)="displayAll()">Display all clients</button>
-<button (click)="displayAllPaginated()">Display all clients paginated</button><br>
-<button (click)="displayAllHavingClient()">Display clients filtered by last name and sorted</button>
-<button (click)="addClient()">Add client</button>
+<!--<button (click)="displayAll()">Display all clients</button>-->
+<!--<button (click)="displayAllPaginated()">Display all clients paginated</button><br>-->
+<!--<button (click)="displayAllHavingClient()">Display clients filtered by last name and sorted</button>-->
+<!--<button (click)="addClient()">Add client</button>-->
+
+<mat-card>Clients</mat-card>
+
+<mat-button-toggle-group name="favoriteColor" aria-label="Favorite Color">
+  <mat-button-toggle (click)="displayAll()">Display all clients</mat-button-toggle>
+  <mat-button-toggle (click)="displayAllPaginated()">Display all clients paginated</mat-button-toggle>
+  <mat-button-toggle (click)="displayAllHavingClient()">Display clients filtered by last name and sorted</mat-button-toggle>
+  <mat-button-toggle (click)="addClient()">Add client</mat-button-toggle>
+</mat-button-toggle-group>
 
 <hr>
 

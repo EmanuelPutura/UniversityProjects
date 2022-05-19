@@ -28,6 +28,10 @@ import { ClientsSortedFilteredListComponent } from './clients-menu/clients-sorte
 import { ClientsPaginatedComponent } from './clients-menu/clients-paginated/clients-paginated.component';
 import { DevicesPaginatedComponent } from './devices-menu/devices-paginated/devices-paginated.component';
 import { TechniciansPaginatedComponent } from './technicians-menu/technicians-paginated/technicians-paginated.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatCardModule} from "@angular/material/card";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 @NgModule({
   declarations: [
@@ -60,7 +64,11 @@ import { TechniciansPaginatedComponent } from './technicians-menu/technicians-pa
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

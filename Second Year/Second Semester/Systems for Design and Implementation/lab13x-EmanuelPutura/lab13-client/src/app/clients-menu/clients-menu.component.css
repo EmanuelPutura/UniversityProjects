@@ -20,3 +20,8 @@ button:disabled {
   color: #ccc;
   cursor: auto;
 }
+
+mat-card {
+  width: 40%;
+  margin: 2% auto;
+}
