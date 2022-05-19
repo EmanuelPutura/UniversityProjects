@@ -18,6 +18,11 @@ export class ClientsService {
       .get<any>(this.clientsUrl).pipe(map(result => result.clients));
   }
 
+  getClientsPaginated(pageNumber: number, pageSize: number): Observable<Client[]> {
+    const requestUrl = this.clientsUrl + "/paginated?page=" + pageNumber.toString() + "&size=" + pageSize.toString();
+    return this.httpClient.get<any>(requestUrl).pipe(map(result => result.clients));
+  }
+
   getClientsSortedAndFiltered(filterField: string, sortingField: string): Observable<Client[]> {
     const requestUrl = this.clientsUrl + "/sortedAndFiltered?lastName=" + filterField + "&sortingCriteria=" + sortingField;
     return this.httpClient.get<any>(requestUrl).pipe(map(result => result.clients));

@@ -9,6 +9,8 @@ import java.util.Optional;
 public interface GenericService<ID extends Serializable, T extends BaseEntity<ID>> {
     List<T> getAll();
 
+    List<T> getAllFromPage(int pageNumber, int pageSize);
+
     T save(T entity);
 
     T update(T entity);

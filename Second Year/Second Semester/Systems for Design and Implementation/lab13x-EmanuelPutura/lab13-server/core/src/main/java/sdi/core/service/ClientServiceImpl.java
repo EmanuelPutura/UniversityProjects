@@ -1,5 +1,6 @@
 package sdi.core.service;
 
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import sdi.core.model.entities.Client;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,14 @@ public class ClientServiceImpl implements ClientService {
     public List<Client> getAll() {
         List<Client> resultList = new ArrayList<>();
         repository.findAll().forEach(resultList::add);
+
+        return resultList;
+    }
+
+    @Override
+    public List<Client> getAllFromPage(int pageNumber, int pageSize) {
+        List<Client> resultList = new ArrayList<>();
+        repository.findAll(PageRequest.of(pageNumber, pageSize)).forEach(resultList::add);
 
         return resultList;
     }

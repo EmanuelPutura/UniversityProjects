@@ -31,9 +31,16 @@ public class TechnicianController {
         return new TechniciansDto(technicianConverter.convertModelsToDtos(technicianService.getAll()));
     }
 
+    @RequestMapping(value = "/technicians/paginated")
+    TechniciansDto getAllTechniciansPaginated(@RequestParam Integer page, @RequestParam Integer size) {
+        logger.trace("get all technicians paginated - method entered");
+
+        return new TechniciansDto(technicianConverter.convertModelsToDtos(technicianService.getAllFromPage(page, size)));
+    }
+
     @RequestMapping(value = "/technicians", method = RequestMethod.POST)
     TechnicianDto addTechnician(@RequestBody TechnicianDto technicianDto) {
-        logger.trace(String.format("add technician - method started - client DTO: %s", technicianDto.toString()));
+        logger.trace(String.format("add technician - method started - technician DTO: %s", technicianDto.toString()));
 
         var technician = technicianConverter.convertDtoToModel(technicianDto);
         var result = technicianService.save(technician);

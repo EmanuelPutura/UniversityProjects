@@ -2,7 +2,6 @@ package sdi.core.repository;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import sdi.core.model.BaseEntity;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 
 import java.io.Serializable;

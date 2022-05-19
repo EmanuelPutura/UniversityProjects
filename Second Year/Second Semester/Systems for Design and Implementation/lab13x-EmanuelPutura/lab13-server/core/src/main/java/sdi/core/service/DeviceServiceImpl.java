@@ -1,5 +1,6 @@
 package sdi.core.service;
 
+import org.springframework.data.domain.PageRequest;
 import sdi.core.model.entities.Device;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,6 +49,14 @@ public class DeviceServiceImpl implements DeviceService {
     public List<Device> getAll() {
         List<Device> resultList = new ArrayList<>();
         repository.findAll().forEach(resultList::add);
+
+        return resultList;
+    }
+
+    @Override
+    public List<Device> getAllFromPage(int pageNumber, int pageSize) {
+        List<Device> resultList = new ArrayList<>();
+        repository.findAll(PageRequest.of(pageNumber, pageSize)).forEach(resultList::add);
 
         return resultList;
     }

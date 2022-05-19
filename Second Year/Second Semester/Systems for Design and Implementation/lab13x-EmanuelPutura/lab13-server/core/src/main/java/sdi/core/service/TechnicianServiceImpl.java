@@ -1,5 +1,6 @@
 package sdi.core.service;
 
+import org.springframework.data.domain.PageRequest;
 import sdi.core.model.entities.Device;
 import sdi.core.model.entities.Technician;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,14 @@ public class TechnicianServiceImpl implements TechnicianService {
     public List<Technician> getAll() {
         List<Technician> resultList = new ArrayList<>();
         repository.findAll().forEach(resultList::add);
+
+        return resultList;
+    }
+
+    @Override
+    public List<Technician> getAllFromPage(int pageNumber, int pageSize) {
+        List<Technician> resultList = new ArrayList<>();
+        repository.findAll(PageRequest.of(pageNumber, pageSize)).forEach(resultList::add);
 
         return resultList;
     }

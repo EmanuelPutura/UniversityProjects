@@ -28,7 +28,6 @@ public class ClientController {
 
     @RequestMapping(value = "clients/sortedAndFiltered")
     ClientsListDto getAllClientsSortedByLastName(@RequestParam String lastName, @RequestParam String sortingCriteria) {
-//        clientService.findClientsByLastName("LastName", Sort.by("firstName")).forEach(System.out::println);
         var clientsListDto = new ClientsListDto();
 
         var clients = clientService.findClientsByLastName(lastName, Sort.by(sortingCriteria));
@@ -44,6 +43,15 @@ public class ClientController {
         logger.error("------> get all clients - method entered");
         var clientsDto = new ClientsDto(clientConverter.convertModelsToDtos(clientService.getAll()));
         logger.error(String.format("------> get all clients - ClientsDto: %s", clientsDto.toString()));
+
+        return clientsDto;
+    }
+
+    @RequestMapping(value = "/clients/paginated")
+    ClientsDto getAllClientsPaginated(@RequestParam Integer page, @RequestParam Integer size) {
+        logger.error("------> get all clients paginated - method entered");
+        var clientsDto = new ClientsDto(clientConverter.convertModelsToDtos(clientService.getAllFromPage(page, size)));
+        logger.error(String.format("------> get all clients paginated - ClientsDto: %s", clientsDto.toString()));
 
         return clientsDto;
     }

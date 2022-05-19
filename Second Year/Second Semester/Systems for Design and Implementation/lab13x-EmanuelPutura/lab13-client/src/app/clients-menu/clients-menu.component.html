@@ -1,11 +1,13 @@
 <h1>Clients</h1>
 
-<button (click)="addClient()">Add client</button>
 <button (click)="displayAll()">Display all clients</button>
+<button (click)="displayAllPaginated()">Display all clients paginated</button><br>
 <button (click)="displayAllHavingClient()">Display clients filtered by last name and sorted</button>
+<button (click)="addClient()">Add client</button>
 
 <hr>
 
 <h2>Clients List</h2>
-<app-clients-list *ngIf="displayFlag"></app-clients-list>
-<app-clients-sorted-filtered-list *ngIf="!displayFlag"></app-clients-sorted-filtered-list>
+<app-clients-list *ngIf="displayOption == 0"></app-clients-list>
+<app-clients-paginated *ngIf="displayOption == 1"></app-clients-paginated>
+<app-clients-sorted-filtered-list *ngIf="displayOption == 2"></app-clients-sorted-filtered-list>

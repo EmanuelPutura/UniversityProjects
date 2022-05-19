@@ -25,6 +25,9 @@ import { OrdersInsertComponent } from './repair-orders-menu/orders-insert/orders
 import { DevicesAssociatedWithListComponent } from './devices-menu/devices-associated-with-list/devices-associated-with-list.component';
 import { TechniciansAssociatedWithListComponent } from './technicians-menu/technicians-associated-with-list/technicians-associated-with-list.component';
 import { ClientsSortedFilteredListComponent } from './clients-menu/clients-sorted-filtered-list/clients-sorted-filtered-list.component';
+import { ClientsPaginatedComponent } from './clients-menu/clients-paginated/clients-paginated.component';
+import { DevicesPaginatedComponent } from './devices-menu/devices-paginated/devices-paginated.component';
+import { TechniciansPaginatedComponent } from './technicians-menu/technicians-paginated/technicians-paginated.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,10 @@ import { ClientsSortedFilteredListComponent } from './clients-menu/clients-sorte
     OrdersInsertComponent,
     DevicesAssociatedWithListComponent,
     TechniciansAssociatedWithListComponent,
-    ClientsSortedFilteredListComponent
+    ClientsSortedFilteredListComponent,
+    ClientsPaginatedComponent,
+    DevicesPaginatedComponent,
+    TechniciansPaginatedComponent
   ],
   imports: [
     BrowserModule,

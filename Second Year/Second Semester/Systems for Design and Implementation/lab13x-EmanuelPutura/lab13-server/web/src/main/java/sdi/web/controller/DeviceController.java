@@ -45,7 +45,16 @@ public class DeviceController {
     DevicesInsertDto getAllDevices() {
         logger.trace("get all devices - method entered");
         var devicesDto =new DevicesInsertDto(deviceConverter.convertModelToDeviceInsertDtos(deviceService.getAll()));
-        logger.trace(String.format("get all devices - ClientsDto: %s", devicesDto.toString()));
+        logger.trace(String.format("get all devices - DevicesDto: %s", devicesDto.toString()));
+
+        return devicesDto;
+    }
+
+    @RequestMapping(value = "/devices/paginated")
+    DevicesInsertDto getAllDevicesPaginated(@RequestParam Integer page, @RequestParam Integer size) {
+        logger.trace("get all devices paginated - method entered");
+        var devicesDto =new DevicesInsertDto(deviceConverter.convertModelToDeviceInsertDtos(deviceService.getAllFromPage(page, size)));
+        logger.trace(String.format("get all devices paginated - DevicesDto: %s", devicesDto.toString()));
 
         return devicesDto;
     }
