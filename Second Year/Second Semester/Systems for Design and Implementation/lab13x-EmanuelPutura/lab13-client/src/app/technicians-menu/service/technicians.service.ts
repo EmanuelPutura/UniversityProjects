@@ -18,6 +18,11 @@ export class TechniciansService {
     return this.httpClient.get<any>(this.techniciansUrl).pipe(map(result => result.technicians));
   }
 
+  getTechniciansPaginated(pageNumber: number, pageSize: number): Observable<Technician[]> {
+    const requestUrl = this.techniciansUrl + "/paginated?page=" + pageNumber.toString() + "&size=" + pageSize.toString();
+    return this.httpClient.get<any>(requestUrl).pipe(map(result => result.technicians));
+  }
+
   getTechniciansAssociatedWithDevice(deviceId: number): Observable<Technician[]> {
     return this.httpClient.get<any>(this.ordersUrl + "/forDevice?deviceId=" + deviceId.toString()).pipe(map(result => result.technicians));
   }

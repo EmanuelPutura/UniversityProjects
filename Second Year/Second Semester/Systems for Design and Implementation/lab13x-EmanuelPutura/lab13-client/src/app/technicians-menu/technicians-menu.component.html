@@ -1,12 +1,14 @@
 <h1>Technicians</h1>
 
-<button (click)="addTechnician()">Add technician</button>
 <button (click)="displayAll()">Display all technicians</button>
+<button (click)="displayAllPaginated()">Display all technicians paginated</button><br>
 <button (click)="displayAllHavingClient()">Display technicians working on a repair order for a device</button>
+<button (click)="addTechnician()">Add technician</button>
 
 <hr>
 
 <h2>Technicians List</h2>
 
-<app-technicians-list *ngIf="displayFlag"></app-technicians-list>
-<app-technicians-associated-with-list *ngIf="!displayFlag"></app-technicians-associated-with-list>
+<app-technicians-list *ngIf="displayOption == 0"></app-technicians-list>
+<app-technicians-paginated *ngIf="displayOption == 1"></app-technicians-paginated>
+<app-technicians-associated-with-list *ngIf="displayOption == 2"></app-technicians-associated-with-list>
