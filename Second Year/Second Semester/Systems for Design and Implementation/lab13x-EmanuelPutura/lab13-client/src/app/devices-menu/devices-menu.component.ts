@@ -1,13 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 
+export enum DisplayOption {
+  ALL,
+  PAGINATED,
+  HAVING_CLIENT
+}
+
 @Component({
   selector: 'app-devices-menu',
   templateUrl: './devices-menu.component.html',
   styleUrls: ['./devices-menu.component.css']
 })
 export class DevicesMenuComponent implements OnInit {
-  displayFlag: boolean = true; // true when all devices are displayed, false when all devices associated with a client are displayed
+  displayOption: DisplayOption = DisplayOption.ALL;
 
   constructor(private router: Router) {
   }
@@ -20,10 +26,14 @@ export class DevicesMenuComponent implements OnInit {
   }
 
   displayAll(): void {
-    this.displayFlag = true;
+    this.displayOption = DisplayOption.ALL;
+  }
+
+  displayAllPaginated(): void {
+    this.displayOption = DisplayOption.PAGINATED;
   }
 
   displayAllHavingClient(): void {
-    this.displayFlag = false;
+    this.displayOption = DisplayOption.HAVING_CLIENT;
   }
 }

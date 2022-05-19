@@ -1,1 +1,12 @@
-<p>devices-paginated works!</p>
+<ol class="devices">
+  <li *ngFor="let device of devices ">
+    {{device.type}} {{device.brand}} {{device.model}} {{device.clientId}}
+  </li>
+</ol>
+
+<div>
+  <label>Page number:</label> <input #page><br/>
+  <label>Page size:</label> <input #size><br/>
+
+  <button (click)="getDevicesPaginated(page.value, size.value)">Display all paginated</button>
+</div>

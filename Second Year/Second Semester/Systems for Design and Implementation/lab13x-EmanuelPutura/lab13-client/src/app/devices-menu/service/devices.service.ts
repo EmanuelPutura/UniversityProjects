@@ -17,6 +17,11 @@ export class DevicesService {
     return this.httpClient.get<any>(this.devicesUrl).pipe(map(result => result.devices));
   }
 
+  getDevicesPaginated(pageNumber: number, pageSize: number): Observable<Device[]> {
+    const requestUrl = this.devicesUrl + "/paginated?page=" + pageNumber.toString() + "&size=" + pageSize.toString();
+    return this.httpClient.get<any>(requestUrl).pipe(map(result => result.devices));
+  }
+
   getDevicesAssociatedWithClient(clientId: number): Observable<Device[]> {
     return this.httpClient.get<any>(this.devicesUrl + "/forClient?deviceId=" + clientId.toString()).pipe(map(result => result.devices));
   }
