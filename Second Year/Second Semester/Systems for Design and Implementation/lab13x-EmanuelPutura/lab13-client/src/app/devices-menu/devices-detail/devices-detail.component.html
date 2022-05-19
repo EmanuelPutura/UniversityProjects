@@ -1,0 +1,27 @@
+<div *ngIf="device">
+  <h2>Device {{device.model}} details</h2>
+
+  <div>
+    <label>Type: </label>
+    <input [(ngModel)]="device.type" placeholder="type">
+  </div>
+
+  <div>
+    <label>Brand: </label>
+    <input [(ngModel)]="device.brand" placeholder="brand">
+  </div>
+
+  <div>
+    <label>Model: </label>
+    <input [(ngModel)]="device.model" placeholder="model">
+  </div>
+
+  <div>
+    <label>Client ID: </label>
+    <input [(ngModel)]="device.clientId" placeholder="clientId">
+  </div>
+
+  <button (click)="goBack()">Back</button>
+  <button (click)="save()">Save</button>
+  <button (click)="delete()">Delete</button>
+</div>

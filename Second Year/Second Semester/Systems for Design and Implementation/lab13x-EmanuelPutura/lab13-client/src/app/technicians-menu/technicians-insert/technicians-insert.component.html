@@ -1,0 +1,9 @@
+<h2>Add Technician</h2>
+
+<div>
+  <label>First name:</label> <input #firstName><br/>
+  <label>Last name:</label> <input #lastName><br/>
+  <label>Salary:</label> <input #salary><br/><br/>
+
+  <button (click)="saveTechnician(firstName.value, lastName.value, salary.value)">Save</button>
+</div>

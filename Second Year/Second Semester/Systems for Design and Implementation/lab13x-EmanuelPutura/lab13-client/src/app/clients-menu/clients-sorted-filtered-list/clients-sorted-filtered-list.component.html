@@ -1,0 +1,12 @@
+<ol class="clients">
+  <li *ngFor="let client of clients ">
+    {{client.firstName}} {{client.lastName}} {{client.emailAddress}}
+  </li>
+</ol>
+
+<div>
+  <label>Last name:</label> <input #lastName><br/>
+  <label>Sorting by field name:</label> <input #sortingCriteria><br/>
+
+  <button (click)="getClientsSortedAndFiltered(lastName.value, sortingCriteria.value)">Display all filtered and sorted</button>
+</div>

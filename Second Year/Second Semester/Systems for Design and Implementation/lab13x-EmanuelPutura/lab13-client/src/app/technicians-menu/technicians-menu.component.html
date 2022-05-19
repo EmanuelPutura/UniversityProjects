@@ -1,0 +1,12 @@
+<h1>Technicians</h1>
+
+<button (click)="addTechnician()">Add technician</button>
+<button (click)="displayAll()">Display all technicians</button>
+<button (click)="displayAllHavingClient()">Display technicians working on a repair order for a device</button>
+
+<hr>
+
+<h2>Technicians List</h2>
+
+<app-technicians-list *ngIf="displayFlag"></app-technicians-list>
+<app-technicians-associated-with-list *ngIf="!displayFlag"></app-technicians-associated-with-list>

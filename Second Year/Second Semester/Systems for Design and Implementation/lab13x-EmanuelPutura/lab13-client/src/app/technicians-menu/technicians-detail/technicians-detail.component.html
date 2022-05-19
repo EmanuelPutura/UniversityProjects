@@ -1,0 +1,22 @@
+<div *ngIf="technician">
+  <h2>Technician {{technician.firstName}} details</h2>
+
+  <div>
+    <label>First name: </label>
+    <input [(ngModel)]="technician.firstName" placeholder="firstName">
+  </div>
+
+  <div>
+    <label>Last name: </label>
+    <input [(ngModel)]="technician.lastName" placeholder="lastName">
+  </div>
+
+  <div>
+    <label>Salary: </label>
+    <input [(ngModel)]="technician.salary" placeholder="salary">
+  </div>
+
+  <button (click)="goBack()">Back</button>
+  <button (click)="save()">Save</button>
+  <button (click)="delete()">Delete</button>
+</div>

@@ -1,0 +1,10 @@
+<h2>Add Device</h2>
+
+<div>
+  <label>Type:</label> <input #type><br/>
+  <label>Brand:</label> <input #brand><br/>
+  <label>Model:</label> <input #model><br/>
+  <label>Client ID:</label> <input #clientId><br/><br/>
+
+  <button (click)="saveDevice(type.value, brand.value, model.value, clientId.value)">Save</button>
+</div>
