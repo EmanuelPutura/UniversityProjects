@@ -67,4 +67,14 @@ public class ClientServiceImpl implements ClientService {
     public List<Client> findClientsByLastName(String lastName, Sort sort) {
         return repository.findClientsByLastName(lastName, sort);
     }
+
+    @Override
+    public Optional<Client> findClientsByAllFieldsButForId(String lastName, String firstName, String emailAddress) {
+        var resultList = repository.findClientsByLastNameAndFirstNameAndEmailAddress(lastName, firstName, emailAddress);
+        if (resultList.isEmpty()) {
+            return Optional.empty();
+        }
+
+        return Optional.of(resultList.get(0));
+    }
 }

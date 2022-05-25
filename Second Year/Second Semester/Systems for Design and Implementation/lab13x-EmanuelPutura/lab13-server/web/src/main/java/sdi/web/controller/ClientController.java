@@ -47,6 +47,16 @@ public class ClientController {
         return clientsDto;
     }
 
+    @RequestMapping(value = "/clients/findById")
+    ClientDto findClientById(@RequestParam Long clientId) {
+        var clientOptional = clientService.search(clientId);
+        if (clientOptional.isEmpty()) {
+            return null;
+        }
+
+        return clientConverter.convertModelToDto(clientOptional.get());
+    }
+
     @RequestMapping(value = "/clients/paginated")
     ClientsDto getAllClientsPaginated(@RequestParam Integer page, @RequestParam Integer size) {
         logger.error("------> get all clients paginated - method entered");

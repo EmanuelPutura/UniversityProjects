@@ -1,5 +1,5 @@
 <ol class="clients">
-  <li *ngFor="let client of clients "
+  <li *ngFor="let client of clients"
       [class.selected]="client === selectedClient"
       (click)="onSelect(client)">
     {{client.firstName}} {{client.lastName}} {{client.emailAddress}}

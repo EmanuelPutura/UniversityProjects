@@ -13,6 +13,7 @@ import sdi.web.converter.DeviceConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import sdi.web.dto.device.DeviceDto;
 import sdi.web.dto.device.DeviceInsertDto;
+import sdi.web.dto.device.DeviceWithClientFieldsDto;
 import sdi.web.dto.device.DevicesInsertDto;
 
 @RestController
@@ -39,6 +40,17 @@ public class DeviceController {
 
         Client client = clientOptional.get();
         return deviceConverter.convertDeviceInsertDtoToDeviceDto(deviceInsertDto, client);
+    }
+
+    private DeviceDto getDeviceDtoFromDeviceWithClientFieldsDto(DeviceWithClientFieldsDto deviceWithClientFieldsDto) {
+        var clientOptional = clientService.findClientsByAllFieldsButForId(deviceWithClientFieldsDto.getClientLastName(),
+                deviceWithClientFieldsDto.getClientFirstName(), deviceWithClientFieldsDto.getClientEmailAddress());
+
+        if (clientOptional.isEmpty())
+            throw new WorkshopException("Client does not exist!");
+
+        Client client = clientOptional.get();
+        return deviceConverter.convertDeviceWithClientFieldsDtoToDeviceDto(deviceWithClientFieldsDto, client);
     }
 
     @RequestMapping(value = "/devices")
@@ -70,6 +82,15 @@ public class DeviceController {
         logger.trace(String.format("add device - method started - client DTO: %s", deviceInsertDto.toString()));
 
         var deviceDto = getDeviceDtoFromDeviceInsertDto(deviceInsertDto);
+        var device = deviceConverter.convertDtoToModel(deviceDto);
+
+        var result = deviceService.save(device);
+        return deviceConverter.convertModelToDeviceInsertDto(result);
+    }
+
+    @RequestMapping(value = "/devices/add/withAllClientFields", method = RequestMethod.POST)
+    DeviceInsertDto addDevice(@RequestBody DeviceWithClientFieldsDto deviceWithClientFieldsDto) {
+        var deviceDto = getDeviceDtoFromDeviceWithClientFieldsDto(deviceWithClientFieldsDto);
         var device = deviceConverter.convertDtoToModel(deviceDto);
 
         var result = deviceService.save(device);

@@ -3,12 +3,14 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
 import {Device} from "../model/device";
+import {Client} from "../../clients-menu/model/client";
 
 @Injectable({
   providedIn: 'root'
 })
 export class DevicesService {
-  private devicesUrl = 'http://localhost:8080/api/devices';
+  private baseUrl = 'http://localhost:8080/api/';
+  private devicesUrl = this.baseUrl + 'devices';
 
   constructor(private httpClient: HttpClient) {
   }
@@ -34,6 +36,11 @@ export class DevicesService {
     return this.httpClient.post<Device>(this.devicesUrl, device);
   }
 
+  saveHavingAllClientFieldsButForId(type: String, brand: String, model: String, lastName: String, firstName: String, emailAddress: String): Observable<Device> {
+    const url = this.devicesUrl + "/add/withAllClientFields";
+    return this.httpClient.post<Device>(url, {id: 0, type, brand, model, clientLastName: lastName, clientFirstName: firstName, clientEmailAddress: emailAddress});
+  }
+
   update(device: Device): Observable<Device> {
     const url = `${this.devicesUrl}/${device.id}`;
     return this.httpClient.put<Device>(url, device);
@@ -42,5 +49,10 @@ export class DevicesService {
   delete(device: Device): Observable<Object> {
     const url = `${this.devicesUrl}/${device.id}`;
     return this.httpClient.delete(url);
+  }
+
+  getClientForDevice(device: Device): Observable<Client> {
+    const url = this.baseUrl + "clients/findById?clientId=" + device.clientId;
+    return this.httpClient.get<Client>(url);
   }
 }

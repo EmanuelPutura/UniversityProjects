@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {DevicesService} from "../service/devices.service";
+import {ClientsService} from "../../clients-menu/service/clients.service";
+import {Client} from "../../clients-menu/model/client";
 
 @Component({
   selector: 'app-devices-insert',
@@ -8,20 +10,35 @@ import {DevicesService} from "../service/devices.service";
   styleUrls: ['./devices-insert.component.css']
 })
 export class DevicesInsertComponent implements OnInit {
-  constructor(private devicesService: DevicesService, private router: Router) {
+  errorMessage: string;
+  clients: Array<Client>;
+  selectedClient: Client;
+
+  constructor(private devicesService: DevicesService, private clientsService: ClientsService, private router: Router) {
   }
 
   ngOnInit(): void {
+    this.getClients();
   }
 
-  saveDevice(type: string, brand: string, model: string, clientId: string) {
-    const clientIdNumber: number = Number(clientId);
-    if (isNaN(clientIdNumber) || clientIdNumber < 0) {
-      alert("Device client ID must be a positive number!");
+  getClients(): void {
+    this.clientsService.getClients()
+      .subscribe(
+        clients => {
+          this.clients = clients
+        },
+        error => this.errorMessage = <any>error
+      );
+  }
+
+  saveDevice(type: string, brand: string, model: string) {
+    if (this.selectedClient == null) {
+      alert("Invalid selected client!");
       return;
     }
 
-    this.devicesService.save({id: 0, type, brand, model, clientId: clientIdNumber})
+    this.devicesService.saveHavingAllClientFieldsButForId(type, brand, model, this.selectedClient.lastName,
+      this.selectedClient.firstName, this.selectedClient.emailAddress)
       .subscribe(_ => this.router.navigate(['/devices']), error => alert("Error: Invalid device data!"));
   }
 }
