@@ -31,6 +31,7 @@ import {MatCardModule} from "@angular/material/card";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
+import { DevicesFromManyToManyComponent } from './devices-menu/devices-from-many-to-many/devices-from-many-to-many.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import {MatSelectModule} from "@angular/material/select";
     ClientsSortedFilteredListComponent,
     ClientsPaginatedComponent,
     DevicesPaginatedComponent,
-    TechniciansPaginatedComponent
+    TechniciansPaginatedComponent,
+    DevicesFromManyToManyComponent
   ],
   imports: [
     BrowserModule,

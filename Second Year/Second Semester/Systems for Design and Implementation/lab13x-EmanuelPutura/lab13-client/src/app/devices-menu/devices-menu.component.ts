@@ -4,7 +4,8 @@ import {Router} from "@angular/router";
 export enum DisplayOption {
   ALL,
   PAGINATED,
-  HAVING_CLIENT
+  HAVING_CLIENT,
+  HAVING_TECHNICIAN
 }
 
 @Component({
@@ -35,5 +36,9 @@ export class DevicesMenuComponent implements OnInit {
 
   displayAllHavingClient(): void {
     this.displayOption = DisplayOption.HAVING_CLIENT;
+  }
+
+  displayAllHavingTechnician(): void {
+    this.displayOption = DisplayOption.HAVING_TECHNICIAN;
   }
 }

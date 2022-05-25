@@ -11,4 +11,6 @@ public interface DeviceService extends GenericService<Long, Device> {
     void addTechnician(Long id, Technician technician);
 
     void removeTechnician(Long id, Technician technician);
+
+    List<Device> findDevicesBeingWorkedOnByTechnician(Technician technician);
 }

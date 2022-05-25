@@ -3,6 +3,7 @@
 <button (click)="displayAll()">Display all devices</button>
 <button (click)="displayAllPaginated()">Display all devices paginated</button><br>
 <button (click)="displayAllHavingClient()">Display devices associated with a client</button>
+<button (click)="displayAllHavingTechnician()">Display devices being worked on by a technician</button><br>
 <button (click)="addDevice()">Add device</button>
 
 <hr>
@@ -12,3 +13,4 @@
 <app-devices-list *ngIf="displayOption == 0"></app-devices-list>
 <app-devices-paginated *ngIf="displayOption == 1"></app-devices-paginated>
 <app-devices-associated-with-list *ngIf="displayOption == 2"></app-devices-associated-with-list>
+<app-devices-from-many-to-many *ngIf="displayOption == 3"></app-devices-from-many-to-many>

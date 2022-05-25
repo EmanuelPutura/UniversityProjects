@@ -7,7 +7,11 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import sdi.core.service.DeviceService;
 import sdi.core.service.TechnicianService;
+import sdi.web.converter.DeviceConverter;
 import sdi.web.converter.TechnicianConverter;
+import sdi.web.dto.device.DeviceInsertDto;
+import sdi.web.dto.device.DeviceInsertDtos;
+import sdi.web.dto.device.DevicesDto;
 import sdi.web.dto.orders.RepairOrderDto;
 import sdi.web.dto.orders.RepairOrdersDto;
 import sdi.web.dto.technician.TechniciansDto;
@@ -20,12 +24,14 @@ public class RepairOrderController {
     private final TechnicianService technicianService;
 
     private final TechnicianConverter technicianConverter;
+    private final DeviceConverter deviceConverter;
 
     @Autowired
-    public RepairOrderController(DeviceService deviceService, TechnicianService technicianService, TechnicianConverter technicianConverter) {
+    public RepairOrderController(DeviceService deviceService, TechnicianService technicianService, TechnicianConverter technicianConverter, DeviceConverter deviceConverter) {
         this.deviceService = deviceService;
         this.technicianService = technicianService;
         this.technicianConverter = technicianConverter;
+        this.deviceConverter = deviceConverter;
     }
 
     @RequestMapping(value = "/orders")
@@ -54,6 +60,15 @@ public class RepairOrderController {
             return null;
 
         return new TechniciansDto(technicianConverter.convertModelsToDtos(technicianService.findTechniciansWorkingOnDevice(device.get())));
+    }
+
+    @RequestMapping(value = "/orders/forTechnician")
+    DeviceInsertDtos findDevicesBeingWorkedOnByTechnician(@RequestParam Long technicianId) {
+        var technician = technicianService.search(technicianId);
+        if (technician.isEmpty())
+            return null;
+
+        return new DeviceInsertDtos(deviceConverter.convertModelsToDeviceInsertDtos(deviceService.findDevicesBeingWorkedOnByTechnician(technician.get())));
     }
 
     @RequestMapping(value = "/orders", method = RequestMethod.POST)

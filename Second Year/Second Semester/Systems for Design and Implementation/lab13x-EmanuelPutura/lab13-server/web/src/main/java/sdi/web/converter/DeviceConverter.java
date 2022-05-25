@@ -34,6 +34,12 @@ public class DeviceConverter extends BaseConverter<Device, DeviceDto> {
                 .collect(Collectors.toSet());
     }
 
+    public Set<DeviceInsertDto> convertModelsToDeviceInsertDtos(Collection<Device> models) {
+        return models.stream()
+                .map(this::convertModelToDeviceInsertDto)
+                .collect(Collectors.toSet());
+    }
+
     @Override
     public Device convertDtoToModel(DeviceDto dto) {
         var model = new Device();

@@ -32,7 +32,7 @@ export class TechniciansMenuComponent implements OnInit {
     this.displayOption = DisplayOption.PAGINATED;
   }
 
-  displayAllHavingClient(): void {
+  displayAllHavingDevice(): void {
     this.displayOption = DisplayOption.HAVING_CLIENT;
   }
 }

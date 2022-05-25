@@ -11,6 +11,7 @@ import {Client} from "../../clients-menu/model/client";
 export class DevicesService {
   private baseUrl = 'http://localhost:8080/api/';
   private devicesUrl = this.baseUrl + 'devices';
+  private ordersUrl = this.baseUrl + 'orders';
 
   constructor(private httpClient: HttpClient) {
   }
@@ -26,6 +27,10 @@ export class DevicesService {
 
   getDevicesAssociatedWithClient(clientId: number): Observable<Device[]> {
     return this.httpClient.get<any>(this.devicesUrl + "/forClient?deviceId=" + clientId.toString()).pipe(map(result => result.devices));
+  }
+
+  getDevicesAssociatedWithTechnician(technicianId: number): Observable<Device[]> {
+    return this.httpClient.get<any>(this.ordersUrl + "/forTechnician?technicianId=" + technicianId.toString()).pipe(map(result => result.devices));
   }
 
   getDevice(id: number): Observable<Device | undefined> {
