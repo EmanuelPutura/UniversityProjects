@@ -18,7 +18,6 @@ export class WorkshopTeamsDetailComponent implements OnInit {
 
   technicians: Array<Technician>;
   selectedTechnician: Technician;
-
   initialTechnician: Technician
 
   constructor(private techniciansService: TechniciansService, private teamsService: WorkshopTeamsService, private route: ActivatedRoute, private location: Location) {

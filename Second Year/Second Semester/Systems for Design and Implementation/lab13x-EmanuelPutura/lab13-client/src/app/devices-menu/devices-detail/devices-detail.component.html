@@ -16,9 +16,16 @@
     <input [(ngModel)]="device.model" placeholder="model">
   </div>
 
-  <div>
-    <label>Client ID: </label>
-    <input [(ngModel)]="device.clientId" placeholder="clientId">
+  <div *ngIf="initialClient">
+    <h3>Clients that can be assigned to the device:</h3>
+    <mat-form-field appearance="fill">
+      <mat-label> Client: {{initialClient.firstName}}, {{initialClient.lastName}}, {{initialClient.emailAddress}}</mat-label>
+      <mat-select [(value)]="selectedClient" (selectionChange)="device.clientId = selectedClient.id">
+        <mat-option *ngFor="let client of clients" [value]="client">
+          {{client.firstName}}, {{client.lastName}}, {{client.emailAddress}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field><br>
   </div>
 
   <button (click)="goBack()">Back</button>

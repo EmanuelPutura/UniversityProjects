@@ -3,7 +3,7 @@
   <ol class="technicians">
     <li *ngFor="let technician of technicians "
         [class.selected]="technician === selectedTechnician"
-        (click)="onSelectTechnician(technician)">>
+        (click)="onSelectTechnician(technician)">
       {{technician.firstName}} {{technician.lastName}} {{technician.salary}}
     </li>
   </ol>
