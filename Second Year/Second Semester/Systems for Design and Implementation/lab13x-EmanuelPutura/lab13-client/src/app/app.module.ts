@@ -19,9 +19,6 @@ import { TechniciansListComponent } from './technicians-menu/technicians-list/te
 import { DevicesListComponent } from './devices-menu/devices-list/devices-list.component';
 import { DevicesInsertComponent } from './devices-menu/devices-insert/devices-insert.component';
 import { DevicesDetailComponent } from './devices-menu/devices-detail/devices-detail.component';
-import { OrdersDetailComponent } from './repair-orders-menu/orders-detail/orders-detail.component';
-import { OrdersListComponent } from './repair-orders-menu/orders-list/orders-list.component';
-import { OrdersInsertComponent } from './repair-orders-menu/orders-insert/orders-insert.component';
 import { DevicesAssociatedWithListComponent } from './devices-menu/devices-associated-with-list/devices-associated-with-list.component';
 import { TechniciansAssociatedWithListComponent } from './technicians-menu/technicians-associated-with-list/technicians-associated-with-list.component';
 import { ClientsSortedFilteredListComponent } from './clients-menu/clients-sorted-filtered-list/clients-sorted-filtered-list.component';
@@ -52,9 +49,6 @@ import {MatSelectModule} from "@angular/material/select";
     DevicesListComponent,
     DevicesInsertComponent,
     DevicesDetailComponent,
-    OrdersDetailComponent,
-    OrdersListComponent,
-    OrdersInsertComponent,
     DevicesAssociatedWithListComponent,
     TechniciansAssociatedWithListComponent,
     ClientsSortedFilteredListComponent,

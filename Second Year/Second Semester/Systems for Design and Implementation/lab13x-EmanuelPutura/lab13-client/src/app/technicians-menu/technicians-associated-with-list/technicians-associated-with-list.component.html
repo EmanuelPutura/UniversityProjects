@@ -1,10 +1,21 @@
 <h2>Technicians associated with the selected device:</h2>
-<ol class="technicians">
-  <li *ngFor="let technician of technicians ">
-    {{technician.firstName}} {{technician.lastName}} {{technician.salary}}
-  </li>
-</ol>
+<div>
+  <ol class="technicians">
+    <li *ngFor="let technician of technicians "
+        [class.selected]="technician === selectedTechnician"
+        (click)="onSelectTechnician(technician)">>
+      {{technician.firstName}} {{technician.lastName}} {{technician.salary}}
+    </li>
+  </ol>
 
+  <hr>
+
+  <div *ngIf="selectedTechnician">
+    <h2>
+      {{selectedTechnician.firstName}} was selected!
+    </h2>
+  </div>
+</div>
 <hr>
 
 <div>
@@ -12,7 +23,7 @@
   <ol class="devices">
     <li *ngFor="let device of devices "
         [class.selected]="device === selectedDevice"
-        (click)="onSelect(device)">
+        (click)="onSelectDevice(device)">
       {{device.type}} {{device.brand}} {{device.model}}
     </li>
   </ol>

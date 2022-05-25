@@ -14,6 +14,7 @@ import {Client} from "../../clients-menu/model/client";
 export class TechniciansAssociatedWithListComponent implements OnInit {
   errorMessage: string;
   technicians: Array<Technician>;
+  selectedTechnician: Technician;
   devices: Array<Device>;
   selectedDevice: Device;
   selectedDeviceClient: Client;
@@ -35,13 +36,17 @@ export class TechniciansAssociatedWithListComponent implements OnInit {
       );
   }
 
-  onSelect(device: Device): void {
+  onSelectDevice(device: Device): void {
     this.selectedDevice = device;
     this.fetchClientForDeviceData();
 
     if (this.selectedDevice != null) {
       this.getTechniciansAssociatedWithDevice(this.selectedDevice.id.toString());
     }
+  }
+
+  onSelectTechnician(technician: Technician): void {
+    this.selectedTechnician = technician;
   }
 
   fetchClientForDeviceData(): void {
