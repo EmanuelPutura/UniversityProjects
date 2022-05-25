@@ -10,6 +10,9 @@ import {TechniciansInsertComponent} from "./technicians-menu/technicians-insert/
 import {TechniciansDetailComponent} from "./technicians-menu/technicians-detail/technicians-detail.component";
 import {DevicesInsertComponent} from "./devices-menu/devices-insert/devices-insert.component";
 import {DevicesDetailComponent} from "./devices-menu/devices-detail/devices-detail.component";
+import {WorkshopTeamsMenuComponent} from "./workshop-teams-menu/workshop-teams-menu.component";
+import {WorkshopTeamsDetailComponent} from "./workshop-teams-menu/workshop-teams-detail/workshop-teams-detail.component";
+import {WorkshopTeamsInsertComponent} from "./workshop-teams-menu/workshop-teams-insert/workshop-teams-insert.component";
 
 const routes: Routes = [
   { path: 'clients', component: ClientsMenuComponent },
@@ -25,6 +28,10 @@ const routes: Routes = [
   { path: 'devices/save', component: DevicesInsertComponent},
 
   { path: 'orders', component: RepairOrdersMenuComponent },
+
+  { path: 'teams', component: WorkshopTeamsMenuComponent },
+  { path: 'teams/details/:id', component: WorkshopTeamsDetailComponent},
+  { path: 'teams/save', component: WorkshopTeamsInsertComponent},
 ];
 
 @NgModule({

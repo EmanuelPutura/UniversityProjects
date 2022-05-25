@@ -1,0 +1,20 @@
+<br>
+<h2>Add Workshop Team</h2>
+
+<div>
+  <label>Team Name:</label> <input #teamName><br/>
+
+  <br>
+
+  <h3>Technicians that can be assigned to the workshop team:</h3>
+  <mat-form-field appearance="fill">
+    <mat-label>Technicians</mat-label>
+    <mat-select [(value)]="selectedTechnician">
+      <mat-option *ngFor="let technician of technicians" [value]="technician">
+        {{technician.firstName}}, {{technician.lastName}}, {{technician.salary}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button (click)="saveWorkshopTeam(teamName.value)">Save</button>
+</div>

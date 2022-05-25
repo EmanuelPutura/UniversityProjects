@@ -1,0 +1,12 @@
+<h1>Workshop Teams</h1>
+
+<button (click)="displayAll()">Display all workshop teams</button>
+<button (click)="displayAllPaginated()">Display all workshop teams paginated</button><br>
+<button (click)="addWorkshopTeam()">Add workshop team</button>
+
+<hr>
+
+<h2>Workshop Teams List</h2>
+
+<app-workshop-teams-list *ngIf="displayOption == 0"></app-workshop-teams-list>
+<app-workshop-teams-paginated *ngIf="displayOption == 1"></app-workshop-teams-paginated>

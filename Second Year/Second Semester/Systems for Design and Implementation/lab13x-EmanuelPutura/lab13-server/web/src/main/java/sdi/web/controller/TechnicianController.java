@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import sdi.core.service.TechnicianService;
 import sdi.web.converter.TechnicianConverter;
 import org.springframework.beans.factory.annotation.Autowired;
+import sdi.web.dto.client.ClientDto;
 import sdi.web.dto.technician.TechnicianDto;
 import sdi.web.dto.technician.TechniciansDto;
 
@@ -36,6 +37,16 @@ public class TechnicianController {
         logger.trace("get all technicians paginated - method entered");
 
         return new TechniciansDto(technicianConverter.convertModelsToDtos(technicianService.getAllFromPage(page, size)));
+    }
+
+    @RequestMapping(value = "/technicians/findById")
+    TechnicianDto findTechnicianById(@RequestParam Long technicianId) {
+        var technicianOptional = technicianService.search(technicianId);
+        if (technicianOptional.isEmpty()) {
+            return null;
+        }
+
+        return technicianConverter.convertModelToDto(technicianOptional.get());
     }
 
     @RequestMapping(value = "/technicians", method = RequestMethod.POST)

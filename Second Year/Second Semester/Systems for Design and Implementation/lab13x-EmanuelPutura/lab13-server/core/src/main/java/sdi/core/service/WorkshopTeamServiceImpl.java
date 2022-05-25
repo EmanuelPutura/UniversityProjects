@@ -3,6 +3,7 @@ package sdi.core.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import sdi.core.model.entities.WorkshopTeam;
 import sdi.core.repository.WorkshopTeamRepository;
 
@@ -41,6 +42,7 @@ public class WorkshopTeamServiceImpl implements WorkshopTeamService {
     }
 
     @Override
+    @Transactional
     public WorkshopTeam update(WorkshopTeam entity) {
         var updatedTeam = repository.findById(entity.getId()).orElseThrow();
         updatedTeam.setTeamName(entity.getTeamName());

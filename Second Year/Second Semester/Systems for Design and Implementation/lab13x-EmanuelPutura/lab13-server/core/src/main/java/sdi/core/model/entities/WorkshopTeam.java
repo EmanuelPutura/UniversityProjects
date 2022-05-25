@@ -1,12 +1,10 @@
 package sdi.core.model.entities;
 
 import lombok.*;
-import org.hibernate.Hibernate;
 import sdi.core.model.BaseEntity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Objects;
 
 /*
     A team in the workshop, working on a certain task
@@ -22,6 +20,7 @@ import java.util.Objects;
 public class WorkshopTeam extends BaseEntity<Long>  implements Serializable {
     private String teamName;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
+    @JoinColumn(name = "technicianId", unique = true)
     private Technician teamTechnician;
 }

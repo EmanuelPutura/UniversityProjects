@@ -32,6 +32,11 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
 import { DevicesFromManyToManyComponent } from './devices-menu/devices-from-many-to-many/devices-from-many-to-many.component';
+import { WorkshopTeamsMenuComponent } from './workshop-teams-menu/workshop-teams-menu.component';
+import { WorkshopTeamsDetailComponent } from './workshop-teams-menu/workshop-teams-detail/workshop-teams-detail.component';
+import { WorkshopTeamsInsertComponent } from './workshop-teams-menu/workshop-teams-insert/workshop-teams-insert.component';
+import { WorkshopTeamsListComponent } from './workshop-teams-menu/workshop-teams-list/workshop-teams-list.component';
+import { WorkshopTeamsPaginatedComponent } from './workshop-teams-menu/workshop-teams-paginated/workshop-teams-paginated.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +61,12 @@ import { DevicesFromManyToManyComponent } from './devices-menu/devices-from-many
     ClientsPaginatedComponent,
     DevicesPaginatedComponent,
     TechniciansPaginatedComponent,
-    DevicesFromManyToManyComponent
+    DevicesFromManyToManyComponent,
+    WorkshopTeamsMenuComponent,
+    WorkshopTeamsDetailComponent,
+    WorkshopTeamsInsertComponent,
+    WorkshopTeamsListComponent,
+    WorkshopTeamsPaginatedComponent
   ],
   imports: [
     BrowserModule,

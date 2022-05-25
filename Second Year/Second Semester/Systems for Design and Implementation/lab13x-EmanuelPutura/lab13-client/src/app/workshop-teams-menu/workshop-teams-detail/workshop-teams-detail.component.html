@@ -1,0 +1,28 @@
+<div *ngIf="team">
+  <h2>Device {{team.teamName}} details</h2>
+
+  <div>
+    <label>Team Name: </label>
+    <input [(ngModel)]="team.teamName" placeholder="type">
+  </div>
+
+  <div>
+  </div><br>
+  <div *ngIf="initialTechnician">
+
+  <h3>Technicians that can be assigned to the workshop team:</h3>
+  <mat-form-field appearance="fill">
+    <mat-label>Technician: {{initialTechnician.firstName}}, {{initialTechnician.lastName}}, {{initialTechnician.salary}}</mat-label>
+    <mat-select [(value)]="selectedTechnician">
+      <mat-option *ngFor="let technician of technicians" [value]="technician">
+        {{technician.firstName}}, {{technician.lastName}}, {{technician.salary}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+
+  <hr>
+
+  <button (click)="goBack()">Back</button>
+  <button (click)="save()">Save</button>
+  <button (click)="delete()">Delete</button>
+</div>
