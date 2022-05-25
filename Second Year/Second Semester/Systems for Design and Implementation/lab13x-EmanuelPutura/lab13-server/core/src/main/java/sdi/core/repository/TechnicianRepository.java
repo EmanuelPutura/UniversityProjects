@@ -5,5 +5,5 @@ import sdi.core.model.entities.Technician;
 
 import java.util.List;
 
-public interface TechnicianRepository extends CatalogRepository<Technician, Long>{
+public interface TechnicianRepository extends CatalogRepository<Technician, Long> {
 }
