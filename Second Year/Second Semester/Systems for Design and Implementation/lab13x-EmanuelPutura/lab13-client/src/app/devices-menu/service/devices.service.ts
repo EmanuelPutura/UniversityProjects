@@ -36,11 +36,6 @@ export class DevicesService {
     return this.httpClient.post<Device>(this.devicesUrl, device);
   }
 
-  saveHavingAllClientFieldsButForId(type: String, brand: String, model: String, lastName: String, firstName: String, emailAddress: String): Observable<Device> {
-    const url = this.devicesUrl + "/add/withAllClientFields";
-    return this.httpClient.post<Device>(url, {id: 0, type, brand, model, clientLastName: lastName, clientFirstName: firstName, clientEmailAddress: emailAddress});
-  }
-
   update(device: Device): Observable<Device> {
     const url = `${this.devicesUrl}/${device.id}`;
     return this.httpClient.put<Device>(url, device);

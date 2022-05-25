@@ -8,6 +8,4 @@ import java.util.Optional;
 
 public interface ClientService extends GenericService<Long, Client> {
     List<Client> findClientsByLastName(String lastName, Sort sort);
-
-    Optional<Client> findClientsByAllFieldsButForId(String lastName, String firstName, String emailAddress);
 }

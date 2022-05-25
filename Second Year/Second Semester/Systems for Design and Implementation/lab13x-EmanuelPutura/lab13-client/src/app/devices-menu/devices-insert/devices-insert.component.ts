@@ -37,8 +37,7 @@ export class DevicesInsertComponent implements OnInit {
       return;
     }
 
-    this.devicesService.saveHavingAllClientFieldsButForId(type, brand, model, this.selectedClient.lastName,
-      this.selectedClient.firstName, this.selectedClient.emailAddress)
+    this.devicesService.save({id: 0, type, brand, model, clientId: this.selectedClient.id})
       .subscribe(_ => this.router.navigate(['/devices']), error => alert("Error: Invalid device data!"));
   }
 }

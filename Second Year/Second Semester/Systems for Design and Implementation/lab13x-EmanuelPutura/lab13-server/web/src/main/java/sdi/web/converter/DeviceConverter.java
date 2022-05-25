@@ -5,7 +5,6 @@ import sdi.web.dto.device.DeviceDto;
 import sdi.core.model.entities.Device;
 import org.springframework.stereotype.Component;
 import sdi.web.dto.device.DeviceInsertDto;
-import sdi.web.dto.device.DeviceWithClientFieldsDto;
 
 import java.util.Collection;
 import java.util.Set;
@@ -21,16 +20,6 @@ public class DeviceConverter extends BaseConverter<Device, DeviceDto> {
         deviceDto.setId(deviceInsertDto.getId());
 
         return deviceDto;
-    }
-
-    public DeviceDto convertDeviceWithClientFieldsDtoToDeviceDto(DeviceWithClientFieldsDto deviceWithClientFieldsDto, Client client) {
-        if (!client.getLastName().equals(deviceWithClientFieldsDto.getClientLastName()) ||
-                !client.getFirstName().equals(deviceWithClientFieldsDto.getClientFirstName()) ||
-                !client.getEmailAddress().equals(deviceWithClientFieldsDto.getClientEmailAddress())) {
-            return null;
-        }
-
-        return new DeviceDto(deviceWithClientFieldsDto.getType(), deviceWithClientFieldsDto.getBrand(), deviceWithClientFieldsDto.getModel(), client);
     }
 
     public DeviceInsertDto convertModelToDeviceInsertDto(Device device) {
