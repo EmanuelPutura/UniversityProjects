@@ -459,11 +459,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Informatica\\UniversityProjects\\Database Management Systems\\Assignment1\\Assignment1.csproj",
+      "projectUniqueName": "D:\\Informatica\\University\\UniversityProjects\\Second Year\\Second Semester\\Database Management Systems\\Assignment1\\Assignment1.csproj",
       "projectName": "Assignment1",
-      "projectPath": "D:\\Informatica\\UniversityProjects\\Database Management Systems\\Assignment1\\Assignment1.csproj",
+      "projectPath": "D:\\Informatica\\University\\UniversityProjects\\Second Year\\Second Semester\\Database Management Systems\\Assignment1\\Assignment1.csproj",
       "packagesPath": "C:\\Users\\28082020\\.nuget\\packages\\",
-      "outputPath": "D:\\Informatica\\UniversityProjects\\Database Management Systems\\Assignment1\\obj\\",
+      "outputPath": "D:\\Informatica\\University\\UniversityProjects\\Second Year\\Second Semester\\Database Management Systems\\Assignment1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\28082020\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -515,7 +515,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
       }
     }
   }

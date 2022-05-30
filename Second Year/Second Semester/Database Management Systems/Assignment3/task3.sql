@@ -26,7 +26,7 @@ UPDATE TeamOwner
 set fullName='Mitrut Vasile', age = 999
 WHERE id > 0;
 commit tran
-print 'Rolled back TeamOwner update';
+print 'Committed TeamOwner update';
 
 -- PHANTOM READS
 delete from TeamOwner;
