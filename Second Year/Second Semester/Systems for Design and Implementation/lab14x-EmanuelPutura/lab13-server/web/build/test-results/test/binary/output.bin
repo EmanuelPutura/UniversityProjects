@@ -1,11 +1,11 @@
-u2022-06-01T02:06:35,979 TRACE [Test worker]: ClientController                     - update client - method entered 
-n2022-06-01T02:06:35,994 TRACE [Test worker]: ClientController                     - update client - success 
-u2022-06-01T02:06:36,019 TRACE [Test worker]: ClientController                     - delete client - method entered 
-n2022-06-01T02:06:36,019 TRACE [Test worker]: ClientController                     - delete client - success 
-Î2022-06-01T02:06:36,059 TRACE [Test worker]: ClientController                     - add client - method started - client DTO: ClientDto(super=BaseDto(id=1), firstName=CF1, lastName=CL1, emailAddress=CE1) 
-p2022-06-01T02:06:36,059 TRACE [Test worker]: ClientController                     - add client - client added 
-2022-06-01T02:06:36,079 ERROR [Test worker]: ClientController                     - ------> get all clients - method entered 
-¯2022-06-01T02:06:36,079 ERROR [Test worker]: ClientController                     - ------> get all clients - ClientsDto: ClientsDto(clients=[ClientDto(super=BaseDto(id=1), firstName=CF1, lastName=CL1, emailAddress=CE1), ClientDto(super=BaseDto(id=1), firstName=CF2, lastName=CL2, emailAddress=CE2)]) 
+u2022-06-01T02:51:52,842 TRACE [Test worker]: ClientController                     - update client - method entered 
+n2022-06-01T02:51:52,852 TRACE [Test worker]: ClientController                     - update client - success 
+u2022-06-01T02:51:52,902 TRACE [Test worker]: ClientController                     - delete client - method entered 
+n2022-06-01T02:51:52,907 TRACE [Test worker]: ClientController                     - delete client - success 
+Î2022-06-01T02:51:52,962 TRACE [Test worker]: ClientController                     - add client - method started - client DTO: ClientDto(super=BaseDto(id=1), firstName=CF1, lastName=CL1, emailAddress=CE1) 
+p2022-06-01T02:51:52,962 TRACE [Test worker]: ClientController                     - add client - client added 
+2022-06-01T02:51:53,006 ERROR [Test worker]: ClientController                     - ------> get all clients - method entered 
+¯2022-06-01T02:51:53,011 ERROR [Test worker]: ClientController                     - ------> get all clients - ClientsDto: ClientsDto(clients=[ClientDto(super=BaseDto(id=1), firstName=CF2, lastName=CL2, emailAddress=CE2), ClientDto(super=BaseDto(id=1), firstName=CF1, lastName=CL1, emailAddress=CE1)]) 
 
 MockHttpServletRequest:
       HTTP Method = GET
@@ -40,7 +40,174 @@ Handler:
     Error message = null
 7          Headers = [Content-Type:"application/json"]
 &     Content type = application/json
-¥             Body = {"clients":[{"id":1,"firstName":"CF1","lastName":"CL1","emailAddress":"CE1"},{"id":1,"firstName":"CF2","lastName":"CL2","emailAddress":"CE2"}]}
+¥             Body = {"clients":[{"id":1,"firstName":"CF2","lastName":"CL2","emailAddress":"CE2"},{"id":1,"firstName":"CF1","lastName":"CL1","emailAddress":"CE1"}]}
     Forwarded URL = null
    Redirected URL = null
           Cookies = []
+w2022-06-01T02:51:53,378 TRACE [Test worker]: DeviceController                     - get all devices - method entered 
+­2022-06-01T02:51:53,392 TRACE [Test worker]: DeviceController                     - get all devices - DevicesDto: DevicesInsertDto(devices=[DeviceInsertDto(super=BaseDto(id=1), type=T1, brand=B1, model=M1, clientId=1), DeviceInsertDto(super=BaseDto(id=2), type=T2, brand=B2, model=M2, clientId=2)]) 
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /devices
+0       Parameters = {page=[0], pageSize=[100]}
+          Headers = []
+1             Body = <no character encoding set>
+    Session Attrs = {}
+
+
+Handler:
+9             Type = sdi.web.controller.DeviceController
+I           Method = sdi.web.controller.DeviceController#getAllDevices()
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+7          Headers = [Content-Type:"application/json"]
+&     Content type = application/json
+›             Body = {"devices":[{"id":1,"type":"T1","brand":"B1","model":"M1","clientId":1},{"id":2,"type":"T2","brand":"B2","model":"M2","clientId":2}]}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+u2022-06-01T02:51:53,432 TRACE [Test worker]: DeviceController                     - delete device - method entered 
+n2022-06-01T02:51:53,437 TRACE [Test worker]: DeviceController                     - delete device - success 
+
+	Ô2022-06-01T02:51:53,561 TRACE [Test worker]: TechnicianController                 - add technician - method started - technician DTO: TechnicianDto(super=BaseDto(id=1), firstName=TF1, lastName=TL1, salary=100) 
+
+{2022-06-01T02:51:53,592 TRACE [Test worker]: TechnicianController                 - get all technicians - method entered 
+
+
+
+MockHttpServletRequest:
+
+      HTTP Method = GET
+
+"      Request URI = /technicians
+
+0       Parameters = {page=[0], pageSize=[100]}
+
+          Headers = []
+
+1             Body = <no character encoding set>
+
+    Session Attrs = {}
+
+
+
+
+Handler:
+
+=             Type = sdi.web.controller.TechnicianController
+
+Q           Method = sdi.web.controller.TechnicianController#getAllTechnicians()
+
+
+
+Async:
+
+    Async started = false
+
+     Async result = null
+
+
+
+Resolved Exception:
+
+             Type = null
+
+
+
+ModelAndView:
+
+        View name = null
+
+             View = null
+
+            Model = null
+
+
+
+FlashMap:
+
+       Attributes = null
+
+
+
+MockHttpServletResponse:
+
+           Status = 200
+
+    Error message = null
+
+7          Headers = [Content-Type:"application/json"]
+
+&     Content type = application/json
+
+™             Body = {"technicians":[{"id":1,"firstName":"TF1","lastName":"TL1","salary":100},{"id":2,"firstName":"TF2","lastName":"TL2","salary":200}]}
+
+    Forwarded URL = null
+
+   Redirected URL = null
+
+          Cookies = []
+
+y2022-06-01T02:51:53,631 TRACE [Test worker]: TechnicianController                 - delete technician - method entered 
+
+r2022-06-01T02:51:53,631 TRACE [Test worker]: TechnicianController                 - delete technician - success 
+
+y2022-06-01T02:51:53,656 TRACE [Test worker]: TechnicianController                 - update technician - method entered 
+†2022-06-01T02:51:53,842 ERROR [Test worker]: WorkshopTeamController               - ------> get all workshop teams - method entered 
+¨2022-06-01T02:51:53,842 ERROR [Test worker]: WorkshopTeamController               - ------> get all workshop teams - WorkshopTeamsDto: WorkshopTeamDtos(teams=[WorkshopTeamDto(super=BaseDto(id=1), teamName=T1, technicianId=1), WorkshopTeamDto(super=BaseDto(id=2), teamName=T2, technicianId=2)]) 
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /teams
+       Parameters = {}
+          Headers = []
+1             Body = <no character encoding set>
+    Session Attrs = {}
+
+
+Handler:
+?             Type = sdi.web.controller.WorkshopTeamController
+U           Method = sdi.web.controller.WorkshopTeamController#getAllWorkshopTeams()
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+7          Headers = [Content-Type:"application/json"]
+&     Content type = application/json
+u             Body = {"teams":[{"id":1,"teamName":"T1","technicianId":1},{"id":2,"teamName":"T2","technicianId":2}]}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
