@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/lab13-server/core/src/main/java/sdi/core/repository/impl/native_sql/ClientRepositoryNativeSqlImpl.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/lab13-server/core/src/main/java/sdi/core/repository/impl/native_sql/DeviceRepositoryNativeSqlImpl.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/lab13-server/core/src/main/java/sdi/core/repository/impl/native_sql/TechnicianRepositoryNativeSqlImpl.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/lab13-server/core/src/main/java/sdi/core/repository/impl/native_sql/WorkshopTeamRepositoryNativeSqlImpl.java" dialect="GenericSQL" />
+  </component>
+</project>
