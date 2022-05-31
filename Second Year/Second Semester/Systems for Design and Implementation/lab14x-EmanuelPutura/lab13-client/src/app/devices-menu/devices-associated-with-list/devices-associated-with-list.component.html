@@ -1,0 +1,21 @@
+<ol class="devices">
+  <li *ngFor="let device of devices ">
+    {{device.type}} {{device.brand}} {{device.model}}
+  </li>
+</ol>
+
+<div>
+  <h3>Clients:</h3>
+  <mat-form-field appearance="fill">
+    <mat-label>Clients</mat-label>
+    <mat-select [(value)]="selectedClient" (selectionChange)="getDevicesAssociatedWithClient(selectedClient.id.toString())">
+      <mat-option *ngFor="let client of clients" [value]="client">
+        {{client.firstName}}, {{client.lastName}}, {{client.emailAddress}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+
+<!--  <button (click)="getDevicesAssociatedWithClient(selectedClient.id.toString())">Display all matches</button>-->
+</div>

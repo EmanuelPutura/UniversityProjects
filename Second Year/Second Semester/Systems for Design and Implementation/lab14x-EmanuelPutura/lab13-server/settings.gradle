@@ -1,0 +1,4 @@
+rootProject.name = 'lab14-server'
+include 'core'
+include 'web'
+//include 'client'

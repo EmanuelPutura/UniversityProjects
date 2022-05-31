@@ -1,0 +1,27 @@
+button {
+  font-family: Arial, serif;
+  background-color: #eee;
+  padding: 5px 10px;
+  cursor: hand;
+  margin: 1% 1% auto auto;
+  width: 30vw;
+  height: 5vh;
+  font-size: 1em;
+  color: #555;
+  border: 2px solid #777;
+}
+
+button:hover {
+  background-color: #cfd8dc;
+}
+
+button:disabled {
+  background-color: #eee;
+  color: #ccc;
+  cursor: auto;
+}
+
+mat-card {
+  width: 40%;
+  margin: 2% auto;
+}

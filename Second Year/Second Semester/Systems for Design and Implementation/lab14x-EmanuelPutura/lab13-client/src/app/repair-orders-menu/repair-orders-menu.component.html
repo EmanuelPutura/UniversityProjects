@@ -1,0 +1,49 @@
+<br>
+<h1>Repair Orders</h1>
+
+<button (click)="save()">Create repair order from selected entities</button>
+<button (click)="delete()">Delete repair order from selected entities</button>
+
+<div>
+  <h2>Technicians List:</h2>
+
+  <ol class="technicians">
+    <li *ngFor="let technician of technicians "
+        [class.selected]="technician === selectedTechnician"
+        (click)="onSelectTechnician(technician)">
+      {{technician.firstName}} {{technician.lastName}} {{technician.salary}}
+    </li>
+  </ol>
+
+  <hr>
+
+  <div *ngIf="selectedTechnician">
+    <h2>
+      {{selectedTechnician.firstName}} was selected!
+    </h2>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <h2>Devices List:</h2>
+
+  <ol class="devices">
+    <li *ngFor="let device of devices "
+        [class.selected]="device === selectedDevice"
+        (click)="onSelectDevice(device)">
+      {{device.type}} {{device.brand}} {{device.model}}
+    </li>
+  </ol>
+
+  <hr>
+
+  <div *ngIf="selectedDevice">
+    <h2>
+      Device [Type: {{selectedDevice.type}}, Brand: {{selectedDevice.brand}}, Model: {{selectedDevice.model}},
+      Client: <{{selectedDeviceClient.firstName}}, {{selectedDeviceClient.lastName}}, {{selectedDeviceClient.emailAddress}}>] was selected!
+    </h2>
+  </div>
+
+</div>

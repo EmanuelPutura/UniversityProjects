@@ -1,0 +1,22 @@
+<br>
+<h2>Add Device</h2>
+
+<div>
+  <label>Type:</label> <input #type><br/>
+  <label>Brand:</label> <input #brand><br/>
+  <label>Model:</label> <input #model><br/>
+
+  <br>
+
+  <h3>Clients that can be assigned to the device:</h3>
+  <mat-form-field appearance="fill">
+  <mat-label>Clients</mat-label>
+  <mat-select [(value)]="selectedClient">
+    <mat-option *ngFor="let client of clients" [value]="client">
+      {{client.firstName}}, {{client.lastName}}, {{client.emailAddress}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+  <button (click)="saveDevice(type.value, brand.value, model.value)">Save</button>
+</div>

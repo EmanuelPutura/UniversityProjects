@@ -1,0 +1,21 @@
+<ol class="teams">
+  <li *ngFor="let team of teams "
+      [class.selected]="team === selectedWorkshopTeam"
+      (click)="onSelect(team)">
+    Team Name: {{team.teamName}}
+  </li>
+</ol>
+
+<div *ngIf="selectedWorkshopTeam">
+  <h2>
+    Workshop Team [Team Name: {{selectedWorkshopTeam.teamName}},
+    Technician: <{{selectedWorkshopTeamTechnician.firstName}}, {{selectedWorkshopTeamTechnician.lastName}}, {{selectedWorkshopTeamTechnician.salary}}>] was selected!
+  </h2>
+</div>
+
+<div>
+  <label>Page number:</label> <input #page><br/>
+  <label>Page size:</label> <input #size><br/>
+
+  <button (click)="getWorkshopTeamPaginated(page.value, size.value)">Display all paginated</button>
+</div>

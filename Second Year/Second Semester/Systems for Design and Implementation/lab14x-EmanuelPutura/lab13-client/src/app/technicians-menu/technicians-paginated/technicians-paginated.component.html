@@ -1,0 +1,12 @@
+<ol class="technicians">
+  <li *ngFor="let technician of technicians ">
+    {{technician.firstName}} {{technician.lastName}} {{technician.salary}}
+  </li>
+</ol>
+
+<div>
+  <label>Page number:</label> <input #page><br/>
+  <label>Page size:</label> <input #size><br/>
+
+  <button (click)="getTechniciansPaginated(page.value, size.value)">Display all paginated</button>
+</div>

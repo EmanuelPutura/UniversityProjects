@@ -1,0 +1,12 @@
+<ol class="clients">
+  <li *ngFor="let client of clients ">
+    {{client.firstName}} {{client.lastName}} {{client.emailAddress}}
+  </li>
+</ol>
+
+<div>
+  <label>Page number:</label> <input #page><br/>
+  <label>Page size:</label> <input #size><br/>
+
+  <button (click)="getClientsPaginated(page.value, size.value)">Display all paginated</button>
+</div>

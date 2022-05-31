@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.24/13a394eed5c4f9efb2a6d956e2086f1d81e857d9/lombok-1.18.24.jar" />
+        </processorPath>
+        <module name="lab14-server.main" />
+        <module name="lab14-server.core.main" />
+        <module name="lab14-server.web.main" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="lab12-server" target="16" />
+      <module name="lab12-server.client" target="16" />
+      <module name="lab12-server.client.main" target="16" />
+      <module name="lab12-server.client.test" target="16" />
+      <module name="lab12-server.core" target="16" />
+      <module name="lab12-server.core.main" target="16" />
+      <module name="lab12-server.core.test" target="16" />
+      <module name="lab12-server.main" target="16" />
+      <module name="lab12-server.test" target="16" />
+      <module name="lab12-server.web" target="16" />
+      <module name="lab12-server.web.main" target="16" />
+      <module name="lab12-server.web.test" target="16" />
+      <module name="lab13-server.client" target="16" />
+      <module name="lab13-server.client.main" target="16" />
+      <module name="lab13-server.client.test" target="16" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

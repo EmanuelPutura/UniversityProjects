@@ -1,0 +1,34 @@
+<div *ngIf="device">
+  <h2>Device {{device.model}} details</h2>
+
+  <div>
+    <label>Type: </label>
+    <input [(ngModel)]="device.type" placeholder="type">
+  </div>
+
+  <div>
+    <label>Brand: </label>
+    <input [(ngModel)]="device.brand" placeholder="brand">
+  </div>
+
+  <div>
+    <label>Model: </label>
+    <input [(ngModel)]="device.model" placeholder="model">
+  </div>
+
+  <div *ngIf="initialClient">
+    <h3>Clients that can be assigned to the device:</h3>
+    <mat-form-field appearance="fill">
+      <mat-label> Client: {{initialClient.firstName}}, {{initialClient.lastName}}, {{initialClient.emailAddress}}</mat-label>
+      <mat-select [(value)]="selectedClient" (selectionChange)="device.clientId = selectedClient.id">
+        <mat-option *ngFor="let client of clients" [value]="client">
+          {{client.firstName}}, {{client.lastName}}, {{client.emailAddress}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field><br>
+  </div>
+
+  <button (click)="goBack()">Back</button>
+  <button (click)="save()">Save</button>
+  <button (click)="delete()">Delete</button>
+</div>

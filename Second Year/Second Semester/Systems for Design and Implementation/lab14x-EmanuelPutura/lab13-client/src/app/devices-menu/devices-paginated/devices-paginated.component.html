@@ -1,0 +1,21 @@
+<ol class="devices">
+  <li *ngFor="let device of devices "
+      [class.selected]="device === selectedDevice"
+      (click)="onSelect(device)">
+    {{device.type}} {{device.brand}} {{device.model}}
+  </li>
+</ol>
+
+<div *ngIf="selectedDevice">
+  <h2>
+    Device [Type: {{selectedDevice.type}}, Brand: {{selectedDevice.brand}}, Model: {{selectedDevice.model}},
+    Client: <{{selectedDeviceClient.firstName}}, {{selectedDeviceClient.lastName}}, {{selectedDeviceClient.emailAddress}}>] was selected!
+  </h2>
+</div>
+
+<div>
+  <label>Page number:</label> <input #page><br/>
+  <label>Page size:</label> <input #size><br/>
+
+  <button (click)="getDevicesPaginated(page.value, size.value)">Display all paginated</button>
+</div>
