@@ -13,4 +13,8 @@ public interface ClientRepository extends CatalogRepository<Client, Long> {
     @Query("select distinct c from Client c")
     @EntityGraph(value = "Client.clientsWithDevices", type = EntityGraph.EntityGraphType.LOAD)
     List<Client> findAllWithDevices();
+
+    @Query("select distinct c from Client c")
+    @EntityGraph(value = "Client.clientsWithDevicesAndTechnicians", type = EntityGraph.EntityGraphType.LOAD)
+    List<Client> findAllWithDevicesAndTechnicians();
 }

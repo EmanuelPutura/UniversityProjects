@@ -10,4 +10,8 @@ public interface WorkshopTeamRepository extends CatalogRepository<WorkshopTeam, 
     @Query("select distinct wt from WorkshopTeam wt")
     @EntityGraph(value = "WorkshopTeam.teamsWithTechnician", type = EntityGraph.EntityGraphType.LOAD)
     List<WorkshopTeam> findAllWithTechnician();
+
+    @Query("select distinct wt from WorkshopTeam wt")
+    @EntityGraph(value = "WorkshopTeam.teamsWithTechnicianAndDevices", type = EntityGraph.EntityGraphType.LOAD)
+    List<WorkshopTeam> findAllWithTechnicianAndDevices();
 }

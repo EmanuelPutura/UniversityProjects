@@ -16,7 +16,12 @@ import java.io.Serializable;
         @NamedEntityGraph(
                 name = "WorkshopTeam.teamsWithTechnician",
                 attributeNodes = @NamedAttributeNode("teamTechnician")
-        )
+        ),
+        @NamedEntityGraph(name = "WorkshopTeam.teamsWithTechnicianAndDevices",
+                attributeNodes = @NamedAttributeNode(value = "teamTechnician",
+                        subgraph = "Technician.techniciansWithDevices"),
+                subgraphs = @NamedSubgraph(name = "Technician.techniciansWithDevices",
+                        attributeNodes = @NamedAttributeNode(value = "repairedDevices")))
 })
 @Entity
 @NoArgsConstructor

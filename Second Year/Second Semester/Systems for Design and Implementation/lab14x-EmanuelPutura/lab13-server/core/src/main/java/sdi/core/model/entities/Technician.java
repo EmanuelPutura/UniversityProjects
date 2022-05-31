@@ -13,7 +13,12 @@ import java.util.Set;
         @NamedEntityGraph(
                 name = "Technician.techniciansWithDevices",
                 attributeNodes = @NamedAttributeNode("repairedDevices")
-        )
+        ),
+        @NamedEntityGraph(name = "Technician.techniciansWithDevicesAndClients",
+                attributeNodes = @NamedAttributeNode(value = "repairedDevices",
+                        subgraph = "Device.devicesWithClient"),
+                subgraphs = @NamedSubgraph(name = "Device.devicesWithClient",
+                        attributeNodes = @NamedAttributeNode(value = "client")))
 })
 @Entity
 @NoArgsConstructor

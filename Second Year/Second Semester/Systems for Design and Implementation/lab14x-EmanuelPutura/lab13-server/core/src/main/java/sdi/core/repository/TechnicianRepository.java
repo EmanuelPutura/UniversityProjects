@@ -11,4 +11,8 @@ public interface TechnicianRepository extends CatalogRepository<Technician, Long
     @Query("select distinct t from Technician t")
     @EntityGraph(value = "Technician.techniciansWithDevices", type = EntityGraph.EntityGraphType.LOAD)
     List<Technician> findAllWithDevices();
+
+    @Query("select distinct t from Technician t")
+    @EntityGraph(value = "Technician.techniciansWithDevicesAndClients", type = EntityGraph.EntityGraphType.LOAD)
+    List<Technician> findAllWithDevicesAndClients();
 }
