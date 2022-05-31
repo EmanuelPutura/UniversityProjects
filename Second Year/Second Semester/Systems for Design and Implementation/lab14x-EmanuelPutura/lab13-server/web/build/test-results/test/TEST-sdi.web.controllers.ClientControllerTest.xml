@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="sdi.web.controllers.ClientControllerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-05-31T23:06:34" hostname="DESKTOP-PJI8ALC" time="1.919">
+  <properties/>
+  <testcase name="updateClient" classname="sdi.web.controllers.ClientControllerTest" time="1.787"/>
+  <testcase name="deleteClient" classname="sdi.web.controllers.ClientControllerTest" time="0.024"/>
+  <testcase name="addClient" classname="sdi.web.controllers.ClientControllerTest" time="0.031"/>
+  <testcase name="getClients" classname="sdi.web.controllers.ClientControllerTest" time="0.077"/>
+  <system-out><![CDATA[2022-06-01T02:06:35,979 TRACE [Test worker]: ClientController                     - update client - method entered 
+2022-06-01T02:06:35,994 TRACE [Test worker]: ClientController                     - update client - success 
+2022-06-01T02:06:36,019 TRACE [Test worker]: ClientController                     - delete client - method entered 
+2022-06-01T02:06:36,019 TRACE [Test worker]: ClientController                     - delete client - success 
+2022-06-01T02:06:36,059 TRACE [Test worker]: ClientController                     - add client - method started - client DTO: ClientDto(super=BaseDto(id=1), firstName=CF1, lastName=CL1, emailAddress=CE1) 
+2022-06-01T02:06:36,059 TRACE [Test worker]: ClientController                     - add client - client added 
+2022-06-01T02:06:36,079 ERROR [Test worker]: ClientController                     - ------> get all clients - method entered 
+2022-06-01T02:06:36,079 ERROR [Test worker]: ClientController                     - ------> get all clients - ClientsDto: ClientsDto(clients=[ClientDto(super=BaseDto(id=1), firstName=CF1, lastName=CL1, emailAddress=CE1), ClientDto(super=BaseDto(id=1), firstName=CF2, lastName=CL2, emailAddress=CE2)]) 
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /clients
+       Parameters = {page=[0], pageSize=[100]}
+          Headers = []
+             Body = <no character encoding set>
+    Session Attrs = {}
+
+Handler:
+             Type = sdi.web.controller.ClientController
+           Method = sdi.web.controller.ClientController#getAllClients()
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"clients":[{"id":1,"firstName":"CF1","lastName":"CL1","emailAddress":"CE1"},{"id":1,"firstName":"CF2","lastName":"CL2","emailAddress":"CE2"}]}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

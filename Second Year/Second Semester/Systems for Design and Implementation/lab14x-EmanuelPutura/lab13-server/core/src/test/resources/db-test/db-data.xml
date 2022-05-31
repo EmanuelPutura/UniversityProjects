@@ -4,10 +4,11 @@
     <client id="2" firstname="Gigi2" lastname="Becali2" emailaddress="gigi2@yahoo.com"/>
 
     <device id="1" brand="brand1" type="type1" model="model1" client_id="1"/>
-    <device id="2" brand="brand2" type="type2" model="model2" client_id="2"/>
+    <device id="2" brand="brand2" type="type2" model="model2" client_id="1"/>
 
     <technician id="1" firstname="TechF1" lastname="TechL1" salary="10000"/>
     <technician id="2" firstname="TechF2" lastname="TechL2" salary="20000"/>
+    <technician id="3" firstname="TechF3" lastname="TechL3" salary="30000"/>
 
     <repairorder technician_id="1" device_id="1"/>
 

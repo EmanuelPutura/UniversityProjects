@@ -1,0 +1,48 @@
+2022-06-01T01:38:11,313 ERROR [Test worker]: ClientController                     - ------> get all clients - method entered 
+2022-06-01T01:38:11,337 ERROR [Test worker]: ClientController                     - ------> get all clients - ClientsDto: ClientsDto(clients=[ClientDto(super=BaseDto(id=1), firstName=CF1, lastName=CL1, emailAddress=CE1), ClientDto(super=BaseDto(id=1), firstName=CF2, lastName=CL2, emailAddress=CE2)]) 
+2022-06-01T01:38:37,023 ERROR [Test worker]: ClientController                     - ------> get all clients - method entered 
+2022-06-01T01:38:37,044 ERROR [Test worker]: ClientController                     - ------> get all clients - ClientsDto: ClientsDto(clients=[ClientDto(super=BaseDto(id=1), firstName=CF1, lastName=CL1, emailAddress=CE1), ClientDto(super=BaseDto(id=1), firstName=CF2, lastName=CL2, emailAddress=CE2)]) 
+2022-06-01T01:41:07,663 WARN  [Test worker]: DefaultHandlerExceptionResolver      - Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content type 'application/octet-stream' not supported] 
+2022-06-01T01:41:58,693 TRACE [Test worker]: ClientController                     - add client - method started - client DTO: ClientDto(super=BaseDto(id=1), firstName=CF1, lastName=CL1, emailAddress=CE1) 
+2022-06-01T01:41:58,703 TRACE [Test worker]: ClientController                     - add client - client added 
+2022-06-01T01:43:34,233 TRACE [Test worker]: ClientController                     - add client - method started - client DTO: ClientDto(super=BaseDto(id=1), firstName=CF1, lastName=CL1, emailAddress=CE1) 
+2022-06-01T01:43:34,243 TRACE [Test worker]: ClientController                     - add client - client added 
+2022-06-01T01:43:34,292 ERROR [Test worker]: ClientController                     - ------> get all clients - method entered 
+2022-06-01T01:43:34,302 ERROR [Test worker]: ClientController                     - ------> get all clients - ClientsDto: ClientsDto(clients=[ClientDto(super=BaseDto(id=1), firstName=CF1, lastName=CL1, emailAddress=CE1), ClientDto(super=BaseDto(id=1), firstName=CF2, lastName=CL2, emailAddress=CE2)]) 
+2022-06-01T01:44:53,672 TRACE [Test worker]: ClientController                     - add client - method started - client DTO: ClientDto(super=BaseDto(id=1), firstName=CF1, lastName=CL1, emailAddress=CE1) 
+2022-06-01T01:44:53,687 TRACE [Test worker]: ClientController                     - add client - client added 
+2022-06-01T01:45:17,782 TRACE [Test worker]: ClientController                     - add client - method started - client DTO: ClientDto(super=BaseDto(id=1), firstName=CF1, lastName=CL1, emailAddress=CE1) 
+2022-06-01T01:45:17,792 TRACE [Test worker]: ClientController                     - add client - client added 
+2022-06-01T01:48:16,874 TRACE [Test worker]: ClientController                     - add client - method started - client DTO: ClientDto(super=BaseDto(id=1), firstName=CF1, lastName=CL1, emailAddress=CE1) 
+2022-06-01T01:48:16,913 TRACE [Test worker]: ClientController                     - add client - client added 
+2022-06-01T01:49:38,071 TRACE [Test worker]: ClientController                     - add client - method started - client DTO: ClientDto(super=BaseDto(id=1), firstName=CF1, lastName=CL1, emailAddress=CE1) 
+2022-06-01T01:49:38,091 TRACE [Test worker]: ClientController                     - add client - client added 
+2022-06-01T01:49:55,042 TRACE [Test worker]: ClientController                     - add client - method started - client DTO: ClientDto(super=BaseDto(id=1), firstName=CF1, lastName=CL1, emailAddress=CE1) 
+2022-06-01T01:49:55,051 TRACE [Test worker]: ClientController                     - add client - client added 
+2022-06-01T01:53:24,831 TRACE [Test worker]: ClientController                     - update client - method entered 
+2022-06-01T01:53:24,841 TRACE [Test worker]: ClientController                     - update client - success 
+2022-06-01T01:54:15,066 TRACE [Test worker]: ClientController                     - update client - method entered 
+2022-06-01T01:55:46,980 TRACE [Test worker]: ClientController                     - update client - method entered 
+2022-06-01T01:56:06,973 TRACE [Test worker]: ClientController                     - update client - success 
+2022-06-01T01:56:18,375 TRACE [Test worker]: ClientController                     - update client - method entered 
+2022-06-01T01:56:54,965 TRACE [Test worker]: ClientController                     - update client - method entered 
+2022-06-01T01:59:24,160 TRACE [Test worker]: ClientController                     - update client - method entered 
+2022-06-01T01:59:24,170 TRACE [Test worker]: ClientController                     - update client - success 
+2022-06-01T02:02:25,160 TRACE [Test worker]: ClientController                     - update client - method entered 
+2022-06-01T02:02:25,169 TRACE [Test worker]: ClientController                     - update client - success 
+2022-06-01T02:04:45,919 TRACE [Test worker]: ClientController                     - update client - method entered 
+2022-06-01T02:04:45,919 TRACE [Test worker]: ClientController                     - update client - success 
+2022-06-01T02:05:10,299 TRACE [Test worker]: ClientController                     - update client - method entered 
+2022-06-01T02:05:10,319 TRACE [Test worker]: ClientController                     - update client - success 
+2022-06-01T02:05:17,189 TRACE [Test worker]: ClientController                     - add client - method started - client DTO: ClientDto(super=BaseDto(id=1), firstName=CF1, lastName=CL1, emailAddress=CE1) 
+2022-06-01T02:05:17,199 TRACE [Test worker]: ClientController                     - add client - client added 
+2022-06-01T02:06:27,144 TRACE [Test worker]: ClientController                     - delete client - method entered 
+2022-06-01T02:06:27,169 TRACE [Test worker]: ClientController                     - delete client - success 
+2022-06-01T02:06:35,979 TRACE [Test worker]: ClientController                     - update client - method entered 
+2022-06-01T02:06:35,994 TRACE [Test worker]: ClientController                     - update client - success 
+2022-06-01T02:06:36,019 TRACE [Test worker]: ClientController                     - delete client - method entered 
+2022-06-01T02:06:36,019 TRACE [Test worker]: ClientController                     - delete client - success 
+2022-06-01T02:06:36,059 TRACE [Test worker]: ClientController                     - add client - method started - client DTO: ClientDto(super=BaseDto(id=1), firstName=CF1, lastName=CL1, emailAddress=CE1) 
+2022-06-01T02:06:36,059 TRACE [Test worker]: ClientController                     - add client - client added 
+2022-06-01T02:06:36,079 ERROR [Test worker]: ClientController                     - ------> get all clients - method entered 
+2022-06-01T02:06:36,079 ERROR [Test worker]: ClientController                     - ------> get all clients - ClientsDto: ClientsDto(clients=[ClientDto(super=BaseDto(id=1), firstName=CF1, lastName=CL1, emailAddress=CE1), ClientDto(super=BaseDto(id=1), firstName=CF2, lastName=CL2, emailAddress=CE2)]) 

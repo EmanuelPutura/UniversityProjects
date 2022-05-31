@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="sdi.core.repository.ClientRepositoryTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-05-31T21:56:43" hostname="DESKTOP-PJI8ALC" time="0.372">
+<testsuite name="sdi.core.repository.ClientRepositoryTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-05-31T22:22:38" hostname="DESKTOP-PJI8ALC" time="0.345">
   <properties/>
-  <testcase name="getClientsWithFirstName" classname="sdi.core.repository.ClientRepositoryTest" time="0.303"/>
-  <testcase name="getClientsWithLastName" classname="sdi.core.repository.ClientRepositoryTest" time="0.068"/>
+  <testcase name="getClientsWithFirstName" classname="sdi.core.repository.ClientRepositoryTest" time="0.269"/>
+  <testcase name="getClientsWithLastName" classname="sdi.core.repository.ClientRepositoryTest" time="0.075"/>
   <system-out><![CDATA[Hibernate: select client0_.id as id1_0_, client0_.emailAddress as emailAdd2_0_, client0_.firstName as firstNam3_0_, client0_.lastName as lastName4_0_ from Client client0_ where client0_.firstName=?
 Hibernate: select client0_.id as id1_0_, client0_.emailAddress as emailAdd2_0_, client0_.firstName as firstNam3_0_, client0_.lastName as lastName4_0_ from Client client0_ where client0_.firstName=?
 Hibernate: select client0_.id as id1_0_, client0_.emailAddress as emailAdd2_0_, client0_.firstName as firstNam3_0_, client0_.lastName as lastName4_0_ from Client client0_ where client0_.lastName=?

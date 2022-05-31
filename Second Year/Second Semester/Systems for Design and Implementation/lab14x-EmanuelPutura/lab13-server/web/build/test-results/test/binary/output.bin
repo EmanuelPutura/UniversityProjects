@@ -1,0 +1,46 @@
+u2022-06-01T02:06:35,979 TRACE [Test worker]: ClientController                     - update client - method entered 
+n2022-06-01T02:06:35,994 TRACE [Test worker]: ClientController                     - update client - success 
+u2022-06-01T02:06:36,019 TRACE [Test worker]: ClientController                     - delete client - method entered 
+n2022-06-01T02:06:36,019 TRACE [Test worker]: ClientController                     - delete client - success 
+Î2022-06-01T02:06:36,059 TRACE [Test worker]: ClientController                     - add client - method started - client DTO: ClientDto(super=BaseDto(id=1), firstName=CF1, lastName=CL1, emailAddress=CE1) 
+p2022-06-01T02:06:36,059 TRACE [Test worker]: ClientController                     - add client - client added 
+2022-06-01T02:06:36,079 ERROR [Test worker]: ClientController                     - ------> get all clients - method entered 
+¯2022-06-01T02:06:36,079 ERROR [Test worker]: ClientController                     - ------> get all clients - ClientsDto: ClientsDto(clients=[ClientDto(super=BaseDto(id=1), firstName=CF1, lastName=CL1, emailAddress=CE1), ClientDto(super=BaseDto(id=1), firstName=CF2, lastName=CL2, emailAddress=CE2)]) 
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /clients
+0       Parameters = {page=[0], pageSize=[100]}
+          Headers = []
+1             Body = <no character encoding set>
+    Session Attrs = {}
+
+
+Handler:
+9             Type = sdi.web.controller.ClientController
+I           Method = sdi.web.controller.ClientController#getAllClients()
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+7          Headers = [Content-Type:"application/json"]
+&     Content type = application/json
+¥             Body = {"clients":[{"id":1,"firstName":"CF1","lastName":"CL1","emailAddress":"CE1"},{"id":1,"firstName":"CF2","lastName":"CL2","emailAddress":"CE2"}]}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []

@@ -11,4 +11,11 @@ dependencies {
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: "$jacksonDatabindVersion"
 
     implementation group: 'javax.servlet', name: 'javax.servlet-api', version:"$javaxServeletApiVersion"
+
+    testImplementation group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
+    testImplementation (group: 'org.mockito', name: 'mockito-core', version: '4.5.1')
+
+    testImplementation (group: 'com.jayway.jsonpath', name: 'json-path-assert', version: '2.2.0')
+
+    implementation group: 'org.springframework', name: 'spring-web', version: '4.3.6.RELEASE'
 }
