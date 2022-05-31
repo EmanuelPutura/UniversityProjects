@@ -48,7 +48,7 @@ public class DeviceServiceImpl implements DeviceService {
     @Override
     public List<Device> findDevicesBeingWorkedOnByTechnician(Technician technician) {
         var devices = new ArrayList<Device>();
-        repository.findAll().forEach((device -> {
+        repository.findAllWithTechnicians().forEach((device -> {
             if (device.getAssignedTechnicians().contains(technician))
                 devices.add(device);
         }));

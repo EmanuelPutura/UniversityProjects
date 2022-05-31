@@ -9,6 +9,12 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+@NamedEntityGraphs({
+        @NamedEntityGraph(
+                name = "Technician.techniciansWithDevices",
+                attributeNodes = @NamedAttributeNode("repairedDevices")
+        )
+})
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,7 +26,7 @@ public class Technician extends BaseEntity<Long> {
     private String lastName;
     private Long salary;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "RepairOrder",
         joinColumns = @JoinColumn(name = "technician_id", referencedColumnName = "id"),
         inverseJoinColumns = @JoinColumn(name = "device_id", referencedColumnName = "id")

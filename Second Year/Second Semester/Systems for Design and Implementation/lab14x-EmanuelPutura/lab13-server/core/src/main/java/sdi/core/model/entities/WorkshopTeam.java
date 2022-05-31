@@ -11,6 +11,13 @@ import java.io.Serializable;
     For the purpose of this homework, each team contains only one technician and some other people, who
     are not specified in this class definition
  */
+
+@NamedEntityGraphs({
+        @NamedEntityGraph(
+                name = "WorkshopTeam.teamsWithTechnician",
+                attributeNodes = @NamedAttributeNode("teamTechnician")
+        )
+})
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor

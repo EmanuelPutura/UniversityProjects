@@ -4,13 +4,17 @@ import lombok.*;
 import sdi.core.model.BaseEntity;
 import org.hibernate.Hibernate;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+@NamedEntityGraphs({
+        @NamedEntityGraph(
+                name = "Client.clientsWithDevices",
+                attributeNodes = @NamedAttributeNode("clientDevices")
+        )
+})
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,7 +26,7 @@ public class Client extends BaseEntity<Long> {
     private String lastName;
     private String emailAddress;
 
-    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
     @ToString.Exclude
     private Set<Device> clientDevices = new HashSet<>();
 

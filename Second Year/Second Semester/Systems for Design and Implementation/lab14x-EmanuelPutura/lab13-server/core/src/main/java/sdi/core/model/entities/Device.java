@@ -10,6 +10,25 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+@NamedEntityGraphs({
+        @NamedEntityGraph(
+                name = "Device.devicesWithTechnicians",
+                attributeNodes = @NamedAttributeNode("assignedTechnicians")
+        ),
+
+        @NamedEntityGraph(
+                name = "Device.devicesWithClient",
+                attributeNodes = @NamedAttributeNode("client")
+        ),
+
+        @NamedEntityGraph(
+                name = "Device.devicesWithTechniciansAndClient",
+                attributeNodes = {
+                        @NamedAttributeNode("assignedTechnicians"),
+                        @NamedAttributeNode("client")
+                }
+        )
+})
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,7 +44,7 @@ public class Device extends BaseEntity<Long> {
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
 
-    @ManyToMany(mappedBy = "repairedDevices", fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "repairedDevices", fetch = FetchType.LAZY)
     @ToString.Exclude
     private Set<Technician> assignedTechnicians = new HashSet<>();
 
