@@ -19,13 +19,13 @@ public class ClientRepositoryJpqlImpl extends CustomRepositorySupport implements
     }
 
     @Override
-    public List<Client> getClientsWithFirstName(String firstName) {
+    public List<Client> getClientByFirstName(String firstName) {
         String queryString = "select distinct r from Client r where r.firstName = :firstName";
         return getClientsWithFieldEqualTo("firstName", firstName, queryString);
     }
 
     @Override
-    public List<Client> getClientsWithLastName(String lastName) {
+    public List<Client> getClientByLastName(String lastName) {
         String queryString = "select distinct r from Client r where r.lastName = :lastName";
         return getClientsWithFieldEqualTo("lastName", lastName, queryString);
     }

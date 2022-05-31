@@ -19,14 +19,8 @@ public class WorkshopTeamRepositoryJpqlImpl extends CustomRepositorySupport impl
     }
 
     @Override
-    public List<WorkshopTeam> getWorkshopTeamsWithTeamName(String teamName) {
+    public List<WorkshopTeam> getWorkshopTeamByTeamName(String teamName) {
         String queryString = "select distinct r from WorkshopTeam r where r.teamName = :teamName";
         return getClientsWithFieldEqualTo("teamName", teamName, queryString);
-    }
-
-    @Override
-    public List<WorkshopTeam> getWorkshopTeamsWithEmptyTeamName() {
-        String queryString = "select distinct r from WorkshopTeam r where r.teamName = :teamName";
-        return getClientsWithFieldEqualTo("teamName", "", queryString);
     }
 }

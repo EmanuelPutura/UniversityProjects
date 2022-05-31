@@ -21,12 +21,12 @@ public class ClientRepositoryCriteriaImpl extends CustomRepositorySupport implem
     }
 
     @Override
-    public List<Client> getClientsWithFirstName(String firstName) {
+    public List<Client> getClientByFirstName(String firstName) {
         return getClientsHavingFieldEqualTo("firstName", firstName);
     }
 
     @Override
-    public List<Client> getClientsWithLastName(String lastName) {
+    public List<Client> getClientByLastName(String lastName) {
         return getClientsHavingFieldEqualTo("lastName", lastName);
     }
 }

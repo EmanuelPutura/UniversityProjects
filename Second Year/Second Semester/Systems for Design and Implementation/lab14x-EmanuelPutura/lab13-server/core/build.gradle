@@ -12,4 +12,8 @@ dependencies {
     implementation group: 'com.zaxxer', name: 'HikariCP', version: "$hikariVersion"
 
     implementation group: 'javax.xml.bind', name: 'jaxb-api', version: "$jaxbapiVersion"
+
+    implementation group: 'org.dbunit', name: 'dbunit', version: "$dbUnitVersion"
+    implementation group: 'com.h2database', name: 'h2', version: "$h2DbVersion"
+    implementation group: 'com.github.springtestdbunit', name: 'spring-test-dbunit', version: "$springtestdbunitVersion"
 }

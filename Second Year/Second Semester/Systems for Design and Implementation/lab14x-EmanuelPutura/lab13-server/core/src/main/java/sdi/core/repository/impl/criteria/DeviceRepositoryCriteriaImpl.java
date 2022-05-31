@@ -21,12 +21,12 @@ public class DeviceRepositoryCriteriaImpl extends CustomRepositorySupport implem
     }
 
     @Override
-    public List<Device> getDevicesWithType(String type) {
+    public List<Device> getDeviceByType(String type) {
         return getDevicesHavingFieldEqualTo("type", type);
     }
 
     @Override
-    public List<Device> getDevicesWithBrand(String brand) {
+    public List<Device> getDeviceByBrand(String brand) {
         return getDevicesHavingFieldEqualTo("brand", brand);
     }
 }

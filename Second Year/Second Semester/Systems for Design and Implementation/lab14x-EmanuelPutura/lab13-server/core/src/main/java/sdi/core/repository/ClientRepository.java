@@ -4,10 +4,11 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.Query;
 import sdi.core.model.entities.Client;
+import sdi.core.repository.custom.ClientCustomRepository;
 
 import java.util.List;
 
-public interface ClientRepository extends CatalogRepository<Client, Long> {
+public interface ClientRepository extends CatalogRepository<Client, Long>, ClientCustomRepository {
     List<Client> findClientsByLastName(String lastName, Sort sort);
 
     @Query("select distinct c from Client c")

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="sdi.core.repository.WorkshopTeamRepositoryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-05-31T21:56:44" hostname="DESKTOP-PJI8ALC" time="0.074">
+  <properties/>
+  <testcase name="getWorkshopTeamByTeamName" classname="sdi.core.repository.WorkshopTeamRepositoryTest" time="0.074"/>
+  <system-out><![CDATA[Hibernate: select workshopte0_.id as id1_4_, workshopte0_.teamName as teamName2_4_, workshopte0_.technicianId as technici3_4_ from WorkshopTeam workshopte0_ where workshopte0_.teamName=?
+Hibernate: select technician0_.id as id1_3_0_, technician0_.firstName as firstNam2_3_0_, technician0_.lastName as lastName3_3_0_, technician0_.salary as salary4_3_0_ from Technician technician0_ where technician0_.id=?
+Hibernate: select workshopte0_.id as id1_4_, workshopte0_.teamName as teamName2_4_, workshopte0_.technicianId as technici3_4_ from WorkshopTeam workshopte0_ where workshopte0_.teamName=?
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

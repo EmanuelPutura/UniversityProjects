@@ -21,12 +21,12 @@ public class TechnicianRepositoryCriteriaImpl extends CustomRepositorySupport im
     }
 
     @Override
-    public List<Technician> getTechniciansWithFirstName(String firstName) {
+    public List<Technician> getTechnicianByFirstName(String firstName) {
         return getTechniciansHavingFieldEqualTo("firstName", firstName);
     }
 
     @Override
-    public List<Technician> getTechniciansWithLastName(String lastName) {
+    public List<Technician> getTechnicianByLastName(String lastName) {
         return getTechniciansHavingFieldEqualTo("lastName", lastName);
     }
 }

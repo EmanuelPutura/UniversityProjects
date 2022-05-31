@@ -19,13 +19,13 @@ public class DeviceRepositoryJpqlImpl extends CustomRepositorySupport implements
     }
 
     @Override
-    public List<Device> getDevicesWithType(String type) {
+    public List<Device> getDeviceByType(String type) {
         String queryString = "select distinct r from Device r where r.type = :type";
         return getClientsWithFieldEqualTo("type", type, queryString);
     }
 
     @Override
-    public List<Device> getDevicesWithBrand(String brand) {
+    public List<Device> getDeviceByBrand(String brand) {
         String queryString = "select distinct r from Device r where r.brand = :brand";
         return getClientsWithFieldEqualTo("brand", brand, queryString);
     }

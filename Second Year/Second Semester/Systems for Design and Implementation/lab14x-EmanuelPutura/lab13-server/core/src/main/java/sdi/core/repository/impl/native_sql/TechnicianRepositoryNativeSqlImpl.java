@@ -11,7 +11,7 @@ import java.util.List;
 public class TechnicianRepositoryNativeSqlImpl extends CustomRepositorySupport implements TechnicianCustomRepository {
     @Override
     @Transactional
-    public List<Technician> getTechniciansWithFirstName(String firstName) {
+    public List<Technician> getTechnicianByFirstName(String firstName) {
         var session = getEntityManager().unwrap(Session.class);
 
         var query = session.createNativeQuery(
@@ -25,7 +25,7 @@ public class TechnicianRepositoryNativeSqlImpl extends CustomRepositorySupport i
 
     @Override
     @Transactional
-    public List<Technician> getTechniciansWithLastName(String lastName) {
+    public List<Technician> getTechnicianByLastName(String lastName) {
         var session = getEntityManager().unwrap(Session.class);
 
         var query = session.createNativeQuery(

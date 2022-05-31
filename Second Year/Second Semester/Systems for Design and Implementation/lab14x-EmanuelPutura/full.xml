@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <client id="1" emailaddress="test" firstname="test" lastname="LastName"/>
+  <client id="3" emailaddress="client2@yahoo.com" firstname="ClientF2" lastname="ClientL2"/>
+  <client id="4" emailaddress="test2" firstname="VTest" lastname="LastName"/>
+  <client id="5" emailaddress="test" firstname="Atest" lastname="LastName"/>
+  <client id="40" emailaddress="client2@gmail.com" firstname="ClientF2" lastname="CLientL2"/>
+  <client id="43" emailaddress="clienttest@yahoo.com" firstname="ClientTest" lastname="ClientTest"/>
+  <client id="44" emailaddress="client3@yahoo.com" firstname="ClientF3" lastname="ClientL3"/>
+  <client id="50" emailaddress="emailaddress@gmail.com" firstname="FirstName" lastname="LastName"/>
+  <device id="1" brand="Brand1" model="Model1" type="Type1" client_id="1"/>
+  <device id="2" brand="Brand2" model="Model2" type="Type2" client_id="5"/>
+  <device id="3" brand="Brand4" model="Model4" type="Type4" client_id="44"/>
+  <device id="49" brand="Brand3" model="Model3" type="Type3" client_id="40"/>
+  <device id="51" brand="BrandAAA" model="ModelAAA" type="TypeAAA" client_id="1"/>
+  <device id="52" brand="BrandBBB" model="ModelBBB" type="TypeBBB" client_id="4"/>
+  <repairorder technician_id="1" device_id="2"/>
+  <repairorder technician_id="1" device_id="49"/>
+  <repairorder technician_id="47" device_id="2"/>
+  <repairorder technician_id="47" device_id="3"/>
+  <technician id="1" firstname="TechnicianF1" lastname="TechnicianL1" salary="60000"/>
+  <technician id="2" firstname="TechnicianF4" lastname="TechnicianL4" salary="2000"/>
+  <technician id="3" firstname="TechnicianF2" lastname="TechnicianL2" salary="100"/>
+  <technician id="47" firstname="TechnicianF3" lastname="TechnicianL3" salary="100"/>
+  <workshopteam id="56" teamname="Team1" technicianid="1"/>
+  <workshopteam id="61" teamname="Team2" technicianid="3"/>
+</dataset>

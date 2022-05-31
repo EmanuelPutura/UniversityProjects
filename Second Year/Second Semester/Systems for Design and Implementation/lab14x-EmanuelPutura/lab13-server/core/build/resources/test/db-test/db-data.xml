@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <client id="1" firstname="Gigi1" lastname="Becali1" emailaddress="gigi1@yahoo.com"/>
+    <client id="2" firstname="Gigi2" lastname="Becali2" emailaddress="gigi2@yahoo.com"/>
+
+    <device id="1" brand="brand1" type="type1" model="model1" client_id="1"/>
+    <device id="2" brand="brand2" type="type2" model="model2" client_id="2"/>
+
+    <technician id="1" firstname="TechF1" lastname="TechL1" salary="10000"/>
+    <technician id="2" firstname="TechF2" lastname="TechL2" salary="20000"/>
+
+    <repairorder technician_id="1" device_id="1"/>
+
+    <workshopteam id="1" teamname="Team1" technicianid="1"/>
+    <workshopteam id="2" teamname="Team2" technicianid="2"/>
+</dataset>

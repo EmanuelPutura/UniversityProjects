@@ -21,12 +21,7 @@ public class WorkshopTeamRepositoryCriteriaImpl extends CustomRepositorySupport 
     }
 
     @Override
-    public List<WorkshopTeam> getWorkshopTeamsWithTeamName(String teamName) {
+    public List<WorkshopTeam> getWorkshopTeamByTeamName(String teamName) {
         return getWorkshopTeamsHavingFieldEqualTo("teamName", teamName);
-    }
-
-    @Override
-    public List<WorkshopTeam> getWorkshopTeamsWithEmptyTeamName() {
-        return getWorkshopTeamsHavingFieldEqualTo("teamName", "");
     }
 }

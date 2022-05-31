@@ -11,7 +11,7 @@ import java.util.List;
 public class DeviceRepositoryNativeSqlImpl extends CustomRepositorySupport implements DeviceCustomRepository {
     @Override
     @Transactional
-    public List<Device> getDevicesWithType(String type) {
+    public List<Device> getDeviceByType(String type) {
         var session = getEntityManager().unwrap(Session.class);
 
         var query = session.createNativeQuery(
@@ -25,7 +25,7 @@ public class DeviceRepositoryNativeSqlImpl extends CustomRepositorySupport imple
 
     @Override
     @Transactional
-    public List<Device> getDevicesWithBrand(String brand) {
+    public List<Device> getDeviceByBrand(String brand) {
         var session = getEntityManager().unwrap(Session.class);
 
         var query = session.createNativeQuery(

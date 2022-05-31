@@ -11,7 +11,7 @@ import java.util.List;
 public class ClientRepositoryNativeSqlImpl extends CustomRepositorySupport implements ClientCustomRepository {
     @Override
     @Transactional
-    public List<Client> getClientsWithFirstName(String firstName) {
+    public List<Client> getClientByFirstName(String firstName) {
         var session = getEntityManager().unwrap(Session.class);
 
         var query = session.createNativeQuery(
@@ -25,7 +25,7 @@ public class ClientRepositoryNativeSqlImpl extends CustomRepositorySupport imple
 
     @Override
     @Transactional
-    public List<Client> getClientsWithLastName(String lastName) {
+    public List<Client> getClientByLastName(String lastName) {
         var session = getEntityManager().unwrap(Session.class);
 
         var query = session.createNativeQuery(

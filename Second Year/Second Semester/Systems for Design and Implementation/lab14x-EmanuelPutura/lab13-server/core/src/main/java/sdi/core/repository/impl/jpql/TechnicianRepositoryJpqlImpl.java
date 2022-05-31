@@ -19,13 +19,13 @@ public class TechnicianRepositoryJpqlImpl extends CustomRepositorySupport implem
     }
 
     @Override
-    public List<Technician> getTechniciansWithFirstName(String firstName) {
+    public List<Technician> getTechnicianByFirstName(String firstName) {
         String queryString = "select distinct r from Technician r where r.firstName = :firstName";
         return getClientsWithFieldEqualTo("firstName", firstName, queryString);
     }
 
     @Override
-    public List<Technician> getTechniciansWithLastName(String lastName) {
+    public List<Technician> getTechnicianByLastName(String lastName) {
         String queryString = "select distinct r from Technician r where r.lastName = :lastName";
         return getClientsWithFieldEqualTo("lastName", lastName, queryString);
     }
