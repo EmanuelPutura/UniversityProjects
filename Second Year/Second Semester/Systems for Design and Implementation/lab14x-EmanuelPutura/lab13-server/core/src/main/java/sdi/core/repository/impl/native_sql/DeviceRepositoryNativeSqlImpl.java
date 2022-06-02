@@ -1,6 +1,7 @@
 package sdi.core.repository.impl.native_sql;
 
 import org.hibernate.Session;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import sdi.core.model.entities.Device;
 import sdi.core.repository.custom.DeviceCustomRepository;
@@ -8,10 +9,11 @@ import sdi.core.repository.impl.CustomRepositorySupport;
 
 import java.util.List;
 
+@Component("DeviceRepositoryNativeSqlImpl")
 public class DeviceRepositoryNativeSqlImpl extends CustomRepositorySupport implements DeviceCustomRepository {
     @Override
     @Transactional
-    public List<Device> getDeviceByType(String type) {
+    public List<Device> getDeviceWithType(String type) {
         var session = getEntityManager().unwrap(Session.class);
 
         var query = session.createNativeQuery(
@@ -25,7 +27,7 @@ public class DeviceRepositoryNativeSqlImpl extends CustomRepositorySupport imple
 
     @Override
     @Transactional
-    public List<Device> getDeviceByBrand(String brand) {
+    public List<Device> getDeviceWithBrand(String brand) {
         var session = getEntityManager().unwrap(Session.class);
 
         var query = session.createNativeQuery(

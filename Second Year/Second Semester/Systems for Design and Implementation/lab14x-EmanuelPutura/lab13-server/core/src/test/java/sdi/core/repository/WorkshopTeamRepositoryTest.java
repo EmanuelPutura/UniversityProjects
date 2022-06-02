@@ -30,7 +30,7 @@ public class WorkshopTeamRepositoryTest {
 
     @Test
     public void getWorkshopTeamByTeamName() {
-        assertEquals("there should be 1 team", 1, workshopTeamRepository.getWorkshopTeamByTeamName("Team1").size());
-        assertEquals("there should be 0 teams", 0, workshopTeamRepository.getWorkshopTeamByTeamName("none").size());
+        assertEquals("there should be 1 team", 1, workshopTeamRepository.getWorkshopTeamWithTeamName("Team1").size());
+        assertEquals("there should be 0 teams", 0, workshopTeamRepository.getWorkshopTeamWithTeamName("none").size());
     }
 }

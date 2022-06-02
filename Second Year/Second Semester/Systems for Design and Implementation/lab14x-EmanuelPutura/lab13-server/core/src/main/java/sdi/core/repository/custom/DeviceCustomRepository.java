@@ -5,6 +5,6 @@ import sdi.core.model.entities.Device;
 import java.util.List;
 
 public interface DeviceCustomRepository {
-    List<Device> getDeviceByType(String type);
-    List<Device> getDeviceByBrand(String brand);
+    List<Device> getDeviceWithType(String type);
+    List<Device> getDeviceWithBrand(String brand);
 }

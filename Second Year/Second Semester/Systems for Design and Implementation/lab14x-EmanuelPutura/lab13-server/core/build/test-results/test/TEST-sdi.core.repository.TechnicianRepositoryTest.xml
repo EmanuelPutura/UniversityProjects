@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="sdi.core.repository.TechnicianRepositoryTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-05-31T22:22:39" hostname="DESKTOP-PJI8ALC" time="0.128">
+<testsuite name="sdi.core.repository.TechnicianRepositoryTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-06-02T06:16:53" hostname="DESKTOP-PJI8ALC" time="0.114">
   <properties/>
-  <testcase name="getTechniciansWithLastName" classname="sdi.core.repository.TechnicianRepositoryTest" time="0.062"/>
-  <testcase name="getTechniciansWithFirstName" classname="sdi.core.repository.TechnicianRepositoryTest" time="0.065"/>
-  <system-out><![CDATA[Hibernate: select technician0_.id as id1_3_, technician0_.firstName as firstNam2_3_, technician0_.lastName as lastName3_3_, technician0_.salary as salary4_3_ from Technician technician0_ where technician0_.lastName=?
-Hibernate: select technician0_.id as id1_3_, technician0_.firstName as firstNam2_3_, technician0_.lastName as lastName3_3_, technician0_.salary as salary4_3_ from Technician technician0_ where technician0_.lastName=?
-Hibernate: select technician0_.id as id1_3_, technician0_.firstName as firstNam2_3_, technician0_.lastName as lastName3_3_, technician0_.salary as salary4_3_ from Technician technician0_ where technician0_.firstName=?
-Hibernate: select technician0_.id as id1_3_, technician0_.firstName as firstNam2_3_, technician0_.lastName as lastName3_3_, technician0_.salary as salary4_3_ from Technician technician0_ where technician0_.firstName=?
+  <testcase name="getTechniciansWithLastName" classname="sdi.core.repository.TechnicianRepositoryTest" time="0.058"/>
+  <testcase name="getTechniciansWithFirstName" classname="sdi.core.repository.TechnicianRepositoryTest" time="0.055"/>
+  <system-out><![CDATA[Hibernate: select distinct technician0_.id as id1_3_, technician0_.firstName as firstNam2_3_, technician0_.lastName as lastName3_3_, technician0_.salary as salary4_3_ from Technician technician0_ where technician0_.lastName=?
+Hibernate: select distinct technician0_.id as id1_3_, technician0_.firstName as firstNam2_3_, technician0_.lastName as lastName3_3_, technician0_.salary as salary4_3_ from Technician technician0_ where technician0_.lastName=?
+Hibernate: select distinct technician0_.id as id1_3_, technician0_.firstName as firstNam2_3_, technician0_.lastName as lastName3_3_, technician0_.salary as salary4_3_ from Technician technician0_ where technician0_.firstName=?
+Hibernate: select distinct technician0_.id as id1_3_, technician0_.firstName as firstNam2_3_, technician0_.lastName as lastName3_3_, technician0_.salary as salary4_3_ from Technician technician0_ where technician0_.firstName=?
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

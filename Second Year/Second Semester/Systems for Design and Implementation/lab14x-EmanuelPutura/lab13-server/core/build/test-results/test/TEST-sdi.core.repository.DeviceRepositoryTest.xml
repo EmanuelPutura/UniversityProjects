@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="sdi.core.repository.DeviceRepositoryTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-05-31T22:22:39" hostname="DESKTOP-PJI8ALC" time="0.123">
+<testsuite name="sdi.core.repository.DeviceRepositoryTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-06-02T06:16:53" hostname="DESKTOP-PJI8ALC" time="0.115">
   <properties/>
-  <testcase name="getDevicesWithType" classname="sdi.core.repository.DeviceRepositoryTest" time="0.068"/>
-  <testcase name="getDevicesWithBrand" classname="sdi.core.repository.DeviceRepositoryTest" time="0.054"/>
-  <system-out><![CDATA[Hibernate: select device0_.id as id1_1_, device0_.brand as brand2_1_, device0_.client_id as client_i5_1_, device0_.model as model3_1_, device0_.type as type4_1_ from Device device0_ where device0_.type=?
+  <testcase name="getDevicesWithType" classname="sdi.core.repository.DeviceRepositoryTest" time="0.063"/>
+  <testcase name="getDevicesWithBrand" classname="sdi.core.repository.DeviceRepositoryTest" time="0.051"/>
+  <system-out><![CDATA[Hibernate: select distinct device0_.id as id1_1_, device0_.brand as brand2_1_, device0_.client_id as client_i5_1_, device0_.model as model3_1_, device0_.type as type4_1_ from Device device0_ where device0_.type=?
 Hibernate: select client0_.id as id1_0_0_, client0_.emailAddress as emailAdd2_0_0_, client0_.firstName as firstNam3_0_0_, client0_.lastName as lastName4_0_0_ from Client client0_ where client0_.id=?
-Hibernate: select device0_.id as id1_1_, device0_.brand as brand2_1_, device0_.client_id as client_i5_1_, device0_.model as model3_1_, device0_.type as type4_1_ from Device device0_ where device0_.type=?
-Hibernate: select device0_.id as id1_1_, device0_.brand as brand2_1_, device0_.client_id as client_i5_1_, device0_.model as model3_1_, device0_.type as type4_1_ from Device device0_ where device0_.brand=?
+Hibernate: select distinct device0_.id as id1_1_, device0_.brand as brand2_1_, device0_.client_id as client_i5_1_, device0_.model as model3_1_, device0_.type as type4_1_ from Device device0_ where device0_.type=?
+Hibernate: select distinct device0_.id as id1_1_, device0_.brand as brand2_1_, device0_.client_id as client_i5_1_, device0_.model as model3_1_, device0_.type as type4_1_ from Device device0_ where device0_.brand=?
 Hibernate: select client0_.id as id1_0_0_, client0_.emailAddress as emailAdd2_0_0_, client0_.firstName as firstNam3_0_0_, client0_.lastName as lastName4_0_0_ from Client client0_ where client0_.id=?
-Hibernate: select device0_.id as id1_1_, device0_.brand as brand2_1_, device0_.client_id as client_i5_1_, device0_.model as model3_1_, device0_.type as type4_1_ from Device device0_ where device0_.brand=?
+Hibernate: select distinct device0_.id as id1_1_, device0_.brand as brand2_1_, device0_.client_id as client_i5_1_, device0_.model as model3_1_, device0_.type as type4_1_ from Device device0_ where device0_.brand=?
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,6 +1,7 @@
 package sdi.core.repository.impl.native_sql;
 
 import org.hibernate.Session;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import sdi.core.model.entities.Technician;
 import sdi.core.repository.custom.TechnicianCustomRepository;
@@ -8,10 +9,11 @@ import sdi.core.repository.impl.CustomRepositorySupport;
 
 import java.util.List;
 
+@Component("TechnicianRepositoryNativeSqlImpl")
 public class TechnicianRepositoryNativeSqlImpl extends CustomRepositorySupport implements TechnicianCustomRepository {
     @Override
     @Transactional
-    public List<Technician> getTechnicianByFirstName(String firstName) {
+    public List<Technician> getTechnicianWithFirstName(String firstName) {
         var session = getEntityManager().unwrap(Session.class);
 
         var query = session.createNativeQuery(
@@ -25,7 +27,7 @@ public class TechnicianRepositoryNativeSqlImpl extends CustomRepositorySupport i
 
     @Override
     @Transactional
-    public List<Technician> getTechnicianByLastName(String lastName) {
+    public List<Technician> getTechnicianWithLastName(String lastName) {
         var session = getEntityManager().unwrap(Session.class);
 
         var query = session.createNativeQuery(

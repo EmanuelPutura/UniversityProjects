@@ -6,5 +6,5 @@ import sdi.core.model.entities.WorkshopTeam;
 import java.util.List;
 
 public interface WorkshopTeamCustomRepository {
-    List<WorkshopTeam> getWorkshopTeamByTeamName(String teamName);
+    List<WorkshopTeam> getWorkshopTeamWithTeamName(String teamName);
 }

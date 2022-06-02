@@ -30,13 +30,13 @@ public class TechnicianRepositoryTest {
 
     @Test
     public void getTechniciansWithFirstName() {
-        assertEquals("there should be 1 technician", 1, technicianRepository.getTechnicianByFirstName("TechF1").size());
-        assertEquals("there should be 0 technicians", 0, technicianRepository.getTechnicianByFirstName("none").size());
+        assertEquals("there should be 1 technician", 1, technicianRepository.getTechnicianWithFirstName("TechF1").size());
+        assertEquals("there should be 0 technicians", 0, technicianRepository.getTechnicianWithFirstName("none").size());
     }
 
     @Test
     public void getTechniciansWithLastName() {
-        assertEquals("there should be 1 technician", 1, technicianRepository.getTechnicianByLastName("TechL1").size());
-        assertEquals("there should be 0 technicians", 0, technicianRepository.getTechnicianByLastName("none").size());
+        assertEquals("there should be 1 technician", 1, technicianRepository.getTechnicianWithLastName("TechL1").size());
+        assertEquals("there should be 0 technicians", 0, technicianRepository.getTechnicianWithLastName("none").size());
     }
 }

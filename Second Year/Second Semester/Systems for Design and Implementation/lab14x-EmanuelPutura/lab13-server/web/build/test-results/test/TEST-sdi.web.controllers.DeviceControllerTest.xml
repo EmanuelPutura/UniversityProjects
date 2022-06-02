@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="sdi.web.controllers.DeviceControllerTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-05-31T23:51:53" hostname="DESKTOP-PJI8ALC" time="0.245">
+<testsuite name="sdi.web.controllers.DeviceControllerTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-06-02T06:17:14" hostname="DESKTOP-PJI8ALC" time="0.114">
   <properties/>
-  <testcase name="getDevices" classname="sdi.web.controllers.DeviceControllerTest" time="0.208"/>
-  <testcase name="deleteDevice" classname="sdi.web.controllers.DeviceControllerTest" time="0.037"/>
-  <system-out><![CDATA[2022-06-01T02:51:53,378 TRACE [Test worker]: DeviceController                     - get all devices - method entered 
-2022-06-01T02:51:53,392 TRACE [Test worker]: DeviceController                     - get all devices - DevicesDto: DevicesInsertDto(devices=[DeviceInsertDto(super=BaseDto(id=1), type=T1, brand=B1, model=M1, clientId=1), DeviceInsertDto(super=BaseDto(id=2), type=T2, brand=B2, model=M2, clientId=2)]) 
+  <testcase name="getDevices" classname="sdi.web.controllers.DeviceControllerTest" time="0.097"/>
+  <testcase name="deleteDevice" classname="sdi.web.controllers.DeviceControllerTest" time="0.017"/>
+  <system-out><![CDATA[2022-06-02T09:17:14,815 TRACE [Test worker]: DeviceController                     - get all devices - method entered 
+2022-06-02T09:17:14,830 TRACE [Test worker]: DeviceController                     - get all devices - DevicesDto: DevicesInsertDto(devices=[DeviceInsertDto(super=BaseDto(id=1), type=T1, brand=B1, model=M1, clientId=1), DeviceInsertDto(super=BaseDto(id=2), type=T2, brand=B2, model=M2, clientId=2)]) 
 
 MockHttpServletRequest:
       HTTP Method = GET
@@ -42,8 +42,8 @@ MockHttpServletResponse:
     Forwarded URL = null
    Redirected URL = null
           Cookies = []
-2022-06-01T02:51:53,432 TRACE [Test worker]: DeviceController                     - delete device - method entered 
-2022-06-01T02:51:53,437 TRACE [Test worker]: DeviceController                     - delete device - success 
+2022-06-02T09:17:14,853 TRACE [Test worker]: DeviceController                     - delete device - method entered 
+2022-06-02T09:17:14,853 TRACE [Test worker]: DeviceController                     - delete device - success 
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

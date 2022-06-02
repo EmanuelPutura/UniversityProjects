@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="sdi.core.repository.ClientRepositoryTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-05-31T22:22:38" hostname="DESKTOP-PJI8ALC" time="0.345">
+<testsuite name="sdi.core.repository.ClientRepositoryTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-06-02T06:16:53" hostname="DESKTOP-PJI8ALC" time="0.324">
   <properties/>
-  <testcase name="getClientsWithFirstName" classname="sdi.core.repository.ClientRepositoryTest" time="0.269"/>
-  <testcase name="getClientsWithLastName" classname="sdi.core.repository.ClientRepositoryTest" time="0.075"/>
-  <system-out><![CDATA[Hibernate: select client0_.id as id1_0_, client0_.emailAddress as emailAdd2_0_, client0_.firstName as firstNam3_0_, client0_.lastName as lastName4_0_ from Client client0_ where client0_.firstName=?
-Hibernate: select client0_.id as id1_0_, client0_.emailAddress as emailAdd2_0_, client0_.firstName as firstNam3_0_, client0_.lastName as lastName4_0_ from Client client0_ where client0_.firstName=?
-Hibernate: select client0_.id as id1_0_, client0_.emailAddress as emailAdd2_0_, client0_.firstName as firstNam3_0_, client0_.lastName as lastName4_0_ from Client client0_ where client0_.lastName=?
-Hibernate: select client0_.id as id1_0_, client0_.emailAddress as emailAdd2_0_, client0_.firstName as firstNam3_0_, client0_.lastName as lastName4_0_ from Client client0_ where client0_.lastName=?
+  <testcase name="getClientsWithFirstName" classname="sdi.core.repository.ClientRepositoryTest" time="0.268"/>
+  <testcase name="getClientsWithLastName" classname="sdi.core.repository.ClientRepositoryTest" time="0.055"/>
+  <system-out><![CDATA[Hibernate: select distinct client0_.id as id1_0_, client0_.emailAddress as emailAdd2_0_, client0_.firstName as firstNam3_0_, client0_.lastName as lastName4_0_ from Client client0_ where client0_.firstName=?
+Hibernate: select distinct client0_.id as id1_0_, client0_.emailAddress as emailAdd2_0_, client0_.firstName as firstNam3_0_, client0_.lastName as lastName4_0_ from Client client0_ where client0_.firstName=?
+Hibernate: select distinct client0_.id as id1_0_, client0_.emailAddress as emailAdd2_0_, client0_.firstName as firstNam3_0_, client0_.lastName as lastName4_0_ from Client client0_ where client0_.lastName=?
+Hibernate: select distinct client0_.id as id1_0_, client0_.emailAddress as emailAdd2_0_, client0_.firstName as firstNam3_0_, client0_.lastName as lastName4_0_ from Client client0_ where client0_.lastName=?
 ]]></system-out>
   <system-err><![CDATA[ERROR StatusLogger No log4j2 configuration file found. Using default configuration: logging only errors to the console. Set system property 'log4j2.debug' to show Log4j2 internal initialization logging.
 ]]></system-err>

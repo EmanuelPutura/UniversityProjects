@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="sdi.web.controllers.WorkshopTeamControllerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-05-31T23:51:53" hostname="DESKTOP-PJI8ALC" time="0.213">
+<testsuite name="sdi.web.controllers.WorkshopTeamControllerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-06-02T06:17:14" hostname="DESKTOP-PJI8ALC" time="0.13">
   <properties/>
-  <testcase name="deleteWorkshopTeam" classname="sdi.web.controllers.WorkshopTeamControllerTest" time="0.113"/>
-  <testcase name="updateWorkshopTeam" classname="sdi.web.controllers.WorkshopTeamControllerTest" time="0.046"/>
-  <testcase name="getWorkshopTeams" classname="sdi.web.controllers.WorkshopTeamControllerTest" time="0.031"/>
-  <testcase name="addWorkshopTeam" classname="sdi.web.controllers.WorkshopTeamControllerTest" time="0.022"/>
-  <system-out><![CDATA[2022-06-01T02:51:53,842 ERROR [Test worker]: WorkshopTeamController               - ------> get all workshop teams - method entered 
-2022-06-01T02:51:53,842 ERROR [Test worker]: WorkshopTeamController               - ------> get all workshop teams - WorkshopTeamsDto: WorkshopTeamDtos(teams=[WorkshopTeamDto(super=BaseDto(id=1), teamName=T1, technicianId=1), WorkshopTeamDto(super=BaseDto(id=2), teamName=T2, technicianId=2)]) 
+  <testcase name="deleteWorkshopTeam" classname="sdi.web.controllers.WorkshopTeamControllerTest" time="0.071"/>
+  <testcase name="updateWorkshopTeam" classname="sdi.web.controllers.WorkshopTeamControllerTest" time="0.018"/>
+  <testcase name="getWorkshopTeams" classname="sdi.web.controllers.WorkshopTeamControllerTest" time="0.022"/>
+  <testcase name="addWorkshopTeam" classname="sdi.web.controllers.WorkshopTeamControllerTest" time="0.019"/>
+  <system-out><![CDATA[2022-06-02T09:17:15,084 ERROR [Test worker]: WorkshopTeamController               - ------> get all workshop teams - method entered 
+2022-06-02T09:17:15,084 ERROR [Test worker]: WorkshopTeamController               - ------> get all workshop teams - WorkshopTeamsDto: WorkshopTeamDtos(teams=[WorkshopTeamDto(super=BaseDto(id=2), teamName=T2, technicianId=2), WorkshopTeamDto(super=BaseDto(id=1), teamName=T1, technicianId=1)]) 
 
 MockHttpServletRequest:
       HTTP Method = GET
@@ -40,7 +40,7 @@ MockHttpServletResponse:
     Error message = null
           Headers = [Content-Type:"application/json"]
      Content type = application/json
-             Body = {"teams":[{"id":1,"teamName":"T1","technicianId":1},{"id":2,"teamName":"T2","technicianId":2}]}
+             Body = {"teams":[{"id":2,"teamName":"T2","technicianId":2},{"id":1,"teamName":"T1","technicianId":1}]}
     Forwarded URL = null
    Redirected URL = null
           Cookies = []

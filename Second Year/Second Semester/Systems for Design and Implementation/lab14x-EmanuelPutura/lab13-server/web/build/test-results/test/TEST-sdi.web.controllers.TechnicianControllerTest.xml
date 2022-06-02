@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="sdi.web.controllers.TechnicianControllerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-05-31T23:51:53" hostname="DESKTOP-PJI8ALC" time="0.214">
+<testsuite name="sdi.web.controllers.TechnicianControllerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-06-02T06:17:14" hostname="DESKTOP-PJI8ALC" time="0.115">
   <properties/>
-  <testcase name="addTechnician" classname="sdi.web.controllers.TechnicianControllerTest" time="0.123"/>
-  <testcase name="getTechnicians" classname="sdi.web.controllers.TechnicianControllerTest" time="0.036"/>
-  <testcase name="deleteTechnician" classname="sdi.web.controllers.TechnicianControllerTest" time="0.024"/>
-  <testcase name="updateTechnician" classname="sdi.web.controllers.TechnicianControllerTest" time="0.03"/>
-  <system-out><![CDATA[2022-06-01T02:51:53,561 TRACE [Test worker]: TechnicianController                 - add technician - method started - technician DTO: TechnicianDto(super=BaseDto(id=1), firstName=TF1, lastName=TL1, salary=100) 
-2022-06-01T02:51:53,592 TRACE [Test worker]: TechnicianController                 - get all technicians - method entered 
+  <testcase name="addTechnician" classname="sdi.web.controllers.TechnicianControllerTest" time="0.061"/>
+  <testcase name="getTechnicians" classname="sdi.web.controllers.TechnicianControllerTest" time="0.022"/>
+  <testcase name="deleteTechnician" classname="sdi.web.controllers.TechnicianControllerTest" time="0.014"/>
+  <testcase name="updateTechnician" classname="sdi.web.controllers.TechnicianControllerTest" time="0.018"/>
+  <system-out><![CDATA[2022-06-02T09:17:14,915 TRACE [Test worker]: TechnicianController                 - add technician - method started - technician DTO: TechnicianDto(super=BaseDto(id=1), firstName=TF1, lastName=TL1, salary=100) 
+2022-06-02T09:17:14,931 TRACE [Test worker]: TechnicianController                 - get all technicians - method entered 
 
 MockHttpServletRequest:
       HTTP Method = GET
@@ -44,9 +44,9 @@ MockHttpServletResponse:
     Forwarded URL = null
    Redirected URL = null
           Cookies = []
-2022-06-01T02:51:53,631 TRACE [Test worker]: TechnicianController                 - delete technician - method entered 
-2022-06-01T02:51:53,631 TRACE [Test worker]: TechnicianController                 - delete technician - success 
-2022-06-01T02:51:53,656 TRACE [Test worker]: TechnicianController                 - update technician - method entered 
+2022-06-02T09:17:14,953 TRACE [Test worker]: TechnicianController                 - delete technician - method entered 
+2022-06-02T09:17:14,953 TRACE [Test worker]: TechnicianController                 - delete technician - success 
+2022-06-02T09:17:14,969 TRACE [Test worker]: TechnicianController                 - update technician - method entered 
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -30,13 +30,13 @@ public class DeviceRepositoryTest {
 
     @Test
     public void getDevicesWithType() {
-        assertEquals("there should be 1 device", 1, deviceRepository.getDeviceByType("type1").size());
-        assertEquals("there should be 0 devices", 0, deviceRepository.getDeviceByType("none").size());
+        assertEquals("there should be 1 device", 1, deviceRepository.getDeviceWithType("type1").size());
+        assertEquals("there should be 0 devices", 0, deviceRepository.getDeviceWithType("none").size());
     }
 
     @Test
     public void getDevicesWithBrand() {
-        assertEquals("there should be 1 device", 1, deviceRepository.getDeviceByBrand("brand1").size());
-        assertEquals("there should be 0 devices", 0, deviceRepository.getDeviceByBrand("none").size());
+        assertEquals("there should be 1 device", 1, deviceRepository.getDeviceWithBrand("brand1").size());
+        assertEquals("there should be 0 devices", 0, deviceRepository.getDeviceWithBrand("none").size());
     }
 }

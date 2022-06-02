@@ -30,13 +30,13 @@ public class ClientRepositoryTest {
 
     @Test
     public void getClientsWithFirstName() {
-        assertEquals("there should be 1 client", 1, clientRepository.getClientByFirstName("Gigi1").size());
-        assertEquals("there should be 0 clients", 0, clientRepository.getClientByFirstName("Nobody").size());
+        assertEquals("there should be 1 client", 1, clientRepository.getClientWithFirstName("Gigi1").size());
+        assertEquals("there should be 0 clients", 0, clientRepository.getClientWithFirstName("Nobody").size());
     }
 
     @Test
     public void getClientsWithLastName() {
-        assertEquals("there should be 1 client", 1, clientRepository.getClientByLastName("Becali1").size());
-        assertEquals("there should be 0 clients", 0, clientRepository.getClientByLastName("Nobody").size());
+        assertEquals("there should be 1 client", 1, clientRepository.getClientWithLastName("Becali1").size());
+        assertEquals("there should be 0 clients", 0, clientRepository.getClientWithLastName("Nobody").size());
     }
 }

@@ -20,7 +20,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 @Configuration
-@EnableJpaRepositories(value = {"sdi.core.repository"}, repositoryImplementationPostfix = "CriteriaImpl")
+//@EnableJpaRepositories(value = {"sdi.core.repository"}, repositoryImplementationPostfix = "JpqlImpl")
+@EnableJpaRepositories(value = {"sdi.core.repository"})
 @EnableTransactionManagement
 public class JPAConfig {
     @Value("${db.jdbcUrl}")

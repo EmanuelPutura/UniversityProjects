@@ -5,6 +5,6 @@ import sdi.core.model.entities.Client;
 import java.util.List;
 
 public interface ClientCustomRepository {
-    List<Client> getClientByFirstName(String firstName);
-    List<Client> getClientByLastName(String lastName);
+    List<Client> getClientWithFirstName(String firstName);
+    List<Client> getClientWithLastName(String lastName);
 }
