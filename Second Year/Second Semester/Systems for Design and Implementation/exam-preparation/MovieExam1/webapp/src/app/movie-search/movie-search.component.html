@@ -1,0 +1,15 @@
+<div *ngIf="!showMovies">
+  <label>Movie title:</label> <input #title><br/>
+
+  <button (click)="onSearchClicked(title.value)">Search</button>
+</div>
+
+<div *ngIf="showMovies">
+  <ol class="movies">
+    <li *ngFor="let movie of movies"
+        [class.selected]="movie === selectedMovie"
+        (click)="onSelect(movie)">
+      {{movie.title}} {{movie.year}}
+    </li>
+  </ol>
+</div>

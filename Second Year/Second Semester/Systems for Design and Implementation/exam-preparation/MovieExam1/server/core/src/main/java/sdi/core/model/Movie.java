@@ -8,6 +8,12 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+@NamedEntityGraphs({
+        @NamedEntityGraph(
+                name = "Movie.movieWithActors",
+                attributeNodes = @NamedAttributeNode("movieActors")
+        )
+})
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,7 +29,7 @@ public class Movie extends BaseEntity<Long> {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name="movie")
     @ToString.Exclude
-    private Set<Author> movieAuthors = new HashSet<>();
+    private Set<Actor> movieActors = new HashSet<>();
 
     @Override
     public boolean equals(Object o) {
