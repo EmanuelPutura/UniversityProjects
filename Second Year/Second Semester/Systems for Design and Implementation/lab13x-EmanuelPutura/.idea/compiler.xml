@@ -8,7 +8,6 @@
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.24/13a394eed5c4f9efb2a6d956e2086f1d81e857d9/lombok-1.18.24.jar" />
         </processorPath>
-        <module name="lab13-server.client.main" />
         <module name="lab13-server.web.main" />
         <module name="lab13-server.core.main" />
         <module name="lab13-server.main" />
@@ -27,6 +26,9 @@
       <module name="lab12-server.web" target="16" />
       <module name="lab12-server.web.main" target="16" />
       <module name="lab12-server.web.test" target="16" />
+      <module name="lab13-server.client" target="16" />
+      <module name="lab13-server.client.main" target="16" />
+      <module name="lab13-server.client.test" target="16" />
     </bytecodeTargetLevel>
   </component>
 </project>

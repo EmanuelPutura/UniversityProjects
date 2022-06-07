@@ -1,5 +1,4 @@
 rootProject.name = 'lab13-server'
 include 'core'
 include 'web'
-include 'client'
-
+//include 'client'

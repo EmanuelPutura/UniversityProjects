@@ -143,3 +143,60 @@
 2022-06-02T09:17:14,969 TRACE [Test worker]: TechnicianController                 - update technician - method entered 
 2022-06-02T09:17:15,084 ERROR [Test worker]: WorkshopTeamController               - ------> get all workshop teams - method entered 
 2022-06-02T09:17:15,084 ERROR [Test worker]: WorkshopTeamController               - ------> get all workshop teams - WorkshopTeamsDto: WorkshopTeamDtos(teams=[WorkshopTeamDto(super=BaseDto(id=2), teamName=T2, technicianId=2), WorkshopTeamDto(super=BaseDto(id=1), teamName=T1, technicianId=1)]) 
+2022-06-02T13:00:39,041 TRACE [Test worker]: ClientController                     - update client - method entered 
+2022-06-02T13:00:39,056 TRACE [Test worker]: ClientController                     - update client - success 
+2022-06-02T13:00:39,108 TRACE [Test worker]: ClientController                     - delete client - method entered 
+2022-06-02T13:00:39,108 TRACE [Test worker]: ClientController                     - delete client - success 
+2022-06-02T13:00:39,151 TRACE [Test worker]: ClientController                     - add client - method started - client DTO: ClientDto(super=BaseDto(id=1), firstName=CF1, lastName=CL1, emailAddress=CE1) 
+2022-06-02T13:00:39,151 TRACE [Test worker]: ClientController                     - add client - client added 
+2022-06-02T13:00:39,182 ERROR [Test worker]: ClientController                     - ------> get all clients - method entered 
+2022-06-02T13:00:39,182 ERROR [Test worker]: ClientController                     - ------> get all clients - ClientsDto: ClientsDto(clients=[ClientDto(super=BaseDto(id=1), firstName=CF2, lastName=CL2, emailAddress=CE2), ClientDto(super=BaseDto(id=1), firstName=CF1, lastName=CL1, emailAddress=CE1)]) 
+2022-06-02T13:00:39,380 TRACE [Test worker]: DeviceController                     - get all devices - method entered 
+2022-06-02T13:00:39,396 TRACE [Test worker]: DeviceController                     - get all devices - DevicesDto: DevicesInsertDto(devices=[DeviceInsertDto(super=BaseDto(id=1), type=T1, brand=B1, model=M1, clientId=1), DeviceInsertDto(super=BaseDto(id=2), type=T2, brand=B2, model=M2, clientId=2)]) 
+2022-06-02T13:00:39,425 TRACE [Test worker]: DeviceController                     - delete device - method entered 
+2022-06-02T13:00:39,425 TRACE [Test worker]: DeviceController                     - delete device - success 
+2022-06-02T13:00:39,525 TRACE [Test worker]: TechnicianController                 - add technician - method started - technician DTO: TechnicianDto(super=BaseDto(id=1), firstName=TF1, lastName=TL1, salary=100) 
+2022-06-02T13:00:39,541 TRACE [Test worker]: TechnicianController                 - get all technicians - method entered 
+2022-06-02T13:00:39,576 TRACE [Test worker]: TechnicianController                 - delete technician - method entered 
+2022-06-02T13:00:39,576 TRACE [Test worker]: TechnicianController                 - delete technician - success 
+2022-06-02T13:00:39,596 TRACE [Test worker]: TechnicianController                 - update technician - method entered 
+2022-06-02T13:00:39,698 ERROR [Test worker]: WorkshopTeamController               - ------> get all workshop teams - method entered 
+2022-06-02T13:00:39,698 ERROR [Test worker]: WorkshopTeamController               - ------> get all workshop teams - WorkshopTeamsDto: WorkshopTeamDtos(teams=[WorkshopTeamDto(super=BaseDto(id=1), teamName=T1, technicianId=1), WorkshopTeamDto(super=BaseDto(id=2), teamName=T2, technicianId=2)]) 
+2022-06-02T13:16:00,127 TRACE [Test worker]: ClientController                     - update client - method entered 
+2022-06-02T13:16:00,148 TRACE [Test worker]: ClientController                     - update client - success 
+2022-06-02T13:16:00,179 TRACE [Test worker]: ClientController                     - delete client - method entered 
+2022-06-02T13:16:00,179 TRACE [Test worker]: ClientController                     - delete client - success 
+2022-06-02T13:16:00,226 TRACE [Test worker]: ClientController                     - add client - method started - client DTO: ClientDto(super=BaseDto(id=1), firstName=CF1, lastName=CL1, emailAddress=CE1) 
+2022-06-02T13:16:00,226 TRACE [Test worker]: ClientController                     - add client - client added 
+2022-06-02T13:16:00,248 ERROR [Test worker]: ClientController                     - ------> get all clients - method entered 
+2022-06-02T13:16:00,248 ERROR [Test worker]: ClientController                     - ------> get all clients - ClientsDto: ClientsDto(clients=[ClientDto(super=BaseDto(id=1), firstName=CF1, lastName=CL1, emailAddress=CE1), ClientDto(super=BaseDto(id=1), firstName=CF2, lastName=CL2, emailAddress=CE2)]) 
+2022-06-02T13:16:00,395 TRACE [Test worker]: DeviceController                     - get all devices - method entered 
+2022-06-02T13:16:00,395 TRACE [Test worker]: DeviceController                     - get all devices - DevicesDto: DevicesInsertDto(devices=[DeviceInsertDto(super=BaseDto(id=1), type=T1, brand=B1, model=M1, clientId=1), DeviceInsertDto(super=BaseDto(id=2), type=T2, brand=B2, model=M2, clientId=2)]) 
+2022-06-02T13:16:00,427 TRACE [Test worker]: DeviceController                     - delete device - method entered 
+2022-06-02T13:16:00,427 TRACE [Test worker]: DeviceController                     - delete device - success 
+2022-06-02T13:16:00,496 TRACE [Test worker]: TechnicianController                 - add technician - method started - technician DTO: TechnicianDto(super=BaseDto(id=1), firstName=TF1, lastName=TL1, salary=100) 
+2022-06-02T13:16:00,511 TRACE [Test worker]: TechnicianController                 - get all technicians - method entered 
+2022-06-02T13:16:00,527 TRACE [Test worker]: TechnicianController                 - delete technician - method entered 
+2022-06-02T13:16:00,527 TRACE [Test worker]: TechnicianController                 - delete technician - success 
+2022-06-02T13:16:00,549 TRACE [Test worker]: TechnicianController                 - update technician - method entered 
+2022-06-02T13:16:00,649 ERROR [Test worker]: WorkshopTeamController               - ------> get all workshop teams - method entered 
+2022-06-02T13:16:00,649 ERROR [Test worker]: WorkshopTeamController               - ------> get all workshop teams - WorkshopTeamsDto: WorkshopTeamDtos(teams=[WorkshopTeamDto(super=BaseDto(id=2), teamName=T2, technicianId=2), WorkshopTeamDto(super=BaseDto(id=1), teamName=T1, technicianId=1)]) 
+2022-06-02T13:33:13,764 TRACE [Test worker]: ClientController                     - update client - method entered 
+2022-06-02T13:33:13,779 TRACE [Test worker]: ClientController                     - update client - success 
+2022-06-02T13:33:13,848 TRACE [Test worker]: ClientController                     - delete client - method entered 
+2022-06-02T13:33:13,848 TRACE [Test worker]: ClientController                     - delete client - success 
+2022-06-02T13:33:13,906 TRACE [Test worker]: ClientController                     - add client - method started - client DTO: ClientDto(super=BaseDto(id=1), firstName=CF1, lastName=CL1, emailAddress=CE1) 
+2022-06-02T13:33:13,906 TRACE [Test worker]: ClientController                     - add client - client added 
+2022-06-02T13:33:13,933 ERROR [Test worker]: ClientController                     - ------> get all clients - method entered 
+2022-06-02T13:33:13,933 ERROR [Test worker]: ClientController                     - ------> get all clients - ClientsDto: ClientsDto(clients=[ClientDto(super=BaseDto(id=1), firstName=CF2, lastName=CL2, emailAddress=CE2), ClientDto(super=BaseDto(id=1), firstName=CF1, lastName=CL1, emailAddress=CE1)]) 
+2022-06-02T13:33:14,164 TRACE [Test worker]: DeviceController                     - get all devices - method entered 
+2022-06-02T13:33:14,180 TRACE [Test worker]: DeviceController                     - get all devices - DevicesDto: DevicesInsertDto(devices=[DeviceInsertDto(super=BaseDto(id=2), type=T2, brand=B2, model=M2, clientId=2), DeviceInsertDto(super=BaseDto(id=1), type=T1, brand=B1, model=M1, clientId=1)]) 
+2022-06-02T13:33:14,211 TRACE [Test worker]: DeviceController                     - delete device - method entered 
+2022-06-02T13:33:14,211 TRACE [Test worker]: DeviceController                     - delete device - success 
+2022-06-02T13:33:14,296 TRACE [Test worker]: TechnicianController                 - add technician - method started - technician DTO: TechnicianDto(super=BaseDto(id=1), firstName=TF1, lastName=TL1, salary=100) 
+2022-06-02T13:33:14,328 TRACE [Test worker]: TechnicianController                 - get all technicians - method entered 
+2022-06-02T13:33:14,349 TRACE [Test worker]: TechnicianController                 - delete technician - method entered 
+2022-06-02T13:33:14,349 TRACE [Test worker]: TechnicianController                 - delete technician - success 
+2022-06-02T13:33:14,380 TRACE [Test worker]: TechnicianController                 - update technician - method entered 
+2022-06-02T13:33:14,496 ERROR [Test worker]: WorkshopTeamController               - ------> get all workshop teams - method entered 
+2022-06-02T13:33:14,511 ERROR [Test worker]: WorkshopTeamController               - ------> get all workshop teams - WorkshopTeamsDto: WorkshopTeamDtos(teams=[WorkshopTeamDto(super=BaseDto(id=2), teamName=T2, technicianId=2), WorkshopTeamDto(super=BaseDto(id=1), teamName=T1, technicianId=1)]) 

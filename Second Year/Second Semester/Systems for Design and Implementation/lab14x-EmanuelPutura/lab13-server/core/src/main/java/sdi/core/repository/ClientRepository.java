@@ -9,7 +9,7 @@ import sdi.core.repository.custom.ClientCustomRepository;
 
 import java.util.List;
 
-@Component("ClientRepositoryJpql")
+@Component("ClientRepositoryNativeSql")
 public interface ClientRepository extends CatalogRepository<Client, Long>, ClientCustomRepository {
     List<Client> findClientsByLastName(String lastName, Sort sort);
 

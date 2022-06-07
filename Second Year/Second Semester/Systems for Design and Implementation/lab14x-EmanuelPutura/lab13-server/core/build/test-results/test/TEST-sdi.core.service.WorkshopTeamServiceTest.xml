@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="sdi.core.service.WorkshopTeamServiceTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-06-02T06:16:54" hostname="DESKTOP-PJI8ALC" time="0.194">
+<testsuite name="sdi.core.service.WorkshopTeamServiceTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-06-02T10:33:49" hostname="DESKTOP-PJI8ALC" time="0.202">
   <properties/>
-  <testcase name="getAllFromPage" classname="sdi.core.service.WorkshopTeamServiceTest" time="0.053"/>
-  <testcase name="delete" classname="sdi.core.service.WorkshopTeamServiceTest" time="0.046"/>
-  <testcase name="getAll" classname="sdi.core.service.WorkshopTeamServiceTest" time="0.056"/>
-  <testcase name="search" classname="sdi.core.service.WorkshopTeamServiceTest" time="0.037"/>
+  <testcase name="getAllFromPage" classname="sdi.core.service.WorkshopTeamServiceTest" time="0.054"/>
+  <testcase name="delete" classname="sdi.core.service.WorkshopTeamServiceTest" time="0.052"/>
+  <testcase name="getAll" classname="sdi.core.service.WorkshopTeamServiceTest" time="0.05"/>
+  <testcase name="search" classname="sdi.core.service.WorkshopTeamServiceTest" time="0.043"/>
   <system-out><![CDATA[Hibernate: select workshopte0_.id as id1_4_, workshopte0_.teamName as teamName2_4_, workshopte0_.technicianId as technici3_4_ from WorkshopTeam workshopte0_ limit ?
 Hibernate: select technician0_.id as id1_3_0_, technician0_.firstName as firstNam2_3_0_, technician0_.lastName as lastName3_3_0_, technician0_.salary as salary4_3_0_ from Technician technician0_ where technician0_.id=?
 Hibernate: select count(workshopte0_.id) as col_0_0_ from WorkshopTeam workshopte0_
