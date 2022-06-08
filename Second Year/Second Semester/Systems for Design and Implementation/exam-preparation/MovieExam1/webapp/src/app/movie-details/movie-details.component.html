@@ -1,1 +1,30 @@
-<p>movie-details works!</p>
+<div *ngIf="movie">
+  <label>Title: {{movie.title}}</label><br>
+  <label>Year: {{movie.year}}</label><br>
+
+  Cast:<br>
+  <ol class="actors">
+    <li *ngFor="let actor of movie.actors">
+      {{actor.name}} {{actor.rating}}
+    </li>
+  </ol>
+
+  <button (click)="onAddMoreActorsBtn()">Add more actors</button>
+</div>
+
+<hr>
+
+<div *ngIf="addMoreActors">
+  <h3>Actors:</h3>
+  <mat-form-field appearance="fill">
+    <mat-label>Actors</mat-label>
+    <mat-select [(value)]="selectedActor">
+      <mat-option *ngFor="let actor of availableActors" [value]="actor">
+        {{actor.name}}, {{actor.rating}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+  <button (click)="onAddButton(selectedActor)">Add</button>
+</div>

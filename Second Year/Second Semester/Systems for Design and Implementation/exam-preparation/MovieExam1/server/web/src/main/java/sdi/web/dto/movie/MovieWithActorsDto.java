@@ -5,9 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import sdi.web.dto.BaseDto;
-import sdi.web.dto.actor.ActorDtos;
+import sdi.web.dto.actor.ActorDto;
 
 import java.util.Objects;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,7 +17,7 @@ import java.util.Objects;
 public class MovieWithActorsDto extends BaseDto {
     private String title;
     private Integer year;
-    private ActorDtos actors;
+    private Set<ActorDto> actors;
 
     @Override
     public boolean equals(Object o) {

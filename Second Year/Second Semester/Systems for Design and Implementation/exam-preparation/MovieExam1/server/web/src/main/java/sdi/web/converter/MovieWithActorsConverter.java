@@ -22,14 +22,14 @@ public class MovieWithActorsConverter extends BaseConverter<Movie, MovieWithActo
         model.setId(dto.getId());
         model.setTitle(dto.getTitle());
         model.setYear(dto.getYear());
-        model.setMovieActors(actorConverter.convertDtosToModels(dto.getActors().getActors()));
+        model.setMovieActors(actorConverter.convertDtosToModels(dto.getActors()));
 
         return model;
     }
 
     @Override
     public MovieWithActorsDto convertModelToDto(Movie movie) {
-        var dto = new MovieWithActorsDto(movie.getTitle(), movie.getYear(), new ActorDtos(actorConverter.convertModelsToDtos(movie.getMovieActors())));
+        var dto = new MovieWithActorsDto(movie.getTitle(), movie.getYear(), actorConverter.convertModelsToDtos(movie.getMovieActors()));
         dto.setId(movie.getId());
         return dto;
     }

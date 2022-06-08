@@ -12,6 +12,7 @@ import sdi.web.dto.movie.MovieWithActorsDto;
 import java.util.stream.Collectors;
 
 @RestController
+@CrossOrigin(allowedHeaders = "*")
 public class MovieController {
     private final MovieService movieService;
     private final MovieConverter movieConverter;
