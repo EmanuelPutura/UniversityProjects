@@ -16,13 +16,13 @@ public class TcpClient {
              var is = socket.getInputStream();
              var os = socket.getOutputStream()) {
 
-            System.out.println("sending request: " + request.getHeader());
+//            System.out.println("sending request: " + request.getHeader());
             request.writeTo(os);
-            System.out.println("request sent");
+//            System.out.println("request sent");
 
             NetworkMessage response = new NetworkMessage();
             response.readFrom(is);
-            System.out.println("received response: " + response.getHeader());
+//            System.out.println("received response: " + response.getHeader());
 
             return response;
         } catch (UnknownHostException e) {

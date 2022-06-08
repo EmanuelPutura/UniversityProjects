@@ -54,8 +54,8 @@ public class Console {
                 while (true) {
                     var generated = generateRandomDouble(sensor.getLowerBound(), sensor.getUpperBound());
                     tcpClient.sendAndReceive(new NetworkMessage(SEND_SENSOR, new SensorDto(sensor.getId(), sensor.getName(), generated).encodeAsJson().toString()));
-                    Thread.sleep(new Random().nextInt());
-//                Thread.sleep(100);
+                    Thread.sleep(new Random().nextInt(10000));
+//                  Thread.sleep(1000);
                 }
             });
         });
@@ -100,8 +100,8 @@ public class Console {
             while (true) {
                 var generated = generateRandomDouble(sensor.getLowerBound(), sensor.getUpperBound());
                 tcpClient.sendAndReceive(new NetworkMessage(SEND_SENSOR, new SensorDto(sensor.getId(), sensor.getName(), generated).encodeAsJson().toString()));
-                Thread.sleep(new Random().nextInt());
-//                Thread.sleep(100);
+                Thread.sleep(new Random().nextInt(10000));
+//                Thread.sleep(1000);
             }
         });
     }
