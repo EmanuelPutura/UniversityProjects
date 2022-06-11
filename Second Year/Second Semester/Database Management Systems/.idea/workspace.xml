@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f5ff98a-113d-48e7-94a5-31705f39b65d" name="Changes" comment="" />
+    <list default="true" id="5f5ff98a-113d-48e7-94a5-31705f39b65d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Systems for Design and Implementation/lab13x-EmanuelPutura/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Systems for Design and Implementation/lab13x-EmanuelPutura/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Systems for Design and Implementation/lab13x-EmanuelPutura/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Systems for Design and Implementation/lab13x-EmanuelPutura/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Systems for Design and Implementation/lab13x-EmanuelPutura/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Systems for Design and Implementation/lab13x-EmanuelPutura/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Systems for Design and Implementation/lab13x-EmanuelPutura/lab13-server/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Systems for Design and Implementation/lab13x-EmanuelPutura/lab13-server/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Systems for Design and Implementation/lab13x-EmanuelPutura/lab13-server/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Systems for Design and Implementation/lab13x-EmanuelPutura/lab13-server/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Systems for Design and Implementation/lab13x-EmanuelPutura/lab13-server/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Systems for Design and Implementation/lab13x-EmanuelPutura/lab13-server/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Systems for Design and Implementation/lab13x-EmanuelPutura/lab13-server/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Systems for Design and Implementation/lab13x-EmanuelPutura/lab13-server/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web Programming/Assignment8-Jsp-JavaServlets/src/main/java/web/lab9/assignment9/controller/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Web Programming/Assignment8-Jsp-JavaServlets/src/main/java/web/lab9/assignment9/controller/UsersController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ProjectId" id="29t9BZnSH0lSKQOF2ztOSKXK30F" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="false" />
@@ -17,6 +27,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Relevant/UBB/UBB Sem4/Systems for Design and Implementation/lectures-sdi22" />
     <property name="settings.editor.selected.configurable" value="MTHome" />
   </component>
   <component name="RunManager">
@@ -38,7 +49,11 @@
       <option name="presentableId" value="Default" />
       <updated>1653921383909</updated>
       <workItem from="1653921385594" duration="3000" />
+      <workItem from="1654006407229" duration="35000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

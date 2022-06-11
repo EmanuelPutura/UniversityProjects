@@ -57,7 +57,7 @@ public class JPAConfig {
 
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(vendorAdapter);
-        factory.setPackagesToScan("sdi/server/config/model");
+        factory.setPackagesToScan("sdi/server/model");
         factory.setDataSource(dataSource());
         factory.afterPropertiesSet();
         return factory.getObject();

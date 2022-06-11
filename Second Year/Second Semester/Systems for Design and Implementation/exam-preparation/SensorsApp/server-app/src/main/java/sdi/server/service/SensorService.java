@@ -1,2 +1,4 @@
-package sdi.server.service;public interface SensorService {
+package sdi.server.service;
+
+public interface SensorService {
 }

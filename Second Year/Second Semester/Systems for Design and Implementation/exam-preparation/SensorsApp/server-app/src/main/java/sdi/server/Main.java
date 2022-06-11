@@ -1,15 +1,15 @@
 package sdi.server;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import sdi.server.view.Console;
+import sdi.server.tcp.TcpServer;
 
 public class Main {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context =
-                new AnnotationConfigApplicationContext("config");
+                new AnnotationConfigApplicationContext("sdi.server.config");
 
-        Console console = context.getBean(Console.class);
-        console.run();
+        var tcpServer = context.getBean(TcpServer.class);
+        tcpServer.startServer();
     }
 }
 

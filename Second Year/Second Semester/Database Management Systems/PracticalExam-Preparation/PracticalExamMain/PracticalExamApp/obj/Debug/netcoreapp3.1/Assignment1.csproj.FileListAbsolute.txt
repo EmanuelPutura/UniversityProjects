@@ -1,0 +1,69 @@
+D:\Informatica\UniversityProjects\Database Management Systems\Assignment1\bin\Debug\netcoreapp3.1\Assignment1.exe
+D:\Informatica\UniversityProjects\Database Management Systems\Assignment1\bin\Debug\netcoreapp3.1\Assignment1.deps.json
+D:\Informatica\UniversityProjects\Database Management Systems\Assignment1\bin\Debug\netcoreapp3.1\Assignment1.runtimeconfig.json
+D:\Informatica\UniversityProjects\Database Management Systems\Assignment1\bin\Debug\netcoreapp3.1\Assignment1.runtimeconfig.dev.json
+D:\Informatica\UniversityProjects\Database Management Systems\Assignment1\bin\Debug\netcoreapp3.1\Assignment1.dll
+D:\Informatica\UniversityProjects\Database Management Systems\Assignment1\bin\Debug\netcoreapp3.1\Assignment1.pdb
+D:\Informatica\UniversityProjects\Database Management Systems\Assignment1\obj\Debug\netcoreapp3.1\Assignment1.csproj.AssemblyReference.cache
+D:\Informatica\UniversityProjects\Database Management Systems\Assignment1\obj\Debug\netcoreapp3.1\Assignment1.csproj.GenerateResource.cache
+D:\Informatica\UniversityProjects\Database Management Systems\Assignment1\obj\Debug\netcoreapp3.1\Assignment1.GeneratedMSBuildEditorConfig.editorconfig
+D:\Informatica\UniversityProjects\Database Management Systems\Assignment1\obj\Debug\netcoreapp3.1\Assignment1.AssemblyInfoInputs.cache
+D:\Informatica\UniversityProjects\Database Management Systems\Assignment1\obj\Debug\netcoreapp3.1\Assignment1.AssemblyInfo.cs
+D:\Informatica\UniversityProjects\Database Management Systems\Assignment1\obj\Debug\netcoreapp3.1\Assignment1.csproj.CoreCompileInputs.cache
+D:\Informatica\UniversityProjects\Database Management Systems\Assignment1\obj\Debug\netcoreapp3.1\Assignment1.dll
+D:\Informatica\UniversityProjects\Database Management Systems\Assignment1\obj\Debug\netcoreapp3.1\Assignment1.pdb
+D:\Informatica\UniversityProjects\Database Management Systems\Assignment1\obj\Debug\netcoreapp3.1\Assignment1.genruntimeconfig.cache
+D:\Informatica\UniversityProjects\Database Management Systems\Assignment1\obj\Debug\netcoreapp3.1\Assignment1.MainWindow.resources
+D:\Informatica\UniversityProjects\Database Management Systems\Assignment1\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+D:\Informatica\UniversityProjects\Database Management Systems\Assignment1\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+D:\Informatica\UniversityProjects\Database Management Systems\Assignment1\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+D:\Informatica\UniversityProjects\Database Management Systems\Assignment1\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+D:\Informatica\UniversityProjects\Database Management Systems\Assignment1\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Informatica\UniversityProjects\Database Management Systems\Assignment1\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Informatica\UniversityProjects\Database Management Systems\Assignment1\obj\Debug\netcoreapp3.1\Assignment1.csproj.CopyComplete
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\Assignment1\bin\Debug\netcoreapp3.1\Assignment1.exe
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\Assignment1\bin\Debug\netcoreapp3.1\Assignment1.deps.json
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\Assignment1\bin\Debug\netcoreapp3.1\Assignment1.runtimeconfig.json
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\Assignment1\bin\Debug\netcoreapp3.1\Assignment1.runtimeconfig.dev.json
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\Assignment1\bin\Debug\netcoreapp3.1\Assignment1.dll
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\Assignment1\bin\Debug\netcoreapp3.1\Assignment1.pdb
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\Assignment1\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\Assignment1\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\Assignment1\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\Assignment1\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\Assignment1\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\Assignment1\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\Assignment1\obj\Debug\netcoreapp3.1\Assignment1.csproj.AssemblyReference.cache
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\Assignment1\obj\Debug\netcoreapp3.1\Assignment1.MainWindow.resources
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\Assignment1\obj\Debug\netcoreapp3.1\Assignment1.csproj.GenerateResource.cache
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\Assignment1\obj\Debug\netcoreapp3.1\Assignment1.GeneratedMSBuildEditorConfig.editorconfig
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\Assignment1\obj\Debug\netcoreapp3.1\Assignment1.AssemblyInfoInputs.cache
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\Assignment1\obj\Debug\netcoreapp3.1\Assignment1.AssemblyInfo.cs
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\Assignment1\obj\Debug\netcoreapp3.1\Assignment1.csproj.CoreCompileInputs.cache
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\Assignment1\obj\Debug\netcoreapp3.1\Assignment1.csproj.CopyComplete
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\Assignment1\obj\Debug\netcoreapp3.1\Assignment1.dll
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\Assignment1\obj\Debug\netcoreapp3.1\Assignment1.pdb
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\Assignment1\obj\Debug\netcoreapp3.1\Assignment1.genruntimeconfig.cache
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\PracticalExam-Preparation\PracticalExamMain\PracticalExamApp\bin\Debug\netcoreapp3.1\Assignment1.exe
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\PracticalExam-Preparation\PracticalExamMain\PracticalExamApp\bin\Debug\netcoreapp3.1\Assignment1.deps.json
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\PracticalExam-Preparation\PracticalExamMain\PracticalExamApp\bin\Debug\netcoreapp3.1\Assignment1.runtimeconfig.json
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\PracticalExam-Preparation\PracticalExamMain\PracticalExamApp\bin\Debug\netcoreapp3.1\Assignment1.runtimeconfig.dev.json
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\PracticalExam-Preparation\PracticalExamMain\PracticalExamApp\bin\Debug\netcoreapp3.1\Assignment1.dll
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\PracticalExam-Preparation\PracticalExamMain\PracticalExamApp\bin\Debug\netcoreapp3.1\Assignment1.pdb
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\PracticalExam-Preparation\PracticalExamMain\PracticalExamApp\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\PracticalExam-Preparation\PracticalExamMain\PracticalExamApp\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\PracticalExam-Preparation\PracticalExamMain\PracticalExamApp\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\PracticalExam-Preparation\PracticalExamMain\PracticalExamApp\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\PracticalExam-Preparation\PracticalExamMain\PracticalExamApp\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\PracticalExam-Preparation\PracticalExamMain\PracticalExamApp\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\PracticalExam-Preparation\PracticalExamMain\PracticalExamApp\obj\Debug\netcoreapp3.1\Assignment1.csproj.AssemblyReference.cache
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\PracticalExam-Preparation\PracticalExamMain\PracticalExamApp\obj\Debug\netcoreapp3.1\Assignment1.MainWindow.resources
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\PracticalExam-Preparation\PracticalExamMain\PracticalExamApp\obj\Debug\netcoreapp3.1\Assignment1.csproj.GenerateResource.cache
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\PracticalExam-Preparation\PracticalExamMain\PracticalExamApp\obj\Debug\netcoreapp3.1\Assignment1.GeneratedMSBuildEditorConfig.editorconfig
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\PracticalExam-Preparation\PracticalExamMain\PracticalExamApp\obj\Debug\netcoreapp3.1\Assignment1.AssemblyInfoInputs.cache
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\PracticalExam-Preparation\PracticalExamMain\PracticalExamApp\obj\Debug\netcoreapp3.1\Assignment1.AssemblyInfo.cs
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\PracticalExam-Preparation\PracticalExamMain\PracticalExamApp\obj\Debug\netcoreapp3.1\Assignment1.csproj.CoreCompileInputs.cache
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\PracticalExam-Preparation\PracticalExamMain\PracticalExamApp\obj\Debug\netcoreapp3.1\Assignment1.csproj.CopyComplete
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\PracticalExam-Preparation\PracticalExamMain\PracticalExamApp\obj\Debug\netcoreapp3.1\Assignment1.dll
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\PracticalExam-Preparation\PracticalExamMain\PracticalExamApp\obj\Debug\netcoreapp3.1\Assignment1.pdb
+D:\Informatica\University\UniversityProjects\Second Year\Second Semester\Database Management Systems\PracticalExam-Preparation\PracticalExamMain\PracticalExamApp\obj\Debug\netcoreapp3.1\Assignment1.genruntimeconfig.cache

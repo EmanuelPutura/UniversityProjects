@@ -33,7 +33,7 @@ public class UsersController extends HttpServlet {
 
         RequestDispatcher requestDispatcher = null;
         if (usersService.checkPassword(username, password)) {
-             HttpSession session = request.getSession();
+            HttpSession session = request.getSession();
             session.setAttribute("user", username);
 
             requestDispatcher = request.getRequestDispatcher("/puzzle.jsp");
