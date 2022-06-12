@@ -70,5 +70,18 @@ namespace Assignment9_ASP.NET.Persistence
             }
             return new Tuple<int, List<Product>>(pageNumber, products);
         }
+
+        public bool CheckProductId(int id)
+        {
+            var conn = new NpgsqlConnection(connectionString);
+            conn.Open();
+
+            var sql = $"SELECT * FROM public.\"Products\" WHERE id = '{id}' ";
+
+            var cmd = new NpgsqlCommand(sql, conn);
+            NpgsqlDataReader npgsqlDataReader = cmd.ExecuteReader();
+
+            return npgsqlDataReader.HasRows;
+        }
     }
 }

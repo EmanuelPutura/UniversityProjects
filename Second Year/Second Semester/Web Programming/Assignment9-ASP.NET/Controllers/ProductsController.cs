@@ -24,6 +24,11 @@ namespace Assignment9_ASP.NET.Controllers
             return JsonConvert.SerializeObject(new Tuple<int, string>(result.Item1, BuildTableFromProducts(result.Item2)));
         }
 
+        public bool CheckProductId(int id)
+        {
+            return dataPersistence.CheckProductId(id);
+        }
+
         public ActionResult InsertProduct()
         {
             return View("ProductsInsertView");

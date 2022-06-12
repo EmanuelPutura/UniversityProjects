@@ -72,11 +72,11 @@
         const id = document.getElementById("select-cart-id").value;
 
         const getRequest = new XMLHttpRequest();
-        getRequest.open("GET", "./server/controller/controller.php?func=check&id=" + id, true);
+        getRequest.open("GET", "./CheckProductId?id=" + id, true);
         getRequest.send();
 
         getRequest.onload = function () {
-            if (this.responseText.replace(/[^a-z]/gi, '') == "valid") {
+            if (this.responseText.replace(/[^a-z]/gi, '') == "True") {
                 if (thisObject.basketProductIds.indexOf(id) == -1) {
                     thisObject.basketProductIds.push(id);
                     thisObject.updateShoppingBasket();
@@ -92,11 +92,11 @@
         const id = document.getElementById("select-cart-id").value;
 
         const getRequest = new XMLHttpRequest();
-        getRequest.open("GET", "./server/controller/controller.php?func=check&id=" + id, true);
+        getRequest.open("GET", "./CheckProductId?id=" + id, true);
         getRequest.send();
 
         getRequest.onload = function () {
-            if (this.responseText.replace(/[^a-z]/gi, '') == "valid") {
+            if (this.responseText.replace(/[^a-z]/gi, '') == "True") {
                 const idIndex = thisObject.basketProductIds.indexOf(id);
                 if (idIndex != -1) {
                     thisObject.basketProductIds.splice(idIndex, 1);  // remove element from array
