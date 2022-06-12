@@ -1,0 +1,98 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Emanuel-Vasile Putura">
+    <meta name="description" content="E-Commerce Store">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Store</title>
+
+    <link rel="stylesheet" href="~/Webapp/Styles/main.css">
+    <script src="~/Webapp/Scripts/main.js"></script>
+</head>
+
+<body>
+    <main>
+        <ul id="nav-bar">
+            <li>
+                <button id="home-page" type="button">Home</button>
+            </li>
+            <li>
+                <button id="db-insert" type="button">Insert Product</button>
+            </li>
+            <li>
+                <button id="db-update" type="button">Update Product</button>
+            </li>
+            <li>
+                <button id="db-delete" type="button">Delete Product</button>
+            </li>
+        </ul>
+
+        <h1 class="title">E-Commerce Store</h1>
+        <hr>
+
+        <div id="cart-div">
+            <label for="select-cart-id">Product ID:</label>
+            <input type="text" id="select-cart-id" name="select-cart-id"><br>
+            <button type="button" id="cart-add-btn">Add To Shopping Basket</button>
+            <button type="button" id="cart-remove-btn">Remove From Shopping Basket</button>
+        </div>
+
+        <div id="select-txtbox-div">
+            <label for="select-category">Category:</label>
+            <input type="text" id="select-category" name="select-category"><br>
+            <button type="button" id="submit-select-btn">Select Category</button>
+        </div>
+
+        <div id="main-products-div">
+            <table id="products-table">
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Product Category</th>
+                    <th>Product Price</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            <div id="buttons-products-div">
+                <button id="prev-products-btn" type="button">Previous Page</button>
+                <button id="next-products-btn" type="button">Next Page</button>
+            </div>
+        </div>
+
+        <label id="basket-label">Shopping basket Product IDs:</label>
+    </main>
+
+    <script language="javascript" type="text/javascript">
+            var eventHandler = new EventHandling();
+    </script>
+</body>
+</html>
