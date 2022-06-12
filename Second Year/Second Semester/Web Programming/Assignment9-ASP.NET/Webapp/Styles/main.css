@@ -10,20 +10,29 @@
 
 #main-products-div {
     width: 75%;
-    height: 60vh;
+    height: 50vh;
+    margin: auto;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#main-products-div table {
+    margin-bottom: 0;
+}
+
+#buttons-products-div {
+    width: 75%;
+    height: 10vh;
     margin: auto;
     text-align: center;
     margin-top: 0;
 }
 
-    #main-products-div div {
-        height: 20%;
-    }
-
 table {
     border-collapse: collapse;
     width: 100%;
-    height: 75%;
+    height: 100%;
     margin: auto;
     margin-top: 0;
     border: 2px solid black;
@@ -60,25 +69,25 @@ tr:nth-child(even) {
     background-color: #333;
 }
 
-    #nav-bar > li {
-        float: left;
-        width: auto;
-    }
+#nav-bar > li {
+    float: left;
+    width: auto;
+}
 
-    #nav-bar button {
-        border: 0;
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        background-color: transparent;
-        width: auto;
-    }
+#nav-bar button {
+    border: 0;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: transparent;
+    width: auto;
+}
 
-    #nav-bar li button:hover {
-        background-color: #111;
-    }
+#nav-bar li button:hover {
+    background-color: #111;
+}
 
 #select-txtbox-div {
     text-align: center;
@@ -89,23 +98,23 @@ tr:nth-child(even) {
     margin-bottom: 0;
 }
 
-    #select-txtbox-div label {
-        display: inline-block;
-        width: 17%;
-        height: 33%;
-        text-align: left;
-    }
+#select-txtbox-div label {
+    display: inline-block;
+    width: 17%;
+    height: 33%;
+    text-align: left;
+}
 
-    #select-txtbox-div input {
-        width: 80%;
-        height: 33%;
-    }
+#select-txtbox-div input {
+    width: 80%;
+    height: 33%;
+}
 
-    #select-txtbox-div button {
-        width: 99%;
-        margin: auto;
-        height: 33%;
-    }
+#select-txtbox-div button {
+    width: 99%;
+    margin: auto;
+    height: 33%;
+}
 
 #cart-div {
     text-align: center;
@@ -116,17 +125,17 @@ tr:nth-child(even) {
     margin-bottom: 0;
 }
 
-    #cart-div label {
-        display: inline-block;
-        width: 17%;
-        height: 33%;
-        text-align: left;
-    }
+#cart-div label {
+    display: inline-block;
+    width: 17%;
+    height: 33%;
+    text-align: left;
+}
 
-    #cart-div input {
-        width: 80%;
-        height: 33%;
-    }
+#cart-div input {
+    width: 80%;
+    height: 33%;
+}
 
 #cart-add-btn {
     width: 49%;

@@ -1,4 +1,4 @@
-﻿
+﻿@using Assignment9_ASP.NET.Models;
 @{
     Layout = null;
 }
@@ -49,50 +49,18 @@
             <button type="button" id="submit-select-btn">Select Category</button>
         </div>
 
-        <div id="main-products-div">
-            <table id="products-table">
-                <tr>
-                    <th>Product ID</th>
-                    <th>Product Name</th>
-                    <th>Product Category</th>
-                    <th>Product Price</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table>
-            <div id="buttons-products-div">
-                <button id="prev-products-btn" type="button">Previous Page</button>
-                <button id="next-products-btn" type="button">Next Page</button>
-            </div>
+        <div id="main-products-div"></div>
+
+        <div id="buttons-products-div">
+            <button id="prev-products-btn" type="button">Previous Page</button>
+            <button id="next-products-btn" type="button">Next Page</button>
         </div>
 
         <label id="basket-label">Shopping basket Product IDs:</label>
     </main>
 
     <script language="javascript" type="text/javascript">
-            var eventHandler = new EventHandling();
+        var eventHandler = new EventHandling();
     </script>
 </body>
 </html>
