@@ -5,9 +5,14 @@ function onSubmitButtonClicked() {
 
     const requestContent = {"action": "update", "productId": productID, "productName": productName, "productPrice": productPrice};
     const putRequestBody = JSON.stringify(requestContent);
+
     const putRequest = new XMLHttpRequest();
 
     putRequest.open("PUT", "../crud");
     putRequest.setRequestHeader("Content-type", "application/json");
     putRequest.send(putRequestBody);
+
+    putRequest.onload = function() {
+        document.location.href = "../index.jsp";
+    }
 }

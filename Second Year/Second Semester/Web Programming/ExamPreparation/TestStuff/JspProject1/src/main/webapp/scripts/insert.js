@@ -8,4 +8,8 @@ function onSubmitButtonClicked() {
     postRequest.open("POST", "../crud");
     postRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     postRequest.send(postRequestBody);
+
+    postRequest.onload = function() {
+        document.location.href = "../index.jsp";
+    }
 }
