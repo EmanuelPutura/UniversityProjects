@@ -34,6 +34,25 @@ namespace Assignment9_ASP.NET.Persistence
             return users;
         }
 
+        public List<Product> GetAllProducts()
+        {
+            var conn = new NpgsqlConnection(connectionString);
+            conn.Open();
+
+            var sql = $"SELECT * FROM public.\"Products\"";
+
+            List<Product> products = new List<Product>();
+            var cmd = new NpgsqlCommand(sql, conn);
+
+            NpgsqlDataReader npgsqlDataReader = cmd.ExecuteReader();
+            while (npgsqlDataReader.Read())
+            {
+                products.Add(new Product(npgsqlDataReader.GetInt32(0), npgsqlDataReader.GetString(1), npgsqlDataReader.GetString(2), npgsqlDataReader.GetInt32(3)));
+            }
+
+            return products;
+        }
+
         public Tuple<int, List<Product>> GetAllProducts(string category, int pageNumber)
         {
             if (pageNumber < 0)
@@ -82,6 +101,57 @@ namespace Assignment9_ASP.NET.Persistence
             NpgsqlDataReader npgsqlDataReader = cmd.ExecuteReader();
 
             return npgsqlDataReader.HasRows;
+        }
+
+        public void SaveProduct(Product product)
+        {
+            try
+            {
+                var conn = new NpgsqlConnection(connectionString);
+                conn.Open();
+
+                var sql = $"INSERT INTO public.\"Products\"(name, category, price) VALUES ('{product.Name}', '{product.Category}', {product.Price});";
+                var cmd = new NpgsqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Npgsql.NpgsqlException ex)
+            {
+                Console.Write(ex.Message);
+            }
+        }
+
+        public void UpdateProduct(Product product)
+        {
+            try
+            {
+                var conn = new NpgsqlConnection(connectionString);
+                conn.Open();
+
+                var sql = $"UPDATE public.\"Products\" SET name = '{product.Name}', category = '{product.Category}', price = {product.Price} WHERE id = {product.Id};";
+                var cmd = new NpgsqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Npgsql.NpgsqlException ex)
+            {
+                Console.Write(ex.Message);
+            }
+        }
+
+        public void RemoveProduct(int productId)
+        {
+            try
+            {
+                var conn = new NpgsqlConnection(connectionString);
+                conn.Open();
+
+                var sql = $"DELETE FROM public.\"Products\" WHERE id = {productId};";
+                var cmd = new NpgsqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Npgsql.NpgsqlException ex)
+            {
+                Console.Write(ex.Message);
+            }
         }
     }
 }

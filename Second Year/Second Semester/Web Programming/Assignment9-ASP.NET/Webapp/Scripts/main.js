@@ -41,7 +41,7 @@
     }
 
     homeBtnClicked(event) {
-        document.location.href = "./Products";
+        document.location.href = "./";
     }
 
     dbInsertBtnClicked(event) {

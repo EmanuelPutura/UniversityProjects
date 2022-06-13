@@ -189,6 +189,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Webapp\Scripts\insert.js" />
     <Content Include="Webapp\Scripts\main.js" />
     <Content Include="Webapp\Styles\login.css" />
     <Content Include="Webapp\Styles\main.css" />

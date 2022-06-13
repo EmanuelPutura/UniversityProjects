@@ -34,8 +34,20 @@ namespace Assignment9_ASP.NET.Controllers
             return View("ProductsInsertView");
         }
 
+        public void InsertProductPersist(string productName, string productCategory, string productPrice)
+        {
+            int intProductPrice;
+            if (!int.TryParse(productPrice, out intProductPrice))
+            {
+                return;
+            }
+
+            dataPersistence.SaveProduct(new Product(-1, productName, productCategory, intProductPrice));
+        }
+
         public ActionResult UpdateProduct()
         {
+            ViewData["Products"] = dataPersistence.GetAllProducts();
             return View("ProductsUpdateView");
         }
 

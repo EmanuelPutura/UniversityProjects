@@ -1,4 +1,4 @@
-﻿
+﻿@using Assignment9_ASP.NET.Models;
 @{
     Layout = null;
 }
@@ -36,22 +36,29 @@
 
         <h1 class="title">E-Commerce Store</h1><hr>
 
-        <form class="form" action="">
-            <label for="product-id">Product ID:</label>
-            <input type="text" id="product-id" name="product-id"><br>
-            <label for="product-name">Product name:</label>
-            <input type="text" id="product-name" name="product-name"><br>
-            <label for="product-category">Product category:</label>
-            <input type="text" id="product-category" name="product-category"><br>
-            <label for="product-price">Product price:</label>
-            <input type="text" id="product-price" name="product-price"><br>
-            <button type="button" id="submit-update-btn">Update Product</button>
-        </form>
+        @{
+            var products = (List<Product>)ViewData["Products"];
+        }
+        <table style="width: 75%; height: 60%; margin-top: 2%">
+            <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+            </tr>
+            @foreach (var product in products)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Category</td>
+                    <td>@product.Price</td>
+                </tr>
+            }
+        </table>
     </main>
 </body>
 
 <script language="javascript" type="text/javascript">
-        var eventHandler = new EventHandling();
+    var eventHandler = new EventHandling();
 </script>
 </html>
 
