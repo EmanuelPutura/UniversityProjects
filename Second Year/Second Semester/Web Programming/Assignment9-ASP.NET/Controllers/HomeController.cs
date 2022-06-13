@@ -10,7 +10,7 @@ namespace Assignment9_ASP.NET.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "Login");
         }
 
         public ActionResult About()

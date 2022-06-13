@@ -1,4 +1,4 @@
-﻿
+﻿@using Assignment9_ASP.NET.Models;
 @{
     Layout = null;
 }
@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="~/Webapp/Styles/main.css">
     <link rel="stylesheet" href="~/Webapp/Styles/products-crud.css">
-    <script src="~/Webapp/Scripts/main.js"></script>
+    <script src="~/Webapp/Scripts/delete.js"></script>
 </head>
 
 <body>
@@ -36,17 +36,28 @@
 
         <h1 class="title">E-Commerce Store</h1><hr>
 
-        <form class="form" action="">
-            <label for="product-id">Product ID:</label>
-            <input type="text" id="product-id" name="product-id"><br>
-            <button type="button" id="submit-delete-btn">Delete Product</button>
-        </form>
+        @{
+            var products = (List<Product>)ViewData["Products"];
+        }
+        <table id="productsTable" style="width: 75%; height: 60%; margin-top: 2%">
+            <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+            </tr>
+            @foreach (var product in products)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Category</td>
+                    <td>@product.Price</td>
+                </tr>
+            }
+        </table>
     </main>
 </body>
 
 <script language="javascript" type="text/javascript">
-        var eventHandler = new EventHandling();
+    var eventHandler = new EventHandling();
 </script>
 </html>
-
-

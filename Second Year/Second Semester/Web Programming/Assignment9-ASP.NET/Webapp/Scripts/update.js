@@ -57,7 +57,7 @@
         getRequest.onload = function () {
             // document.location.href = "./ProductDetails";
             document.open("text/html", "replace");
-            document.write(this.responseText);
+            document.write(this.resp);
             document.close();
         }
     }

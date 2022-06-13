@@ -25,7 +25,8 @@ namespace Assignment9_ASP.NET.Controllers
             }
 
             Session["username"] = username;
-            return Redirect("/Products");
+            return RedirectToAction("Index", "Products/");
+
         }
     }
 }

@@ -65,7 +65,20 @@ namespace Assignment9_ASP.NET.Controllers
 
         public ActionResult DeleteProduct()
         {
+            ViewData["Products"] = dataPersistence.GetAllProducts();
             return View("ProductsDeleteView");
+        }
+
+        public void DeleteProductPersist(string name, string category, string price)
+        {
+            int intProductPrice;
+            if (!int.TryParse(price, out intProductPrice))
+            {
+                return;
+            }
+
+            var product = dataPersistence.GetProductBasedOnAllFieldsButForId(new Product(-1, name, category, intProductPrice));
+            dataPersistence.RemoveProduct((int)product.Id);
         }
 
         public ActionResult ProductDetailsPrepare(string name, string category, string price)
