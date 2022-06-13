@@ -1,7 +1,6 @@
 package web.lab9.assignment9.controller;
 
 import web.lab9.assignment9.repository.users.UsersRepositoryFactory;
-import web.lab9.assignment9.service.PiecesService;
 import web.lab9.assignment9.service.UsersService;
 
 import javax.servlet.RequestDispatcher;
