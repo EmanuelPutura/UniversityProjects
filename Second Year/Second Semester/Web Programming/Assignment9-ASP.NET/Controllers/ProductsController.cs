@@ -15,11 +15,21 @@ namespace Assignment9_ASP.NET.Controllers
 
         public ActionResult Index()
         {
+            if (Session["username"] == null)
+            {
+                return RedirectToAction("Index", "Login/");
+            }
+
             return Products();
         }
 
         public string Products(string category, int currentPage)
         {
+            if (Session["username"] == null)
+            {
+                return "Invalid Session!";
+            }
+
             var result = dataPersistence.GetAllProducts(category, currentPage);
             return JsonConvert.SerializeObject(new Tuple<int, string>(result.Item1, BuildTableFromProducts(result.Item2)));
         }
@@ -31,11 +41,21 @@ namespace Assignment9_ASP.NET.Controllers
 
         public ActionResult InsertProduct()
         {
+            if (Session["username"] == null)
+            {
+                return RedirectToAction("Index", "Login/");
+            }
+
             return View("ProductsInsertView");
         }
 
         public void InsertProductPersist(string productName, string productCategory, string productPrice)
         {
+            if (Session["username"] == null)
+            {
+                return;
+            }
+
             int intProductPrice;
             if (!int.TryParse(productPrice, out intProductPrice))
             {
@@ -47,12 +67,22 @@ namespace Assignment9_ASP.NET.Controllers
 
         public ActionResult UpdateProduct()
         {
+            if (Session["username"] == null)
+            {
+                return RedirectToAction("Index", "Login/");
+            }
+
             ViewData["Products"] = dataPersistence.GetAllProducts();
             return View("ProductsUpdateView");
         }
 
         public ActionResult UpdateProductPersist(string id, string name, string category, string price)
         {
+            if (Session["username"] == null)
+            {
+                return RedirectToAction("Index", "Login/");
+            }
+
             int intProductId, intProductPrice;
             if (!int.TryParse(price, out intProductPrice) || !int.TryParse(id, out intProductId))
             {
@@ -65,12 +95,22 @@ namespace Assignment9_ASP.NET.Controllers
 
         public ActionResult DeleteProduct()
         {
+            if (Session["username"] == null)
+            {
+                return RedirectToAction("Index", "Login/");
+            }
+
             ViewData["Products"] = dataPersistence.GetAllProducts();
             return View("ProductsDeleteView");
         }
 
         public void DeleteProductPersist(string name, string category, string price)
         {
+            if (Session["username"] == null)
+            {
+                return;
+            }
+
             int intProductPrice;
             if (!int.TryParse(price, out intProductPrice))
             {
@@ -83,6 +123,11 @@ namespace Assignment9_ASP.NET.Controllers
 
         public ActionResult ProductDetailsPrepare(string name, string category, string price)
         {
+            if (Session["username"] == null)
+            {
+                return RedirectToAction("Index", "Login/");
+            }
+
             int intProductPrice;
             if (!int.TryParse(price, out intProductPrice))
             {
@@ -99,11 +144,21 @@ namespace Assignment9_ASP.NET.Controllers
 
         private ActionResult Products()
         {
+            if (Session["username"] == null)
+            {
+                return RedirectToAction("Index", "Login/");
+            }
+
             return View("ProductsHomeView");
         }
 
         private string BuildTableFromProducts(List<Product> products)
         {
+            if (Session["username"] == null)
+            {
+                return "Invalid Session!";
+            }
+
             var resultTable = "<table id=\"products-table\"><tr>";
             resultTable += "<th>Product ID</th>";
             resultTable += "<th>Product Name</th>";
