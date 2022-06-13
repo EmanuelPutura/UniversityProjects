@@ -1,0 +1,58 @@
+﻿@using Assignment9_ASP.NET.Models;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Emanuel-Vasile Putura">
+    <meta name="description" content="E-Commerce Store">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Store</title>
+
+    <link rel="stylesheet" href="~/Webapp/Styles/details.css">
+    <script src="~/Webapp/Scripts/details.js"></script>
+</head>
+
+<body>
+    <main>
+        @{
+            var product = (Product)ViewData["Product"];
+        }
+        <ul id="nav-bar">
+            <li>
+                <button id="home-page" type="button">Home</button>
+            </li>
+            <li>
+                <button id="db-insert" type="button">Insert Product</button>
+            </li>
+            <li>
+                <button id="db-update" type="button">Update Product</button>
+            </li>
+            <li>
+                <button id="db-delete" type="button">Delete Product</button>
+            </li>
+        </ul>
+
+        <div id="product-title">Product: name = @product.Name, category = @product.Category, price = @product.Price</div>
+
+        <form class="form" action="/Products/UpdateProductPersist" id="product-form">
+            <label for="id">Product ID:</label>
+            <input type="text" id="product-id" name="id" value="@product.Id" readonly><br>
+            <label for="name">Product name:</label>
+            <input type="text" id="product-name" name="name" value="@product.Name"><br>
+            <label for="category">Product category:</label>
+            <input type="text" id="product-category" name="category" value="@product.Category"><br>
+            <label for="price">Product price:</label>
+            <input type="text" id="product-price" name="price" value="@product.Price"><br>
+            <input type="submit" value="Update Product" />
+        </form>
+
+        <script language="javascript" type="text/javascript">
+            var eventHandler = new EventHandling();
+        </script>
+    </main>
+</body>
+</html>

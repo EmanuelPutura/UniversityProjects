@@ -51,9 +51,37 @@ namespace Assignment9_ASP.NET.Controllers
             return View("ProductsUpdateView");
         }
 
+        public ActionResult UpdateProductPersist(string id, string name, string category, string price)
+        {
+            int intProductId, intProductPrice;
+            if (!int.TryParse(price, out intProductPrice) || !int.TryParse(id, out intProductId))
+            {
+                return null;
+            }
+
+            dataPersistence.UpdateProduct(new Product(intProductId, name, category, intProductPrice));
+            return UpdateProduct();
+        }
+
         public ActionResult DeleteProduct()
         {
             return View("ProductsDeleteView");
+        }
+
+        public ActionResult ProductDetailsPrepare(string name, string category, string price)
+        {
+            int intProductPrice;
+            if (!int.TryParse(price, out intProductPrice))
+            {
+                return null;
+            }
+
+            var product = dataPersistence.GetProductBasedOnAllFieldsButForId(new Product(-1, name, category, intProductPrice));
+            // Session["Product"] = product;
+
+            ViewData["Product"] = product;
+            return View("ProductDetailsView");
+
         }
 
         private ActionResult Products()

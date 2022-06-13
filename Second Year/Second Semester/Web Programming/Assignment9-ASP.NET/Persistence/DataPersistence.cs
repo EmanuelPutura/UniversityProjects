@@ -153,5 +153,24 @@ namespace Assignment9_ASP.NET.Persistence
                 Console.Write(ex.Message);
             }
         }
+
+        public Product GetProductBasedOnAllFieldsButForId(Product product)
+        {
+            var conn = new NpgsqlConnection(connectionString);
+            conn.Open();
+
+            var sql = $"SELECT * FROM public.\"Products\" WHERE name = '{product.Name}' AND category = '{product.Category}' AND price = {product.Price}";
+
+            List<Product> products = new List<Product>();
+            var cmd = new NpgsqlCommand(sql, conn);
+
+            NpgsqlDataReader npgsqlDataReader = cmd.ExecuteReader();
+            while (npgsqlDataReader.Read())
+            {
+                products.Add(new Product(npgsqlDataReader.GetInt32(0), npgsqlDataReader.GetString(1), npgsqlDataReader.GetString(2), npgsqlDataReader.GetInt32(3)));
+            }
+
+            return products.Count != 1 ? null : products[0];
+        }
     }
 }

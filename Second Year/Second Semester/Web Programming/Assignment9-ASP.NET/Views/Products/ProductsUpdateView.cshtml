@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="~/Webapp/Styles/main.css">
     <link rel="stylesheet" href="~/Webapp/Styles/products-crud.css">
-    <script src="~/Webapp/Scripts/main.js"></script>
+    <script src="~/Webapp/Scripts/update.js"></script>
 </head>
 
 <body>
@@ -39,7 +39,7 @@
         @{
             var products = (List<Product>)ViewData["Products"];
         }
-        <table style="width: 75%; height: 60%; margin-top: 2%">
+        <table id="productsTable" style="width: 75%; height: 60%; margin-top: 2%">
             <tr>
                 <th>Name</th>
                 <th>Category</th>

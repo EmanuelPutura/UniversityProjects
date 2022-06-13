@@ -189,8 +189,11 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Webapp\Scripts\details.js" />
     <Content Include="Webapp\Scripts\insert.js" />
     <Content Include="Webapp\Scripts\main.js" />
+    <Content Include="Webapp\Scripts\update.js" />
+    <Content Include="Webapp\Styles\details.css" />
     <Content Include="Webapp\Styles\login.css" />
     <Content Include="Webapp\Styles\main.css" />
     <Content Include="Webapp\Styles\products-crud.css" />
@@ -224,6 +227,7 @@
     <Content Include="Views\Products\ProductsInsertView.cshtml" />
     <Content Include="Views\Products\ProductsUpdateView.cshtml" />
     <Content Include="Views\Products\ProductsDeleteView.cshtml" />
+    <Content Include="Views\Products\ProductDetailsView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
