@@ -75,5 +75,4 @@ class Controller {
 
 $controller = new Controller();
 $controller->serve();
-?>
-
+?>`

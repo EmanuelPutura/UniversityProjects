@@ -13,10 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.stream.Stream;
 
 @WebServlet(name = "CrudServlet", value = "/crud")
 public class CrudController extends HttpServlet {
