@@ -42,5 +42,8 @@ will push only the created entries, while the device was offline
 You can check the initially proposed design of the app [here](https://www.figma.com/file/52vK9XPCyZk7cGbwV7MdDx/FCSB-MobileApp?node-id=0%3A1).
 
 #### Main Screen
+![image](https://user-images.githubusercontent.com/72196173/197035013-fdcf4c06-687f-4c58-b8ad-ad9c547f93b1.png)
 
 #### CRUD Screen
+![image](https://user-images.githubusercontent.com/72196173/197035104-0b09a87b-a69c-47bf-957f-98df5f7b1fc5.png)
+
