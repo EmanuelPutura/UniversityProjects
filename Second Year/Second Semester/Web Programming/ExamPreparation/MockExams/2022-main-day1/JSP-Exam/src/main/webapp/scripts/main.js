@@ -45,7 +45,7 @@ function onSearchBtn() {
             let titleRow = row.insertCell(1);
             titleRow.innerHTML = title;
 
-            let templatesRow = row.insertCell(1);
+            let templatesRow = row.insertCell(2);
             templatesRow.innerHTML = templates;
         });
 
