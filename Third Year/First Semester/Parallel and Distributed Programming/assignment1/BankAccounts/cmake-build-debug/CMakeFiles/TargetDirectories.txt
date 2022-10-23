@@ -1,0 +1,3 @@
+/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment1/BankAccounts/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment1/BankAccounts/cmake-build-debug/CMakeFiles/edit_cache.dir
+/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment1/BankAccounts/cmake-build-debug/CMakeFiles/BankAccounts.dir

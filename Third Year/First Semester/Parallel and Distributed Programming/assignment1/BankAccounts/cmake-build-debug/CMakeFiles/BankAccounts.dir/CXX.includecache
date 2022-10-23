@@ -1,0 +1,76 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment1/BankAccounts/Account/Account.cpp
+Account.h
+/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment1/BankAccounts/Account/Account.h
+
+/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment1/BankAccounts/Account/Account.h
+iostream
+-
+unordered_set
+-
+mutex
+-
+../AccountLogEntry/AccountLogEntry.h
+/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment1/BankAccounts/AccountLogEntry/AccountLogEntry.h
+
+/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment1/BankAccounts/AccountLogEntry/AccountLogEntry.cpp
+AccountLogEntry.h
+/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment1/BankAccounts/AccountLogEntry/AccountLogEntry.h
+
+/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment1/BankAccounts/AccountLogEntry/AccountLogEntry.h
+cstddef
+-
+../AccountOperation/AccountTransferOperation.h
+/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment1/BankAccounts/AccountOperation/AccountTransferOperation.h
+
+/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment1/BankAccounts/AccountOperation/AccountTransferOperation.h
+
+/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment1/BankAccounts/Bank/Bank.cpp
+Bank.h
+/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment1/BankAccounts/Bank/Bank.h
+
+/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment1/BankAccounts/Bank/Bank.h
+fstream
+-
+unordered_map
+-
+mutex
+-
+string
+-
+../Account/Account.h
+/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment1/BankAccounts/Account/Account.h
+
+/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment1/BankAccounts/RandomGenerator/RandomGenerator.h
+
+/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment1/BankAccounts/ThreadsManager/ThreadsManager.cpp
+vector
+-
+ThreadsManager.h
+/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment1/BankAccounts/ThreadsManager/ThreadsManager.h
+../RandomGenerator/RandomGenerator.h
+/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment1/BankAccounts/RandomGenerator/RandomGenerator.h
+
+/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment1/BankAccounts/ThreadsManager/ThreadsManager.h
+iostream
+-
+../Bank/Bank.h
+/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment1/BankAccounts/Bank/Bank.h
+
+/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment1/BankAccounts/main.cpp
+iostream
+-
+vector
+-
+thread
+-
+ThreadsManager/ThreadsManager.h
+/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment1/BankAccounts/ThreadsManager/ThreadsManager.h
+
