@@ -11,7 +11,7 @@ page, where he/she will be able to add a new player to the squad. When pressing 
 corresponding player's details will be shown. Moreover, the user will have the possibility to update these details or delete the player.
 
 ### Problem Domain Overview
-Entity that will be persisted: `Football Player`
+Entity that will be persisted: `Football Player`<br />
 Fields of the entity:
 - `name:`       string      - the name of the player (first name + last name)
 - `position:`   string      - the field position of the player (e.g., GK, CB, LB, RB, ST)
