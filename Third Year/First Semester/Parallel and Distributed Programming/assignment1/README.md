@@ -32,6 +32,6 @@ Two transaction involving distinct accounts must be able to proceed independentl
 - moreover, the way the mutexes are used make sure that the amount of money in each account correspond to its logs, at all times
 
 ## Experiments
-- 50 threads, with an average of 50 operations/thread - running time was ```8406us```
-- 100 threads, with an average of 50 operations/thread - running time was ```13577us```
-- 1000 threads, with an average of 50 operations/thread - running time was ```259329us```
+- 50 threads, with an average of 25 operations/thread - running time was ```8406us```
+- 100 threads, with an average of 25 operations/thread - running time was ```13577us```
+- 1000 threads, with an average of 25 operations/thread - running time was ```259329us```
