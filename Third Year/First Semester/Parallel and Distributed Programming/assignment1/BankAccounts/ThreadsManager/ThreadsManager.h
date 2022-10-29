@@ -18,7 +18,7 @@ private:
 public:
     static void worker(Bank& bank);
 
-    static void executeConsistencyCheckWithProbability(const Bank& bank, double probability = 0.001);
+    static void executeConsistencyCheckWithProbability(const Bank& bank, double probability = 0.0005);
 };
 
 

@@ -20,10 +20,6 @@ mutex
 ../AccountLogEntry/AccountLogEntry.h
 /mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment1/BankAccounts/AccountLogEntry/AccountLogEntry.h
 
-/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment1/BankAccounts/AccountLogEntry/AccountLogEntry.cpp
-AccountLogEntry.h
-/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment1/BankAccounts/AccountLogEntry/AccountLogEntry.h
-
 /mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment1/BankAccounts/AccountLogEntry/AccountLogEntry.h
 cstddef
 -
