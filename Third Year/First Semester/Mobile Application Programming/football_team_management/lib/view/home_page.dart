@@ -51,7 +51,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   fontWeight: FontWeight.bold),
                             ),
                             Text(
-                              player.position,
+                              player.id.toString(),
                               style: const TextStyle(color: Colors.black, fontSize: 14.0),
                             )
                           ],
@@ -76,7 +76,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       Navigator.of(context).push(
                           MaterialPageRoute<void>(
                               builder: (context) {
-                                return FootballPlayerDetailsWidget(index);
+                                return FootballPlayerDetailsWidget(player);
                               }
                           )
                       )

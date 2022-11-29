@@ -47,7 +47,7 @@ class PlayersDatabaseRepository implements PlayersRepository {
       weightColumn: player.weight
     };
 
-    var r = await _database.insert(tableName, row);
+    await _database.insert(tableName, row);
   }
 
   @override
@@ -79,6 +79,8 @@ class PlayersDatabaseRepository implements PlayersRepository {
                                   playerMap[numberColumn] as int,
                                   playerMap[heightColumn] as int,
                                   playerMap[weightColumn] as double);
+
+      player.id = playerMap[idColumn] as int;
       result.add(player);
     }
 
