@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:football_team_management/repository/football_players_repository.dart';
+import 'package:football_team_management/repository/players_repository.dart';
 import '../domain/football_player.dart';
+import '../repository/players_database_repository.dart';
 
 class FootballPlayersService extends ChangeNotifier {
-  late final FootballPlayersRepository repository;
+  final PlayersRepository _repository;
 
-  FootballPlayersService() {
-    repository = FootballPlayersRepository();
-    loadDefaultPlayers();
+  FootballPlayersService(this._repository);
+
+  static Future<FootballPlayersService> init() async {
+    var repository = await PlayersDatabaseRepository.init();
+    return FootballPlayersService(repository);
   }
 
   void loadDefaultPlayers() {
@@ -29,26 +32,26 @@ class FootballPlayersService extends ChangeNotifier {
     ];
 
     for (var i = 0; i < defaultPLayers.length; ++i) {
-      repository.add(defaultPLayers[i]);
+      _repository.add(defaultPLayers[i]);
     }
 
     notifyListeners();
   }
 
   void add(String name, String position, int number, int height, double weight) {
-    repository.add(FootballPlayer(name, position, number, height, weight));
+    _repository.add(FootballPlayer(name, position, number, height, weight));
     notifyListeners();
   }
 
   void remove(int id) {
-    repository.remove(id);
+    _repository.remove(id);
     notifyListeners();
   }
 
   void update(int id, String name, String position, int number, int height, double weight) {
-    repository.update(id, FootballPlayer(name, position, number, height, weight));
+    _repository.update(id, FootballPlayer(name, position, number, height, weight));
     notifyListeners();
   }
 
-  List<FootballPlayer> getAllPlayers() => repository.elements;
+  Future<List<FootballPlayer>> getAllPlayers() async => await _repository.getAll();
 }
