@@ -17,3 +17,8 @@
             * like SMP, but processors have different capabilities (e.g., only one can request I/O)
         * NUMA = non-uniform memory access
             * each processor has a local memory, but it can also access a main memory and/or the local memory of the other processors
+
+
+## Lecture 2 - Handling concurrency
+
+[TODO]
