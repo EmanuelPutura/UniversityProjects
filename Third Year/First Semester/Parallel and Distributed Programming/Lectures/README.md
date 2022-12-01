@@ -22,3 +22,8 @@
 ## Lecture 2 - Handling concurrency
 
 [TODO]
+
+
+## Lecture 3 - More concurrency issues
+
+[TODO]
