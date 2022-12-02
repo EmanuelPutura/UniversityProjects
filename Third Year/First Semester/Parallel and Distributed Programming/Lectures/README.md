@@ -48,3 +48,8 @@
 * promise
 * future
 * set a continuation on a future
+
+
+## Lecture 5 - Futures with continuations
+
+* async/await mechanism
