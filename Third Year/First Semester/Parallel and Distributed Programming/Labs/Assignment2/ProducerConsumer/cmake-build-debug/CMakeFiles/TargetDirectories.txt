@@ -1,3 +1,3 @@
-/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment2/ProducerConsumer/cmake-build-debug/CMakeFiles/edit_cache.dir
-/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment2/ProducerConsumer/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment2/ProducerConsumer/cmake-build-debug/CMakeFiles/ProducerConsumer.dir
+/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/Labs/Assignment2/ProducerConsumer/cmake-build-debug/CMakeFiles/edit_cache.dir
+/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/Labs/Assignment2/ProducerConsumer/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/Labs/Assignment2/ProducerConsumer/cmake-build-debug/CMakeFiles/ProducerConsumer.dir

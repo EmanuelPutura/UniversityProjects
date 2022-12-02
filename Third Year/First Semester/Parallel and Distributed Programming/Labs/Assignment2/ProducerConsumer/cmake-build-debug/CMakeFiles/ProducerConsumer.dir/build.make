@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment2/ProducerConsumer"
+CMAKE_SOURCE_DIR = "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/Labs/Assignment2/ProducerConsumer"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment2/ProducerConsumer/cmake-build-debug"
+CMAKE_BINARY_DIR = "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/Labs/Assignment2/ProducerConsumer/cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/ProducerConsumer.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/ProducerConsumer.dir/flags.make
 
 CMakeFiles/ProducerConsumer.dir/main.cpp.o: CMakeFiles/ProducerConsumer.dir/flags.make
 CMakeFiles/ProducerConsumer.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment2/ProducerConsumer/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ProducerConsumer.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProducerConsumer.dir/main.cpp.o -c "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment2/ProducerConsumer/main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/Labs/Assignment2/ProducerConsumer/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ProducerConsumer.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProducerConsumer.dir/main.cpp.o -c "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/Labs/Assignment2/ProducerConsumer/main.cpp"
 
 CMakeFiles/ProducerConsumer.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ProducerConsumer.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment2/ProducerConsumer/main.cpp" > CMakeFiles/ProducerConsumer.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/Labs/Assignment2/ProducerConsumer/main.cpp" > CMakeFiles/ProducerConsumer.dir/main.cpp.i
 
 CMakeFiles/ProducerConsumer.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ProducerConsumer.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment2/ProducerConsumer/main.cpp" -o CMakeFiles/ProducerConsumer.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/Labs/Assignment2/ProducerConsumer/main.cpp" -o CMakeFiles/ProducerConsumer.dir/main.cpp.s
 
 # Object files for target ProducerConsumer
 ProducerConsumer_OBJECTS = \
@@ -80,7 +80,7 @@ ProducerConsumer_EXTERNAL_OBJECTS =
 ProducerConsumer: CMakeFiles/ProducerConsumer.dir/main.cpp.o
 ProducerConsumer: CMakeFiles/ProducerConsumer.dir/build.make
 ProducerConsumer: CMakeFiles/ProducerConsumer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment2/ProducerConsumer/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ProducerConsumer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/Labs/Assignment2/ProducerConsumer/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ProducerConsumer"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ProducerConsumer.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -93,6 +93,6 @@ CMakeFiles/ProducerConsumer.dir/clean:
 .PHONY : CMakeFiles/ProducerConsumer.dir/clean
 
 CMakeFiles/ProducerConsumer.dir/depend:
-	cd "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment2/ProducerConsumer/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment2/ProducerConsumer" "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment2/ProducerConsumer" "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment2/ProducerConsumer/cmake-build-debug" "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment2/ProducerConsumer/cmake-build-debug" "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment2/ProducerConsumer/cmake-build-debug/CMakeFiles/ProducerConsumer.dir/DependInfo.cmake" --color=$(COLOR)
+	cd "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/Labs/Assignment2/ProducerConsumer/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/Labs/Assignment2/ProducerConsumer" "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/Labs/Assignment2/ProducerConsumer" "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/Labs/Assignment2/ProducerConsumer/cmake-build-debug" "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/Labs/Assignment2/ProducerConsumer/cmake-build-debug" "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/Labs/Assignment2/ProducerConsumer/cmake-build-debug/CMakeFiles/ProducerConsumer.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/ProducerConsumer.dir/depend
 

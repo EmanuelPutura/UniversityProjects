@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment2/ProducerConsumer/main.cpp" "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment2/ProducerConsumer/cmake-build-debug/CMakeFiles/ProducerConsumer.dir/main.cpp.o"
+  "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/Labs/Assignment2/ProducerConsumer/main.cpp" "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/Labs/Assignment2/ProducerConsumer/cmake-build-debug/CMakeFiles/ProducerConsumer.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

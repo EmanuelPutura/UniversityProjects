@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "bd2HqEJxbQpODC9pQaSQIrnBPsLogVshMqfYfSoS+2w5LBlUeg/YZBBgCg7PBAN0pTTWQhJYGIZuuT97/wnkzg==",
+  "success": true,
+  "projectFilePath": "D:\\Informatica\\University\\UniversityProjects\\Third Year\\First Semester\\Parallel and Distributed Programming\\Labs\\Assignment4\\Assignment4.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\28082020\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.25\\microsoft.netcore.app.host.win-x64.3.1.25.nupkg.sha512"
+  ],
+  "logs": []
+}

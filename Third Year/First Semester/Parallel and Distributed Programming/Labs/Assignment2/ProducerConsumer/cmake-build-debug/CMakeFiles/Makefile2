@@ -44,10 +44,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment2/ProducerConsumer"
+CMAKE_SOURCE_DIR = "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/Labs/Assignment2/ProducerConsumer"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment2/ProducerConsumer/cmake-build-debug"
+CMAKE_BINARY_DIR = "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/Labs/Assignment2/ProducerConsumer/cmake-build-debug"
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -74,14 +74,14 @@ clean: CMakeFiles/ProducerConsumer.dir/clean
 CMakeFiles/ProducerConsumer.dir/all:
 	$(MAKE) -f CMakeFiles/ProducerConsumer.dir/build.make CMakeFiles/ProducerConsumer.dir/depend
 	$(MAKE) -f CMakeFiles/ProducerConsumer.dir/build.make CMakeFiles/ProducerConsumer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment2/ProducerConsumer/cmake-build-debug/CMakeFiles" --progress-num=1,2 "Built target ProducerConsumer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/Labs/Assignment2/ProducerConsumer/cmake-build-debug/CMakeFiles" --progress-num=1,2 "Built target ProducerConsumer"
 .PHONY : CMakeFiles/ProducerConsumer.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ProducerConsumer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment2/ProducerConsumer/cmake-build-debug/CMakeFiles" 2
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/Labs/Assignment2/ProducerConsumer/cmake-build-debug/CMakeFiles" 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ProducerConsumer.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/assignment2/ProducerConsumer/cmake-build-debug/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/d/Informatica/University/UniversityProjects/Third Year/First Semester/Parallel and Distributed Programming/Labs/Assignment2/ProducerConsumer/cmake-build-debug/CMakeFiles" 0
 .PHONY : CMakeFiles/ProducerConsumer.dir/rule
 
 # Convenience name for target.

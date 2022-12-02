@@ -1,0 +1,14 @@
+D:\Informatica\University\UniversityProjects\Third Year\First Semester\Parallel and Distributed Programming\Labs\Assignment4\bin\Debug\netcoreapp3.1\Assignment4.exe
+D:\Informatica\University\UniversityProjects\Third Year\First Semester\Parallel and Distributed Programming\Labs\Assignment4\bin\Debug\netcoreapp3.1\Assignment4.deps.json
+D:\Informatica\University\UniversityProjects\Third Year\First Semester\Parallel and Distributed Programming\Labs\Assignment4\bin\Debug\netcoreapp3.1\Assignment4.runtimeconfig.json
+D:\Informatica\University\UniversityProjects\Third Year\First Semester\Parallel and Distributed Programming\Labs\Assignment4\bin\Debug\netcoreapp3.1\Assignment4.runtimeconfig.dev.json
+D:\Informatica\University\UniversityProjects\Third Year\First Semester\Parallel and Distributed Programming\Labs\Assignment4\bin\Debug\netcoreapp3.1\Assignment4.dll
+D:\Informatica\University\UniversityProjects\Third Year\First Semester\Parallel and Distributed Programming\Labs\Assignment4\bin\Debug\netcoreapp3.1\Assignment4.pdb
+D:\Informatica\University\UniversityProjects\Third Year\First Semester\Parallel and Distributed Programming\Labs\Assignment4\obj\Debug\netcoreapp3.1\Assignment4.csproj.AssemblyReference.cache
+D:\Informatica\University\UniversityProjects\Third Year\First Semester\Parallel and Distributed Programming\Labs\Assignment4\obj\Debug\netcoreapp3.1\Assignment4.GeneratedMSBuildEditorConfig.editorconfig
+D:\Informatica\University\UniversityProjects\Third Year\First Semester\Parallel and Distributed Programming\Labs\Assignment4\obj\Debug\netcoreapp3.1\Assignment4.AssemblyInfoInputs.cache
+D:\Informatica\University\UniversityProjects\Third Year\First Semester\Parallel and Distributed Programming\Labs\Assignment4\obj\Debug\netcoreapp3.1\Assignment4.AssemblyInfo.cs
+D:\Informatica\University\UniversityProjects\Third Year\First Semester\Parallel and Distributed Programming\Labs\Assignment4\obj\Debug\netcoreapp3.1\Assignment4.csproj.CoreCompileInputs.cache
+D:\Informatica\University\UniversityProjects\Third Year\First Semester\Parallel and Distributed Programming\Labs\Assignment4\obj\Debug\netcoreapp3.1\Assignment4.dll
+D:\Informatica\University\UniversityProjects\Third Year\First Semester\Parallel and Distributed Programming\Labs\Assignment4\obj\Debug\netcoreapp3.1\Assignment4.pdb
+D:\Informatica\University\UniversityProjects\Third Year\First Semester\Parallel and Distributed Programming\Labs\Assignment4\obj\Debug\netcoreapp3.1\Assignment4.genruntimeconfig.cache
