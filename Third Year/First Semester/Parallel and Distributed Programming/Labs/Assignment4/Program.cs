@@ -15,7 +15,7 @@ namespace Assignment4
 
         static void Main(string[] args)
         {
-            new TasksMethod(Urls);
+            new AsyncAwaitMethod(Urls);
         }
     }
 }

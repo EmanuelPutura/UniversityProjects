@@ -6,7 +6,7 @@ using Assignment4.SocketHandler;
 
 namespace Assignment4.Methods
 {
-    class TasksMethod : Method
+    class AsyncAwaitMethod : Method
     {
         protected override string MethodType => "Tasks";
 
@@ -16,29 +16,26 @@ namespace Assignment4.Methods
                Start(UrlsSocketHandler.Create(url, index))));
 
             var results = Task.WhenAll(tasks).Result;
-            foreach(var str in results)
+            foreach (var str in results)
             {
                 Console.WriteLine(str);
             }
         }
 
-        private string Start(UrlsSocketHandler socket)
+        private async Task<string> Start(UrlsSocketHandler socket)
         {
-            socket.BeginConnectAsync().Wait();
+            await socket.BeginConnectAsync();
             // LogConnected(socket);
 
-            var sendTask = socket.BeginSendAsync();
-            sendTask.Wait();
-
-            var numberOfSentBytes = sendTask.Result;
+            var numberOfSentBytes = await socket.BeginSendAsync();
             // LogSent(socket, numberOfSentBytes);
 
-            socket.BeginReceiveAsync().Wait();
+            await socket.BeginReceiveAsync();
             socket.ShutdownAndClose();
 
             return LogReceived(socket, false);
         }
 
-        public TasksMethod(List<string> urls) : base(urls) { }
+        public AsyncAwaitMethod(List<string> urls) : base(urls) { }
     }
 }
