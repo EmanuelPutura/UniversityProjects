@@ -15,7 +15,26 @@ namespace Assignment4
 
         static void Main(string[] args)
         {
-            new AsyncAwaitMethod(Urls);
+            Console.WriteLine("1. Callbacks Method");
+            Console.WriteLine("2. Tasks Method");
+            Console.WriteLine("3. Async Await Method");
+
+            string choice = Console.ReadLine();
+            switch (choice)
+            {
+                case "1":
+                    new CallbacksMethod(Urls);
+                    break;
+                case "2":
+                    new TasksMethod(Urls);
+                    break;
+                case "3":
+                    new AsyncAwaitMethod(Urls);
+                    break;
+                default:
+                    Console.WriteLine("Invalid command!");
+                    break;
+            }
         }
     }
 }
