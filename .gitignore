@@ -2,5 +2,6 @@
 *.idea
 *.vs
 *Debug
-*.sln
-*.vcxproj
+*.sln.*
+*.vcxproj.*
+*x64
