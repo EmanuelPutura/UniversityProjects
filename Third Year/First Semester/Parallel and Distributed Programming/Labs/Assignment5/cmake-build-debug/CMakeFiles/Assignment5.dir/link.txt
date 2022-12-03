@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/Assignment5.dir/main.cpp.o CMakeFiles/Assignment5.dir/Polynomial/Polynomial.cpp.o CMakeFiles/Assignment5.dir/Polynomial/MultiplicationStrategy/Sequential/Simple/SequentialSimpleMultiplicationStrategy.cpp.o  -o Assignment5 

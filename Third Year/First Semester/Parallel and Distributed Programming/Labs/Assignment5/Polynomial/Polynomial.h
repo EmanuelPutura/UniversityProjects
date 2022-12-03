@@ -1,9 +1,4 @@
-//
-// Created by Emanuel on 03.12.2022.
-//
-
-#ifndef ASSIGNMENT5_POLYNOMIAL_H
-#define ASSIGNMENT5_POLYNOMIAL_H
+#pragma once
 
 #include <vector>
 #include <limits>
@@ -20,6 +15,8 @@ private:
 
     std::function<Polynomial(const Polynomial&, const Polynomial&)> multiplyStrategy;
 public:
+    Polynomial();
+
     explicit Polynomial(int degree);
 
     explicit Polynomial(std::vector<int> coefficients);
@@ -28,14 +25,19 @@ public:
 
     const Polynomial& setMultiplicationStrategy(std::function<Polynomial(const Polynomial&, const Polynomial&)> multiplyStrategy);
 
+    Polynomial getSubPolynomial(int startCoefficientIndex, int endCoefficientIndex) const;
+
+    Polynomial operator+ (const Polynomial& rhs) const;
+
+    Polynomial operator- (const Polynomial& rhs) const;
+
     Polynomial operator* (const Polynomial& rhs) const;
+
+    Polynomial operator>> (int shift);
 
     const int& operator[] (int) const;
 
     friend std::ostream& operator<< (std::ostream& os, const Polynomial& p);
 private:
-    void randomInit(int degree, int minCoefficient=0, int maxCoefficient=500);
+    void randomInit(int degree, int minCoefficient = 0, int maxCoefficient = 500);
 };
-
-
-#endif //ASSIGNMENT5_POLYNOMIAL_H

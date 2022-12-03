@@ -1,7 +1,7 @@
 #pragma once
 #include "../../../Polynomial.h"
-
-class SequentialSimpleMultiplicationStrategy {
+class SequentialKaratsubaMultiplicationStrategy {
 public:
     static Polynomial multiply(const Polynomial& lhs, const Polynomial& rhs);
 };
+
