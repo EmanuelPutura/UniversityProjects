@@ -1,9 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "bd2HqEJxbQpODC9pQaSQIrnBPsLogVshMqfYfSoS+2w5LBlUeg/YZBBgCg7PBAN0pTTWQhJYGIZuuT97/wnkzg==",
+  "dgSpecHash": "KIPx6uncW3IUWGkTSbCYYxnimUZQ+NHBrurELlhLsQJihr03MkJOIjz+cyDebDF703yACeU2KIQiINy9lvI77Q==",
   "success": true,
   "projectFilePath": "D:\\Informatica\\University\\UniversityProjects\\Third Year\\First Semester\\Parallel and Distributed Programming\\Labs\\Assignment4\\Assignment4.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\28082020\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\28082020\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\28082020\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
+    "C:\\Users\\28082020\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\28082020\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.25\\microsoft.netcore.app.host.win-x64.3.1.25.nupkg.sha512"
   ],
   "logs": []

@@ -8,13 +8,14 @@ namespace Assignment4
     {
         private static readonly List<string> Urls = new List<string>
         {
-            "www.cs.ubbcluj.ro/",
-            "www.tradingview.com/"
+            "www.leetcode.com/",
+            "www.tradingview.com/",
+            "www.cs.ubbcluj.ro/~rlupsa/",
         };
 
         static void Main(string[] args)
         {
-            new CallbacksMethod(Urls);
+            new TasksMethod(Urls);
         }
     }
 }

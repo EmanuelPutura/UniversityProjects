@@ -4,6 +4,7 @@ using Assignment4.SocketHandler;
 using System.Text;
 
 using Assignment4.Utils;
+using System.Linq;
 
 namespace Assignment4.Methods
 {
@@ -27,6 +28,12 @@ namespace Assignment4.Methods
             Urls.ForEach(url => action(url, index++));
         }
 
+        protected List<T> MapUrlActionToUrlActionWithIndex<T>(Func<string, int, T> action)
+        {
+            var index = 0;
+            return Urls.Select(url => action(url, index++)).ToList();
+        }
+
         protected void LogConnected(UrlsSocketHandler socket)
         {
             Console.WriteLine($"{MethodType}-{socket.Id}: Socket connected to {socket.BaseUrl} ({socket.UrlPath})");
@@ -37,19 +44,24 @@ namespace Assignment4.Methods
             Console.WriteLine($"{MethodType}-{socket.Id}: Sent {numberOfSentBytes} bytes to server.");
         }
 
-        protected void LogReceived(UrlsSocketHandler socket)
+        protected string LogReceived(UrlsSocketHandler socket, bool writeToConsole=true)
         {
             // Console.WriteLine(socket.GetResponse);
 
             var headerContentLength = HttpUtils.GetContentLength(socket.GetResponse);
+            string message = $"Header Content-Length for {socket.BaseUrl}{socket.UrlPath}: {headerContentLength} bytes\n";
+
             if (headerContentLength == -1)
             {
-                Console.WriteLine($"Header Content-Length for {socket.BaseUrl}{socket.UrlPath}: not specified\n");
+                message = $"Header Content-Length for {socket.BaseUrl}{socket.UrlPath}: not specified\n";
             }
-            else
+
+            if (writeToConsole)
             {
-                Console.WriteLine($"Header Content-Length for {socket.BaseUrl}{socket.UrlPath}: {headerContentLength} bytes\n");
+                Console.WriteLine(message);
             }
+
+            return message;
         }
     }
 }

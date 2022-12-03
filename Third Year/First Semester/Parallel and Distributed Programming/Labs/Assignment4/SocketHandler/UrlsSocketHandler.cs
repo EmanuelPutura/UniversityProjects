@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Assignment4.SocketHandler
 {
@@ -97,5 +99,39 @@ namespace Assignment4.SocketHandler
             Shutdown(SocketShutdown.Both);
             Close();
         }
+
+        public Task BeginConnectAsync() => Task.Run(() =>
+        {
+            var taskCompletion = new TaskCompletionSource<bool>();
+
+            BeginConnect(_ => {
+                bool tmp = true;
+                taskCompletion.TrySetResult(tmp); 
+            });
+
+            return taskCompletion.Task;
+        });
+
+        public Task<int> BeginSendAsync() => Task.Run(() =>
+        {
+            var taskCompletion = new TaskCompletionSource<int>();
+
+            BeginSend((_, numberOfSentBytes) =>
+                taskCompletion.TrySetResult(numberOfSentBytes));
+
+            return taskCompletion.Task;
+        });
+
+        public Task BeginReceiveAsync() => Task.Run(() =>
+        {
+            var taskCompletion = new TaskCompletionSource<bool>();
+
+            BeginReceive(_ => {
+                bool tmp = true;
+                taskCompletion.TrySetResult(tmp);
+            });
+
+            return taskCompletion.Task;
+        });
     }
 }
