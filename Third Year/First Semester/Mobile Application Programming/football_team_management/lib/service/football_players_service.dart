@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:football_team_management/repository/players_repository.dart';
 import '../domain/football_player.dart';
-import '../repository/players_database_repository.dart';
+import '../repository/players_sv_database_repository.dart';
+import '../utils/pair.dart';
 
 class FootballPlayersService extends ChangeNotifier {
-  final PlayersRepository _repository;
+  final PlayersSvDatabaseRepository _repository;
 
   FootballPlayersService(this._repository);
 
   static Future<FootballPlayersService> init() async {
-    var repository = await PlayersDatabaseRepository.init();
+    var repository = await PlayersSvDatabaseRepository.init();
+    await repository.getAll();
     return FootballPlayersService(repository);
   }
 
@@ -43,15 +45,17 @@ class FootballPlayersService extends ChangeNotifier {
     notifyListeners();
   }
 
-  void remove(int id) {
-    _repository.remove(id);
+  Future<String> remove(int id) {
+    var res = _repository.remove(id);
     notifyListeners();
+    return res;
   }
 
-  void update(int id, String name, String position, int number, int height, double weight) {
-    _repository.update(id, FootballPlayer(name, position, number, height, weight));
+  Future<String> update(int id, String name, String position, int number, int height, double weight) {
+    var res = _repository.update(id, FootballPlayer(name, position, number, height, weight));
     notifyListeners();
+    return res;
   }
 
-  Future<List<FootballPlayer>> getAllPlayers() async => await _repository.getAll();
+  Future<Pair> getAllPlayers() async => await _repository.getAll();
 }

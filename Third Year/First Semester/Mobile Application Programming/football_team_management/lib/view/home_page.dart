@@ -4,6 +4,7 @@ import 'package:football_team_management/service/football_players_service.dart';
 import 'package:football_team_management/view/add_page.dart';
 import 'package:provider/provider.dart';
 
+import '../utils/pair.dart';
 import 'details_page.dart';
 
 class HomePageWidget extends StatefulWidget {
@@ -17,20 +18,21 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   Widget _buildListView() {
     var playersFuture = Provider.of<FootballPlayersService>(context, listen: true).getAllPlayers();
 
-    return FutureBuilder<List<FootballPlayer>>(
+    return FutureBuilder<Pair>(
       future: playersFuture,
       builder: (context, snapshot) {
         var players = snapshot.data;
 
         return ListView.builder(
-            itemCount: players?.length,
+            itemCount: players?.left.length,
             itemBuilder: (context, index) {
-              var player = players?[index];
+              var player = players?.left[index];
+
               if (player == null) {
                 return const Card();
               }
 
-              return Card(
+              var card = Card(
                 shape: RoundedRectangleBorder(
                   side: BorderSide(
                     color: Colors.blue.shade300,
@@ -83,6 +85,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     }
                 ),
               );
+
+              if (players?.right == false && index == 0) {
+                return Container(
+                  padding:
+                  const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+                  child: Column(children: [const Text("Offline"), card]),
+                );
+              }
+
+              return card;
             }
         );
       }

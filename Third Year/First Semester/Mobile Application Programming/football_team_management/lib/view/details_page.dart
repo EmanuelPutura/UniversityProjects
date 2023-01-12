@@ -51,7 +51,7 @@ class _FootballPlayerDetailsWidgetState extends State<FootballPlayerDetailsWidge
     Widget yesButton = TextButton(
       child: const Text("Yes"),
       onPressed: () {
-        Provider.of<FootballPlayersService>(context, listen: false).remove(widget._player.id);
+        var res = Provider.of<FootballPlayersService>(context, listen: false).remove(widget._player.id);
         Navigator.of(context).push(
             MaterialPageRoute<void>(
                 builder: (context) {

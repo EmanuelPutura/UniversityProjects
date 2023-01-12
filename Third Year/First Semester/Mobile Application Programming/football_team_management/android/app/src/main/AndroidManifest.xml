@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.football_team_management">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="football_team_management"
         android:name="${applicationName}"
