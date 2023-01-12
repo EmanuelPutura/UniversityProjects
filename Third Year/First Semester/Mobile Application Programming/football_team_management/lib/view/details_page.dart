@@ -52,13 +52,44 @@ class _FootballPlayerDetailsWidgetState extends State<FootballPlayerDetailsWidge
       child: const Text("Yes"),
       onPressed: () {
         var res = Provider.of<FootballPlayersService>(context, listen: false).remove(widget._player.id);
-        Navigator.of(context).push(
-            MaterialPageRoute<void>(
-                builder: (context) {
-                  return const HomePageWidget();
+        res.then((value) => {
+          if (value == "SUCCESS") {
+            Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                    builder: (context) {
+                      return const HomePageWidget();
+                    }
+                )
+            )
+          }
+          else {
+            showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: const Text("Error"),
+                    content: const Text("You are offline or there was an error, try to connect again."),
+                    actions: [
+                      ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => const HomePageWidget()));
+                          },
+                          child: const Text("OK")
+                      )
+                    ],
+                  );
                 }
             )
-        );
+          }
+        });
+
+        // Navigator.of(context).push(
+        //     MaterialPageRoute<void>(
+        //         builder: (context) {
+        //           return const HomePageWidget();
+        //         }
+        //     )
+        // );
       },
     );
 
@@ -167,7 +198,7 @@ class _FootballPlayerDetailsWidgetState extends State<FootballPlayerDetailsWidge
                     return;
                   }
 
-                  Provider.of<FootballPlayersService>(context, listen: false)
+                  var res = Provider.of<FootballPlayersService>(context, listen: false)
                       .update(
                       widget._player.id,
                       nameController.text,
@@ -177,7 +208,32 @@ class _FootballPlayerDetailsWidgetState extends State<FootballPlayerDetailsWidge
                       weightStr
                   );
 
-                  Navigator.pop(context);
+                  res.then((value) => {
+                    if (value == "SUCCESS") {
+                      Navigator.pop(context)
+                    }
+                    else {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: const Text("Error"),
+                              content: const Text("You are offline or there was an error, try to connect again."),
+                              actions: [
+                                ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => const HomePageWidget()));
+                                    },
+                                    child: const Text("OK")
+                                )
+                              ],
+                            );
+                          }
+                      )
+                    }
+                  });
+
+                  // Navigator.pop(context);
                 },
               ),
             ),

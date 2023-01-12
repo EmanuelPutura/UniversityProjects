@@ -6,6 +6,7 @@ import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 import 'dart:convert';
+import 'dart:developer';
 import 'package:http/http.dart' as http;
 
 import '../utils/pair.dart';
@@ -50,6 +51,25 @@ class PlayersSvDatabaseRepository {
           player['number'], player['height'], player['weight']);
     } else if (listData[0] == "DELETE") {
       await removeLocally(int.parse(listData[1]));
+    }
+  }
+
+  Future<void> checkOnline() async {
+    try {
+      var response = await http
+          .get("http://$ipAddress:5000/")
+          .timeout(const Duration(seconds: 1));
+
+      if (response.statusCode == 200) {
+        if (_online == false) {
+          _online = true;
+          await _synchronizeServerAndClients();
+        }
+      }
+    } on TimeoutException {
+      _online = false;
+    } on Error {
+      _online = false;
     }
   }
 
@@ -99,7 +119,11 @@ class PlayersSvDatabaseRepository {
 
   Future<void> _synchronizeServerAndClients() async {
     _channel = WebSocketChannel.connect(Uri.parse("ws://$ipAddress:8765"));
-    await getPlayersLocally();
+    _channel.stream.listen((data) {
+      _listenToServerHandler(data);
+    });
+
+    await getLocally();
 
     var jsonArr = jsonEncode(players);
     Map<String, String> headers = HashMap();
@@ -113,7 +137,7 @@ class PlayersSvDatabaseRepository {
         }),
         encoding: Encoding.getByName('utf-8'));
 
-    if (response.statusCode == 200 || response.statusCode == 405) {
+    if (response.statusCode == 200) {
       var res = json.decode(response.body);
 
       var playersJson = res['players'] as List;
@@ -128,7 +152,7 @@ class PlayersSvDatabaseRepository {
     }
   }
 
-  Future<Pair> getPlayersLocally() async {
+  Future<Pair> getLocally() async {
     final List<Map<String, dynamic>> maps = await _database.query(tableName);
 
     players.clear();
@@ -145,6 +169,8 @@ class PlayersSvDatabaseRepository {
   }
 
   Future<void> add(FootballPlayer player) async {
+    await checkOnline();
+
     try {
       Map<String, String> headers = HashMap();
       headers['Accept'] = 'application/json';
@@ -157,41 +183,33 @@ class PlayersSvDatabaseRepository {
             'name': player.name,
             'position': player.position,
             'number': player.number,
-            'height': player.height,
+            'height': player.weight,
             'weight': player.weight
           }),
           encoding: Encoding.getByName('utf-8'))
-          .timeout(const Duration(seconds: 3));
+          .timeout(const Duration(seconds: 1));
 
-      if (response.statusCode == 200) {
-        if (_online == false) {
-          _online = true;
-          await _synchronizeServerAndClients();
-        }
-      }
+      log('cdebug: Added player $player.name');
     } on TimeoutException {
       _online = false;
-      _local_db_players.add(FootballPlayer(player.name, player.position, player.number, player.height, player.weight));
+      _local_db_players.add(player);
       return addLocally(player.name, player.position, player.number, player.height, player.weight);
     } on Error {
       _online = false;
-      _local_db_players.add(FootballPlayer(player.name, player.position, player.number, player.height, player.weight));
+      _local_db_players.add(player);
       return addLocally(player.name, player.position, player.number, player.height, player.weight);
     }
   }
 
   Future<String> remove(int id) async {
+    await checkOnline();
     try {
       var response = await http
           .delete("http://$ipAddress:5000/player/$id")
-          .timeout(const Duration(seconds: 3));
-
-      if (_online == false) {
-        _online = true;
-        await _synchronizeServerAndClients();
-      }
+          .timeout(const Duration(seconds: 1));
 
       if (response.statusCode == 200) {
+        log('cdebug: Removed player with id $id');
         return "SUCCESS";
       } else {
         return "ERROR";
@@ -206,6 +224,7 @@ class PlayersSvDatabaseRepository {
   }
 
   Future<String> update(int id, FootballPlayer player) async {
+    await checkOnline();
     try {
       Map<String, String> headers = HashMap();
       headers['Accept'] = 'application/json';
@@ -223,14 +242,10 @@ class PlayersSvDatabaseRepository {
             'weight': player.weight
           }),
           encoding: Encoding.getByName('utf-8'))
-          .timeout(const Duration(seconds: 3));
-
-      if (_online == false) {
-        _online = true;
-        await _synchronizeServerAndClients();
-      }
+          .timeout(const Duration(seconds: 1));
 
       if (response.statusCode == 200) {
+        log('cdebug: Updated player $player.name');
         return "SUCCESS";
       } else {
         return "ERROR";
@@ -245,16 +260,14 @@ class PlayersSvDatabaseRepository {
   }
 
   Future<Pair> getAll() async {
+    var res = await checkOnline();
+
     try {
       var response = await http
           .get("http://$ipAddress:5000/player")
-          .timeout(const Duration(seconds: 3));
+          .timeout(const Duration(seconds: 1));
 
       if (response.statusCode == 200) {
-        if (_online == false) {
-          _online = true;
-          await _synchronizeServerAndClients();
-        }
         var res = json.decode(response.body);
 
         var playersJson = res['players'] as List;
@@ -264,14 +277,14 @@ class PlayersSvDatabaseRepository {
 
         return Pair(players, _online);
       } else {
-        return getPlayersLocally();
+        return getLocally();
       }
     } on TimeoutException {
       _online = false;
-      return getPlayersLocally();
+      return getLocally();
     } on Error {
       _online = false;
-      return getPlayersLocally();
+      return getLocally();
     }
   }
 }
