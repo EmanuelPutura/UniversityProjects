@@ -27,7 +27,7 @@ class PlayersSvDatabaseRepository {
   static const String heightColumn = 'height';
   static const String weightColumn = 'weight';
 
-  static const String ipAddress = '192.168.43.241';
+  static const String ipAddress = '172.30.115.177';
 
   PlayersSvDatabaseRepository(this._database, this._channel, this.players, this._online) {
     _local_db_players = [];
