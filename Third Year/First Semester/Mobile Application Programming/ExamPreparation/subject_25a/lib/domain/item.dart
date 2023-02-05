@@ -35,7 +35,14 @@ class Item {
   }
 
   factory Item.fromJson(dynamic json) {
-    var entity = Item(json['name'], json['description'], json['image'], json['category'], json['units'], json['price']);
+    var entity = Item(
+        json['name'],
+        json['description'],
+        json['image'],
+        json['category'],
+        json['units'],
+        json['price']
+    );
     entity.id = json['id'];
 
     return entity;

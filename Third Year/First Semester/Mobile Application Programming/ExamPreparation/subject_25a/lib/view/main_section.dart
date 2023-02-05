@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:subject_25a/view/categories_list_widget.dart';
+import 'package:subject_25a/view/price_section.dart';
 
-import '../service/main_service.dart';
+import '../repository/db_repository.dart';
 
 class MainSection extends StatefulWidget {
   const MainSection({Key? key}) : super(key: key);
@@ -27,15 +28,15 @@ class _MainSection extends State<MainSection> {
               const Spacer(),
               ElevatedButton(
                 onPressed: () {
-                  // Navigator.of(context)
-                  //     .push(MaterialPageRoute(builder: (context) => AddScreen()));
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => const PriceSection()));
                 },
                 child: const Text('Price Section'),
               ),
               const Spacer(),
               ElevatedButton(
                 onPressed: () {
-                  Provider.of<MainService>(context, listen: false).checkOnline();
+                  Provider.of<DbRepository>(context, listen: false).checkOnline();
                 },
                 child: const Text("Refresh"),
               ),

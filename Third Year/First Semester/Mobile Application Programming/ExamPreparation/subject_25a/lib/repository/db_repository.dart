@@ -2,20 +2,25 @@
 
 import 'dart:async';
 import 'dart:collection';
-import 'package:web_socket_channel/web_socket_channel.dart';
 import 'dart:convert';
-import 'package:http/http.dart' as http;
+import 'dart:math';
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:web_socket_channel/web_socket_channel.dart';
 
 import '../domain/category.dart';
 import '../domain/item.dart';
 import '../utils/pair.dart';
+import 'package:http/http.dart' as http;
 
-class DatabaseRepository {
+class DbRepository extends ChangeNotifier {
   final WebSocketChannel _channel;
 
   bool _online = false;
   List<Category> _localCategories = [];
   final Map<String, List<Item>> _categoryToItems = {};
+  List<Item> _allItems = [];
 
   static const String ipAddress = '10.152.1.86';
   static const String wsPort = '2325';
@@ -23,20 +28,36 @@ class DatabaseRepository {
 
   static const String httpGetCategories = 'categories';
   static const String httpGetItemsWithCategory = 'items';
-  static const String httpPostItem = 'item';
+  static const String httpPostAndDeleteItem = 'item';
+  static const String httpGetItems = 'discounted';
+  static const String httpPostIncrementPrice = 'price';
 
-  DatabaseRepository(this._channel) {
+  String _infoMessage = '';
+
+  DbRepository(this._channel) {
     _channel.stream.listen((data) {
       _listenToServerHandler(data);
     });
   }
 
-  static Future<DatabaseRepository> init() async {
+  static Future<DbRepository> init() async {
     final channel = WebSocketChannel.connect(Uri.parse("ws://$ipAddress:$wsPort"));
-    return DatabaseRepository(channel);
+    return DbRepository(channel);
   }
 
-  Future<void> _listenToServerHandler(String data) async {
+  void _listenToServerHandler(dynamic data) {
+    // TODO: notify with alert dialog or something else
+
+    data = jsonDecode(data);
+    _infoMessage = data.toString();
+    notifyListeners();
+  }
+
+  String getInfoMessage() => _infoMessage;
+
+  void setInfoMessage(String message) {
+    _infoMessage = message;
+    notifyListeners();
   }
 
   Future<bool> checkOnline() async {
@@ -56,6 +77,7 @@ class DatabaseRepository {
       _online = false;
     }
 
+    notifyListeners();
     return _online;
   }
 
@@ -73,14 +95,15 @@ class DatabaseRepository {
         var rawRes = json.decode(response.body);
         _localCategories = rawRes.map((str) => Category(str)).toList().cast<Category>();
 
-        return Pair(_localCategories, _online);
+        return Pair(Pair(_localCategories, "ok"), _online);
       } else {
-        return Pair(_localCategories, _online);
+        return Pair(Pair(_localCategories, response.body), _online);
       }
     } on Exception {
       _online = false;
-      return Pair(_localCategories, _online);
     }
+
+    return Pair(Pair(_localCategories, "ok"), _online);
   }
 
   Future<Pair> getItemsWithCategory(String category) async {
@@ -97,39 +120,139 @@ class DatabaseRepository {
         var rawRes = json.decode(response.body);
         _categoryToItems[category] = rawRes.map((json) => Item.fromJson(json)).toList().cast<Item>();
 
-        return Pair(_categoryToItems[category], _online);
+        return Pair(Pair(_categoryToItems[category], "ok"), _online);
       } else {
-        return Pair(_categoryToItems[category], _online);
+        return Pair(Pair(_categoryToItems[category], response.body), _online);
       }
     } on Exception {
       _online = false;
-      return Pair(_categoryToItems[category], _online);
     }
+
+    return Pair(Pair(_categoryToItems[category], "ok"), _online);
   }
 
-  Future<bool> addItem(Item item) async {
+  Future<Pair> getAllItems() async {
+    _online = false;
+
+    try {
+      var response = await http
+          .get("http://$ipAddress:$httpPort/$httpGetItems")
+          .timeout(const Duration(seconds: 1));
+
+      if (response.statusCode == 200) {
+        _online = true;
+
+        var rawRes = json.decode(response.body);
+        _allItems = rawRes.map((json) => Item.fromJson(json)).toList().cast<Item>();
+
+        return Pair(Pair(_allItems, "ok"), _online);
+      } else {
+        return Pair(Pair(_allItems, response.body), _online);
+      }
+    } on Exception {
+      _online = false;
+    }
+
+    return Pair(Pair(_allItems, "ok"), _online);
+  }
+
+  Future<Pair> addItem(String name, String description, String image, String category, int units, num price) async {
     try {
       Map<String, String> headers = HashMap();
       headers['Accept'] = 'application/json';
       headers['Content-type'] = 'application/json';
 
       var response = await http
-          .post("http://$ipAddress:$httpPort/$httpPostItem",
+          .post("http://$ipAddress:$httpPort/$httpPostAndDeleteItem",
           headers: headers,
           body: jsonEncode({
-            'name': item.name,
-            'description': item.description,
-            'image': item.image,
-            'category': item.category,
-            'units': item.units,
-            'price': item.price
+            'name': name,
+            'description': description,
+            'image': image,
+            'category': category,
+            'units': units,
+            'price': price
           }),
           encoding: Encoding.getByName('utf-8'))
           .timeout(const Duration(seconds: 1));
+
+      if (response.statusCode != 200) {
+        notifyListeners();
+        return Pair(response.body, _online);
+      }
     } on Exception {
       _online = false;
     }
 
-    return _online;
+    notifyListeners();
+    return Pair("ok", _online);
+  }
+
+  Future<Pair> incrementPrice(int id, num newPrice) async {
+    try {
+      Map<String, String> headers = HashMap();
+      headers['Accept'] = 'application/json';
+      headers['Content-type'] = 'application/json';
+
+      var response = await http
+          .post("http://$ipAddress:$httpPort/$httpPostIncrementPrice",
+          headers: headers,
+          body: jsonEncode({
+            'id': id,
+            'price': newPrice,
+          }),
+          encoding: Encoding.getByName('utf-8'))
+          .timeout(const Duration(seconds: 1));
+
+      if (response.statusCode != 200) {
+        notifyListeners();
+        return Pair(response.body, _online);
+      }
+    } on Exception {
+      _online = false;
+    }
+
+    notifyListeners();
+    return Pair("ok", _online);
+  }
+
+  Future<Pair> deleteItem(int id) async {
+    try {
+      Map<String, String> headers = HashMap();
+      headers['Accept'] = 'application/json';
+      headers['Content-type'] = 'application/json';
+
+      var response = await http
+          .delete("http://$ipAddress:$httpPort/$httpPostAndDeleteItem/$id")
+          .timeout(const Duration(seconds: 1));
+
+      if (response.statusCode != 200) {
+        notifyListeners();
+        return Pair(response.body, _online);
+      }
+    } on Exception {
+      _online = false;
+    }
+
+    notifyListeners();
+    return Pair("ok", _online);
+  }
+
+  Future<Pair> getDiscountedItems() async {
+    var pairRepoRes = await getAllItems();
+    var allItems = pairRepoRes.left.left as List<Item>;
+    var isOnline = pairRepoRes.right;
+
+    allItems.sort((e1, e2) =>
+    (e1.price > e2.price || (e1.price == e2.price && e1.units > e2.units)) ? 1 : 0
+    );
+
+    var listRes = allItems.take(10).toList();
+
+    return Pair(listRes, isOnline);
+  }
+
+  WebSocketChannel getWSChannel() {
+    return _channel;
   }
 }

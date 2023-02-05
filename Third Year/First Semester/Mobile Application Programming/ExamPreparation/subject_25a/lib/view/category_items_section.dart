@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:subject_25a/view/category_items_list_widget.dart';
-
-import '../service/main_service.dart';
+import '../repository/db_repository.dart';
 import 'add_item_section.dart';
 
 class CategoryItemsSection extends StatefulWidget {
@@ -38,7 +37,7 @@ class _CategoryItemsSection extends State<CategoryItemsSection> {
               const Spacer(),
               ElevatedButton(
                 onPressed: () {
-                  Provider.of<MainService>(context, listen: false).checkOnline();
+                  Provider.of<DbRepository>(context, listen: false).checkOnline();
                 },
                 child: const Text("Refresh"),
               ),

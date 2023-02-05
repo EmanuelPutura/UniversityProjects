@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../domain/item.dart';
 import '../repository/db_repository.dart';
 
-class AddItemSection extends StatefulWidget {
-  final String _category;
+class IncrementItemPriceSection extends StatefulWidget {
+  final Item _item;
 
-  const AddItemSection(this._category, {Key? key}) : super(key: key);
+  const IncrementItemPriceSection(this._item, {Key? key}) : super(key: key);
 
   @override
-  State<AddItemSection> createState() => _AddItemSection();
+  State<IncrementItemPriceSection> createState() => _IncrementItemPriceSection();
 }
 
-class _AddItemSection extends State<AddItemSection> {
-  bool isAddLoading = false;
+class _IncrementItemPriceSection extends State<IncrementItemPriceSection> {
+  bool isLoading = false;
 
   void showAlertDialog(BuildContext context, String message) {
     // set up the button
@@ -44,16 +45,49 @@ class _AddItemSection extends State<AddItemSection> {
 
   @override
   Widget build(BuildContext context) {
+    final storage = Provider.of<DbRepository>(context);
+    final infoMessage = storage.getInfoMessage();
+
+    if (infoMessage != '') {
+      return AlertDialog(
+        title: const Text('Alert'),
+        content: SingleChildScrollView(
+          child: ListBody(
+            children: <Widget>[
+              Text(infoMessage)
+            ],
+          ),
+        ),
+        actions: [
+          TextButton(
+            child: const Text("OK"),
+            onPressed: () {
+              storage.setInfoMessage('');
+            },
+          )
+        ],
+      );
+    }
+
     var nameController = TextEditingController();
+    nameController.text = widget._item.name;
+
     var descriptionController = TextEditingController();
+    descriptionController.text = widget._item.description;
+
     var imageController = TextEditingController();
+    imageController.text = widget._item.image;
+
     var unitsController = TextEditingController();
+    unitsController.text = widget._item.units.toString();
+
     var priceController = TextEditingController();
+    priceController.text = widget._item.price.toString();
 
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: const Text('Add item'),
+          title: const Text('Increment price by 1 unit'),
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -61,6 +95,7 @@ class _AddItemSection extends State<AddItemSection> {
               ListTile(
                   leading: const Icon(Icons.person),
                   title: TextField(
+                      readOnly: true,
                       controller: nameController,
                       decoration: const InputDecoration(
                         labelText: "Name",
@@ -68,6 +103,7 @@ class _AddItemSection extends State<AddItemSection> {
               ListTile(
                   leading: const Icon(Icons.add_location_alt_outlined),
                   title: TextField(
+                      readOnly: true,
                       controller: descriptionController,
                       decoration: const InputDecoration(
                         labelText: "Description",
@@ -75,6 +111,7 @@ class _AddItemSection extends State<AddItemSection> {
               ListTile(
                   leading: const Icon(Icons.dehaze_outlined),
                   title: TextField(
+                      readOnly: true,
                       controller: imageController,
                       decoration: const InputDecoration(
                         labelText: "Image",
@@ -82,6 +119,7 @@ class _AddItemSection extends State<AddItemSection> {
               ListTile(
                   leading: const Icon(Icons.line_weight),
                   title: TextField(
+                      readOnly: true,
                       controller: unitsController,
                       decoration: const InputDecoration(
                         labelText: "Units",
@@ -89,46 +127,35 @@ class _AddItemSection extends State<AddItemSection> {
               ListTile(
                   leading: const Icon(Icons.line_weight),
                   title: TextField(
+                      readOnly: true,
                       controller: priceController,
                       decoration: const InputDecoration(
                         labelText: "Price",
                       ))),
               Center(
-                child: !isAddLoading ? ElevatedButton(
+                child: !isLoading ? ElevatedButton(
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width / 2,
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
-                        Text("Add item"),
+                        Text("Increment price by 1 unit"),
                       ],
                     ),
                   ),
                   onPressed: () async {
                     setState(() {
-                      isAddLoading = true;
+                      isLoading = true;
                     });
 
-                    var unitsInt = int.tryParse(unitsController.text);
-                    var priceNum = num.tryParse(priceController.text);
-
-                    if (unitsInt == null || priceNum == null) {
-                      showAlertDialog(context, 'The provided entity details are invalid!');
-                      return;
-                    }
-
-                    var result = await Provider.of<DbRepository>(context, listen: false).addItem(
-                        nameController.text,
-                        descriptionController.text,
-                        imageController.text,
-                        widget._category,
-                        unitsInt,
-                        priceNum
+                    var result = await Provider.of<DbRepository>(context, listen: false).incrementPrice(
+                        widget._item.id,
+                        widget._item.price + 1
                     );
 
                     setState(() {
-                      isAddLoading = false;
+                      isLoading = false;
                     });
 
                     if (result.left is String && result.left != "ok") {
@@ -144,7 +171,7 @@ class _AddItemSection extends State<AddItemSection> {
                       Navigator.pop(context);
                     }
                     else {
-                      showAlertDialog(context, "Add is not possible while offline!");
+                      showAlertDialog(context, "Update is not possible while offline!");
                     }
                   },
                 ) : const Center(child:CircularProgressIndicator()),

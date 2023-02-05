@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:subject_25a/view/price_section.dart';
 import 'package:provider/provider.dart';
-import '../service/main_service.dart';
+import '../repository/db_repository.dart';
 import '../utils/pair.dart';
 import 'category_items_section.dart';
 
@@ -13,8 +12,35 @@ class CategoriesListWidget extends StatefulWidget {
 }
 
 class _CategoriesListWidget extends State<CategoriesListWidget> {
+  void showAlertDialog(BuildContext context, String message) {
+    // set up the button
+    Widget okButton = TextButton(
+      child: const Text("OK"),
+      onPressed: () {
+        Navigator.pop(context);
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: const Text("Error"),
+      content: Text(message),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
   Widget _buildListView() {
-    var entitiesFuture = Provider.of<MainService>(context, listen: true).getAllCategories();
+    var entitiesFuture = Provider.of<DbRepository>(context, listen: true).getAllCategories();
 
     return FutureBuilder<Pair>(
         future: entitiesFuture,
@@ -36,7 +62,7 @@ class _CategoriesListWidget extends State<CategoriesListWidget> {
         }
 
           var entities = snapshot.data;
-          if (entities?.left.length == 0) {
+          if (entities?.left?.left.length == 0) {
             return Card(
                 shape: RoundedRectangleBorder(
                   side: BorderSide(
@@ -49,12 +75,12 @@ class _CategoriesListWidget extends State<CategoriesListWidget> {
           }
 
           return ListView.builder(
-              itemCount: entities?.left.length,
+              itemCount: entities?.left.left.length,
               shrinkWrap: true,
               itemBuilder: (context, index) {
-                var entity = entities?.left[index];
+                var entity = entities?.left.left[index];
 
-                if (entities?.left != [] && entity == null) {
+                if (entities?.left.left != [] && entity == null) {
                   return const Card();
                 }
                 else if (entity == null && index == 0) {
@@ -119,6 +145,30 @@ class _CategoriesListWidget extends State<CategoriesListWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final storage = Provider.of<DbRepository>(context);
+    final infoMessage = storage.getInfoMessage();
+
+    if (infoMessage != '') {
+      return AlertDialog(
+        title: const Text('Alert'),
+        content: SingleChildScrollView(
+          child: ListBody(
+            children: <Widget>[
+              Text(infoMessage)
+            ],
+          ),
+        ),
+        actions: [
+          TextButton(
+            child: const Text("OK"),
+            onPressed: () {
+              storage.setInfoMessage('');
+            },
+          )
+        ],
+      );
+    }
+
     return _buildListView();
   }
 }

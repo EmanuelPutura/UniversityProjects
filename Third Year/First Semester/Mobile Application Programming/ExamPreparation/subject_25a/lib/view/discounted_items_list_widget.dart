@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:subject_25a/view/delete_item_section.dart';
+import 'package:subject_25a/view/increment_item_price_section.dart';
 import '../repository/db_repository.dart';
 import '../utils/pair.dart';
 
-class CategoryItemsListWidget extends StatefulWidget {
-  final String _category;
-
-  const CategoryItemsListWidget(this._category, {Key? key}) : super(key: key);
+class DiscountedItemsListWidget extends StatefulWidget {
+  const DiscountedItemsListWidget({Key? key}) : super(key: key);
 
   @override
-  State<CategoryItemsListWidget> createState() => _CategoryItemsListWidget();
+  State<DiscountedItemsListWidget> createState() => _DiscountedItemsListWidget();
 }
 
-class _CategoryItemsListWidget extends State<CategoryItemsListWidget> {
+class _DiscountedItemsListWidget extends State<DiscountedItemsListWidget> {
   Widget _buildListView() {
-    var entitiesFuture = Provider.of<DbRepository>(context, listen: true).getItemsWithCategory(widget._category);
+    var entitiesFuture = Provider.of<DbRepository>(context, listen: true).getDiscountedItems();
 
     return FutureBuilder<Pair>(
         future: entitiesFuture,
@@ -37,9 +35,9 @@ class _CategoryItemsListWidget extends State<CategoryItemsListWidget> {
           }
 
           var entities = snapshot.data;
-          entities?.left.left = entities.left.left ?? [];
+          entities?.left = entities.left ?? [];
 
-          if (entities?.left.left.length == 0) {
+          if (entities?.left.length == 0) {
             return Card(
                 shape: RoundedRectangleBorder(
                   side: BorderSide(
@@ -52,12 +50,12 @@ class _CategoryItemsListWidget extends State<CategoryItemsListWidget> {
           }
 
           return ListView.builder(
-              itemCount: entities?.left.left.length,
+              itemCount: entities?.left.length,
               shrinkWrap: true,
               itemBuilder: (context, index) {
-                var entity = entities?.left.left[index];
+                var entity = entities?.left[index];
 
-                if (entities?.left.left != [] && entity == null) {
+                if (entities?.left != [] && entity == null) {
                   return const Card();
                 }
                 else if (entity == null && index == 0) {
@@ -78,58 +76,58 @@ class _CategoryItemsListWidget extends State<CategoryItemsListWidget> {
                   ),
                   child: ListTile(
                       title: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            entity.name,
-                            style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 19.0,
-                            fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            entity.description,
-                            style: const TextStyle(
-                                color: Colors.black,
-                                fontSize: 19.0,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            entity.image,
-                            style: const TextStyle(
-                                color: Colors.black,
-                                fontSize: 19.0,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            entity.category,
-                            style: const TextStyle(
-                                color: Colors.black,
-                                fontSize: 19.0,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            entity.units.toString(),
-                            style: const TextStyle(
-                                color: Colors.black,
-                                fontSize: 19.0,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            entity.price.toString(),
-                            style: const TextStyle(
-                                color: Colors.black,
-                                fontSize: 19.0,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ]
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              entity.name,
+                              style: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 19.0,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              entity.description,
+                              style: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 19.0,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              entity.image,
+                              style: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 19.0,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              entity.category,
+                              style: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 19.0,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              entity.units.toString(),
+                              style: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 19.0,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              entity.price.toString(),
+                              style: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 19.0,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ]
                       ),
 
                       onTap: () => {
                         Navigator.of(context).push(MaterialPageRoute<void>(
-                          builder: (context) {
-                            return DeleteItemSection(entity);
-                          }
+                            builder: (context) {
+                              return IncrementItemPriceSection(entity);
+                            }
                         ))
                       }
                   ),
